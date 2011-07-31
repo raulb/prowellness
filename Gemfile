@@ -22,5 +22,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'delorean'
   gem 'mocha'
+  gem 'selenium'
+  gem 'selenium-client'
 end
 

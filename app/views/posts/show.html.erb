@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+
+<%= @post.excerpt.try(:html_safe) %>
+
+<%= @post.body.try(:html_safe) %>
+
+<p><%= @post.tags.join(' ') %></p>

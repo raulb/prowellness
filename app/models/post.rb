@@ -1,8 +1,15 @@
+# coding: UTF-8
+
 class Post < ActiveRecord::Base
   
-  attr_accessor :title, :excerpt, :body, :state, :tags, :categories
+  attr_accessible :title, :excerpt, :body, :state, :tags, :categories
   
   before_create :set_slug
+  
+  belongs_to :user
+  
+  scope :draft,     where(:state => 0)
+  scope :published, where(:state => 1)
   
   def draft?
     state == 0 || state.nil?
@@ -16,14 +23,26 @@ class Post < ActiveRecord::Base
     state == 2
   end
   
-  def publish!
-    new_attributes = {:state => 1}
-    new_attributes.merge!(:publish_date => Time.now) if publish_date.nil?
-    update_attributes(new_attributes)
+  def published=(value)
+    if value == true || value == 1
+      write_attribute(:state, 1)
+      write_attribute(:publish_date, Time.now) if publish_date.nil?
+    else
+      write_attribute(:state, 0)
+    end
   end
   
   def unpublish!
     update_attributes(:state => 0)
+  end
+  
+  def tags=(value)
+    processed_tags = value.split(",").map{ |t| t.strip }
+    write_attribute(:tags, '{' + processed_tags.join(',') + '}')
+  end
+  
+  def tags
+    read_attribute(:tags).tr('{}','  ').split(',').map{ |t| t.strip }
   end
   
   private

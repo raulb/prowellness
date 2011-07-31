@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prowellness</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= flush_the_flash %>
+
+<%= raw notice_about_drafts %>
+
+<%= yield %>
+
+</body>
+</html>

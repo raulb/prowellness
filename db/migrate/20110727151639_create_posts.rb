@@ -9,8 +9,8 @@ class CreatePosts < ActiveRecord::Migration
       t.datetime :publish_date
       t.integer :user_id
       t.integer :comments_count, :default => 0
-      t.column :tags, "character varying(255)[]"
-      t.column :categories, "character varying(255)[]"
+      t.column :tags, "text[]"
+      t.column :categories, "text[]"
       t.timestamps
     end
   end

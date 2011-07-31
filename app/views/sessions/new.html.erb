@@ -1,0 +1,17 @@
+<div class="section">
+  <%= form_tag create_session_path do %>
+    <p class="title">Please login</p>
+    <%= label_tag :email, 'E-mail' %>
+    <%= text_field_tag :email, '', :class => (flash[:alert] ? 'error' : nil) %>
+    <span class="password">
+      <%= label_tag :password, 'Contraseña' %>
+      <%= password_field_tag :password, '', :class => (flash[:alert] ? 'error' : nil) %>
+    </span>
+    <%= submit_tag 'Entrar', :class => "login" %>
+    <% if flash[:alert] %>
+    <div class="error_content">
+      <p><span><%= flash[:alert] %></span></p>
+    </div>
+    <% end %>
+  <% end %>
+</div>

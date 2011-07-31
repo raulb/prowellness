@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name_and_surname, :on => :create
   validates_uniqueness_of :email
   validates_uniqueness_of :name_and_surname
+
+  has_many :posts
   
   def self.authenticate(email, password)
     user = where(:email => email).first

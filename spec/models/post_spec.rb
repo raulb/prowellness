@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 require 'spec_helper'
 
 describe Post do
@@ -18,7 +20,20 @@ describe Post do
       post.excerpt.should == "<p>This is the excerpt</p>"
     end
     
-    pending "has many tags" do
+    it "has many tags" do
+      post.tags = "training, diet, expertise"
+      post.save
+      post.reload
+      post.tags.size.should == 3
+      post.tags.should include("training")
+      post.tags.should include("diet")
+      post.tags.should include("expertise")
+      
+      post.tags = "running"
+      post.save
+      post.reload
+      post.tags.size.should == 1
+      post.tags.should include("running")
     end
     
     pending "has many categories" do
@@ -30,8 +45,8 @@ describe Post do
     end
     
     it "can be published" do
-      post.save!
-      post.publish!
+      post.published = true
+      post.save
       post.reload
       post.publish_date.should_not be_nil
       post.should be_published
@@ -39,14 +54,15 @@ describe Post do
     end
     
     it "does not change the publish_date value even when have been published more than once" do
-      post.save!
-      post.publish!
+      post.published = true
+      post.save
       post.reload
       old_publish_date = post.publish_date
       
       jump 30.minutes
-      post.unpublish!
-      post.publish!
+      post.published = false
+      post.save
+      post.published = true
       post.reload
       post.publish_date.should == old_publish_date
     end

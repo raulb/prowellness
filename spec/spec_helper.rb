@@ -9,6 +9,13 @@ RSpec.configure do |config|
   config.mock_with :mocha
 
   config.include Delorean
+  config.include Prowellness::Factories
 
-  config.after(:each) { back_to_the_present }
+  config.before(:suite) { DatabaseCleaner.strategy = :truncation }
+  config.before(:each)  { DatabaseCleaner.start }
+  config.after(:each) do 
+    back_to_the_present
+    DatabaseCleaner.clean
+  end
+  
 end
