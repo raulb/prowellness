@@ -42,7 +42,8 @@ class Post < ActiveRecord::Base
   end
   
   def tags
-    read_attribute(:tags).tr('{}','  ').split(',').map{ |t| t.strip }
+    raw_tags = read_attribute(:tags)
+    raw_tags.blank? ? raw_tags : raw_tags.tr('{}','  ').split(',').map{ |t| t.strip }
   end
   
   def categories=(value)
@@ -51,7 +52,8 @@ class Post < ActiveRecord::Base
   end
   
   def categories
-    read_attribute(:categories).tr('{}','  ').split(',').map{ |t| t.strip }
+    raw_categories = read_attribute(:categories)
+    raw_categories.blank? ? raw_categories : raw_categories.tr('{}','  ').split(',').map{ |t| t.strip }
   end
   
   private
