@@ -9,7 +9,21 @@
   <%= f.text_area :body, :rows => 10, :cols => 80 %>
   
   <%= f.label :categories, "Categoría" %>
-  <%= f.select :categories, [["Fitness", "Fitness"]], { :include_blank => true, :prompt => "Selecciona una categoría" } %>
+  <%= f.select :categories, [
+               ["Artículos", "Artículos"],
+               [" > Fitness", "Artículos, Fitness"],
+               [" > > Ejercicio del mes", "Artículos, Fitness, Ejercicio del mes"],
+               [" > Mujer", "Artículos, Mujer"],
+               [" > Nutrición", "Artículos, Nutrición"],
+               [" > Mi opinión", "Artículos, Mi opinión"],
+               ["Guía Visual", "Guía Visual"],
+               ["> Editorial", "Guía Visual, Editorial"],
+               ["> Abdominales", "Guía Visual, Abdominales"],
+               ["> Estiramientos", "Guía Visual, Estiramientos"],
+               ["> Dietas", "Guía Visual, Dietas"],
+               ["> Planes", "Guía Visual, Planes"],
+               ["Blog", "Blog"]
+               ], { :include_blank => false, :prompt => "Selecciona una categoría" } %>
   
   <%= f.label :tags, "Tags" %>
   <%= f.text_area :tags, :rows => 2, :cols => 40 %>
