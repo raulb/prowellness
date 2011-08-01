@@ -1,0 +1,55 @@
+body, input, textarea {
+  font: 15px Verdana,serif;
+  line-height: 22px;
+}
+
+body {
+  min-width: 960px;
+}
+
+/***** messages *********/
+.error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
+.success {background:#E6EFC2;color:#264409;border-color:#C6D880;}
+.error a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+
+
+form {
+  background-color: #fff;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  font-size: 1.1em;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+  margin: 0 0 5px;
+  text-align: left; 
+}
+
+form input {
+  display: block;
+  font: 15px Georgia,serif;
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: 240px;
+}
+
+form input[type="submit"] {
+  margin: 10px 0 0 5px;
+}
+
+form.post input[type="text"],
+          textarea {
+  width: 560px;
+}
+
+form.post textarea.tags {
+  height: 120px;
+}

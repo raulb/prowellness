@@ -30,7 +30,7 @@ module ApplicationHelper
       end
       return content_tag(:div, :class => 'flashes') do
         content_tag(:div, :class => 'message notice') do
-          content_tag(:p, "Hay #{pluralize(Post.draft.count, 'borrador pendiente', 'borradores pendientes')} de editar") + 
+          content_tag(:p, "Hay #{pluralize(Post.draft.count, 'borrador pendiente', 'borradores pendientes')} de publicar") + 
           content_tag(:ul) do
             posts.html_safe
           end

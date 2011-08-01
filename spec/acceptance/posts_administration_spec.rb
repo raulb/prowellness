@@ -50,7 +50,7 @@ TEXT
     
     visit admin_posts_path
     
-    page.should have_content "Hay 1 borrador pendiente de editar"
+    page.should have_content "Hay 1 borrador pendiente de publicar"
     click "Ejercicios para programadores"
     
     click "Publicar"

@@ -1,19 +1,20 @@
-<%= form_for [:admin, @post] do |f| %>
-  <%= f.label :title, "Título" %><br />
-  <%= f.text_field :title %><br />
+<%= form_for [:admin, @post], :html => {:class => 'post'} do |f| %>
+  <%= f.label :title, "Título" %>
+  <%= f.text_field :title %>
 
   <%= f.label :excerpt, "Resumen" %>
-  <%= f.text_area :excerpt, :rows => 10, :cols => 20 %>
+  <%= f.text_area :excerpt, :rows => 4, :cols => 80 %>
 
   <%= f.label :body, "Cuerpo" %>
-  <%= f.text_area :body, :rows => 10, :cols => 20 %>
+  <%= f.text_area :body, :rows => 10, :cols => 80 %>
   
   <%= f.label :categories, "Categoría" %>
   <%= f.select :categories, [["Fitness", "Fitness"]], { :include_blank => true, :prompt => "Selecciona una categoría" } %>
   
   <%= f.label :tags, "Tags" %>
-  <%= f.text_area :tags, :rows => 10, :cols => 10 %>
+  <%= f.text_area :tags, :rows => 2, :cols => 40 %>
   
   <%= f.submit "Guardar como borrador", :name => :draft %>
   <%= f.submit "Publicar", :name => :publish %>
+  <%= link_to 'Cancelar', admin_posts_path %>
 <% end %>
