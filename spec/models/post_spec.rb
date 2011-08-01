@@ -36,7 +36,19 @@ describe Post do
       post.tags.should include("running")
     end
     
-    pending "has many categories" do
+    it "has many categories" do
+      post.categories = "Fitness, ejercicio del mes"
+      post.save
+      post.reload
+      post.categories.size.should == 2
+      post.categories.should include("Fitness")
+      post.categories.should include("ejercicio del mes")
+      
+      post.categories = "ejercicio del mes"
+      post.save
+      post.reload
+      post.categories.size.should == 1
+      post.categories.should include("ejercicio del mes")
     end
     
     it "is a draft by default" do

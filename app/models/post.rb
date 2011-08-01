@@ -45,6 +45,15 @@ class Post < ActiveRecord::Base
     read_attribute(:tags).tr('{}','  ').split(',').map{ |t| t.strip }
   end
   
+  def categories=(value)
+    processed_categories = value.split(",").map{ |t| t.strip }
+    write_attribute(:categories, '{' + processed_categories.join(',') + '}')
+  end
+  
+  def categories
+    read_attribute(:categories).tr('{}','  ').split(',').map{ |t| t.strip }
+  end
+  
   private
   
   def set_slug
