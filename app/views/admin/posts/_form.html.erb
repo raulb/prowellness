@@ -10,18 +10,16 @@
   
   <%= f.label :categories, "Categoría" %>
   <%= f.select :categories, [
-               ["Artículos", "Artículos"],
-               [" > Fitness", "Artículos, Fitness"],
-               [" > > Ejercicio del mes", "Artículos, Fitness, Ejercicio del mes"],
-               [" > Mujer", "Artículos, Mujer"],
-               [" > Nutrición", "Artículos, Nutrición"],
-               [" > Mi opinión", "Artículos, Mi opinión"],
-               ["Guía Visual", "Guía Visual"],
-               ["> Editorial", "Guía Visual, Editorial"],
-               ["> Abdominales", "Guía Visual, Abdominales"],
-               ["> Estiramientos", "Guía Visual, Estiramientos"],
-               ["> Dietas", "Guía Visual, Dietas"],
-               ["> Planes", "Guía Visual, Planes"],
+               ["Artículos > Fitness", "Artículos, Fitness"],
+               ["Artículos > Fitness > Ejercicio del mes", "Artículos, Fitness, Ejercicio del mes"],
+               ["Artículos > Mujer", "Artículos, Mujer"],
+               ["Artículos > Nutrición", "Artículos, Nutrición"],
+               ["Artículos > Mi opinión", "Artículos, Mi opinión"],
+               ["Guía Visual > Editorial", "Guía Visual, Editorial"],
+               ["Guía Visual > Abdominales", "Guía Visual, Abdominales"],
+               ["Guía Visual > Estiramientos", "Guía Visual, Estiramientos"],
+               ["Guía Visual > Dietas", "Guía Visual, Dietas"],
+               ["Guía Visual > Planes", "Guía Visual, Planes"],
                ["Blog", "Blog"]
                ], { :include_blank => false, :prompt => "Selecciona una categoría" } %>
   

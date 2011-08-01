@@ -33,7 +33,7 @@ TEXT
     fill_in "Título", :with => "Ejercicios para programadores"
     fill_in "Resumen", :with => excerpt
     fill_in "Cuerpo", :with => body
-    select "> Fitness", :from => "Categoría"
+    select("Artículos > Fitness", :from => "Categoría")
     fill_in "Tags", :with => "dieta, ejercicio,sedentarios"
     
     click "Guardar como borrador"

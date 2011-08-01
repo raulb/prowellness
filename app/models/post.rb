@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   
   attr_accessible :title, :excerpt, :body, :state, :tags, :categories
   
+  validates_presence_of :categories, :title, :excerpt, :body
+  
   before_create :set_slug
   
   belongs_to :user
@@ -38,6 +40,7 @@ class Post < ActiveRecord::Base
   
   def tags=(value)
     processed_tags = value.split(",").map{ |t| t.strip }
+    return if processed_tags.empty?
     write_attribute(:tags, '{' + processed_tags.join(',') + '}')
   end
   
@@ -48,12 +51,17 @@ class Post < ActiveRecord::Base
   
   def categories=(value)
     processed_categories = value.split(",").map{ |t| t.strip }
+    return if processed_categories.empty?
     write_attribute(:categories, '{' + processed_categories.join(',') + '}')
   end
   
   def categories
     raw_categories = read_attribute(:categories)
     raw_categories.blank? ? raw_categories : raw_categories.tr('{}','  ').split(',').map{ |t| t.strip }
+  end
+  
+  def self.find_by_slug(slug)
+    where(:slug => slug).first
   end
   
   private
