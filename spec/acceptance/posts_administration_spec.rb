@@ -7,6 +7,49 @@ feature 'Posts administration', %q{
   As an administrator
   I want to be able to create and edit posts for the different sections
 } do
+  
+  scenario 'Manage posts in the administration' do
+    admin = create_admin
+    
+    time_travel_to(40.minutes.ago) { @post_fitness1 = create_post :user => admin, :categories => "articulos,fitness" }
+    time_travel_to(30.minutes.ago) { @post_fitness2 = create_post :user => admin, :categories => "articulos,fitness" }
+    time_travel_to(20.minutes.ago) { @post_mujer1   = create_post :user => admin, :categories => "articulos,mujer" }
+    time_travel_to(10.minutes.ago) { @post_blog1    = create_post :user => admin, :categories => "blog", :published => false }
+    time_travel_to(5.minutes.ago)  { @post_blog2    = create_post :user => admin, :categories => "blog" }
+    
+    login_as admin
+    
+    within("ul.posts li.post:eq(1)") do
+      page.should have_content @post_blog2.title
+      page.should have_content "[Publicado]"
+      page.should have_content "Cat: blog"
+    end
+
+    within("ul.posts li.post:eq(2)") do
+      page.should have_content @post_blog1.title
+      page.should have_content "[Borrador]"
+      page.should have_content "Cat: blog"
+    end
+
+    within("ul.posts li.post:eq(3)") do
+      page.should have_content @post_mujer1.title
+      page.should have_content "[Publicado]"
+      page.should have_content "Cat: articulos, mujer"
+    end
+
+    within("ul.posts li.post:eq(4)") do
+      page.should have_content @post_fitness2.title
+      page.should have_content "[Publicado]"
+      page.should have_content "Cat: articulos, fitness"
+    end
+
+    within("ul.posts li.post:eq(5)") do
+      page.should have_content @post_fitness1.title
+      page.should have_content "[Publicado]"
+      page.should have_content "Cat: articulos, fitness"
+    end
+    
+  end
 
   scenario 'Publish a new post in Fitness section' do
     excerpt = <<-TEXT

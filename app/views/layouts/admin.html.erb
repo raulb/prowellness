@@ -7,12 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="admin_content">
 
-<%= flush_the_flash %>
+  <%= flush_the_flash %>
 
-<%= raw notice_about_drafts %>
+  <%= raw notice_about_drafts %>
 
-<%= yield %>
+  <%= yield %>
+  
+</div>
 
 </body>
 </html>

@@ -1,1 +1,14 @@
-<%= link_to "Crear nuevo post", new_admin_post_path %>
+<div class="options">
+  <%= link_to "Crear nuevo post", new_admin_post_path %>
+</div>
+
+<div class="content">
+  <h2>Archivo de posts</h2>
+  <ul class="posts">
+    <% @posts.each do |post| %>
+    <li class="post">
+      <%= post_status(post) %> <%= link_to(post.title, post_path(post)) %> - <%= link_to('editar', edit_admin_post_path(post)) %> - Cat: <%= post.categories.join(', ') %>
+    </li>
+    <% end %>
+  </ul>
+</div>

@@ -39,4 +39,10 @@ module ApplicationHelper
     end
   end
   
+  def post_status(post)
+    content_tag(:span, :style => "color:#{post.draft? ? 'red' : 'green'}") do
+      '[' + (post.draft? ? "Borrador" : "Publicado") + ']'
+    end.html_safe
+  end
+  
 end
