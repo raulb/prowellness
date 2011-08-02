@@ -1,13 +1,13 @@
 # coding: UTF-8
 
-class ArticlesController < ApplicationController
-  
-  before_filter :load_post, :only => :show
-  
-  def index
-  end
+class ArticlesController < PostsController
 
-  def show
+  private
+  
+  def set_category
+    @categories = ["articulos"]
+    @categories << params[:category]   if params[:category]
+    @categories << params[:categories] if params[:categories]
   end
 
 end

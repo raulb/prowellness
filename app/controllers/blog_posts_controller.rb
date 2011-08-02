@@ -1,10 +1,11 @@
 # coding: UTF-8
 
-class BlogPostsController < ApplicationController
-  def index
-  end
+class BlogPostsController < PostsController
 
-  def show
+  private
+  
+  def set_category
+    @categories = ["blog"]
   end
 
 end

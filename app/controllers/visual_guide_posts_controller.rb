@@ -1,10 +1,12 @@
 # coding: UTF-8
 
-class VisualGuidePostsController < ApplicationController
-  def index
+class VisualGuidePostsController < PostsController
+  
+  before_filter :login_required
+  
+  private
+  
+  def set_category
+    @categories = ["guia-visual"]
   end
-
-  def show
-  end
-
 end

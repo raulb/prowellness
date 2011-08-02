@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
   
   def post_path(post)
     case post.categories.first
-      when "Artículos"
-        article_path(post.categories[1..-1].map{ |c| c.parameterize }, post.slug)
-      when "Guía Visual"
-        visual_guide_post_path(post.categories[1..-1].map{ |c| c.parameterize }, post.slug)
-      when "Blog"
+      when "articulos"
+        article_path(post.categories[1..-1].join('/'), post.slug)
+      when "guia-visual"
+        visual_guide_post_path(post.categories[1..-1].join('/'), post.slug)
+      when "blog"
         blog_post_path(post.slug)
     end
   end
@@ -37,9 +37,18 @@ class ApplicationController < ActionController::Base
     logged_in? && current_user.admin?
   end
   
+  def login_required
+    return true if logged_in?
+    redirect_to login_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
+  end
+  
   def load_post
-    @post = Post.find_by_slug(params[:slug])
-    if @post.draft? && current_user != @post.user
+    @post = if @categories
+      Post.find_by_categories_and_slug(@categories, params[:slug])
+    else
+      Post.find_by_slug(params[:slug])
+    end
+    if @post.nil? || @post.draft? && current_user != @post.user
       render_404 and return false
     end
   end

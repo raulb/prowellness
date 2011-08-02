@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Post do
   context "a new post" do
-    let(:post){ Post.new }
+    let(:post){ Post.new :title => "Title", :body => "Body", :excerpt => "Excerpt", :categories => "Artículos, Fitness" }
     
     it "support HTML in its body" do
       post.body = "<p>This is the <em>body</em></p>"
@@ -37,7 +37,7 @@ describe Post do
     end
     
     it "has many categories" do
-      post.categories = "Fitness, ejercicio del mes"
+      post.categories = "{Fitness,ejercicio del mes}"
       post.save
       post.reload
       post.categories.size.should == 2
@@ -88,6 +88,41 @@ describe Post do
     
     it "has 0 comments by default" do
       post.comments_count.should == 0
+    end
+  end
+  
+  describe "#find_by_category_and_slug method" do
+    it "should find the post in the category and with the slug" do
+      post1 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post1.categories = "Artículos, Mujer"
+      post1.save
+      
+      post2 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post2.categories = "Artículos, Fitness"
+      post2.save
+
+      Post.find_by_category_and_slug("Mujer", "title").should == post1
+      Post.find_by_category_and_slug("Fitness", "title").should == post2
+      Post.find_by_category_and_slug("Belleza", "title").should be_nil
+    end
+  end
+  
+  describe "#find_by_categories_and_slug method" do
+    it "should find the post in the category and with the slug" do
+      post1 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post1.categories = "articulos, Mujer"
+      post1.save
+      
+      post2 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post2.categories = "articulos, Fitness"
+      post2.save
+
+      lambda {
+        Post.find_by_categories_and_slug("Mujer", "title")
+      }.should raise_error
+      Post.find_by_categories_and_slug(["articulos","Mujer"], "title").should == post1
+      Post.find_by_categories_and_slug(["articulos","Mujer"].reverse, "title").should == post1
+      Post.find_by_categories_and_slug(["articulos","Fitness"], "title").should == post2
     end
   end
 end

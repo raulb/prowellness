@@ -57,11 +57,24 @@ class Post < ActiveRecord::Base
   
   def categories
     raw_categories = read_attribute(:categories)
-    raw_categories.blank? ? raw_categories : raw_categories.tr('{}','  ').split(',').map{ |t| t.strip }
+    raw_categories.blank? ? raw_categories : raw_categories.tr('{}','  ').split(',').map{ |t| t.strip.gsub(/\"/,'')}
   end
   
   def self.find_by_slug(slug)
     where(:slug => slug).first
+  end
+  
+  def self.find_by_category_and_slug(category,slug)
+    where("? = ANY(categories)", category).where(:slug => slug).first
+  end
+
+  def self.find_by_categories_and_slug(categories,slug)
+    raise ArgumentError unless categories.is_a?(Array)
+    conditions = where("? = ANY(categories)", categories[0])
+    categories[1..-1].each do |category|
+      conditions = conditions.where("? = ANY(categories)", category)
+    end
+    conditions.where(:slug => slug).first
   end
   
   private
