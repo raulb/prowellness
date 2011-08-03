@@ -48,7 +48,31 @@ feature 'Posts administration', %q{
       page.should have_content "[Publicado]"
       page.should have_content "Cat: articulos, fitness"
     end
+  end
+
+  scenario 'Manage posts in the administration when pagination is required' do
+    admin = create_admin
     
+    23.times do
+      create_post :user => admin
+    end
+    
+    login_as admin
+    
+    page.should have_content "1"
+    page.should have_content "2"
+    page.should have_content "3"
+
+    page.should have_css("ul.posts li.post:eq(10)")
+    
+    click "2"
+    
+    page.should have_css("ul.posts li.post:eq(10)")
+    
+    click "3"
+    
+    page.should have_css("ul.posts li.post:eq(3)")
+    page.should_not have_css("ul.posts li.post:eq(4)")
   end
 
   scenario 'Publish a new post in Fitness section' do
