@@ -2,16 +2,19 @@
 
 class Post < ActiveRecord::Base
   
-  attr_accessible :title, :excerpt, :body, :state, :tags, :categories
+  attr_accessible :title, :excerpt, :body, :state, :tags, :categories, :image
   
-  validates_presence_of :categories, :title, :excerpt, :body
+  validates_presence_of :categories, :title, :excerpt, :body, :image
   
   before_create :set_slug
+  before_destroy :remove_associated_image
   
   belongs_to :user
   
   scope :draft,     where(:state => 0)
   scope :published, where(:state => 1)
+  
+  mount_uploader :image, ImageUploader
   
   def draft?
     state == 0 || state.nil?
@@ -81,6 +84,10 @@ class Post < ActiveRecord::Base
   
   def set_slug
     write_attribute(:slug, title.parameterize) unless title.blank?
+  end
+  
+  def remove_associated_image
+    remove_image!
   end
   
 end

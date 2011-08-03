@@ -20,3 +20,5 @@ module Prowellness
     config.assets.enabled = true
   end
 end
+
+require 'carrierwave/orm/activerecord'

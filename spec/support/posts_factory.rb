@@ -12,6 +12,7 @@ module Prowellness
       post.tags = attributes[:tags] || [String.random(5), String.random(5), String.random(5)].join(',')
       post.user_id = attributes[:user].try(:id) || attributes[:user_id] || create_user.id
       post.published = attributes[:published].nil? ? true : attributes[:published]
+      post.image = File.open(File.expand_path("../../support/files/bici.jpg", __FILE__))
       post
     end
 

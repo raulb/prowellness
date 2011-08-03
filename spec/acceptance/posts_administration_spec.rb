@@ -100,8 +100,9 @@ TEXT
     fill_in "Título", :with => "Ejercicios para programadores"
     fill_in "Resumen", :with => excerpt
     fill_in "Cuerpo", :with => body
-    select("Artículos > Fitness", :from => "Categoría")
+    select  "Artículos > Fitness", :from => "Categoría"
     fill_in "Tags", :with => "dieta, ejercicio,sedentarios"
+    attach_file "Imagen", File.expand_path("../../support/files/bici.jpg", __FILE__)
     
     click "Guardar como borrador"
     
@@ -114,6 +115,7 @@ TEXT
     page.should have_content "dieta"
     page.should have_content "ejercicio"
     page.should have_content "sedentarios"
+    page.should have_css("img")
     
     visit admin_posts_path
     

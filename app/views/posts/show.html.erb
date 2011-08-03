@@ -2,6 +2,10 @@
 
 <%= @post.excerpt.try(:html_safe) %>
 
+<% if @post.image? %>
+  <%= image_tag @post.image.heading.url %>
+<% end %>
+
 <%= @post.body.try(:html_safe) %>
 
 <p><%= @post.tags.join(' ') %></p>

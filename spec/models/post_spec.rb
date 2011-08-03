@@ -4,7 +4,11 @@ require 'spec_helper'
 
 describe Post do
   context "a new post" do
-    let(:post){ Post.new :title => "Title", :body => "Body", :excerpt => "Excerpt", :categories => "Artículos, Fitness" }
+    let(:post) do 
+      Post.new :title => "Title", :body => "Body", :excerpt => "Excerpt", 
+               :categories => "Artículos, Fitness", 
+               :image => File.open(File.expand_path("../../support/files/bici.jpg", __FILE__))
+    end
     
     it "support HTML in its body" do
       post.body = "<p>This is the <em>body</em></p>"
@@ -93,11 +97,13 @@ describe Post do
   
   describe "#find_by_category_and_slug method" do
     it "should find the post in the category and with the slug" do
-      post1 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post1 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body",
+                       :image => File.open(File.expand_path("../../support/files/bici.jpg", __FILE__))
       post1.categories = "Artículos, Mujer"
       post1.save
       
-      post2 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post2 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body",
+                       :image => File.open(File.expand_path("../../support/files/bici.jpg", __FILE__))
       post2.categories = "Artículos, Fitness"
       post2.save
 
@@ -109,11 +115,13 @@ describe Post do
   
   describe "#find_by_categories_and_slug method" do
     it "should find the post in the category and with the slug" do
-      post1 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post1 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body",
+                       :image => File.open(File.expand_path("../../support/files/bici.jpg", __FILE__))
       post1.categories = "articulos, Mujer"
       post1.save
       
-      post2 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body"
+      post2 = Post.new :title => "Title", :excerpt => "Excerpt", :body => "Body",
+                       :image => File.open(File.expand_path("../../support/files/bici.jpg", __FILE__))
       post2.categories = "articulos, Fitness"
       post2.save
 
@@ -123,6 +131,19 @@ describe Post do
       Post.find_by_categories_and_slug(["articulos","Mujer"], "title").should == post1
       Post.find_by_categories_and_slug(["articulos","Mujer"].reverse, "title").should == post1
       Post.find_by_categories_and_slug(["articulos","Fitness"], "title").should == post2
+    end
+  end
+  
+  context "an existing post" do
+    let(:post){ create_post }
+    
+    it "should be destroyed successfully" do
+      post.save
+      post.reload
+      post.destroy
+      lambda {
+        Post.find(post.id)
+      }.should raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
