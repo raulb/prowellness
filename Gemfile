@@ -27,5 +27,8 @@ group :development, :test do
   gem 'mocha'
   gem 'selenium'
   gem 'selenium-client'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'capybara-firebug'
 end
 
