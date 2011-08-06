@@ -6,3 +6,4 @@ tmp/
 bin/
 chromedriver.log
 public/uploads
+db/test_structure.sql
