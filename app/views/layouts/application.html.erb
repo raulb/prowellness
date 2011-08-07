@@ -7,9 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <div class="navigation">
     <ul>
+      <li><%= link_to("Artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
       <li><%= link_to("Blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %>
     </ul>
   </div>

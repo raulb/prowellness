@@ -2,6 +2,20 @@
 
 class Post < ActiveRecord::Base
 
+  CATEGORIES = {
+    "Artículos > Fitness" => "articulos,fitness",
+    "Artículos > Fitness > Ejercicio del mes" => "articulos,fitness,ejercicio-del-mes",
+    "Artículos > Mujer" => "articulos,mujer",
+    "Artículos > Nutrición" => "articulos,nutricion",
+    "Artículos > Mi opinión" => "articulos,mi-opinion",
+    "Guía Visual > Editorial" => "guia-visual,editorial",
+    "Guía Visual > Abdominales" => "guia-visual,abdominales",
+    "Guía Visual > Estiramientos" => "guia-visual,estiramientos",
+    "Guía Visual > Dietas" => "guia-visual,dietas",
+    "Guía Visual > Planes" => "guia-visual,planes",
+    "Blog" => "blog"
+  }
+
   attr_accessible :title, :excerpt, :body, :state, :tags, :categories, :image
 
   validates_presence_of :categories, :title, :excerpt, :body, :image
