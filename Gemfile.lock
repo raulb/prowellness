@@ -61,6 +61,7 @@ GEM
       chronic
     diff-lcs (1.1.2)
     erubis (2.7.0)
+    exception_notification (2.4.1)
     execjs (1.2.1)
       multi_json (~> 1.0)
     ffi (1.0.9)
@@ -196,6 +197,7 @@ DEPENDENCIES
   carrierwave
   database_cleaner
   delorean
+  exception_notification
   jquery-rails
   kaminari
   launchy

@@ -20,6 +20,7 @@ feature 'Articles', %q{
     fill_in "Cuerpo", :with => "<p>Es importante cuidarse y realizar ejercicio físico a diario.</p>"
     select("Artículos > Fitness", :from => "Categoría")
     fill_in "Tags", :with => "dieta, ejercicio,sedentarios"
+    attach_file "Imagen", File.expand_path("../../support/files/bici.jpg", __FILE__)
     
     click "Publicar"
     page.should have_content "El post ha sido publicado correctamente"

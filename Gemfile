@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'exception_notification'
 
 # Gems used only for assets and not required
 # in production environments by default.

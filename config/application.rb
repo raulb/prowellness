@@ -1,14 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-# Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
 
-# If you have a Gemfile, require the default gems, the ones in the
-# current environment and also include :assets gems if in development
-# or test environments.
 Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 
 module Prowellness
@@ -18,6 +14,11 @@ module Prowellness
     config.filter_parameters += [:password]
 
     config.assets.enabled = true
+    
+    config.middleware.use ExceptionNotifier,
+      :email_prefix => "[Prowellness] ",
+      :sender_address => %{"notifier" <www-data@127.0.0.1>},
+      :exception_recipients => %w{ferblape+prowellness@gmail.com}
   end
 end
 
