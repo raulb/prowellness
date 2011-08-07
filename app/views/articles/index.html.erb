@@ -1,2 +1,37 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>Artículos</h1>
+
+<!-- TODO: aquí va el ejercicio del mess?? -->
+
+<ul class="sections">
+  <li><%= link_to("Fitness",    articles_category_path("fitness"), :class => "selected") %></li>
+  <li><%= link_to("Mujer",      articles_category_path("mujer")) %></li>
+  <li><%= link_to("Nutrición",  articles_category_path("nutricion")) %></li>
+  <li><%= link_to("Mi opinión", articles_category_path("mi-opinion")) %></li>
+</ul>
+
+<% if @posts.any? %>
+  <% %W{ fitness mujer nutricion mi-opinion }.each do |category| %>
+    <div class="posts <%= category %>">
+      <% @posts[category].each do |post| %>
+        <div class="post">
+          <p><%= translate_category(post.categories.last) %></p>
+          <h3><%= link_to(post.title, post_path(post)) %></h3>
+          <p>por <%= post.user.name_and_surname %></p>
+        </div>
+      <% end %>
+
+      <p><%= link_to("ver más artículos de #{translate_category(category).downcase}", articles_category_path(category)) %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @other_posts.any? %>
+<div class="others">
+  <h2>Más artículos</h2>
+  <ul>
+    <% @other_posts.each do |post| %>
+    <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

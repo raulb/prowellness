@@ -2,6 +2,13 @@
 
 class ArticlesController < PostsController
 
+  def index
+    unless params[:category]
+      @posts = Post.get_last_articles(2)
+      @other_posts = Post.other_articles(6,2)
+    end
+  end
+
   private
 
   def set_category

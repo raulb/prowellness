@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?, :post_path
+  helper_method :current_user, :logged_in?, :post_path, :translate_category
 
   def current_user
     if session[:user_id]
@@ -31,6 +31,14 @@ class ApplicationController < ActionController::Base
     render :file => "public/404.html", :status => 404, :layout => false
   end
 
+  def translate_category(category_sanitized)
+    Post::CATEGORIES.invert.each do |k,v|
+      if k.include?(category_sanitized)
+        return v.split(' > ').last
+      end
+    end
+  end
+
   protected
 
   def admin_required
@@ -50,14 +58,6 @@ class ApplicationController < ActionController::Base
     end
     if @post.nil? || @post.draft? && current_user != @post.user
       render_404 and return false
-    end
-  end
-
-  def translate_category(category_sanitized)
-    Post::CATEGORIES.invert.each do |k,v|
-      if k.include?(category_sanitized)
-        return v.split(' > ').last
-      end
     end
   end
 

@@ -178,7 +178,57 @@ feature 'Articles', %q{
     page.should have_content("The page you were looking for doesn't exist.")
   end
 
-  pending "Create and view multiple articles in the Articles section" do
+  it "Create and view multiple articles in the Articles section" do
+    admin = create_admin
+
+    login_as admin
+
+    1.upto(3) do |i|
+      time_travel_to "#{4 - i} days ago"
+      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
+      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
+      create_post :user => admin, :title => "Ejercicios nutrición para programadores ##{i}", :categories => "articulos,nutricion"
+      create_post :user => admin, :title => "Ejercicios mi opinión para programadores ##{i}", :categories => "articulos,mi-opinion"
+      back_to_the_present
+    end
+
+    visit "/articulos"
+
+    page.should have_content("Artículos")
+
+    page.should have_css("ul.sections li a.selected", :text => "Fitness")
+    page.should have_css("ul.sections li a", :text => "Mujer")
+    page.should have_css("ul.sections li a", :text => "Nutrición")
+    page.should have_css("ul.sections li a", :text => "Mi opinión")
+
+    page.all("div.posts.fitness div.post").size.should == 2
+    page.all("div.posts.mujer div.post").size.should == 2
+    page.all("div.posts.nutricion div.post").size.should == 2
+    page.all("div.posts.mi-opinion div.post").size.should == 2
+
+    within("div.posts.fitness") do
+      within("div.post:eq(1)") do
+        page.should have_content("Fitness")
+        page.should have_css("h3 a", :text => "Ejercicios fitness para programadores #3")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("div.post:eq(2)") do
+        page.should have_content("Fitness")
+        page.should have_css("h3 a", :text => "Ejercicios fitness para programadores #2")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+
+      page.should have_css("a", :text => "ver más artículos de fitness")
+    end
+
+    within(:css, "div.others") do
+      page.should have_content("Más artículos")
+      page.should have_css("li.short_post a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-1']", :text => "Ejercicios fitness para programadores #1")
+      page.should have_css("li.short_post a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-1']", :text => "Ejercicios mujer para programadores #1")
+      page.should have_css("li.short_post a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-1']", :text => "Ejercicios nutrición para programadores #1")
+      page.should have_css("li.short_post a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-1']", :text => "Ejercicios mi opinión para programadores #1")
+    end
+
   end
 
 end

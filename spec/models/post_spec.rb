@@ -172,5 +172,13 @@ describe Post do
       end
     end
 
+    it "should get last articles using #get_last_articles method" do
+      posts = Post.get_last_articles(2)
+      posts["fitness"].should_not be_empty
+      posts["mujer"].should_not be_empty
+      posts["fitness"].each{ |post| post.categories.should include("fitness") }
+      posts["mujer"].each{ |post| post.categories.should include("mujer") }
+    end
+
   end
 end

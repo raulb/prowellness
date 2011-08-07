@@ -8,19 +8,23 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-  
+
   process :resize_to_fit => [500, 500]
-  
+
   version :rollover do
-    process :resize_to_fill => [665,411]
+    process :resize_to_fill => [665,401]
   end
-  
+
   version :list do
     process :resize_to_fill => [136,136]
   end
-  
+
   version :heading do
     process :resize_to_fill => [294,177]
+  end
+
+  version :blog_index do
+    process :resize_to_fill => [311,187]
   end
 
 end

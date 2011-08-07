@@ -103,6 +103,21 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.get_last_articles(how_many)
+    result = {}
+    %W{ fitness mujer nutricion mi-opinion }.each do |category|
+      result[category] = where("? = ANY(categories)", category).published.order_by_publish_date.limit(how_many)
+    end
+    result
+  end
+
+  def self.other_articles(limit, offset)
+    categories_conditions = %W{ fitness mujer nutricion mi-opinion }.map do |category|
+      "('#{category}' = ANY(categories))"
+    end.join(" OR ")
+    where(categories_conditions).published.order_by_publish_date.limit(limit).offset(offset * 4)
+  end
+
   private
 
   def set_slug
