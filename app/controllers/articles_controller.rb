@@ -7,7 +7,8 @@ class ArticlesController < PostsController
   def set_category
     @categories = ["articulos"]
     @categories << params[:category]   if params[:category]
-    @categories << params[:categories] if params[:categories]
+    @categories << params[:categories].split('/') if params[:categories]
+    @categories.flatten!
     @category = translate_category(@categories.last)
   end
 

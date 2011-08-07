@@ -98,7 +98,9 @@ class Post < ActiveRecord::Base
     categories[1..-1].each do |category|
       conditions = conditions.where("? = ANY(categories)", category)
     end
-    conditions.where(:slug => slug).first
+    if candidate = conditions.where(:slug => slug).first
+      return candidate if candidate.categories.size == categories.size
+    end
   end
 
   private
