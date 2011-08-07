@@ -1,0 +1,13 @@
+<h1>Blog de <%= current_user.name_and_surname %></h1>
+
+<h2><%= @post.title %></h2>
+
+<%= @post.excerpt.try(:html_safe) %>
+
+<% if @post.image? %>
+  <%= image_tag @post.image.heading.url %>
+<% end %>
+
+<%= @post.body.try(:html_safe) %>
+
+<p><%= @post.tags.join(' ') %></p>

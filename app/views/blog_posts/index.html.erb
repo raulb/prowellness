@@ -1,2 +1,26 @@
-<h1>BlogPosts#index</h1>
-<p>Find me in app/views/blog_posts/index.html.erb</p>
+<h1>Blog de <%= current_user.name_and_surname %></h1>
+
+<% @posts.each_with_index do |post, i| %>
+  <div class="<%= i ==  0 ? "main_post" : "post" %>">
+    <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+    <p>
+      <%= image_tag post.image.heading.url, :alt => post.title %>
+    </p>
+    <p>
+      <%= post.publish_date.strftime("%d/%b/%Y") %>
+    </p>
+    <%= post.excerpt %> <%= link_to("seguir leyendo", post_path(post), :title => post.title) %>
+    <p class="tags"><%= post.tags.join(', ') %></p>
+  </div>
+<% end %>
+
+<% if @other_posts.any? %>
+<div class="others">
+  <h2>Otras entradas en el blog</h2>
+  <ul>
+    <% @other_posts.each do |post| %>
+    <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
