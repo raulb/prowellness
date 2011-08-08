@@ -24,10 +24,11 @@ If there is an error with linecache19 or ruby-debug-base19 gems, do:
 
 And `bundle` again to following
 
-* NOTA: There are dependencies with postgres (gem pg).
+* NOTE: There are dependencies with postgres (gem pg).
 * If not exists. You have to install it. For example, with brew: `brew install postgres` and then `env ARCHFLAGS="-arch x86_64" gem install pg`
 
-### Database
+Database
+--------
 
 PostgreSQL, in development, testing and production.
 
@@ -35,6 +36,7 @@ PostgreSQL, in development, testing and production.
 `rake db:migrate`
 `rake db:seed`
 
-### Testing
+Testing
+-------
 
 `RAILS_ENV=test rake db:drop db:create db:migrate spec:models spec:acceptance`
