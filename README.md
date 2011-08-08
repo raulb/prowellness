@@ -36,6 +36,8 @@ PostgreSQL, in development, testing and production.
 `rake db:migrate`
 `rake db:seed`
 
+* NOTE: If you have any problem with postgres user (postgres installed with Brew), [look at this](http://tumblr.com/xgs3z5o61k)
+
 Testing
 -------
 
