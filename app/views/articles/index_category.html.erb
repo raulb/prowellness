@@ -1,0 +1,26 @@
+<h1><%= @category %></h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+    <p>
+      <%= image_tag post.image.heading.url, :alt => post.title %>
+    </p>
+    <p>
+      <%= post.publish_date.strftime("%d/%b/%Y") %>
+    </p>
+    <%= post.excerpt %> <%= link_to("seguir leyendo", post_path(post), :title => post.title) %>
+    <p class="tags"><%= post.tags.join(', ') %></p>
+  </div>
+<% end %>
+
+<% if @other_posts.any? %>
+<div class="others">
+  <h2>Más artículos</h2>
+  <ul>
+    <% @other_posts.each do |post| %>
+    <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
