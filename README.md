@@ -8,14 +8,14 @@ Instalation
 
 The main folder contains the `.rvmrc` file. This set a gemset with Ruby 1.9.2-p290 version.
 
-1. `rvm install ruby-1.9.2-p290`
+1. `rvm install ruby-1.9.2-p180`
 2. `gem install bundler`
 
 This gem require a RubyGems version >= 1.3.6. If there isn't:
 
 `gem update --system`
 
-3. `rvm use ruby-1.9.2-p290@prowellness`
+3. `rvm use ruby-1.9.2-p180@prowellness`
 4. `bundle`
 
 If there is an error with linecache19 or ruby-debug-base19 gems, do:
