@@ -31,5 +31,6 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
+  gem 'jasmine'
 end
 
