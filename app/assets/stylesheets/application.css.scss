@@ -1,0 +1,165 @@
+// VARIABLES ***************************************************************
+
+$font-color-ads:#686868; // Font color for ads elements
+
+// common-background colors
+$bg-black-darkest:#1B1B1B;
+$bg-blue-darkest:#346F87;
+$bg-color-ads:#F5F5F5; // Background color for all advertisement elements
+$margin-left-header:160px;
+
+// FUNCTIONS ***************************************************************
+@mixin box-shadow ($x-radius:0px,$y-radius:0px,$length:10px,$alpha:0.3) {
+  -moz-box-shadow:$x-radius $y-radius $length rgba(0,0,0,$alpha);
+  -webkit-box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
+  box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
+}
+
+@mixin box-shadow-inset ($x-radius:0px,$y-radius:0px,$length:6px,$alpha:0.5) {
+  -moz-box-shadow:inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
+  -webkit-box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
+  box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
+}
+
+
+
+@mixin border-radius($radius:25px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin text-blur($color: white){
+  text-shadow: -1px 1px 10px lighten($color, 50%);  
+}
+
+@mixin hover-transition($time-effect:150ms) {
+  -webkit-transition: $time-effect linear 0s;
+  -moz-transition: $time-effect linear 0s;
+  -o-transition: $time-effect linear 0s;
+  transition: $time-effect linear 0s;
+}
+
+// STYLES ***************************************************************
+
+body {background-color:#D2D2D2; font-family:Arial; font-size:12px; color:#333333;}
+
+.content {
+   width:1120px;
+   margin:0 auto;
+   background-color:#FFF;
+   @include box-shadow(0px,10px,30px,0.3);
+   padding:0 40px;
+}
+
+.ads {
+  position:relative;
+  
+  p {
+    font:normal 0.8em Arial;
+    color:$font-color-ads;
+    position:absolute;
+  }
+}
+
+#banner-top-content {
+  float:left;
+  margin-top:15px;  
+  width:100%;
+  height:146px;
+  background-color:$bg-color-ads;
+  
+  p {
+    top:9px; right:18px;
+  }
+  
+  .banner {
+    float:right;
+    margin-top:23px; margin-right:18px;
+    width:981px;
+    height:105px;
+    background-color:orange;
+
+    a {
+      float:left; width:100%; height:100%;
+    }
+  }
+}
+
+header {
+  float:left;
+  margin-top:40px;
+  width:100%;
+  height:80px;
+  background-color:$bg-black-darkest;
+
+  .content {
+    background-color:$bg-black-darkest;
+    height:100%;
+    h1 {
+      float:left; margin-left:$margin-left-header;
+      a { font:normal 5.3em/1.1em YanoneKaffeesatzRegular; color:white; text-decoration:none; letter-spacing:-1.0px;
+        
+        &:hover {
+          @include text-blur($bg-black-darkest);
+          @include hover-transition;
+        }        
+        
+        em {
+          font-size:0.6em;
+        }
+      }
+    }
+  }
+}
+
+nav {
+  float:left;
+  background-color:$bg-blue-darkest;
+  width:100%;
+  height:45px;
+
+  .content {
+    position:relative;
+    background-color:$bg-blue-darkest;
+    height:100%;
+    
+    .domingo {
+      background:url(application/header-domingo.png) no-repeat 0 0;
+      width:138px;
+      height:198px;
+      position:absolute; bottom:0; left:40px;
+    }
+    
+    ul {
+      float:left; margin-left:$margin-left-header; margin-top:8px;
+      
+      li {
+        float:left; margin-right:45px;
+        
+        a {
+          font:normal 1.9em AbadiMTCondensedLightRegular; color:white; text-decoration:none; padding:4px 12px;
+          
+          &:hover {
+            background-color:lighten($bg-blue-darkest, 7%);
+            @include border-radius(6px);
+            // @include hover-transition(50ms);
+            @include box-shadow (0px,0px,20px,0.4);
+          }
+          
+          &.selected {
+            border:1px solid darken($bg-blue-darkest, 7%);
+            background-color:lighten($bg-blue-darkest, 7%);
+            @include border-radius(6px);
+            @include box-shadow-inset;
+          }
+        }
+      }
+    }
+  }
+  
+  
+}
+
+
+

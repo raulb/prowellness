@@ -2,20 +2,45 @@
 <html>
 <head>
   <title>Prowellness</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "reset","fonts","application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <div class="navigation">
-    <ul>
-      <li><%= link_to("Artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
-      <li><%= link_to("Blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %>
-    </ul>
-  </div>
+  <div class="content">
+    <div id="banner-top-content" class="ads">
+      <p>publicidad</p>
+      <div class="banner"></div>
+    </div> 
+  </div> <!-- banner-top-content -->
 
-  <%= yield %>
+  <header>
+    <div class="content">
+      <h1><a href="/">prowellness<em>.es</em></a></h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="content">
+      <a href="/" class="domingo"></a>
+      
+      <ul>
+        <li><%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
+        <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %>
+      </ul>      
+    </div>
+  </nav>
+
+
+  <div class="content">
+
+    <%= yield %>
+  
+  </div>  
+
+
+
 
 </body>
 </html>
