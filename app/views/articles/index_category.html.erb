@@ -1,5 +1,17 @@
 <h1><%= @category %></h1>
 
+<% if @main_posts.any? %>
+<div class="main_posts">
+  <% @main_posts.each do |post| %>
+    <div class="post">
+      <p><%= image_tag(post.image.rollover.url) %></p>
+      <p><%= link_to(post.title, post_path(post)) %></p>
+    </div>
+  <% end %>
+</div>
+<% end %>
+
+<div class="posts">
 <% @posts.each do |post| %>
   <div class="post">
     <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
@@ -13,6 +25,7 @@
     <p class="tags"><%= post.tags.join(', ') %></p>
   </div>
 <% end %>
+</div>
 
 <% if @other_posts.any? %>
 <div class="others">

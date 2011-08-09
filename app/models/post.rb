@@ -103,15 +103,23 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def self.get_last_articles(how_many, category = nil)
+  def self.get_last_5_articles(category = nil)
+    where("? = ANY(categories)", category || 'articulos').published.order_by_publish_date.limit(5)
+  end
+
+  def self.get_last_articles(how_many, exclude_ids, category = nil)
     unless category
       result = {}
       %W{ fitness mujer nutricion mi-opinion }.each do |category|
-        result[category] = where("? = ANY(categories)", category).published.order_by_publish_date.limit(how_many)
+        result[category] = where("? = ANY(categories)", category).
+                           where("id not IN (#{exclude_ids.join(',')})").
+                           published.order_by_publish_date.limit(how_many)
       end
       result
     else
-      where("? = ANY(categories)", category).published.order_by_publish_date.limit(how_many)
+      where("? = ANY(categories)", category).published.
+      where("id not IN (#{exclude_ids.join(',')})").
+      order_by_publish_date.limit(how_many)
     end
   end
 
@@ -120,9 +128,11 @@ class Post < ActiveRecord::Base
       categories_conditions = %W{ fitness mujer nutricion mi-opinion }.map do |category|
         "('#{category}' = ANY(categories))"
       end.join(" OR ")
-      where(categories_conditions).published.order_by_publish_date.limit(limit).offset(offset * 4)
+      where(categories_conditions).published.
+      order_by_publish_date.limit(limit).offset(offset)
     else
-      where("? = ANY(categories)", category).published.order_by_publish_date.limit(limit).offset(offset)
+      where("? = ANY(categories)", category).
+      published.order_by_publish_date.limit(limit).offset(offset)
     end
   end
 

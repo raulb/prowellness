@@ -183,11 +183,14 @@ feature 'Articles', %q{
 
     login_as admin
 
-    1.upto(3) do |i|
-      time_travel_to "#{4 - i} days ago"
+    1.upto(4) do |i|
+      time_travel_to "#{5 - i} days ago"
       create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
+      sleep 2
       create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
+      sleep 2
       create_post :user => admin, :title => "Ejercicios nutrición para programadores ##{i}", :categories => "articulos,nutricion"
+      sleep 2
       create_post :user => admin, :title => "Ejercicios mi opinión para programadores ##{i}", :categories => "articulos,mi-opinion"
       back_to_the_present
     end
@@ -201,10 +204,30 @@ feature 'Articles', %q{
     page.should have_css("ul.sections li a", :text => "Nutrición")
     page.should have_css("ul.sections li a", :text => "Mi opinión")
 
+    page.all("div.main_posts div.post").size.should == 5
+
     page.all("div.posts.fitness div.post").size.should == 2
     page.all("div.posts.mujer div.post").size.should == 2
     page.all("div.posts.nutricion div.post").size.should == 2
     page.all("div.posts.mi-opinion div.post").size.should == 2
+
+    within("div.main_posts") do
+      within("div.post:eq(1)") do
+        page.should have_css("p a", :text => "Ejercicios mi opinión para programadores #4")
+      end
+      within("div.post:eq(2)") do
+        page.should have_css("p a", :text => "Ejercicios nutrición para programadores #4")
+      end
+      within("div.post:eq(3)") do
+        page.should have_css("p a", :text => "Ejercicios mujer para programadores #4")
+      end
+      within("div.post:eq(4)") do
+        page.should have_css("p a", :text => "Ejercicios fitness para programadores #4")
+      end
+      within("div.post:eq(5)") do
+        page.should have_css("p a", :text => "Ejercicios mi opinión para programadores #3")
+      end
+    end
 
     within("div.posts.fitness") do
       within("div.post:eq(1)") do
@@ -217,7 +240,6 @@ feature 'Articles', %q{
         page.should have_css("h3 a", :text => "Ejercicios fitness para programadores #2")
         page.should have_content("por #{admin.name_and_surname}")
       end
-
       page.should have_css("a", :text => "ver más artículos de fitness")
     end
 
@@ -226,7 +248,6 @@ feature 'Articles', %q{
       page.should have_css("li.short_post a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-1']", :text => "Ejercicios fitness para programadores #1")
       page.should have_css("li.short_post a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-1']", :text => "Ejercicios mujer para programadores #1")
       page.should have_css("li.short_post a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-1']", :text => "Ejercicios nutrición para programadores #1")
-      page.should have_css("li.short_post a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-1']", :text => "Ejercicios mi opinión para programadores #1")
     end
 
   end
@@ -236,23 +257,29 @@ feature 'Articles', %q{
 
     login_as admin
 
-    1.upto(6) do |i|
-      time_travel_to "#{7 - i} days ago"
+    1.upto(12) do |i|
+      time_travel_to "#{13 - i} days ago"
       create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
       create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
       back_to_the_present
     end
 
-    visit "/articulos"
-    click "ver más artículos de fitness"
+    visit "/articulos/fitness"
 
     page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Fitness")
 
-    page.all("div.post")[0].find("h2").text.should == "Ejercicios fitness para programadores #6"
-    page.all("div.post")[1].find("h2").text.should == "Ejercicios fitness para programadores #5"
-    page.all("div.post")[2].find("h2").text.should == "Ejercicios fitness para programadores #4"
-    page.all("div.post")[3].find("h2").text.should == "Ejercicios fitness para programadores #3"
+    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios fitness para programadores #12"
+    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios fitness para programadores #11"
+    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios fitness para programadores #10"
+    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios fitness para programadores #9"
+    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios fitness para programadores #8"
+
+    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios fitness para programadores #7"
+    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios fitness para programadores #6"
+    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios fitness para programadores #5"
+    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios fitness para programadores #4"
+    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios fitness para programadores #3"
 
     within(:css, "div.others") do
       page.should have_content("Más artículos")
@@ -266,10 +293,10 @@ feature 'Articles', %q{
 
     login_as admin
 
-    1.upto(6) do |i|
-      time_travel_to "#{7 - i} days ago"
-      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
+    1.upto(12) do |i|
+      time_travel_to "#{13 - i} days ago"
       create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
+      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
       back_to_the_present
     end
 
@@ -278,10 +305,17 @@ feature 'Articles', %q{
     page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Mujer")
 
-    page.all("div.post")[0].find("h2").text.should == "Ejercicios mujer para programadores #6"
-    page.all("div.post")[1].find("h2").text.should == "Ejercicios mujer para programadores #5"
-    page.all("div.post")[2].find("h2").text.should == "Ejercicios mujer para programadores #4"
-    page.all("div.post")[3].find("h2").text.should == "Ejercicios mujer para programadores #3"
+    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios mujer para programadores #12"
+    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios mujer para programadores #11"
+    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios mujer para programadores #10"
+    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios mujer para programadores #9"
+    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios mujer para programadores #8"
+
+    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios mujer para programadores #7"
+    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios mujer para programadores #6"
+    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios mujer para programadores #5"
+    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios mujer para programadores #4"
+    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios mujer para programadores #3"
 
     within(:css, "div.others") do
       page.should have_content("Más artículos")
@@ -295,10 +329,10 @@ feature 'Articles', %q{
 
     login_as admin
 
-    1.upto(6) do |i|
-      time_travel_to "#{7 - i} days ago"
+    1.upto(12) do |i|
+      time_travel_to "#{13 - i} days ago"
       create_post :user => admin, :title => "Ejercicios nutrición para programadores ##{i}", :categories => "articulos,nutricion"
-      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
+      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
       back_to_the_present
     end
 
@@ -307,10 +341,17 @@ feature 'Articles', %q{
     page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Nutrición")
 
-    page.all("div.post")[0].find("h2").text.should == "Ejercicios nutrición para programadores #6"
-    page.all("div.post")[1].find("h2").text.should == "Ejercicios nutrición para programadores #5"
-    page.all("div.post")[2].find("h2").text.should == "Ejercicios nutrición para programadores #4"
-    page.all("div.post")[3].find("h2").text.should == "Ejercicios nutrición para programadores #3"
+    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios nutrición para programadores #12"
+    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios nutrición para programadores #11"
+    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios nutrición para programadores #10"
+    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios nutrición para programadores #9"
+    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios nutrición para programadores #8"
+
+    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios nutrición para programadores #7"
+    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios nutrición para programadores #6"
+    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios nutrición para programadores #5"
+    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios nutrición para programadores #4"
+    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios nutrición para programadores #3"
 
     within(:css, "div.others") do
       page.should have_content("Más artículos")
@@ -324,10 +365,10 @@ feature 'Articles', %q{
 
     login_as admin
 
-    1.upto(6) do |i|
-      time_travel_to "#{7 - i} days ago"
+    1.upto(12) do |i|
+      time_travel_to "#{13 - i} days ago"
       create_post :user => admin, :title => "Ejercicios mi opinión para programadores ##{i}", :categories => "articulos,mi-opinion"
-      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
+      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
       back_to_the_present
     end
 
@@ -336,10 +377,17 @@ feature 'Articles', %q{
     page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Mi opinión")
 
-    page.all("div.post")[0].find("h2").text.should == "Ejercicios mi opinión para programadores #6"
-    page.all("div.post")[1].find("h2").text.should == "Ejercicios mi opinión para programadores #5"
-    page.all("div.post")[2].find("h2").text.should == "Ejercicios mi opinión para programadores #4"
-    page.all("div.post")[3].find("h2").text.should == "Ejercicios mi opinión para programadores #3"
+    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios mi opinión para programadores #12"
+    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios mi opinión para programadores #11"
+    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios mi opinión para programadores #10"
+    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios mi opinión para programadores #9"
+    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios mi opinión para programadores #8"
+
+    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios mi opinión para programadores #7"
+    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios mi opinión para programadores #6"
+    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios mi opinión para programadores #5"
+    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios mi opinión para programadores #4"
+    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios mi opinión para programadores #3"
 
     within(:css, "div.others") do
       page.should have_content("Más artículos")
@@ -347,4 +395,5 @@ feature 'Articles', %q{
       page.should have_css("li.short_post:eq(2) a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-1']", :text => "Ejercicios mi opinión para programadores #1")
     end
   end
+
 end

@@ -3,13 +3,14 @@
 class ArticlesController < PostsController
 
   def index
+    @main_posts = Post.get_last_5_articles(params[:category])
     if params[:category]
-      @posts = Post.get_last_articles(4, params[:category])
-      @other_posts = Post.other_articles(6, 4, params[:category])
+      @posts = Post.get_last_articles(5, @main_posts.map(&:id), params[:category])
+      @other_posts = Post.other_articles(6, 10, params[:category])
       render "index_category" and return
     else
-      @posts = Post.get_last_articles(2)
-      @other_posts = Post.other_articles(6, 2)
+      @posts = Post.get_last_articles(2, @main_posts.map(&:id))
+      @other_posts = Post.other_articles(6, 13)
     end
   end
 

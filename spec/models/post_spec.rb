@@ -173,11 +173,34 @@ describe Post do
     end
 
     it "should get last articles using #get_last_articles method" do
-      posts = Post.get_last_articles(2)
+      main_posts = Post.get_last_5_articles
+      posts = Post.get_last_articles(2, main_posts.map(&:id))
       posts["fitness"].should_not be_empty
       posts["mujer"].should_not be_empty
       posts["fitness"].each{ |post| post.categories.should include("fitness") }
       posts["mujer"].each{ |post| post.categories.should include("mujer") }
+      main_posts.each do |post|
+        posts["mujer"].should_not include(post)
+        posts["fitness"].should_not include(post)
+      end
+    end
+
+    it "should get the last five articles, no mather their category" do
+      posts = Post.get_last_5_articles
+      posts.should include(@fitness.last)
+      posts.should include(@women.last)
+      posts.should include(@fitness[4])
+      posts.should include(@women[4])
+    end
+
+    it "should get the last five articles in a category" do
+      posts = Post.get_last_5_articles("fitness")
+      posts.should include(@fitness.last)
+      posts.should include(@fitness[5])
+      posts.should include(@fitness[4])
+      posts.should include(@fitness[3])
+      posts.should include(@fitness[2])
+      posts.should include(@fitness[1])
     end
 
   end

@@ -1,6 +1,15 @@
 <h1>Artículos</h1>
 
-<!-- TODO: ¿aquí va el ejercicio del mes? -->
+<% if @main_posts.any? %>
+<div class="main_posts">
+  <% @main_posts.each do |post| %>
+    <div class="post">
+      <p><%= image_tag(post.image.rollover.url) %></p>
+      <p><%= link_to(post.title, post_path(post)) %></p>
+    </div>
+  <% end %>
+</div>
+<% end %>
 
 <ul class="sections">
   <li><%= link_to("Fitness",    articles_category_path("fitness"), :class => "selected") %></li>
