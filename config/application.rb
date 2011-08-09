@@ -5,10 +5,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
 
-# Enable the asset pipeline
-config.assets.enabled = true
-config.assets.paths << "#{Rails.root}/app/assets/fonts"
-
 Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 
 module Prowellness
