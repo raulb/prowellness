@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div class="content">
+  <div class="layout">
     <div id="banner-top-content" class="ads">
       <p>publicidad</p>
       <div class="banner"></div>
@@ -16,13 +16,13 @@
   </div> <!-- banner-top-content -->
 
   <header>
-    <div class="content">
+    <div class="layout">
       <h1><a href="/">prowellness<em>.es</em></a></h1>
     </div>
   </header>
 
   <nav>
-    <div class="content">
+    <div class="layout">
       <a href="/" class="domingo"></a>
 
       <ul>
@@ -30,18 +30,32 @@
         <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
         <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>
       </ul>
+      
+      <div class="user_options">
+        <ul>
+          <li><a href="#">registro</a></li>
+          
+          <!-- Esto de momento lo pongo así aunque el login se hará en un desplegable que salga -->
+          <li><%= link_to("login", login_path) %></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
 
-  <div class="content">
-
-    <%= yield %>
+  <div class="layout">
+    
+    <div class="content">
+      <div class="inside-content">
+        <%= yield %>  
+      </div>
+      
+    </div>
 
   </div>
 
   <footer>
-    <div class="content">
+    <div class="layout">
       
       <div class="left">
         <a href="/" class="logo">prowellness<em>.es</em></a>
