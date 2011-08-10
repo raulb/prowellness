@@ -40,5 +40,60 @@
 
   </div>
 
+  <footer>
+    <div class="content">
+      
+      <div class="left">
+        <a href="/" class="logo">prowellness<em>.es</em></a>
+        
+        <ul>
+          <li>
+            <p>visita nuestro facebook</p>
+            <a class="facebook" href="http://facebook.com"></a>
+          </li>
+          <li>
+            <p>sígueme en twitter</p>
+            <a class="twitter" href="http://twitter.com"></a>
+          </li>
+          <li>
+            <p>consulta nuestro flickr</p>
+            <a class="flickr" href="http://flickr.com"></a>
+          </li>
+          <li>
+            <p>envíame un mail</p>
+            <a class="mail" href="http://flickr.com"></a>
+          </li>
+          <li>
+            <p>consulta nuestro vimeo</p>
+            <a class="vimeo" href="http://vimeo.com"></a>
+          </li>
+          <li>
+            <p>subscríbete a nuestras noticias</p>
+            <a class="rss" href="#"></a>
+          </li>
+
+          
+        </ul>
+      </div>
+      
+      <div class="right">
+        <nav>
+          <ul>
+            <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>            
+            <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
+            <li><%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %></li>
+          </ul>
+        </nav>
+        <div class="sign">
+          <%= image_tag "application/bandb.png", :alt => 'Logo Barroso and Blat' %>
+          <p>web diseñada y desarrollada por</p>
+          <p><a href="http://www.raulbarroso.com" target="_blank">Raúl Barroso</a> y <a href="http://fernando.blat.es/" target="_blank">Fernando Blat</a></p>
+        </div>
+        
+      </div>
+      
+    </div>
+  </footer>
+  
 </body>
 </html>

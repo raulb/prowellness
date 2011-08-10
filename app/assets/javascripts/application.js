@@ -7,3 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+jQuery(document).ready(function($) {
+
+  // hover social icons
+  $('footer').find('a').hover(function() {
+    $(this).parent().children('p').show();
+  }, function() {
+    $(this).parent().children('p').hide();
+  });
+  
+  
+});

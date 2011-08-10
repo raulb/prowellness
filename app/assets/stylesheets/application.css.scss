@@ -1,6 +1,10 @@
+/* THIS CSS IS COMMON FOR ALL APPLICATION*/
+
 // VARIABLES ***************************************************************
 
 $font-color-ads:#686868; // Font color for ads elements
+$font-color-gray:#CCCCCC;
+
 
 // common-background colors
 $bg-black-darkest:#1B1B1B;
@@ -21,8 +25,6 @@ $margin-left-header:160px;
   box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
 }
 
-
-
 @mixin border-radius($radius:25px) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -41,6 +43,7 @@ $margin-left-header:160px;
 }
 
 // STYLES ***************************************************************
+
 
 body {background-color:#D2D2D2; font-family:Arial; font-size:12px; color:#333333;}
 
@@ -154,12 +157,186 @@ nav {
             @include box-shadow-inset;
           }
         }
-      }
+      } // li
+    } // ul
+  } // .content
+} // nav
+
+footer {
+
+  float:left; 
+  width:100%; 
+  height:auto;
+  border-top:5px solid $bg-blue-darkest; 
+  background-color:$bg-black-darkest;
+  
+  a {
+    color:white; text-decoration:none;
+    
+    &:hover {
+      color:darken(white,50%);
     }
+
   }
   
-  
-}
+  .content {
+    background-color:$bg-black-darkest; 
+    height:222px;
+    
+    .left {
+      float:left; width:420px;
+      
+      ul {
+        
+        float:left;
+        width:100%;
+        margin-top:95px;
+        position:relative;
+      
+        p {
+          position:absolute;
+          bottom:30px;
+          left:0px;
+          color:$font-color-gray;
+          font:normal 1.4em AbadiMTCondensedLightRegular;
+          display:none;
+          
+        }
+        
+        li {
+          float:left;
+          margin-right:10px;
+          
+          a {
+            float:left;
+            background:url(application/social-icons.png) no-repeat 0 0;
+            width:24px; height:24px;
 
+            $icon-height:-24px;
+            
+            &:hover {
+              &:before {
+                display:inline;
+              }
+            }
+                      
+            &.facebook {
+              background-position:0 0;
+              &:hover {
+                background-position:0 $icon-height;
+                
+              }
+            }
+            
+            &.twitter {
+              background-position:-24px 0;
+              &:hover {
+                background-position:-24px $icon-height;
+              }
+            }
+
+            &.flickr {
+              background-position:-48px 0;
+              &:hover {
+                background-position:-48px $icon-height;
+              }
+            }
+
+            &.mail {
+              background-position:-72px 0;
+              &:hover {
+                background-position:-72px $icon-height;
+              }
+            }
+
+            &.vimeo {
+              background-position:-96px 0;
+              &:hover {
+                background-position:-96px $icon-height;
+              }
+            }
+
+            &.rss {
+              background-position:-120px 0;
+              &:hover {
+                background-position:-120px $icon-height;
+              }
+            }
+          } // a
+          
+        } // li
+      } // ul
+    } // left
+    
+    a.logo { font:normal 4.0em/1.5em YanoneKaffeesatzRegular; color:white; text-decoration:none; letter-spacing:-1.0px;
+        
+        &:hover {
+          @include text-blur($bg-black-darkest);
+          @include hover-transition;
+        }        
+
+        em {
+          font-size:0.7em;
+        }
+    } // a.logo
+    
+    .right {
+      
+      float:right;
+      width:700px;
+      height:100%;
+      
+      position:relative;
+      
+      nav {
+        float:right;
+        width:100%;
+        background:none;
+        margin-top:20px;
+        
+        ul {
+          float:right;
+          width:100%;
+          
+          li {
+            float:right; margin-left:50px;
+            
+            a {
+              font:normal 1.7em AbadiMTCondensedLightRegular;            
+            } 
+          } // li
+          
+        } // ul
+      } // nav
+      
+      .sign {
+        position:absolute;
+        bottom:50px;
+        right:0;
+        
+        color:white;
+        
+        img {
+          float:right;
+          width:64px;
+          height:23px; padding-bottom:10px;
+        }
+        
+        p {
+          float:right; width:100%; text-align:right;
+          font:normal 1.1em/0.8em AbadiMTCondensedLightRegular;
+        }
+        
+        a {
+          font:normal 1.2em AbadiMTCondensedLightRegular;
+          
+        }
+        
+      }
+    } // .right
+    
+  } // .content
+  
+} // footer
 
 

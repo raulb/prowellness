@@ -28,7 +28,7 @@ footer,header,hgroup,menu,nav,section {
     display:block;
 }
 
-nav ul {
+ul {
     list-style:none;
 }
 
@@ -49,6 +49,8 @@ a {
     vertical-align:baseline;
     background:transparent;
 }
+
+a:focus {outline:none;}
 
 /* change colours to suit your needs */
 ins {
