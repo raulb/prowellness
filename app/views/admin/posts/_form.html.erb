@@ -7,32 +7,20 @@
 
   <%= f.label :body, "Cuerpo" %>
   <%= f.text_area :body, :rows => 10, :cols => 80 %>
-  
+
   <%= f.label :image, "Imagen" %>
   <%= f.file_field :image %>
-  
+
   <% if @post.image? %>
     <%= image_tag @post.image.list.url %>
   <% end %>
-  
+
   <%= f.label :categories, "Categoría" %>
-  <%= f.select :categories, [
-               ["Artículos > Fitness", "articulos,fitness"],
-               ["Artículos > Fitness > Ejercicio del mes", "articulos,fitness,ejercicio-del-mes"],
-               ["Artículos > Mujer", "articulos,mujer"],
-               ["Artículos > Nutrición", "articulos,nutricion"],
-               ["Artículos > Mi opinión", "articulos,mi-opinion"],
-               ["Guía Visual > Editorial", "guia-visual,editorial"],
-               ["Guía Visual > Abdominales", "guia-visual,abdominales"],
-               ["Guía Visual > Estiramientos", "guia-visual,estiramientos"],
-               ["Guía Visual > Dietas", "guia-visual,dietas"],
-               ["Guía Visual > Planes", "guia-visual,planes"],
-               ["Blog", "blog"]
-               ], { :include_blank => false, :prompt => "Selecciona una categoría" } %>
-  
+  <%= f.select :categories, categories_for_select, { :include_blank => false, :prompt => "Selecciona una categoría" } %>
+
   <%= f.label :tags, "Tags" %>
   <%= f.text_area :tags, :rows => 2, :cols => 40 %>
-  
+
   <%= f.submit "Guardar como borrador", :name => :draft %>
   <%= f.submit "Publicar", :name => :publish %>
   <%= link_to 'Cancelar', admin_posts_path %>

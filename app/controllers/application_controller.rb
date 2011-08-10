@@ -32,9 +32,11 @@ class ApplicationController < ActionController::Base
   end
 
   def translate_category(category_sanitized)
+    return "" if  category_sanitized.blank?
     Post::CATEGORIES.invert.each do |k,v|
       if k.include?(category_sanitized)
-        return v.split(' > ').last
+        position = k.split(',').index(category_sanitized)
+        return v.split(' > ')[position]
       end
     end
   end

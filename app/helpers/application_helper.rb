@@ -46,7 +46,7 @@ module ApplicationHelper
   end
 
   def categories_for_select
-    Post::CATEGORY.map do |k,v|
+    Post::CATEGORIES.map do |k,v|
       [k,v]
     end
   end

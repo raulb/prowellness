@@ -1,2 +1,23 @@
-<h1>VisualGuidePosts#index</h1>
-<p>Find me in app/views/visual_guide_posts/index.html.erb</p>
+<h1>Guía visual</h1>
+
+<ul class="sections">
+  <li><%= link_to("Abdominales",   visual_guide_category_path("abdominales"), :class => "selected") %></li>
+  <li><%= link_to("Estiramientos", visual_guide_category_path("estiramientos")) %></li>
+  <li><%= link_to("Editorial",     visual_guide_category_path("editorial")) %></li>
+</ul>
+
+<% if @posts.any? %>
+  <% %W{ abdominales estiramientos }.each do |category| %>
+    <div class="posts <%= category %>">
+      <% @posts[category].each do |post| %>
+        <div class="post">
+          <p><%= translate_category(category) %></p>
+          <h3><%= link_to(post.title, post_path(post)) %></h3>
+          <p>por <%= post.user.name_and_surname %></p>
+        </div>
+      <% end %>
+
+      <p><%= link_to("ver más vídeos sobre #{translate_category(category).downcase}", visual_guide_category_path(category)) %>
+    </div>
+  <% end %>
+<% end %>

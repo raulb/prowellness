@@ -1,0 +1,15 @@
+<h1>Guía visual de <%= @parent_category %></h1>
+
+<h2><%= @category %></h2>
+
+<h3><%= @post.title %></h3>
+
+<%= @post.excerpt.try(:html_safe) %>
+
+<% if @post.image? %>
+  <%= image_tag @post.image.heading.url %>
+<% end %>
+
+<%= @post.body.try(:html_safe) %>
+
+<p><%= @post.tags.join(' ') %></p>

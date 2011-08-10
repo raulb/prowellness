@@ -9,8 +9,22 @@ class Post < ActiveRecord::Base
     "Artículos > Nutrición" => "articulos,nutricion",
     "Artículos > Mi opinión" => "articulos,mi-opinion",
     "Guía Visual > Editorial" => "guia-visual,editorial",
-    "Guía Visual > Abdominales" => "guia-visual,abdominales",
-    "Guía Visual > Estiramientos" => "guia-visual,estiramientos",
+    "Guía Visual > Dietas" => "guia-visual,dietas",
+    "Guía Visual > Planes" => "guia-visual,planes",
+    "Guía Visual > Abdominales > Nivel 1 - Activación" => "guia-visual,abdominales,nivel-1-activacion",
+    "Guía Visual > Abdominales > Nivel 2 - Estables" => "guia-visual,abdominales,nivel-2-estables",
+    "Guía Visual > Abdominales > Nivel 3 - En apoyo" => "guia-visual,abdominales,nivel-3-en-apoyo",
+    "Guía Visual > Abdominales > Nivel 4 - Con material" => "guia-visual,abdominales,nivel-4-con-material",
+    "Guía Visual > Abdominales > Nivel 5 - Potencia" => "guia-visual,abdominales,nivel-5-potencia",
+    "Guía Visual > Estiramientos > Pantorilla" => "guia-visual,estiramientos,pantorilla",
+    "Guía Visual > Estiramientos > Músculo" => "guia-visual,estiramientos,musculo",
+    "Guía Visual > Estiramientos > Cadera" => "guia-visual,estiramientos,cadera",
+    "Guía Visual > Estiramientos > Tronco" => "guia-visual,estiramientos,tronco",
+    "Guía Visual > Estiramientos > Pectoral" => "guia-visual,estiramientos,pectoral",
+    "Guía Visual > Estiramientos > Dorsal" => "guia-visual,estiramientos,dorsal",
+    "Guía Visual > Estiramientos > Hombro" => "guia-visual,estiramientos,hombro",
+    "Guía Visual > Estiramientos > Brazo" => "guia-visual,estiramientos,brazo",
+    "Guía Visual > Estiramientos > Antebrazo" => "guia-visual,estiramientos,antebrazo",
     "Guía Visual > Dietas" => "guia-visual,dietas",
     "Guía Visual > Planes" => "guia-visual,planes",
     "Blog" => "blog"
@@ -18,7 +32,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :title, :excerpt, :body, :state, :tags, :categories, :image
 
-  validates_presence_of :categories, :title, :excerpt, :body, :image
+  validates_presence_of :categories, :title, :body, :image
 
   before_create :set_slug
   before_destroy :remove_associated_image
@@ -27,12 +41,12 @@ class Post < ActiveRecord::Base
 
   scope :draft,     where(:state => 0)
   scope :published, where(:state => 1)
-  scope :order_by_publish_date, order("publish_date DESC")
+  scope :order_by_publish_date, published.order("publish_date DESC")
   scope :last_blog_posts, lambda { |how_many|
-    where("? = ANY(categories)", "blog").published.order_by_publish_date.limit(how_many)
+    where("? = ANY(categories)", "blog").order_by_publish_date.limit(how_many)
   }
   scope :other_blog_posts, lambda { |how_many, offset|
-    where("? = ANY(categories)", "blog").published.order_by_publish_date.limit(how_many).offset(offset)
+    where("? = ANY(categories)", "blog").order_by_publish_date.limit(how_many).offset(offset)
   }
 
   mount_uploader :image, ImageUploader
@@ -104,7 +118,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.get_last_5_articles(category = nil)
-    where("? = ANY(categories)", category || 'articulos').published.order_by_publish_date.limit(5)
+    where("? = ANY(categories)", category || 'articulos').order_by_publish_date.limit(5)
   end
 
   def self.get_last_articles(how_many, exclude_ids, category = nil)
@@ -113,11 +127,11 @@ class Post < ActiveRecord::Base
       %W{ fitness mujer nutricion mi-opinion }.each do |category|
         result[category] = where("? = ANY(categories)", category).
                            where("id not IN (#{exclude_ids.join(',')})").
-                           published.order_by_publish_date.limit(how_many)
+                           order_by_publish_date.limit(how_many)
       end
       result
     else
-      where("? = ANY(categories)", category).published.
+      where("? = ANY(categories)", category).
       where("id not IN (#{exclude_ids.join(',')})").
       order_by_publish_date.limit(how_many)
     end
@@ -128,12 +142,21 @@ class Post < ActiveRecord::Base
       categories_conditions = %W{ fitness mujer nutricion mi-opinion }.map do |category|
         "('#{category}' = ANY(categories))"
       end.join(" OR ")
-      where(categories_conditions).published.
+      where(categories_conditions).
       order_by_publish_date.limit(limit).offset(offset)
     else
       where("? = ANY(categories)", category).
-      published.order_by_publish_date.limit(limit).offset(offset)
+      order_by_publish_date.limit(limit).offset(offset)
     end
+  end
+
+  def self.get_last_videos(how_many)
+    result = {}
+    %W{ abdominales estiramientos }.each do |category|
+      result[category] = where("? = ANY(categories)", category).
+                         order_by_publish_date.limit(how_many)
+    end
+    result
   end
 
   private

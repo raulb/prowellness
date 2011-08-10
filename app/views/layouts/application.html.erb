@@ -12,7 +12,7 @@
     <div id="banner-top-content" class="ads">
       <p>publicidad</p>
       <div class="banner"></div>
-    </div> 
+    </div>
   </div> <!-- banner-top-content -->
 
   <header>
@@ -24,11 +24,12 @@
   <nav>
     <div class="content">
       <a href="/" class="domingo"></a>
-      
+
       <ul>
-        <li><%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
-        <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %>
-      </ul>      
+        <li><%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %></li>
+        <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
+        <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>
+      </ul>
     </div>
   </nav>
 
@@ -36,11 +37,8 @@
   <div class="content">
 
     <%= yield %>
-  
-  </div>  
 
-
-
+  </div>
 
 </body>
 </html>

@@ -17,7 +17,7 @@ Prowellness::Application.routes.draw do
   get '/articulos/*categories/:slug' => 'articles#show',            :as => :article
   get '/guia-visual'                 => 'visual_guide_posts#index', :as => :visual_guide
   get '/guia-visual/:category'       => 'visual_guide_posts#index', :as => :visual_guide_category
-  get '/guia-visual/:category/:slug' => 'visual_guide_posts#show',  :as => :visual_guide_post
+  get '/guia-visual/*categories/:slug' => 'visual_guide_posts#show',  :as => :visual_guide_post
   get '/blog'                        => 'blog_posts#index',         :as => :blog
   get '/blog/:slug'                  => 'blog_posts#show',          :as => :blog_post
 
