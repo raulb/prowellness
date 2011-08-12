@@ -3,7 +3,7 @@ Prowelleness
 
 Steps to configure the project correctly
 
-Instalation
+Installation
 -----------
 
 The main folder contains the `.rvmrc` file. This set a gemset with Ruby 1.9.2-p290 version.
