@@ -10,12 +10,18 @@
 
 jQuery(document).ready(function($) {
 
-  // hover social icons
+  // hover social icons (FOOTER)
   $('footer').find('a').hover(function() {
     $(this).parent().children('p').show();
   }, function() {
     $(this).parent().children('p').hide();
   });
-  
+
+
+  // click over li element and navigate to its real link element
+  $('.info-box ul li').click(function(event) {
+    window.location = $(this).children('a').attr('href');
+  });
+    
   
 });

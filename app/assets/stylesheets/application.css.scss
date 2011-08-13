@@ -4,13 +4,17 @@
 
 $font-color-ads:#686868; // Font color for ads elements
 $font-color-gray:#CCCCCC;
-
+$font-color-orange:#FF6600;
 
 // common-background colors
 $bg-black-darkest:#1B1B1B;
+$bg-black-normal:#333333;
 $bg-blue-darkest:#346F87;
 $bg-color-ads:#F5F5F5; // Background color for all advertisement elements
+$bg-color-hover:#B34700;
 $margin-left-header:160px;
+
+$space-top-boxes:15px;
 
 // FUNCTIONS ***************************************************************
 @mixin box-shadow ($x-radius:0px,$y-radius:0px,$length:10px,$alpha:0.3) {
@@ -42,326 +46,224 @@ $margin-left-header:160px;
   transition: $time-effect linear 0s;
 }
 
-// STYLES ***************************************************************
+@mixin linear-gradient($color:black) {
 
+  @if $color == green{
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0.29, rgb(135,180,0)),
+        color-stop(0.83, rgb(104,142,0))
+    );
+    background-image: -moz-linear-gradient(
+        left center,
+        rgb(135,180,0) 29%,
+        rgb(104,142,0) 83%
+    );
+  }@else if $color == black{
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.3, rgb(51,51,51)),
+        color-stop(1, rgb(0,0,0))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(51,51,51) 30%,
+        rgb(0,0,0) 100%
+    );  
+  }
+  
+}
+
+// STYLES ***************************************************************
 
 body {background-color:#D2D2D2; font-family:Arial; font-size:12px; color:#333333;}
 
 .layout {
    width:1120px;
    margin:0 auto;
-   background-color:#FFF;
-   @include box-shadow(0px,0px,30px,0.3);
-   padding:0 40px;
+   
+   .inner-layout {
+     float:left;
+     width:1120px; height:100%;
+     padding:0 40px 25px;
+     background-color:#FFF;
+     @include box-shadow(0px,-1px,30px,0.3);
+     
+   }
 }
 
-.content {
-  padding:50px 0;
+section {
+  padding:0 0 50px;
   display:inline-block;
   
 }
 
-.ads {
-  position:relative;
-  
-  p {
-    font:normal 0.8em Arial;
-    color:$font-color-ads;
-    position:absolute;
-  }
-}
-
-#banner-top-content {
-  float:left;
-  margin-top:15px;  
-  width:100%;
-  height:146px;
-  background-color:$bg-color-ads;
-  
-  p {
-    top:9px; right:18px;
-  }
-  
-  .banner {
-    float:right;
-    margin-top:23px; margin-right:18px;
-    width:981px;
-    height:105px;
-    background-color:orange;
-
-    a {
-      float:left; width:100%; height:100%;
+section {
+  header {
+    position:relative; float:left; width:689px; background:none; margin-top:30px;
+    
+    h2 {
+      font:normal 2.3em QuicksandBook; color:white; letter-spacing:-2.0px;
     }
-  }
-}
+    
+    .left-band {
+      position:absolute; left:-61px; top:0; background:url(application/left-front-section.png) no-repeat 0 0; width:61px; height:66px;
+    }
+    .right-band {
+      position:absolute; left:0; top:0; width:auto; height:46px; padding-right:55px; padding-top:12px;
 
-header {
-  float:left;
-  margin-top:40px;
-  width:100%;
-  height:80px;
-  background-color:$bg-black-darkest;
-
-  .layout {
-    background-color:$bg-black-darkest;
-    height:100%;
-    h1 {
-      float:left; margin-left:$margin-left-header;
-      a { font:normal 5.3em/1.1em YanoneKaffeesatzRegular; color:white; text-decoration:none; letter-spacing:-1.0px;
+      @include linear-gradient(green);      
+      
+      .fixed-content {
+        float:left; width:100%; height:21px; position:relative; padding-right:55px;
+        background:url(application/band-shadow.png) repeat-x 0 bottom;
         
-        &:hover {
-          @include text-blur($bg-black-darkest);
-          @include hover-transition;
+        .triangle {
+          position:absolute; top:-45px; right:0; width:21px; height:66px; background:url(application/triangle-shadow.png) no-repeat 0 0;
         }        
-        
-        em {
-          font-size:0.6em;
-        }
       }
     }
   }
+} // section
+
+aside {
+  float:right;
+  width:338px;
+  height:100%;
+  margin-top:90px;
 }
 
-nav {
-  float:left;
-  background-color:$bg-blue-darkest;
-  width:100%;
-  height:49px;
-
-  .layout {
-    position:relative;
-    background-color:$bg-blue-darkest;
-    height:100%;
+.info-box {
+  float:left; width:337px; padding:10px 0 15px; margin-top:$space-top-boxes;
+  background-color:$bg-black-normal;
+  @include border-radius(10px); color:white; position:relative;
+  
+  em {font-weight:bold;}
+  
+  h3,h4,form {margin-left:15px;}
+  
+  h3 {
+    float:left; font:normal 1.8em QuicksandBook; letter-spacing:-2.0px;
+  }
+  
+  h4 {
+    float:left; font:normal 1.4em/0.8em QuicksandBook; letter-spacing:-1.4px;
     
-    .domingo {
-      background:url(application/header-domingo.png) no-repeat 0 0;
-      width:138px;
-      height:198px;
-      position:absolute; bottom:0; left:40px;
-    }
-    
-    ul {
-      float:left; margin-left:$margin-left-header; margin-top:6px;
+    a {
+      color:white;
       
-      li {
-        float:left; margin-right:45px;
-        }
-        
-        
-        a {
-
-          float:left; font:normal 1.9em AbadiMTCondensedLightRegular; color:white; text-decoration:none; padding:4px 12px;
-
-          &:hover {
-            background-color:lighten($bg-blue-darkest, 7%);
-            @include border-radius(6px);
-            // @include hover-transition(50ms);
-            @include box-shadow (0px,0px,20px,0.4);
-          }
-
-          &.selected {
-            border:1px solid darken($bg-blue-darkest, 7%);
-            background-color:lighten($bg-blue-darkest, 7%);
-            @include border-radius(6px);
-            @include box-shadow-inset;
-          }
-        }
-        
-    } // ul
-    
-    .user_options {
-      float:right;
-      width:200px;
-      
-      ul {
-        float:right;
-        margin-left:0;
-        
-        li {
-          float:right;
-          margin:0;
-        }
+      &:hover {
+        color:$font-color-orange;
       }
     }
-    
-  } // .layout
-} // nav
-
-footer {
-
-  float:left; 
-  width:100%; 
-  height:auto;
-  border-top:5px solid $bg-blue-darkest; 
-  background-color:$bg-black-darkest;
+  }
   
-  a {
-    color:white; text-decoration:none;
+  .kind-box {
+    position:absolute; top:15px; right:15px;
+  }
+  
+  &.articles {
+    .kind-box {
+      background:url(application/icon-articles.png) no-repeat 0 0; width:32px; height:29px;
+    }
+  }
+
+  &.videos {
+    .kind-box {
+      background:url(application/icon-videos.png) no-repeat 0 0; width:30px; height:27px;
+    }
+  }
+  
+  &.search {
+    form {
+      float:left; width:308px; margin-top:5px;
+      
+      span {
+        float:left; width:100%; height:27px; position:relative; @include border-radius(6px); background-color:white;
+        border:1px solid darken($bg-black-normal,20%);
+
+        img {
+          position:absolute; top:6px; left:7px; width:15px; height:15px;
+        }
+        
+        input {
+          border:none;
+        }
+
+        input[type="search"] {
+          position:absolute; top:0; left:29px; width:205px; height:25px;
+          
+          &::-webkit-input-placeholder,&::-moz-placeholder	{ font:normal 1.1em Arial; font-style:italic; color:darken($font-color-gray,30%); }
+        }
+                
+        
+
+        input[type="submit"] {
+          position:absolute; top:2px; right:3px; text-align:center;
+          @include border-radius(6px);
+          @include linear-gradient(black);
+          color:white;
+          font:normal 1.4em AbadiMTCondensedLightRegular;          
+        }
+        
+      }
+    }
+  }
+  
+  a.more {
+    float:right;
+    margin-top:10px;
+    margin-right:18px;
+    font:bold 1em Arial; color:white;
     
     &:hover {
-      color:darken(white,50%);
+      color:$font-color-orange;
     }
-
   }
   
-  .layout {
-    background-color:$bg-black-darkest; 
-    height:222px;
+  
+  ul {
+    float:left; margin-top:15px; width:100%;
     
-    .left {
-      float:left; width:420px;
+    li {
+      float:left; width:307px;
+      padding:5px 15px;
+      background-color:lighten($bg-black-normal,10%);
+      color:white;
       
-      ul {
-        
-        float:left;
-        width:100%;
-        margin-top:95px;
-        position:relative;
+      &.odd {
+        background-color:$bg-black-normal;        
+      } 
+           
+      &:hover {
+        background-color:$bg-color-hover;
+        cursor:pointer;
+      }
       
-        p {
-          position:absolute;
-          bottom:30px;
-          left:0px;
-          color:$font-color-gray;
-          font:normal 1.4em AbadiMTCondensedLightRegular;
-          display:none;
-          
-        }
-        
-        li {
-          float:left;
-          margin-right:10px;
-          
-          a {
-            float:left;
-            background:url(application/social-icons.png) no-repeat 0 0;
-            width:24px; height:24px;
-
-            $icon-height:-24px;
-            
-            &:hover {
-              &:before {
-                display:inline;
-              }
-            }
-                      
-            &.facebook {
-              background-position:0 0;
-              &:hover {
-                background-position:0 $icon-height;
-                
-              }
-            }
-            
-            &.twitter {
-              background-position:-24px 0;
-              &:hover {
-                background-position:-24px $icon-height;
-              }
-            }
-
-            &.flickr {
-              background-position:-48px 0;
-              &:hover {
-                background-position:-48px $icon-height;
-              }
-            }
-
-            &.mail {
-              background-position:-72px 0;
-              &:hover {
-                background-position:-72px $icon-height;
-              }
-            }
-
-            &.vimeo {
-              background-position:-96px 0;
-              &:hover {
-                background-position:-96px $icon-height;
-              }
-            }
-
-            &.rss {
-              background-position:-120px 0;
-              &:hover {
-                background-position:-120px $icon-height;
-              }
-            }
-          } // a
-          
-        } // li
-      } // ul
-    } // left
-    
-    a.logo { font:normal 4.0em/1.5em YanoneKaffeesatzRegular; color:white; text-decoration:none; letter-spacing:-1.0px;
-        
-        &:hover {
-          @include text-blur($bg-black-darkest);
-          @include hover-transition;
-        }        
-
-        em {
-          font-size:0.7em;
-        }
-    } // a.logo
-    
-    .right {
+      p {
+        float:left; font:bold 1.5em QuicksandBook; width:13px; margin-right:6px; height:100%;
+      }
       
-      float:right;
-      width:700px;
-      height:100%;
-      
-      position:relative;
-      
-      nav {
-        float:right;
-        width:100%;
-        background:none;
-        margin-top:20px;
+      a {
+        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; font:normal 1.3em AbadiMTCondensedLightRegular;
         
-        ul {
-          float:right;
-          width:100%;
-          
-          li {
-            float:right; margin-left:50px;
-            
-            a {
-              font:normal 1.7em AbadiMTCondensedLightRegular;            
-            } 
-          } // li
-          
-        } // ul
-      } // nav
-      
-      .sign {
-        position:absolute;
-        bottom:25px;
-        right:0;
-        
-        color:white;
-        
-        img {
-          float:right;
-          width:64px;
-          height:23px; padding-bottom:7px;
-        }
-        
-        p {
-          float:right; width:100%; text-align:right;
-          font:normal 1.2em/0.8em AbadiMTCondensedLightRegular;
-        }
-        
-        a {
-          font:normal 1.2em AbadiMTCondensedLightRegular;
-          
+        span {
+          font-size:0.9em;
         }
         
       }
-    } // .right
-    
-  } // .layout
+    }
+  }
   
-} // footer
+  
+  
+}
 
 
+@import "partials/header";
+@import "partials/footer";
+@import "partials/advertisement";

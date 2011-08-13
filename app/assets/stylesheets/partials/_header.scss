@@ -1,0 +1,98 @@
+header {
+  float:left;
+  width:100%;
+  height:80px;
+  background-color:$bg-black-darkest;
+
+  .layout {
+    
+    .inner-layout {
+      background-color:$bg-black-darkest;
+    }
+ 
+    height:100%;
+    h1 {
+      float:left; margin-left:$margin-left-header;
+      a { font:normal 5.3em/1.1em YanoneKaffeesatzRegular; color:white; text-decoration:none; letter-spacing:-1.0px;
+        
+        &:hover {
+          @include text-blur($bg-black-darkest);
+          @include hover-transition;
+        }        
+        
+        em {
+          font-size:0.6em;
+        }
+      }
+    }
+  }
+}
+
+nav {
+  float:left;
+  background-color:$bg-blue-darkest;
+  width:100%;
+  height:49px;
+
+  .layout {
+    position:relative;
+    background-color:$bg-blue-darkest;
+    height:100%;
+    
+    .inner-layout {
+      background-color:$bg-blue-darkest; padding-bottom:0;
+    }
+    
+    .domingo {
+      background:url(application/header-domingo.png) no-repeat 0 0;
+      width:138px;
+      height:198px;
+      position:absolute; bottom:0; left:40px;
+    }
+    
+    ul {
+      float:left; margin-left:$margin-left-header; margin-top:6px;
+      
+      li {
+        float:left; margin-right:45px;
+        }
+        
+        
+        a {
+
+          float:left; font:normal 1.9em AbadiMTCondensedLightRegular; color:white; text-decoration:none; padding:4px 12px;
+
+          &:hover {
+            background-color:lighten($bg-blue-darkest, 7%);
+            @include border-radius(6px);
+            // @include hover-transition(50ms);
+            @include box-shadow (0px,0px,20px,0.4);
+          }
+
+          &.selected {
+            border:1px solid darken($bg-blue-darkest, 7%);
+            background-color:lighten($bg-blue-darkest, 7%);
+            @include border-radius(6px);
+            @include box-shadow-inset;
+          }
+        }
+        
+    } // ul
+    
+    .user_options {
+      float:right;
+      width:200px;
+      
+      ul {
+        float:right;
+        margin-left:0;
+        
+        li {
+          float:right;
+          margin:0;
+        }
+      }
+    }
+    
+  } // .layout
+} // nav
