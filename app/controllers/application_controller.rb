@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?, :post_path, :translate_category
 
+  before_filter :authenticate
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
@@ -42,6 +44,13 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def authenticate
+    return true unless Rails.env.production?
+    authenticate_or_request_with_http_digest do |username|
+      ENV['PROWELLNESS_PASSWORD']
+    end
+  end
 
   def admin_required
     logged_in? && current_user.admin?
