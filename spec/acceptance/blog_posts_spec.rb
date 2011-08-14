@@ -27,7 +27,7 @@ feature 'Blog Posts', %q{
 
     visit "/blog/ejercicios-para-programadores"
     page.should have_css("div.navigation a.selected", :text => "Blog")
-    page.should have_content("Blog de #{admin.name_and_surname}")
+    page.should have_content("Blog de Domingo Sánchez")
     page.should have_content("Ejercicios para programadores")
     page.should have_content("dieta")
     page.should have_content("ejercicio")
@@ -69,7 +69,7 @@ feature 'Blog Posts', %q{
     visit blog_path
 
     page.should have_css("div.navigation a.selected", :text => "Blog")
-    page.should have_content("Blog de #{admin.name_and_surname}")
+    page.should have_content("Blog de Domingo Sánchez")
 
     within(:css, "div.main_post") do
       page.should have_css("h2", :text => "Ejercicios para programadores #6")
