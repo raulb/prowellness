@@ -156,6 +156,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.other_blog_posts(options = {})
+    options[:exclude_ids] = options[:exclude_ids].empty? ? options[:exclude_ids] = [-1] : options[:exclude_ids]
     where("? = ANY(categories)", "blog").
     where("id not IN (#{options[:exclude_ids].join(',')})").
     order_by_publish_date.
