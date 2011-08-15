@@ -51,4 +51,8 @@ module ApplicationHelper
     end
   end
 
+  def posts_pagination(posts)
+    paginate(posts, :remote => true)
+  end
+
 end

@@ -1,0 +1,8 @@
+<h2>Otras entradas en el blog</h2>
+<ul>
+  <% @other_posts.each do |post| %>
+  <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
+  <% end %>
+</ul>
+
+<%= posts_pagination(@other_posts) %>

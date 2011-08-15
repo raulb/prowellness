@@ -45,10 +45,6 @@ class Post < ActiveRecord::Base
   scope :last_blog_posts, lambda { |how_many|
     where("? = ANY(categories)", "blog").order_by_publish_date.limit(how_many)
   }
-  scope :other_blog_posts, lambda { |how_many, offset|
-    where("? = ANY(categories)", "blog").order_by_publish_date.limit(how_many).offset(offset)
-  }
-
   mount_uploader :image, ImageUploader
 
   def draft?
@@ -157,6 +153,13 @@ class Post < ActiveRecord::Base
                          order_by_publish_date.limit(how_many)
     end
     result
+  end
+
+  def self.other_blog_posts(options = {})
+    where("? = ANY(categories)", "blog").
+    where("id not IN (#{options[:exclude_ids].join(',')})").
+    order_by_publish_date.
+    page(options[:page] || 1).per(options[:per_page])
   end
 
   private

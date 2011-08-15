@@ -26,7 +26,7 @@ feature 'Blog Posts', %q{
     page.should have_content "El post ha sido publicado correctamente"
 
     visit "/blog/ejercicios-para-programadores"
-    page.should have_css("div.navigation a.selected", :text => "Blog")
+    page.should have_css("ul li a.selected", :text => "blog")
     page.should have_content("Blog de Domingo Sánchez")
     page.should have_content("Ejercicios para programadores")
     page.should have_content("dieta")
@@ -44,31 +44,19 @@ feature 'Blog Posts', %q{
 
     1.upto(6) do |i|
       time_travel_to "#{7 - i} days ago"
-
-      click "Crear nuevo post"
-
-      fill_post :title => "Ejercicios para programadores ##{i}",
-                :category => "Blog"
-
-      click "Publicar"
-      page.should have_content "El post ha sido publicado correctamente"
-
+      post = create_post :title => "Ejercicios para programadores ##{i}", :categories => "blog", :user => admin
       back_to_the_present
     end
 
-    time_travel_to "6 days ago"
-    click "Crear nuevo post"
-
-    fill_post :title => "Ejercicios de fitness",
-              :category => "Artículos > Fitness"
-
-    click "Publicar"
-    page.should have_content "El post ha sido publicado correctamente"
-    back_to_the_present
+    1.upto(10) do |i|
+      time_travel_to "#{30 - i} days ago"
+      post = create_post :title => "Antiguos ejercicios para programadores ##{i}", :categories => "blog", :user => admin
+      back_to_the_present
+    end
 
     visit blog_path
 
-    page.should have_css("div.navigation a.selected", :text => "Blog")
+    page.should have_css("ul li a.selected", :text => "blog")
     page.should have_content("Blog de Domingo Sánchez")
 
     within(:css, "div.main_post") do
@@ -79,23 +67,32 @@ feature 'Blog Posts', %q{
     page.all("div.post")[1].find("h2").text.should == "Ejercicios para programadores #4"
     page.all("div.post")[2].find("h2").text.should == "Ejercicios para programadores #3"
 
-    # TODO: this does not work. A mistery...
-    # within(:css, "body div.post:nth-child(1)") do
-    #   page.should have_css("h2", :text => "Ejercicios para programadores #5")
-    # end
-    #
-    # within(:css, "div.post:nth-child(2)") do
-    #   page.should have_css("h2", :text => "Ejercicios para programadores #4")
-    # end
-    #
-    # within(:css, "div.post:nth-child(3)") do
-    #   page.should have_css("h2", :text => "Ejercicios para programadores #3")
-    # end
-
     within(:css, "div.others") do
       page.should have_content("Otras entradas en el blog")
       page.should have_css("li.short_post:eq(1) a[@href$='/blog/ejercicios-para-programadores-2']", :text => "Ejercicios para programadores #2")
       page.should have_css("li.short_post:eq(2) a[@href$='/blog/ejercicios-para-programadores-1']", :text => "Ejercicios para programadores #1")
+      page.should have_css("li.short_post:eq(3) a[@href$='/blog/antiguos-ejercicios-para-programadores-10']", :text => "Antiguos ejercicios para programadores #10")
+      page.should have_css("li.short_post:eq(4) a[@href$='/blog/antiguos-ejercicios-para-programadores-9']",  :text => "Antiguos ejercicios para programadores #9")
+      page.should have_css("li.short_post:eq(5) a[@href$='/blog/antiguos-ejercicios-para-programadores-8']",  :text => "Antiguos ejercicios para programadores #8")
+    end
+
+    click "2"
+
+    within(:css, "div.others") do
+      page.should have_content("Otras entradas en el blog")
+      page.should have_css("li.short_post:eq(1) a[@href$='/blog/antiguos-ejercicios-para-programadores-7']",  :text => "Antiguos ejercicios para programadores #7")
+      page.should have_css("li.short_post:eq(2) a[@href$='/blog/antiguos-ejercicios-para-programadores-6']",  :text => "Antiguos ejercicios para programadores #6")
+      page.should have_css("li.short_post:eq(3) a[@href$='/blog/antiguos-ejercicios-para-programadores-5']",  :text => "Antiguos ejercicios para programadores #5")
+      page.should have_css("li.short_post:eq(4) a[@href$='/blog/antiguos-ejercicios-para-programadores-4']",  :text => "Antiguos ejercicios para programadores #4")
+      page.should have_css("li.short_post:eq(5) a[@href$='/blog/antiguos-ejercicios-para-programadores-3']",  :text => "Antiguos ejercicios para programadores #3")
+    end
+
+    click "3"
+
+    within(:css, "div.others") do
+      page.should have_content("Otras entradas en el blog")
+      page.should have_css("li.short_post:eq(1) a[@href$='/blog/antiguos-ejercicios-para-programadores-2']",  :text => "Antiguos ejercicios para programadores #2")
+      page.should have_css("li.short_post:eq(2) a[@href$='/blog/antiguos-ejercicios-para-programadores-1']",  :text => "Antiguos ejercicios para programadores #1")
     end
   end
 

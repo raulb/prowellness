@@ -15,12 +15,7 @@
 <% end %>
 
 <% if @other_posts.any? %>
-<div class="others">
-  <h2>Otras entradas en el blog</h2>
-  <ul>
-    <% @other_posts.each do |post| %>
-    <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
-    <% end %>
-  </ul>
+<div class="others" id="others">
+  <%= render "others" %>
 </div>
 <% end %>
