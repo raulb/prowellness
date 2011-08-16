@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/thedarkone/rails-dev-boost.git
+  revision: 46fd99659f6a192f0a60557f459ca70dbfac3e6e
+  specs:
+    rails-dev-boost (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -35,24 +41,24 @@ GEM
     arel (2.1.4)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
-    capistrano (2.6.0)
+    capistrano (2.8.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capybara (1.0.0)
+    capybara (1.0.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      selenium-webdriver (~> 0.2.0)
+      selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
     capybara-firebug (0.0.8)
       capybara (~> 1.0)
-    carrierwave (0.5.6)
+    carrierwave (0.5.7)
       activesupport (~> 3.0)
-    childprocess (0.2.0)
+    childprocess (0.2.1)
       ffi (~> 1.0.6)
     chronic (0.6.2)
     columnize (0.3.4)
@@ -62,11 +68,11 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.7.0)
     exception_notification (2.4.1)
-    execjs (1.2.1)
+    execjs (1.2.4)
       multi_json (~> 1.0)
     ffi (1.0.9)
     git (1.2.5)
-    heroku (2.4.1)
+    heroku (2.4.2)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       term-ansicolor (~> 1.0.5)
@@ -82,7 +88,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    jquery-rails (1.0.12)
+    jquery-rails (1.0.13)
       railties (~> 3.0)
       thor (~> 0.14)
     json_pure (1.5.3)
@@ -114,7 +120,7 @@ GEM
     rack (1.3.2)
     rack-cache (1.0.2)
       rack (>= 0.4)
-    rack-mount (0.8.1)
+    rack-mount (0.8.2)
       rack (>= 1.0.0)
     rack-ssl (1.3.2)
       rack
@@ -136,7 +142,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2)
-    rdoc (3.9.1)
+    rdoc (3.9.2)
     rest-client (1.6.3)
       mime-types (>= 1.16)
     rspec (2.6.0)
@@ -163,7 +169,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
-    sass (3.1.5)
+    sass (3.1.7)
     sass-rails (3.1.0.rc.5)
       actionpack (~> 3.1.0.rc1)
       railties (~> 3.1.0.rc1)
@@ -173,15 +179,15 @@ GEM
       jeweler
       jeweler
     selenium-client (1.2.18)
-    selenium-webdriver (0.2.2)
-      childprocess (>= 0.1.9)
+    selenium-webdriver (2.4.0)
+      childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
-    sprockets (2.0.0.beta.12)
+    sprockets (2.0.0.beta.13)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (!= 1.3.0, ~> 1.1)
+      tilt (~> 1.1, != 1.3.0)
     steak (2.0.0)
       capybara (>= 1.0.0)
       rspec-rails (>= 2.5.0)
@@ -193,7 +199,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    uglifier (1.0.0)
+    uglifier (1.0.1)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     xpath (0.1.4)
@@ -219,6 +225,7 @@ DEPENDENCIES
   mocha
   pg
   rails (= 3.1.0.rc5)
+  rails-dev-boost!
   rspec
   rspec-rails
   ruby-debug19
