@@ -118,6 +118,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.get_last_articles(how_many, exclude_ids, category = nil)
+    exclude_ids += [-1]
     unless category
       result = {}
       %W{ fitness mujer nutricion mi-opinion }.each do |category|
