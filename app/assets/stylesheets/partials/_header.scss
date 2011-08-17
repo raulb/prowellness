@@ -47,7 +47,7 @@ nav {
       background:url(application/header-domingo.png) no-repeat 0 0;
       width:138px;
       height:198px;
-      position:absolute; bottom:0; left:40px;
+      position:absolute; bottom:0; left:12px;
     }
     
     ul {
@@ -60,7 +60,7 @@ nav {
         
         a {
 
-          float:left; font:normal 1.9em AbadiMTCondensedLightRegular; color:white; text-decoration:none; padding:4px 12px;
+          float:left; font:normal 1.9em AbadiMTCondensedLight; color:white; text-decoration:none; padding:4px 12px;
 
           &:hover {
             background-color:lighten($bg-blue-darkest, 7%);

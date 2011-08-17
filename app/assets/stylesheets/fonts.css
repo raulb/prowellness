@@ -11,13 +11,26 @@
 }
 
 @font-face {
-    font-family: 'AbadiMTCondensedLightRegular';
+    font-family: 'AbadiMTCondensedLight';
     src: url('/fonts/abadi_mt_condensed_light-webfont.eot');
     src: url('/fonts/abadi_mt_condensed_light-webfont.eot?#iefix') format('embedded-opentype'),
          url('/fonts/abadi_mt_condensed_light-webfont.woff') format('woff'),
          url('/fonts/abadi_mt_condensed_light-webfont.ttf') format('truetype'),
          url('/fonts/abadi_mt_condensed_light-webfont.svg#AbadiMTCondensedLightRegular') format('svg');
     font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* LEFT EOT FILE*/
+@font-face {
+    font-family: 'AbadiMTCondensedLight';
+
+    src: url('/fonts/abadiMT-CondensedExtraBold.woff') format('woff'),
+         url('/fonts/abadiMT-CondensedExtraBold.ttf') format('truetype'),
+         url('/fonts/abadiMT-CondensedExtraBold.svg#abadiMT-CondensedExtraBold') format('svg');
+    font-weight: bold;
     font-style: normal;
 
 }

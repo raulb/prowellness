@@ -7,14 +7,22 @@ $font-color-gray:#CCCCCC;
 $font-color-orange:#FF6600;
 
 // common-background colors
+
 $bg-black-darkest:#1B1B1B;
 $bg-black-normal:#333333;
 $bg-blue-darkest:#346F87;
 $bg-color-ads:#F5F5F5; // Background color for all advertisement elements
 $bg-color-hover:#B34700;
-$margin-left-header:160px;
+$margin-left-header:130px;
 
 $space-top-boxes:15px;
+
+// articles
+$border-info-color:#CCCCCC;
+$title-font-color:#336D85;
+$date-font-color:#666666;
+$bg-tags-color:#999999;
+
 
 // FUNCTIONS ***************************************************************
 @mixin box-shadow ($x-radius:0px,$y-radius:0px,$length:10px,$alpha:0.3) {
@@ -81,14 +89,15 @@ $space-top-boxes:15px;
 // STYLES ***************************************************************
 
 body {background-color:#D2D2D2; font-family:Arial; font-size:12px; color:#333333;}
+p,a { font:normal 1.0em Arial; color:$bg-black-normal;}
 
 .layout {
-   width:1120px;
+   width:1147px;
    margin:0 auto;
    
    .inner-layout {
      float:left;
-     width:1120px; height:100%;
+     width:1067px; height:100%;
      padding:0 40px 25px;
      background-color:#FFF;
      @include box-shadow(0px,-1px,30px,0.3);
@@ -207,7 +216,7 @@ aside {
           @include border-radius(6px);
           @include linear-gradient(black);
           color:white;
-          font:normal 1.4em AbadiMTCondensedLightRegular;          
+          font:normal 1.4em AbadiMTCondensedLight;          
         }
         
       }
@@ -245,11 +254,11 @@ aside {
       }
       
       p {
-        float:left; font:bold 1.5em QuicksandBook; width:13px; margin-right:6px; height:100%;
+        float:left; font:bold 1.5em QuicksandBook; width:13px; margin-right:6px; height:100%; color:white;
       }
       
       a {
-        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; font:normal 1.3em AbadiMTCondensedLightRegular;
+        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; font:normal 1.3em AbadiMTCondensedLight;
         
         span {
           font-size:0.9em;

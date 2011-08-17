@@ -1,3 +1,119 @@
 // Place all the styles related to the blog_posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "application";
+
+.posts {
+  
+  img {
+    float:left; margin-right:15px;
+    width:311px; height:187px;
+  }
+  
+  h2 {
+    width:100%; margin-top:4px;
+
+    a {
+      font:normal 1.9em YanoneKaffeesatzRegular;
+      text-decoration:none;
+      color:$title-font-color;
+
+      &:hover {
+        color:darken($title-font-color,20%);
+      }
+    }
+
+  }
+  
+  .tags {
+    float:left; width:100%; margin-top:16px;
+    
+    li {
+      margin:0 5px 0 0;
+      
+      a {
+        font:normal 0.9em Arial; color:white;
+        text-decoration:none;
+        padding:3px 8px; background-color:$bg-tags-color;
+        @include border-radius(4px);
+        
+        &:hover {
+          background-color:darken($bg-tags-color,20%);
+          cursor:pointer;
+        }
+        
+      }
+    }
+  }
+  .main_post {
+    float:left; margin:0;
+
+    h2 {
+      a {
+        font-size:2.1em;
+      }
+    }
+    div {
+      float:left; height:auto;
+    }
+
+    img {
+      width:665px;
+      height:371px;
+      padding-bottom:10px;
+    }
+  }
+  
+  
+  li {
+    float:left; margin-top:40px;
+    position:relative;
+  
+    div {
+      padding:11px 11px 15px;
+      width:667px;
+      border:1px solid $border-info-color;
+      float:left; z-index:10;
+    }
+    
+    .date {
+      margin-top:3px;
+      font:normal 1.0em Arial;
+      color:$date-font-color;
+    }
+    
+    .post {
+      margin-top:10px; width:100%; 
+      
+      a {
+        color:$date-font-color;
+        text-decoration:underline;
+
+        &:hover {
+          color:darken($date-font-color,20%);
+        }
+        
+      }
+      
+    }
+  
+    .shadow {
+      position:absolute; bottom:-16px; left:0;
+      z-index:0;
+      background:url(application/wide-shadow.png) no-repeat 0 0;
+      width:689px;
+      height:16px;
+    }
+    
+    &:hover {
+      div {
+        border-color:darken($border-info-color,10%);
+      }
+      
+      .shadow {
+        background:url(application/wide-shadow-hover.png) no-repeat 0 0;
+      }
+      
+    }
+  }
+}

@@ -1,18 +1,40 @@
-<h1>Blog de Domingo Sánchez</h1>
+<%= stylesheet_link_tag "blog_posts" %>
 
-<% @posts.each_with_index do |post, i| %>
-  <div class="<%= i ==  0 ? "main_post" : "post" %>">
-    <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
-    <p>
-      <%= image_tag post.image.heading.url, :alt => post.title %>
-    </p>
-    <p>
-      <%= post.publish_date.strftime("%d/%b/%Y") %>
-    </p>
-    <%= post.excerpt %> <%= link_to("seguir leyendo", post_path(post), :title => post.title) %>
-    <p class="tags"><%= post.tags.join(', ') %></p>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Blog de Domingo Sánchez</h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
   </div>
-<% end %>
+
+</header>
+
+
+<ul class="posts">
+  <% @posts.each_with_index do |post, i| %>
+
+    <li class="<%= i ==  0 ? "main_post" : "post" %>">
+      <div>
+        <%=link_to( image_tag(post.image.heading.url, :alt => post.title), post_path(post)) %>
+
+        <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+        <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+        
+        <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+        
+        <ul class="tags">
+          <%  post.tags.each do |tag| %>
+            <li><a href="#"><%= tag %></a></li>
+          <% end %>
+        </ul>
+
+      </div>
+      <span class="shadow"></span>
+    </li>
+  <% end %>
+</ul>
 
 <% if @other_posts.any? %>
 <div class="others" id="others">
