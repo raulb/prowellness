@@ -1,7 +1,16 @@
 // Place all the styles related to the blog_posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$spacing:40px;
+
 @import "application";
+
+.date {
+  margin-top:2px;
+  font:normal 1.0em Arial;
+  color:$date-font-color;
+}
 
 .posts {
   
@@ -66,7 +75,7 @@
   
   
   li {
-    float:left; margin-top:40px;
+    float:left; margin-top:$spacing;
     position:relative;
   
     div {
@@ -74,12 +83,6 @@
       width:667px;
       border:1px solid $border-info-color;
       float:left; z-index:10;
-    }
-    
-    .date {
-      margin-top:3px;
-      font:normal 1.0em Arial;
-      color:$date-font-color;
     }
     
     .post {
@@ -113,6 +116,54 @@
       .shadow {
         background:url(application/wide-shadow-hover.png) no-repeat 0 0;
       }
+      
+    }
+  }
+}
+
+.others {
+  float:left; margin-top:$spacing; width:100%;
+  
+  .header {
+    @include border-radius-top(10px);
+    background-color:$bg-blue-darkest;
+    padding:10px 15px;
+    
+    h2 {
+      font:normal 2.0em QuicksandBook; color:white; letter-spacing:-2.0px;
+    }
+  }
+  
+  .short_post {
+    
+    li{
+      float:left;
+      height:40px;
+      width:659px;
+      padding:10px 15px;
+      
+      h4 {
+        width:100%;
+
+        a {
+          font:normal 1.7em YanoneKaffeesatzRegular;
+          text-decoration:none;
+          color:$title-font-color;
+
+          &:hover {
+            color:darken($title-font-color,20%);
+          }
+        }
+      }
+      
+      &.odd {
+        background-color:$bg-color-ads;
+      }
+      
+      &.even {
+        background-color:white;        
+      }
+      
       
     }
   }
