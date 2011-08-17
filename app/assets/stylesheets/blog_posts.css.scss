@@ -168,3 +168,76 @@ $spacing:40px;
     }
   }
 }
+
+.pagination {
+  background-color:$bg-black-normal;
+  @include border-radius-bottom(10px);
+  padding-top:8px;
+  height:22px;
+  
+  text-align:center;
+  
+  span {
+    color:white;
+    
+    &.first {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat 2px 1px $bg-pag-normal;
+        padding-top:3px;
+        padding-left:16px;
+      }
+    }
+    
+    &.prev {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat 2px -17px $bg-pag-normal;
+        padding-top:3px;
+        padding-left:16px;
+      }
+      margin:0 5px;
+    }
+    
+    
+    &.next {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat -15px -17px $bg-pag-normal;
+        padding-top:3px;
+        padding-left:16px;
+      }
+      margin:0 5px;
+    }
+    
+    &.last {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat -15px 1px $bg-pag-normal;
+        padding-top:3px;
+        padding-left:16px;
+      }
+    }
+    
+    a {
+      with:100%; height:100%; text-align:center;
+      background-color:$bg-pag-normal; 
+      font:normal 1em Arial; color:white;
+      padding:3px 7px;
+      font:normal 1em Arial; color:white;
+      @include border-radius(3px);
+      
+      text-decoration:none;
+      
+      &:hover {
+        background-color:lighten($bg-pag-normal,20%);
+      }
+    }
+    
+    &.current {
+      a {
+        background-color:$bg-pag-current; 
+      }
+    }
+  }
+}
