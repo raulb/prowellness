@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "posts" %>
+
 <header>
   <span class="left-band"></span>
   <div class="right-band">
@@ -9,14 +11,49 @@
 
 </header>
 
-<h2><%= @post.title %></h2>
 
-<%= @post.excerpt.try(:html_safe) %>
+<div id="header_article">
+  <h3>
+    <%= @post.title %>
+    <!-- MOSTRAR EL AUTOR DEL POST -->
+    <em>- por Domingo Sánchez</em>  
+  </h3>
+  <div id="date">
+    <p class="day"><%= @post.publish_date.strftime("%d") %></p>
+    <p class="month"><%= @post.publish_date.strftime("%b") %></p>
+    <p class="year"><%= @post.publish_date.strftime("%Y") %></p>        
+  </div>
+  
 
-<% if @post.image? %>
-  <%= image_tag @post.image.heading.url %>
-<% end %>
+  <% if @post.image? %>
+    <div id="article_image">
+      <%= image_tag @post.image.heading.url %>    
+      <span class="shadow"></span>
+    </div>
+  <% end %>
+</div>
 
-<%= @post.body.try(:html_safe) %>
 
-<p><%= @post.tags.join(' ') %></p>
+<article>
+  
+  <!-- A qué corresponde esto? -->
+  <p><%= @post.excerpt.try(:html_safe) %></p>
+  
+  <p><%= @post.body.try(:html_safe) %></p>
+
+  <footer>
+    <div class="left">
+      <h5>TAGS</h5>
+      <ul class="tags">
+        <%  @post.tags.each do |tag| %>
+          <li><a href="#"><%= tag %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    
+    <div class="right">
+      
+    </div>
+  </footer>
+
+</article>

@@ -22,7 +22,7 @@ $border-info-color:#CCCCCC;
 $title-font-color:#336D85;
 $date-font-color:#666666;
 $bg-tags-color:#999999;
-
+$bg-date-color:#0899B3;
 $bg-pag-normal:#1A1A1A;
 $bg-pag-current:#FF0000;
 
@@ -136,7 +136,7 @@ section {
 
 section {
   header {
-    position:relative; float:left; width:689px; background:none; margin-top:30px;
+    position:relative; float:left; width:689px; background:none; margin-top:27px;
     
     h2 {
       font:normal 2.3em QuicksandBook; color:white; letter-spacing:-2.0px;
@@ -291,8 +291,6 @@ aside {
       }
     }
   }
-  
-  
   
 }
 

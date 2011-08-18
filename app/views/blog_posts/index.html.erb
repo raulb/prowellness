@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "blog_posts" %>
+<%= stylesheet_link_tag "blog_posts","posts" %>
 
 <header>
   <span class="left-band"></span>
@@ -10,7 +10,6 @@
   </div>
 
 </header>
-
 
 <ul class="posts">
   <% @posts.each_with_index do |post, i| %>
