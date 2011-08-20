@@ -5,7 +5,7 @@ require 'spec_helper'
 describe User do
   context "a new user" do
     let(:user) { User.new }
-    
+
     it "should require an e-mail and a name and surname" do
       user.save
       user.should be_invalid
@@ -13,7 +13,7 @@ describe User do
       user.errors[:password].should_not be_nil
       user.errors[:name_and_surname].should_not be_nil
     end
-    
+
     it "has to match the password and the password confirmation" do
       user.password = 'admin123'
       user.password_confirmation = 'admin321'
@@ -23,8 +23,19 @@ describe User do
       user.should_not be_valid
       user.errors[:password].should_not be_nil
     end
+
+    it "must has an confirmation token when created" do
+      user.password = 'admin123'
+      user.password_confirmation = 'admin123'
+      user.email = 'user@example.com'
+      user.name_and_surname = 'Name and surname'
+      user.save
+      user.reload
+      user.should be_valid
+      user.confirmation_token.should_not be_nil
+    end
   end
-  
+
   context "an admin user" do
     let(:admin) do
       user = User.new :email => 'admin@example.com', :password => 'admin123',
@@ -34,12 +45,17 @@ describe User do
       user.reload
       user
     end
-    
+
     it "should be administrator" do
       admin.should be_admin
     end
-    
-    it "should be able to get authenticated" do
+
+    it "should be able to get authenticated if confirmed" do
+      User.authenticate('admin@example.com', 'admin123').should be_nil
+      User.authenticate('admin@example.com', 'admin321').should be_nil
+
+      admin.activate!
+
       User.authenticate('admin@example.com', 'admin123') == admin
       User.authenticate('admin@example.com', 'admin321').should be_nil
     end

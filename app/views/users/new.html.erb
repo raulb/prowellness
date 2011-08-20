@@ -1,0 +1,28 @@
+<p>Introduce tus datos para registrarte</p>
+<p><%= link_to("¿por qué debo registrarme", "#", :anchor => "why") %></p>
+
+<%= form_for(@user) do |f| %>
+  <%= f.label :name_and_surname, "nombre de usuario" %>
+  <%= f.text_field :name_and_surname %>
+
+  <%= f.label :email, "email" %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, "contraseña" %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, "confirma contraseña" %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.check_box :newsletter %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
+
+  <%= f.submit "registrar" %>
+<% end %>
+
+<div id="why">
+  <h2>Por qué debes registrarte</h2>
+  <ol>
+    <li>Porque es gratis</li>
+    <li>...</li>
+  </ol>
+</div>

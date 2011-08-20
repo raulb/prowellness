@@ -15,7 +15,7 @@
         <div class="banner"></div>
       </div> <!-- banner-top-content -->
     </div>
-  </div> 
+  </div>
 
   <header>
     <div class="layout">
@@ -35,13 +35,16 @@
           <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
           <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>
         </ul>
-      
+
         <div class="user_options">
           <ul>
-            <li><a href="#">registro</a></li>
-          
-            <!-- Esto de momento lo pongo así aunque el login se hará en un desplegable que salga -->
-            <li><%= link_to("login", login_path) %></li>
+            <% unless logged_in? %>
+              <li><%= link_to("registro", new_users_path) %></li>
+              <!-- Esto de momento lo pongo así aunque el login se hará en un desplegable que salga -->
+              <li><%= link_to("login", login_path) %></li>
+            <% else %>
+              Hola <%= link_to(current_user.email, "#") %>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -52,7 +55,7 @@
   <div class="layout">
     <div class="inner-layout">
       <section>
-        <%= yield %>  
+        <%= yield %>
       </section>
 
       <aside>
@@ -61,8 +64,8 @@
           <form action="" method="get">
             <span>
               <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
-              
-              <input type="search" name="user_search" placeholder="Escribe lo que necesitas" results="5" />  
+
+              <input type="search" name="user_search" placeholder="Escribe lo que necesitas" results="5" />
               <input type="submit" value="buscar" />
             </span>
           </form>
@@ -74,9 +77,9 @@
           <span class="kind-box"></span>
           <ul>
             <li><p>1.</p><a href="#">Abdominales, 5 rutinas para tu cuerpo <span>(fitness)</span></a></li>
-            <li class="odd"><p>2.</p><a href="#">Hacer la compra, para una alimentación equilibrada <span>(nutrición)</span></a></li>              
+            <li class="odd"><p>2.</p><a href="#">Hacer la compra, para una alimentación equilibrada <span>(nutrición)</span></a></li>
             <li><p>3.</p><a href="#">La anemia, cómo evitarla <span>(fitness)</span></a></li>
-            <li class="odd"><p>4.</p><a href="#">Estrategias nutricionales para triatlón <span>(nutrición)</span></a></li>              
+            <li class="odd"><p>4.</p><a href="#">Estrategias nutricionales para triatlón <span>(nutrición)</span></a></li>
             <li><p>5.</p><a href="#">4 errores de entrenamiento que no te permiten perder peso <span>(fitness)</span></a></li>
           </ul>
           <a href="#" class="more">ver más artículos</a>
@@ -88,9 +91,9 @@
           <span class="kind-box"></span>
           <ul>
             <li><p>1.</p><a href="#">Abdominales, 5 rutinas para tu cuerpo <span>(fitness)</span></a></li>
-            <li class="odd"><p>2.</p><a href="#">Hacer la compra, para una alimentación equilibrada <span>(nutrición)</span></a></li>              
+            <li class="odd"><p>2.</p><a href="#">Hacer la compra, para una alimentación equilibrada <span>(nutrición)</span></a></li>
             <li><p>3.</p><a href="#">La anemia, cómo evitarla <span>(fitness)</span></a></li>
-            <li class="odd"><p>4.</p><a href="#">Estrategias nutricionales para triatlón <span>(nutrición)</span></a></li>              
+            <li class="odd"><p>4.</p><a href="#">Estrategias nutricionales para triatlón <span>(nutrición)</span></a></li>
             <li><p>5.</p><a href="#">4 errores de entrenamiento que no te permiten perder peso <span>(fitness)</span></a></li>
           </ul>
           <a href="#" class="more">ver más artículos</a>
@@ -110,9 +113,9 @@
 
   <footer>
     <div class="layout">
-      
+
       <div class="inner-layout">
-        
+
         <div class="left">
           <a href="/" class="logo">prowellness<em>.es</em></a>
 
@@ -149,7 +152,7 @@
         <div class="right">
           <nav>
             <ul>
-              <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>            
+              <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>
               <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
               <li><%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %></li>
             </ul>
@@ -163,9 +166,9 @@
         </div>
       </div>
 
-      
+
     </div>
   </footer>
-  
+
 </body>
 </html>

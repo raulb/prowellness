@@ -36,5 +36,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
   gem 'jasmine'
+  gem 'email_spec'
 end
 

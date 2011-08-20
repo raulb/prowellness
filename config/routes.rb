@@ -5,6 +5,10 @@ Prowellness::Application.routes.draw do
   get   '/logout' => 'sessions#destroy', :as => :logout
   match '/sessions/create' => 'sessions#create', :as => :create_session
 
+  get '/confirm/:confirmation_token' => 'users#confirm', :as => :confirm_account
+  resource :user, :only => [:edit, :update]
+  resource :users, :only => [:new, :create]
+
   namespace :admin do
     resources :posts, :except => [:show]
   end

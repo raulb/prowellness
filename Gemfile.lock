@@ -66,6 +66,9 @@ GEM
     delorean (1.1.0)
       chronic
     diff-lcs (1.1.2)
+    email_spec (1.2.1)
+      mail (~> 2.2)
+      rspec (~> 2.0)
     erubis (2.7.0)
     exception_notification (2.4.1)
     execjs (1.2.4)
@@ -214,6 +217,7 @@ DEPENDENCIES
   carrierwave
   database_cleaner
   delorean
+  email_spec
   exception_notification
   heroku
   jasmine

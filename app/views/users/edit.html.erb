@@ -1,0 +1,35 @@
+<%= flush_the_flash %>
+
+<p>Completa tu perfil o modifica algún dato si ha cambiado</p>
+
+<%= form_for @user do |f| %>
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar.thumb.url %>
+  <% end %>
+
+  <%= f.label :avatar, "avatar" %>
+  <%= f.file_field :avatar %>
+
+  <p>elige tu sexo</p>
+  <%= f.label :sex_0, "hombre" %>
+  <%= f.radio_button :sex, 0 %>
+
+  <%= f.label :sex_1, "mujer" %>
+  <%= f.radio_button :sex, 1 %>
+
+  <%= f.label :name_and_surname, "nombre de usuario" %>
+  <%= f.text_field :name_and_surname %>
+
+  <%= f.label :email, "email" %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, "contraseña" %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, "confirma contraseña" %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.check_box :newsletter %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
+
+  <%= f.submit "guardar datos" %>
+<% end %>
