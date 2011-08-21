@@ -16,18 +16,18 @@
   <h3>
     <%= @post.title %>
     <!-- MOSTRAR EL AUTOR DEL POST -->
-    <em>- por Domingo Sánchez</em>  
+    <em>- por Domingo Sánchez</em>
   </h3>
   <div id="date">
     <p class="day"><%= @post.publish_date.strftime("%d") %></p>
     <p class="month"><%= @post.publish_date.strftime("%b") %></p>
-    <p class="year"><%= @post.publish_date.strftime("%Y") %></p>        
+    <p class="year"><%= @post.publish_date.strftime("%Y") %></p>
   </div>
-  
+
 
   <% if @post.image? %>
     <div id="article_image">
-      <%= image_tag @post.image.heading.url %>    
+      <%= image_tag @post.image.heading.url %>
       <span class="shadow"></span>
     </div>
   <% end %>
@@ -35,10 +35,10 @@
 
 
 <article>
-  
-  <!-- A qué corresponde esto? -->
+
+  <!-- A qué corresponde esto? excerpt es el resumen y body es el cuerpo del artículo -->
   <p><%= @post.excerpt.try(:html_safe) %></p>
-  
+
   <p><%= @post.body.try(:html_safe) %></p>
 
   <footer>
@@ -50,10 +50,14 @@
         <% end %>
       </ul>
     </div>
-    
+
     <div class="right">
-      
+
     </div>
   </footer>
 
 </article>
+
+<div id="comments">
+<%= render(:partial => "comments/index") %>
+</div>

@@ -25,4 +25,6 @@ Prowellness::Application.routes.draw do
   get '/blog'                        => 'blog_posts#index',         :as => :blog
   get '/blog/:slug'                  => 'blog_posts#show',          :as => :blog_post
 
+  resources :comments
+
 end

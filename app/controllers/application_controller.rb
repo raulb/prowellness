@@ -70,6 +70,7 @@ class ApplicationController < ActionController::Base
     if @post.nil? || @post.draft? && current_user != @post.user
       render_404 and return false
     end
+    @comments = @post.comments.page(params[:comments_page])
   end
 
 end

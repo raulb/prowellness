@@ -1,0 +1,37 @@
+<h2>COMENTARIOS</h2>
+
+<% unless logged_in? %>
+
+  <p>¿Quieres publicar un comentario?</p>
+  <p>Para poder comentar un artículo debes ser un usuario regisrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
+
+  <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", login_path) %></p>
+<% else %>
+
+  <% if @comments.empty? %>
+    <p>Sé la primera persona en realizar un comentario</p>
+  <% else %>
+    <p>COMENTARIOS (<%= @post.comments.count %>)</p>
+    <% @comments.each do |comment| %>
+      <div class="comment" id="comment-<%= comment.id %>">
+        <p><%= image_tag(comment.user.avatar.thumb.url) %></p>
+        <p><%= comment.user.name_and_surname %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
+        <%= simple_format(comment.text) %>
+      </div>
+    <% end %>
+
+    <%= paginate(@comments, :remote => true, :param_name => :comments_page,
+                            :params => {:controller => 'comments', :action => 'index', :slug => @post.slug},
+                            :window => 10, :outer_window => 4) %>
+  <% end %>
+
+  <p>Añade un nuevo comentario</p>
+  <p>máx 200 caracteres</p>
+  <%= form_for @post.comments.new, :remote => true do |f| %>
+    <p><%= image_tag(current_user.avatar.thumb.url) %></p>
+    <%= f.text_area :text %>
+    <%= f.hidden_field :post_id, :value => @post.id %>
+    <%= f.submit "publicar comentario" %>
+  <% end %>
+
+<% end %>

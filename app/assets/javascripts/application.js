@@ -22,6 +22,6 @@ jQuery(document).ready(function($) {
   $('.info-box ul li').click(function(event) {
     window.location = $(this).children('a').attr('href');
   });
-    
-  
+
+
 });

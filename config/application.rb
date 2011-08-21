@@ -9,12 +9,14 @@ Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 
 module Prowellness
   class Application < Rails::Application
+    config.i18n.default_locale = 'es'
+
     config.encoding = "utf-8"
 
     config.filter_parameters += [:password]
 
     config.assets.enabled = true
-    
+
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",
       :sender_address => %{"notifier" <www-data@127.0.0.1>},

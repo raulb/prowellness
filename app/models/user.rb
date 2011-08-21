@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name_and_surname, :on => :create
   validates_uniqueness_of :email
   validates_uniqueness_of :name_and_surname
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
   before_create :set_confirmation_token
   after_create :deliver_confirmation_email
