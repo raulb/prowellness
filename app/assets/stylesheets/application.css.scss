@@ -115,6 +115,8 @@ $bg-pag-current:#FF0000;
 body {background-color:#D2D2D2; font-family:Arial; font-size:12px; color:#333333;}
 p,a { font:normal 1.0em Arial; color:$bg-black-normal;}
 
+a:hover {cursor:pointer;}
+
 .layout {
    width:1147px;
    margin:0 auto;
@@ -275,7 +277,6 @@ aside {
            
       &:hover {
         background-color:$bg-color-hover;
-        cursor:pointer;
       }
       
       p {
