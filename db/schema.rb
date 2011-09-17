@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20110820223038) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "text"
+    t.string   "ip"
     t.datetime "created_at"
   end
 

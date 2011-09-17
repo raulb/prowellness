@@ -1,28 +1,49 @@
-<p>Introduce tus datos para registrarte</p>
-<p><%= link_to("¿por qué debo registrarme", "#", :anchor => "why") %></p>
+<%= stylesheet_link_tag "register" %>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :name_and_surname, "nombre de usuario" %>
-  <%= f.text_field :name_and_surname %>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Registro</h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
 
-  <%= f.label :email, "email" %>
-  <%= f.text_field :email %>
+</header>
 
-  <%= f.label :password, "contraseña" %>
-  <%= f.password_field :password %>
+<div id="register_data">
+  <header>
+    <h3>Introduce tus datos para registrarte</h3>
+    <%= link_to("¿por qué debo registrarme", "#", :anchor => "why_register") %> 
+  </header>
+  <%= form_for(@user) do |f| %>
+    <%= f.label :name_and_surname, "nombre de usuario" %>
+    <%= f.text_field :name_and_surname %>
 
-  <%= f.label :password_confirmation, "confirma contraseña" %>
-  <%= f.password_field :password_confirmation %>
+    <%= f.label :email, "email" %>
+    <%= f.text_field :email %>
 
-  <%= f.check_box :newsletter %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
+    <%= f.label :password, "contraseña" %>
+    <%= f.password_field :password %>
 
-  <%= f.submit "registrar" %>
-<% end %>
+    <%= f.label :password_confirmation, "confirma contraseña" %>
+    <%= f.password_field :password_confirmation %>
 
-<div id="why">
-  <h2>Por qué debes registrarte</h2>
+    <%= f.check_box :newsletter %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
+
+    <%= f.submit "registrar" %>
+  <% end %>
+</div>
+
+<div id="why_register">
+  <h3>Por qué debes registrarte</h3>
   <ol>
-    <li>Porque es gratis</li>
-    <li>...</li>
+    <li><p>Porque es gratis</p></li>
+    <li><p>Sólo si estás registrado/a podrás consultar la guía visual relacionada con los <%= link_to("libros publicados", "#") %>.</p></li>
+    <li><p>Porque si no, no podrás comentar los artículos.</p></li>
+    <li><p>Estarás al día de todo lo relacionado con el fitness de forma saludable.</p></li>
+    <li><p>Porque próximamente recibirás ventajas que ni nosotros conocemos.</p></li>
   </ol>
+  
+  <a class="ok" onclick="">Está bien. Me has convencido, quiero registrarme</a>
 </div>
