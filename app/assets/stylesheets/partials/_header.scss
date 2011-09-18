@@ -89,7 +89,11 @@ nav {
         
         li {
           float:right;
-          margin:0;
+          margin-right:10px;
+          
+          &:first-child {
+            margin-right:0;
+          }
         }
       }
     }

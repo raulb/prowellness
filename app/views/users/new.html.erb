@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "register" %>
+<%= javascript_include_tag "user","library/custom-form-elements" %>
 
 <header>
   <span class="left-band"></span>
@@ -8,29 +9,38 @@
       <span class="triangle"></span>
     </div>
   </div>
-
 </header>
 
 <div id="register_data">
   <header>
     <h3>Introduce tus datos para registrarte</h3>
-    <%= link_to("¿por qué debo registrarme", "#", :anchor => "why_register") %> 
+    <a onclick="javascript:void $.scrollTo('#why_register',400);">¿por qué debo registrarme</a>
   </header>
   <%= form_for(@user) do |f| %>
-    <%= f.label :name_and_surname, "nombre de usuario" %>
-    <%= f.text_field :name_and_surname %>
-
-    <%= f.label :email, "email" %>
-    <%= f.text_field :email %>
-
-    <%= f.label :password, "contraseña" %>
-    <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation, "confirma contraseña" %>
-    <%= f.password_field :password_confirmation %>
-
-    <%= f.check_box :newsletter %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
-
+    <div class="field">
+      
+      <%= image_tag "user/icon-name.png", :alt => 'Username icon' %>
+      <%= f.label :name_and_surname, "nombre de usuario" %>
+      <%= f.text_field :name_and_surname %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-email.png", :alt => 'Email icon' %>      
+      <%= f.label :email, "email" %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-password.png", :alt => 'Password icon' %>            
+      <%= f.label :password, "contraseña" %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-repassword.png", :alt => 'Repeat password icon' %>
+      <%= f.label :password_confirmation, "confirma contraseña" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="field">      
+      <%= f.check_box :newsletter, :class=>'styled' %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
+    </div>
     <%= f.submit "registrar" %>
   <% end %>
 </div>
@@ -45,5 +55,5 @@
     <li><p>Porque próximamente recibirás ventajas que ni nosotros conocemos.</p></li>
   </ol>
   
-  <a class="ok" onclick="">Está bien. Me has convencido, quiero registrarme</a>
+  <a id="ok">Está bien. Me has convencido, quiero registrarme</a>
 </div>
