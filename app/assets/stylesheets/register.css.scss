@@ -173,12 +173,7 @@
   } // ol
   
   a {
-    color:$font-color-orange;
-    
-    &:hover {
-      color:darken($font-color-orange,20%);
-    }
-    
+        
     &#ok {
       float:right;
       font:normal 1.8em AbadiMTCondensedLight; 

@@ -80,11 +80,12 @@ nav {
     
     .user_options {
       float:right;
-      width:200px;
+      width:350px;
       
       ul {
         float:right;
         margin-left:0;
+        position:relative;
         
         li {
           float:right;
@@ -92,6 +93,28 @@ nav {
           
           &:first-child {
             margin-right:0;
+          }
+          
+          &.user {
+            padding-right:52px;
+            
+            p {
+              float:left; font:normal 1.9em AbadiMTCondensedLight; color:white; padding:4px 5px;
+            }
+            
+            a {
+              text-decoration:underline; font-size:1.4em; padding:8px 12px;
+            }
+            
+            .icon {
+              position:absolute; bottom:-6px; right:0;
+              
+              &.man {
+                background:url(application/man-logged.png) no-repeat right 0; width:46px; height:44px;
+              }
+              
+              
+            }
           }
         }
       }

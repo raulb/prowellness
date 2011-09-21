@@ -1,17 +1,18 @@
-<h2>COMENTARIOS</h2>
+<h5>COMENTARIOS (<%= @post.comments.count %>)</h5>
 
 <% unless logged_in? %>
 
-  <p>¿Quieres publicar un comentario?</p>
-  <p>Para poder comentar un artículo debes ser un usuario regisrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
-
-  <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", login_path) %></p>
+  <div class="not_logged">
+    <h6>¿Quieres publicar un comentario?</h6>
+    <p>Para poder comentar un artículo debes ser un usuario regisrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
+    <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", login_path) %></p>
+  </div>
 <% else %>
 
   <% if @comments.empty? %>
     <p>Sé la primera persona en realizar un comentario</p>
   <% else %>
-    <p>COMENTARIOS (<%= @post.comments.count %>)</p>
+
     <% @comments.each do |comment| %>
       <div class="comment" id="comment-<%= comment.id %>">
         <p><%= image_tag(comment.user.avatar.thumb.url) %></p>

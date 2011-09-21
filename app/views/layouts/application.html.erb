@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prowellness</title>
+  <title>ProWellness - Domingo Sánchez</title>
   <%= stylesheet_link_tag    "reset","fonts","application" %>
   <%= javascript_include_tag "application",
   "library/jquery-1.6.2.min","library/jquery-ui-1.8.16.custom.min","library/jquery.scrollTo-1.4.2-min" %>
   <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <meta name="keywords" content="prowellness, fitness, deporte, salud, ejercicios">
+  <meta name="description" content="Prowellness - Tu web de entrenamiento personal y fitness. Para estar en forma"/>
+  <link rel="shortcut icon" href="/favicon.ico" />  
 </head>
 <body>
 
@@ -45,7 +47,10 @@
               <!-- Esto de momento lo pongo así aunque el login se hará en un desplegable que salga -->
               <li><%= link_to("login", login_path) %></li>
             <% else %>
-              Hola <%= link_to(current_user.email, "#") %>
+              <li class="user">
+                <%= link_to(current_user.email, "#") %>
+                <span class="icon man"></span>
+              </li>
             <% end %>
           </ul>
         </div>
