@@ -52,7 +52,7 @@ module ApplicationHelper
   end
 
   def posts_pagination(posts)
-    paginate(posts, :remote => true)
+    paginate(posts, :remote => true, :params => {:action => 'index', :controller => controller_name})
   end
 
 end

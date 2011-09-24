@@ -33,7 +33,6 @@
   <% end %>
 </div>
 
-
 <article>
 
   <!-- A qué corresponde esto? excerpt es el resumen y body es el cuerpo del artículo -->
@@ -62,3 +61,8 @@
 
 </article>
 
+<% if @other_posts.any? %>
+  <div class="others" id="others">
+    <%= render "others" %>
+  </div>
+<% end %>

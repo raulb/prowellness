@@ -70,6 +70,7 @@ class ApplicationController < ActionController::Base
     if @post.nil? || @post.draft? && current_user != @post.user
       render_404 and return false
     end
+    @other_posts = Post.other_blog_posts(:page => params[:page], :per_page => 5, :exclude_ids => [@post.id])
     @comments = @post.comments.page(params[:comments_page])
   end
 
