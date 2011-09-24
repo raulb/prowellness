@@ -3,12 +3,11 @@
 <head>
   <title>ProWellness - Domingo Sánchez</title>
   <%= stylesheet_link_tag    "reset","fonts","application" %>
-  <%= javascript_include_tag "application",
-  "library/jquery-1.6.2.min","library/jquery-ui-1.8.16.custom.min","library/jquery.scrollTo-1.4.2-min" %>
+  <%= javascript_include_tag "application",  "library/jquery-1.6.2.min","library/jquery-ui-1.8.16.custom.min","library/jquery.scrollTo-1.4.2-min" %>
   <%= csrf_meta_tags %>
   <meta name="keywords" content="prowellness, fitness, deporte, salud, ejercicios">
   <meta name="description" content="Prowellness - Tu web de entrenamiento personal y fitness. Para estar en forma"/>
-  <link rel="shortcut icon" href="/favicon.ico" />  
+  <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
 
@@ -48,8 +47,7 @@
               <li><%= link_to("login", login_path) %></li>
             <% else %>
               <li class="user">
-                <!-- <p>Hola,</p> -->
-                <%= link_to(current_user.email, "#") %>
+                <%= link_to(current_user.email, edit_user_path) %>
                 <span class="icon man"></span>
               </li>
             <% end %>
@@ -168,7 +166,7 @@
           <div class="sign">
             <%= image_tag "application/bandb.png", :alt => 'Logo Barroso and Blat' %>
             <p>web diseñada y desarrollada por</p>
-            <p><a href="http://www.raulbarroso.com" target="_blank">Raúl Barroso</a> y <a href="http://fernando.blat.es/" target="_blank">Fernando Blat</a></p>
+            <p><a href="http://www.raulbarroso.com" target="_blank" rel="nofollow">Raúl Barroso</a> y <a href="http://fernando.blat.es/" target="_blank" rel="nofollow">Fernando Blat</a></p>
           </div>
 
         </div>
