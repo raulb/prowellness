@@ -48,6 +48,7 @@
               <li><%= link_to("login", login_path) %></li>
             <% else %>
               <li class="user">
+                <!-- <p>Hola,</p> -->
                 <%= link_to(current_user.email, "#") %>
                 <span class="icon man"></span>
               </li>

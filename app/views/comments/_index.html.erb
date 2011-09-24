@@ -1,22 +1,27 @@
+<%= javascript_include_tag "comments" %>
+
 <h5>COMENTARIOS (<%= @post.comments.count %>)</h5>
 
 <% unless logged_in? %>
 
   <div class="not_logged">
-    <h6>¿Quieres publicar un comentario?</h6>
-    <p>Para poder comentar un artículo debes ser un usuario regisrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
+    <h6>¿Quieres <%= (@comments.empty?)? 'ser la primera persona en':'' %> publicar un comentario?</h6>
+    <p>Para poder comentar un artículo debes estar registrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
     <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", login_path) %></p>
   </div>
 <% else %>
 
   <% if @comments.empty? %>
-    <p>Sé la primera persona en realizar un comentario</p>
+    <h6>Sé la primera persona en realizar un comentario</h6>
   <% else %>
 
     <% @comments.each do |comment| %>
       <div class="comment" id="comment-<%= comment.id %>">
-        <p><%= image_tag(comment.user.avatar.thumb.url) %></p>
-        <p><%= comment.user.name_and_surname %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
+        <span class="avatar">
+          <%= image_tag(comment.user.avatar.thumb.url) %>
+        </span>
+        
+        <p class="author"><%= comment.user.name_and_surname %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
         <%= simple_format(comment.text) %>
       </div>
     <% end %>
@@ -25,14 +30,22 @@
                             :params => {:controller => 'comments', :action => 'index', :slug => @post.slug},
                             :window => 10, :outer_window => 4) %>
   <% end %>
+  
+  <div class="logged">
+    <% if !@comments.empty? %>
+      <h6>Añade un nuevo comentario</h6>
+    <% end %>
+    
+    <%= form_for @post.comments.new, :remote => true do |f| %>
+      <p>máx <em id="left">500</em> caracteres</p>
+      <span class="avatar">
+        <%= image_tag(current_user.avatar.thumb.url) %>
+      </span>
 
-  <p>Añade un nuevo comentario</p>
-  <p>máx 200 caracteres</p>
-  <%= form_for @post.comments.new, :remote => true do |f| %>
-    <p><%= image_tag(current_user.avatar.thumb.url) %></p>
-    <%= f.text_area :text %>
-    <%= f.hidden_field :post_id, :value => @post.id %>
-    <%= f.submit "publicar comentario" %>
-  <% end %>
+      <%= f.text_area :text, :maxlength => 500 %>
+      <%= f.hidden_field :post_id, :value => @post.id %>
+      <%= f.submit "publicar comentario" %>
+    <% end %>
+  </div>
 
 <% end %>

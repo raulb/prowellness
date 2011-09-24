@@ -110,6 +110,42 @@ $bg-pag-current:#FF0000;
   
 }
 
+@mixin linear-gradient-hover($color:black) {
+
+  @if $color == green{
+    // if you need it with green gradient, define it!
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0.29, rgb(135,180,0)),
+        color-stop(0.83, rgb(104,142,0))
+    );
+    background-image: -moz-linear-gradient(
+        left center,
+        rgb(135,180,0) 29%,
+        rgb(104,142,0) 83%
+    );
+  }@else if $color == black{
+    background-image: linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -o-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -moz-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -webkit-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -ms-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.14, rgb(56,55,56)),
+    	color-stop(0.76, rgb(20,19,20))
+    );
+  }
+  
+}
+
+
+
 // STYLES ***************************************************************
 
 html {font-size: 62.5%;}
@@ -198,7 +234,7 @@ aside {
     
     a {
       color:white;
-      font:normal 1em QuicksandBook;
+      font:normal 0.9em Arial; letter-spacing:-0.4px;
       
       &:hover {
         color:$font-color-orange;
@@ -244,14 +280,17 @@ aside {
           &::-webkit-input-placeholder,&::-moz-placeholder	{ font:normal 1.1em Arial; font-style:italic; color:darken($font-color-gray,30%); }
         }
                 
-        
-
         input[type="submit"] {
           position:absolute; top:2px; right:3px; text-align:center;
           @include border-radius(6px);
           @include linear-gradient(black);
           color:white;
           font:normal 1.4em AbadiMTCondensedLight;          
+          
+          &:hover {
+            cursor:pointer;
+            @include linear-gradient-hover;
+          }
         }
         
       }
