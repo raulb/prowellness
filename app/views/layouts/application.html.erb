@@ -37,6 +37,9 @@
           <li><%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %></li>
           <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
           <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>
+          <li><a href="#">editorial</a></li>
+          <li><a href="#">galería de imágenes</a></li>
+          <li><a href="#">sobre prowellness</a></li>
         </ul>
 
         <div class="user_options">
@@ -47,7 +50,7 @@
               <li><%= link_to("login", login_path) %></li>
             <% else %>
               <li class="user">
-                <%= link_to(current_user.email, edit_user_path) %>
+                <%= link_to(current_user.name_and_surname, edit_user_path) %>
                 <span class="icon man"></span>
               </li>
               <li><%= link_to("cerrar sesión", logout_path) %></li>              

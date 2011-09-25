@@ -51,15 +51,15 @@ nav {
     }
     
     ul {
-      float:left; margin-left:$margin-left-header; margin-top:6px;
+      float:left; margin-left:120px; margin-top:6px;
       
       li {
-        float:left; margin-right:45px;
+        float:left; margin-right:10px;
         }
         
         a {
 
-          float:left; font:normal 1.9em AbadiMTCondensedLight; color:white; text-decoration:none; padding:4px 12px;
+          float:left; font:normal 1.8em AbadiMTCondensedLight; color:white; text-decoration:none; padding:4px 12px;
 
           &:hover {
             background-color:lighten($bg-blue-darkest, 7%);
@@ -79,7 +79,9 @@ nav {
     } // ul
     
     .user_options {
-      float:right;
+      position:absolute;
+      top:-49px;
+      right:43px;
       width:350px;
       
       ul {

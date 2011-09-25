@@ -37,7 +37,7 @@
     <% end %>
     
     <%= form_for @post.comments.new, :remote => true do |f| %>
-      <p>máx <em id="left">500</em> caracteres</p>
+      <p>máx. <em id="left">500</em> caracteres</p>
       <span class="avatar">
         <%= image_tag(current_user.avatar.thumb.url) %>
       </span>
