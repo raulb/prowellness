@@ -29,6 +29,12 @@ $bg-pag-current:#FF0000;
 
 
 // FUNCTIONS ***************************************************************
+@mixin opacity ($opacity:0){
+  opacity:$opacity;
+  -moz-opacity:$opacity;
+  
+}
+
 @mixin box-shadow ($x-radius:0px,$y-radius:0px,$length:10px,$alpha:0.3) {
   -moz-box-shadow:$x-radius $y-radius $length rgba(0,0,0,$alpha);
   -webkit-box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
@@ -347,6 +353,17 @@ aside {
     }
   }
   
+}
+
+.avatar {
+  float:left; width:55px; height:55px; border:1px solid $font-color-gray; 
+  background-color:white;
+  padding:5px; 
+  margin-right:15px;
+  
+  img {
+    float:left; width:55px; height:55px; background-color:$bg-tags-color; margin:0;
+  }
 }
 
 

@@ -1,35 +1,71 @@
+<%= stylesheet_link_tag "user_data" %>
+<%= javascript_include_tag "library/custom-form-elements","user" %>
+
 <%= flush_the_flash %>
 
-<p>Completa tu perfil o modifica algún dato si ha cambiado</p>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Modifica tus datos</h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
+</header>
 
-<%= form_for @user do |f| %>
-  <% if @user.avatar? %>
-    <%= image_tag @user.avatar.thumb.url %>
+<div id="user_data" class="edit">
+  <header>
+    <h3>Completa tu perfil o modifica algún dato</h3>
+  </header>
+  <%= form_for(@user) do |f| %>
+    <div class="field">
+      <span class="avatar">
+        <%= image_tag @user.avatar.thumb.url %>
+      </span>
+      <%= f.label :avatar, "avatar" %>
+      <span class="file">
+        <p class="empty">Selecciona una imagen</p>
+        <%= f.file_field :avatar %>            
+        <a class="update_img">selecciona</a>
+      </span>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-man-woman.png", :alt => 'Sex icon', :class=>'wide' %>
+      <label>elige tu sexo</label>
+      
+      <div class="options">
+        <%= f.radio_button :sex, 0, :class=>'styled' %>
+        <%= f.label :sex_0, "hombre" %>
+        <%= f.radio_button :sex, 1, :class=>'styled' %>
+        <%= f.label :sex_1, "mujer" %>
+      </div>
+    </div>
+    <div class="field">
+      
+    </div>      
+    <div class="field">
+      <%= image_tag "user/icon-name.png", :alt => 'Username icon' %>
+      <%= f.label :name_and_surname, "nombre de usuario" %>
+      <%= f.text_field :name_and_surname %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-email.png", :alt => 'Email icon' %>      
+      <%= f.label :email, "email" %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-password.png", :alt => 'Password icon' %>            
+      <%= f.label :password, "contraseña" %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-repassword.png", :alt => 'Repeat password icon' %>
+      <%= f.label :password_confirmation, "confirma contraseña" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="field">      
+      <%= f.check_box :newsletter, :class=>'styled' %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
+    </div>
+    <%= f.submit "guardar datos" %>
   <% end %>
-
-  <%= f.label :avatar, "avatar" %>
-  <%= f.file_field :avatar %>
-
-  <p>elige tu sexo</p>
-  <%= f.label :sex_0, "hombre" %>
-  <%= f.radio_button :sex, 0 %>
-
-  <%= f.label :sex_1, "mujer" %>
-  <%= f.radio_button :sex, 1 %>
-
-  <%= f.label :name_and_surname, "nombre de usuario" %>
-  <%= f.text_field :name_and_surname %>
-
-  <%= f.label :email, "email" %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password, "contraseña" %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation, "confirma contraseña" %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.check_box :newsletter %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
-
-  <%= f.submit "guardar datos" %>
-<% end %>
+</div>
