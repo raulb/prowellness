@@ -8,7 +8,7 @@
   }
 }
 
-#banner-top-content {
+.banner-981x106 {
   float:left;
   margin-top:15px;  
   width:100%;
@@ -26,6 +26,79 @@
     height:105px;
     background-color:orange;
 
+    a {
+      float:left; width:100%; height:100%;
+    }
+  }
+}
+
+.banner-300x250 {
+  float:left;
+  margin-top:15px;  
+  width:338px;
+  height:295px;
+  background-color:$bg-color-ads;
+  
+  p {
+    top:9px; left:20px;
+  }
+  
+  .banner {
+    float:right;
+    margin-top:23px; margin-right:18px;
+    width:300px;
+    height:250px;
+    background-color:orange;
+
+    a {
+      float:left; width:100%; height:100%;
+    }
+  }
+}
+
+.banner-300x100 {
+  float:left;
+  margin-top:15px;  
+  width:338px;
+  height:142px;
+  background-color:$bg-color-ads;
+  
+  p {
+    top:9px; left:20px;
+  }
+  
+  .banner {
+    float:right;
+    margin-top:23px; margin-right:18px;
+    width:300px;
+    height:100px;
+    background-color:orange;
+
+    a {
+      float:left; width:100%; height:100%;
+    }
+  }
+}
+
+.banner-140x100 {
+  float:left;
+  margin-top:15px;  
+  width:317px;
+  height:142px;
+  background-color:$bg-color-ads;
+  padding-left:21px;
+  
+  p {
+    top:9px; left:20px;
+  }
+  
+  .banner {
+    float:left;
+    margin-top:23px; margin-right:18px;
+    width:140px;
+    height:100px;
+    background-color:orange;
+    
     a {
       float:left; width:100%; height:100%;
     }
