@@ -258,6 +258,12 @@ aside {
     }
   }
   
+  &.calendar {
+    .kind-box {
+      background:url(application/icon-calendar.png) no-repeat 0 0; width:27px; height:32px;
+    }
+  }
+  
   &.search {
     form {
       float:left; width:308px; margin-top:5px;
