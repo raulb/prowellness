@@ -95,6 +95,10 @@ nav {
             margin-right:0;
           }
           
+          a {
+            font-size:1.4em; padding:8px 12px;
+          }
+
           &.user {
             padding-right:52px;
             
@@ -103,7 +107,7 @@ nav {
             }
             
             a {
-              text-decoration:underline; font-size:1.4em; padding:8px 12px;
+              text-decoration:underline;
             }
             
             .icon {
