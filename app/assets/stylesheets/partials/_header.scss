@@ -55,16 +55,63 @@ nav {
       
       li {
         float:left; margin-right:10px;
+        
+        .with-options {
+          position:relative;
+
+          .main-option {
+            position:absolute;
+            top:-34px; left:0;
+            width:116px;
+            height:34px;
+            background:url(application/menu/articles-hover-top.png) no-repeat 0 0;
+            padding:0;
+            
+            a {
+              margin:10px 19px;
+            }
+          }
         }
+        .options{
+          position:absolute; top:25px; left:-18px; z-index:10;
+          width:249px; height:165px;
+          background:url(application/menu/articles-hover-bottom.png) no-repeat 0 0;
+          display:none;
+          
+          ul {
+            float:left; margin:12px 18px 0 20px; 
+            
+            padding:10px 0;
+
+            li {
+              background:url(application/list-disc.png) no-repeat 10px 11px; 
+              padding-left: 10px;
+              width:100%;
+              
+              img {
+                float:left;
+                margin:12px 3px 0;
+              }
+              a {
+                font-size:1.4em; padding:4px 12px;
+
+                &:hover {
+                  background-color:$bg-black-darkest;
+                }
+              }
+            }
+          } //ul
+        } //.options
+        
+      } // li
         
         a {
 
           float:left; font:normal 1.8em AbadiMTCondensedLight; color:white; text-decoration:none; padding:4px 12px;
 
           &:hover {
-            background-color:lighten($bg-blue-darkest, 7%);
+            background-color:$bg-black-darkest;
             @include border-radius(6px);
-            // @include hover-transition(50ms);
             @include box-shadow (0px,0px,20px,0.4);
           }
 

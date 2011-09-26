@@ -41,6 +41,20 @@ $bg-pag-current:#FF0000;
   box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
 }
 
+@mixin box-shadow-none() {
+  -moz-box-shadow:none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin box-shadow-bottom-none () {
+  -moz-box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
 @mixin box-shadow-inset ($x-radius:0px,$y-radius:0px,$length:6px,$alpha:0.5) {
   -moz-box-shadow:inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
   -webkit-box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
@@ -219,7 +233,7 @@ aside {
   float:right;
   width:338px;
   height:100%;
-  margin-top:90px;
+  margin-top:10px;
 }
 
 .info-box {

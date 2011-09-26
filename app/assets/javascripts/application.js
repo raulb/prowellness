@@ -22,8 +22,12 @@ jQuery(document).ready(function($) {
   $('.info-box ul li').click(function(event) {
     window.location = $(this).children('a').attr('href');
   });
+
+  $('li.submenu').hover(function() {
+    $(this).find('.options').show();
+  }, function() {
+    $(this).find('.options').hide();
+  });
   
   
-
-
 });

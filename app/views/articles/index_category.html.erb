@@ -1,4 +1,12 @@
-<h2><%= @category %></h2>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2><%= @category %></h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
+</header>
 
 <% if @main_posts.any? %>
 <div class="main_posts">
