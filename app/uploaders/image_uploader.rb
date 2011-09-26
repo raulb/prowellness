@@ -13,18 +13,22 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :rollover do
     process :resize_to_fill => [665,401]
+    process :quality => 100 
   end
 
   version :list do
     process :resize_to_fill => [136,136]
+    process :quality => 100 
   end
 
   version :heading do
     process :resize_to_fill => [294,177]
+    process :quality => 100 
   end
 
   version :blog_index do
     process :resize_to_fill => [311,187]
+    process :quality => 100 
   end
 
 end

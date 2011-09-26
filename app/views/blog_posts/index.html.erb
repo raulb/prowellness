@@ -16,7 +16,11 @@
 
     <li class="<%= i ==  0 ? "main_post" : "post" %>">
       <div>
-        <%=link_to( image_tag(post.image.heading.url, :alt => post.title), post_path(post)) %>
+        <% if i == 0 %>
+          <%= link_to(image_tag(post.image.rollover.url, :alt => post.title), post_path(post)) %>
+        <% else %>
+          <%= link_to(image_tag(post.image.heading.url, :alt => post.title), post_path(post)) %>
+        <% end %>
 
         <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
         <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
