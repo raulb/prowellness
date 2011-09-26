@@ -20,7 +20,7 @@
   <%= form_for(@user) do |f| %>
     <div class="field">
       <span class="avatar">
-        <%= image_tag @user.avatar.thumb.url %>
+        <%= image_tag @user.avatar.url %>
       </span>
       <%= f.label :avatar, "avatar" %>
       <span class="file">

@@ -14,7 +14,7 @@
 <% @comments.each do |comment| %>
   <div class="comment" id="comment-<%= comment.id %>">
     <span class="avatar">
-      <%= image_tag(comment.user.avatar.thumb.url) %>
+      <%= image_tag(comment.user.url) %>
     </span>
     
     <p class="author"><%= comment.user.name_and_surname %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
@@ -40,7 +40,7 @@
     <%= form_for @post.comments.new, :remote => true do |f| %>
       <p>máx. <em id="left">500</em> caracteres</p>
       <span class="avatar">
-        <%= image_tag(current_user.avatar.thumb.url) %>
+        <%= image_tag(current_user.url) %>
       </span>
 
       <%= f.text_area :text, :maxlength => 500 %>

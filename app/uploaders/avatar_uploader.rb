@@ -10,15 +10,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    # TODO: adapt the default avatar to the size required
-    # "/assets/user/" + [version_name, "default.png"].compact.join('_')
     "/assets/user/default-avatar.jpg"
   end
 
-  process :resize_to_fit => [500, 500]
-
-  version :thumb do
-    process :resize_to_fill => [80, 80]
-  end
+  process :resize_to_fit => [55,55]
 
 end
