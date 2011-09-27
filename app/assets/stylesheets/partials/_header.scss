@@ -58,31 +58,50 @@ nav {
         
         &.submenu {
           position:relative;
-
+          
           .main-option {
             position:absolute;
             top:-34px; left:0;
-            width:116px;
             height:34px;
-            background:url(application/menu/articles-hover-top.png) no-repeat 0 0;
             padding:0;
             
             a {
               margin:10px 20px;
             }
           }
+          
+          &.articles {
+            .main-option {
+              width:116px;
+              background:url(application/menu/articles-hover-top.png) no-repeat 0 0;
+            }
+            .options {
+              background:url(application/menu/articles-hover-bottom.png) no-repeat 0 0;
+            }
+          }
+          &.visual-guide {
+            .main-option {
+              width:150px;
+              background:url(application/menu/visual-guide-hover-top.png) no-repeat 0 0;
+            }
+            .options {
+              background:url(application/menu/visual-guide-hover-bottom.png) no-repeat 0 0;
+            }
+          }
+          
+          
         }
         .options{
-          position:absolute; top:25px; left:-19px; z-index:10;
-          width:249px; height:165px;
-          background:url(application/menu/articles-hover-bottom.png) no-repeat 0 0;
+          position:absolute; z-index:10;
+          top:24px; left:-20px;
+          width:249px; height:165px;          
           display:none;
           
           ul {
-            float:left; margin:12px 18px 0 20px; 
-            
+            float:left;
             padding:10px 0;
-
+            margin:12px 18px 0 20px; 
+            
             li {
               background:url(application/list-disc.png) no-repeat 10px 11px; 
               padding-left: 10px;
