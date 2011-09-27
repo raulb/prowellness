@@ -97,6 +97,7 @@ nav {
 
                 &:hover {
                   background-color:$bg-black-darkest;
+                  @include box-shadow-none();
                 }
               }
             }
