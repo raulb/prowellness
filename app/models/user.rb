@@ -60,3 +60,21 @@ class User < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name_and_surname   :string(255)
+#  email              :string(255)
+#  password_digest    :string(255)
+#  admin              :boolean         default(FALSE)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  newsletter         :boolean         default(TRUE)
+#  sex                :integer
+#  avatar             :string(255)
+#  confirmation_token :string(255)
+#
+

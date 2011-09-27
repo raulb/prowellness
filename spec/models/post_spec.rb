@@ -205,3 +205,23 @@ describe Post do
 
   end
 end
+# == Schema Information
+#
+# Table name: posts
+#
+#  id             :integer         not null, primary key
+#  title          :string(255)
+#  slug           :string(255)
+#  excerpt        :text
+#  body           :text
+#  state          :integer         default(0)
+#  publish_date   :datetime
+#  user_id        :integer
+#  comments_count :integer         default(0)
+#  tags           :string
+#  categories     :string
+#  created_at     :datetime
+#  updated_at     :datetime
+#  image          :string(255)
+#
+
