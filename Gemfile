@@ -1,14 +1,17 @@
-source 'http://rubygems.org'
+source :rubygems
 
-gem 'rails', '3.1.0'
-gem 'pg'
+gem 'rails',              '3.1.1.rc1'
+gem 'rake',               '0.8.7'
+gem 'yajl-ruby',          '~> 0.8.2'
+gem 'pg',                 '~> 0.11.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'exception_notification'
-gem 'heroku'
 gem 'rails_autolink'
+gem 'therubyracer', :platforms => :ruby
+gem 'bcrypt-ruby'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,13 +22,16 @@ end
 
 group :development do
   gem 'capistrano'
-  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
+  gem 'annotate'
 end
 
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'rspec'
   gem 'rspec-rails'
+  gem 'jasmine'
+end
+
+group :test do
   gem 'steak'
   gem 'capybara'
   gem 'database_cleaner'
@@ -36,7 +42,5 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
-  gem 'jasmine'
   gem 'email_spec'
 end
-
