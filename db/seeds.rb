@@ -10,7 +10,8 @@ admin = User.new
 admin.email = 'admin@example.com'
 admin.password = 'admin'
 admin.password_confirmation = 'admin'
-admin.name_and_surname = 'Admin'
+admin.username = 'Admin'
+admin.name_and_surname = 'Domingo Sánchez'
 admin.save
 admin.set_as_admin!
 admin.reload

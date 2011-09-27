@@ -26,3 +26,15 @@ describe Comment do
     comment.post.should == @post
   end
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer         not null, primary key
+#  post_id    :integer
+#  user_id    :integer
+#  text       :text
+#  created_at :datetime
+#
+

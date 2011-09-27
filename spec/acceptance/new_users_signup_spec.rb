@@ -26,8 +26,8 @@ feature 'New users signup', %q{
 
     click_email_link_matching /confirm/
 
-    page.should have_content "Hola ferblape@example.com"
-    page.should have_content("Completa tu perfil o modifica algún dato si ha cambiado")
+    page.should have_content "ferblape"
+    page.should have_content("Completa tu perfil o modifica algún dato")
 
     attach_file "avatar", File.expand_path("../../support/files/avatar.png", __FILE__)
     choose "hombre"

@@ -21,7 +21,7 @@
         <div class="post">
           <p><%= translate_category(category) %></p>
           <h3><%= link_to(post.title, post_path(post)) %></h3>
-          <p>por <%= post.user.name_and_surname %></p>
+          <p>por <%= post.user.signature %></p>
         </div>
       <% end %>
 

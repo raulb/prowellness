@@ -1,13 +1,16 @@
 # coding: UTF-8
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :avatar, :name_and_surname, :newsletter, :sex
+  attr_accessible :email, :password, :password_confirmation, :avatar,
+                  :name_and_surname, :newsletter, :sex, :login
+
   has_secure_password
+
   validates_presence_of :password, :on => :create
   validates_presence_of :email, :on => :create
-  validates_presence_of :name_and_surname, :on => :create
+  validates_presence_of :login, :on => :create
   validates_uniqueness_of :email
-  validates_uniqueness_of :name_and_surname
+  validates_uniqueness_of :login
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
   before_create :set_confirmation_token
@@ -34,8 +37,6 @@ class User < ActiveRecord::Base
     activate!
   end
 
-  def login; name_and_surname end
-
   def activate!
     write_attribute(:confirmation_token, nil)
     save!
@@ -49,6 +50,10 @@ class User < ActiveRecord::Base
     secure_digest(Time.now, (1..10).map{ rand.to_s })
   end
 
+  def signature
+    !name_and_surname.blank? ? name_and_surname : login
+  end
+
   private
 
   def set_confirmation_token
@@ -60,3 +65,23 @@ class User < ActiveRecord::Base
   end
 
 end
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name_and_surname   :string(255)
+#  email              :string(255)
+#  password_digest    :string(255)
+#  admin              :boolean         default(FALSE)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  newsletter         :boolean         default(TRUE)
+#  sex                :integer
+#  avatar             :string(255)
+#  confirmation_token :string(255)
+#  login              :string(255)
+#
+

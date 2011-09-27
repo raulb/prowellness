@@ -11,13 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820223038) do
+ActiveRecord::Schema.define(:version => 20110927003604) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "text"
-    t.string   "ip"
     t.datetime "created_at"
   end
 
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110820223038) do
     t.integer  "sex"
     t.string   "avatar"
     t.string   "confirmation_token"
+    t.string   "login"
   end
 
 end

@@ -12,3 +12,15 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, :length => { :maximum => 500, :minimum => 2 }
 
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer         not null, primary key
+#  post_id    :integer
+#  user_id    :integer
+#  text       :text
+#  created_at :datetime
+#
+

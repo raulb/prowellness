@@ -11,14 +11,14 @@ describe User do
       user.should be_invalid
       user.errors[:email].should_not be_nil
       user.errors[:password].should_not be_nil
-      user.errors[:name_and_surname].should_not be_nil
+      user.errors[:login].should_not be_nil
     end
 
     it "has to match the password and the password confirmation" do
       user.password = 'admin123'
       user.password_confirmation = 'admin321'
       user.email = 'user@example.com'
-      user.name_and_surname = 'Name and surname'
+      user.login = 'username'
       user.save
       user.should_not be_valid
       user.errors[:password].should_not be_nil
@@ -28,7 +28,7 @@ describe User do
       user.password = 'admin123'
       user.password_confirmation = 'admin123'
       user.email = 'user@example.com'
-      user.name_and_surname = 'Name and surname'
+      user.login = 'username'
       user.save
       user.reload
       user.should be_valid
@@ -36,10 +36,24 @@ describe User do
     end
   end
 
+  describe "an existing user" do
+    before do
+      @user = User.new :email => 'admin@example.com', :password => 'admin123',
+                      :password_confirmation => 'admin123', :login => 'Administrator'
+
+    end
+
+    it "has a signature method that returns the name or the login" do
+      @user.signature.should == 'Administrator'
+      @user.update_attribute(:name_and_surname,'Domingo Sánchez')
+      @user.signature.should == 'Domingo Sánchez'
+    end
+  end
+
   context "an admin user" do
     let(:admin) do
       user = User.new :email => 'admin@example.com', :password => 'admin123',
-                      :password_confirmation => 'admin123', :name_and_surname => 'Administrator'
+                      :password_confirmation => 'admin123', :login => 'Administrator'
       user.save
       user.set_as_admin!
       user.reload
@@ -61,3 +75,21 @@ describe User do
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name_and_surname   :string(255)
+#  email              :string(255)
+#  password_digest    :string(255)
+#  admin              :boolean         default(FALSE)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  newsletter         :boolean         default(TRUE)
+#  sex                :integer
+#  avatar             :string(255)
+#  confirmation_token :string(255)
+#
+
