@@ -1,39 +1,5 @@
 @import "application";
 
-@mixin linear-blue-gradient($direction:top) {
-
-  @if $direction == top {
-    background-image: linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -o-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -moz-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -webkit-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -ms-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left top,
-    	left bottom,
-    	color-stop(0.17, rgb(1,112,132)),
-    	color-stop(0.59, rgb(27,76,91))
-    );
-  }
-  @else {
-    background-image: linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -o-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -moz-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -webkit-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -ms-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left bottom,
-    	left top,
-    	color-stop(0.17, rgb(1,112,132)),
-    	color-stop(0.59, rgb(27,76,91))
-    );
-  }
-}
-
 #user_data {
   float:left;
   background-color:$bg-blue-normal;
@@ -73,24 +39,14 @@
     padding:20px 0 30px;
     
     label {
-      float:left; width:415px;
-      font:normal 1.4em AbadiMTCondensedLight; color:white;
+      width:415px;
       margin-left:5px;
+      font-size:1.4em;      
     }
-    
-    .field_with_errors {
-      float:left; 
-      input {
-        border:2px solid red;
-      }
-    }
-    
+
     input{
-      font:normal 1em Arial;
-      color:$bg-black-normal;
+      font-size:1em;
       width:245px; height:17px;
-      border:1px solid $date-font-color;
-      @include border-radius(5px);
       padding:5px;
     }
     
@@ -137,20 +93,11 @@
     }
     
     input[type="submit"]{
-      font:normal 1.5em QuicksandBook; color:white;
-      letter-spacing:-1.0px;
-      padding:0;
-      border:1px solid #1B5161;
+      font-size:1.5em;
       width:257px;
       height:28px;
       margin:20px 0 0 82px;
-      
-      @include linear-blue-gradient(top);
-      
-      &:hover {
-        cursor:pointer;
-        @include linear-blue-gradient(bottom);
-      }
+      padding:0;
     }
     
     input[type="checkbox"] {
@@ -189,28 +136,6 @@
     .avatar {
       img {margin:0;}
     }
-    
-    .checkbox{
-    	width: 19px;
-    	height: 19px;
-    	padding: 0 5px 0 0;
-    	background: url(user/checkbox.png) no-repeat;
-    	margin:2px 0 0 81px;
-    	display: block;
-    	clear: left;
-    	float: left;
-    }
-    
-    .radio{
-    	width: 19px;
-    	height: 19px;
-    	padding: 0 0;
-    	background: url(user/radio.png) no-repeat;
-    	margin:2px 0 0 0;
-    	display: block;
-    	float: left;
-    }
-    
   }
 }
 

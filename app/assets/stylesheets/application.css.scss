@@ -164,6 +164,40 @@ $bg-pag-current:#FF0000;
   
 }
 
+@mixin linear-blue-gradient($direction:top) {
+
+  @if $direction == top {
+    background-image: linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -o-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -moz-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -webkit-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -ms-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.17, rgb(1,112,132)),
+    	color-stop(0.59, rgb(27,76,91))
+    );
+  }
+  @else {
+    background-image: linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -o-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -moz-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -webkit-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -ms-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.17, rgb(1,112,132)),
+    	color-stop(0.59, rgb(27,76,91))
+    );
+  }
+}
+
 
 
 // STYLES ***************************************************************
@@ -310,6 +344,7 @@ aside {
           position:absolute; top:2px; right:3px; text-align:center;
           @include border-radius(6px);
           @include linear-gradient(black);
+          width:70px;
           color:white;
           font:normal 1.4em AbadiMTCondensedLight;          
           
@@ -382,5 +417,6 @@ aside {
 
 
 @import "partials/header";
+@import "partials/form_elements";
 @import "partials/footer";
 @import "partials/advertisement";

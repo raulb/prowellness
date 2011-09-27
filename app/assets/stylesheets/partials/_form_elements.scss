@@ -1,0 +1,55 @@
+.checkbox{
+	width: 19px;
+	height: 19px;
+	padding: 0 5px 0 0;
+	background: url(user/checkbox.png) no-repeat;
+	margin:2px 0 0 81px;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+.radio{
+	width: 19px;
+	height: 19px;
+	padding: 0 0;
+	background: url(user/radio.png) no-repeat;
+	margin:2px 0 0 0;
+	display: block;
+	float: left;
+}
+
+form {
+  label {
+    float:left; font:normal 1.4em AbadiMTCondensedLight; color:white;
+  }
+  
+  input{
+    font:normal 1em Arial;
+    color:$bg-black-normal;
+    border:1px solid $date-font-color;
+    @include border-radius(5px);
+  }
+  
+  input[type="submit"]{
+    font:normal 1.5em QuicksandBook; color:white;
+    letter-spacing:-1.0px;
+    padding:0;
+    border:1px solid #1B5161;
+    
+    @include linear-blue-gradient(top);
+    
+    &:hover {
+      cursor:pointer;
+      @include linear-blue-gradient(bottom);
+    }
+  }
+  
+  .field_with_errors {
+    float:left; 
+    input {
+      border:2px solid red;
+    }
+  }
+   
+}

@@ -23,10 +23,37 @@ jQuery(document).ready(function($) {
     window.location = $(this).children('a').attr('href');
   });
 
-  $('li.submenu').hover(function() {
+  // To show submenu options
+  $("li.articles,li.visual-guide").hover(function() {
     $(this).find('.options').show();
   }, function() {
     $(this).find('.options').hide();
+  });
+
+
+  // Showing login options
+  $('li.login').find('a').click(function(event) {
+    event.preventDefault();
+    
+    var el = $(this).parents('.login').children('.options');
+    console.log(el);
+    
+    if (el.is(':visible')){
+      el.hide();
+      document.unbind('click');
+    }else{
+      el.show();
+      $('#email').focus();
+      
+      $(document).click(function(event) {
+        if (!$(event.target).closest('li.login').length)
+        {
+          el.hide();
+          // document.unbind('click');
+        };
+      });      
+      // To hide any element when it's clicked outside
+    }
   });
   
   

@@ -86,8 +86,26 @@
           <ul>
             <% unless logged_in? %>
               <li><%= link_to("registro", new_users_path,:class => "#{'selected' if controller_name == 'users'}") %></li>
-              <!-- Esto de momento lo pongo así aunque el login se hará en un desplegable que salga -->
-              <li><%= link_to("login", login_path) %></li>
+              <li class="submenu login">
+                <%= link_to("login", login_path) %>
+                
+                <div class="options">
+                  <span class="main-option">
+                    <%= link_to("login", login_path) %>
+                  </span>
+
+                  <%= form_tag create_session_path do %>
+                    <%= label_tag :email, 'email' %>
+                    <%= text_field_tag :email, '', :class => (flash[:alert] ? 'error' : nil) %>
+                    <span class="password">
+                      <%= label_tag :password, 'contraseña' %>
+                      <%= password_field_tag :password, '', :class => (flash[:alert] ? 'error' : nil) %>
+                    </span>
+                    <%= submit_tag 'entrar', :class => "login" %>
+                  <% end %>
+                  <a href="#" class="remember_pass">¿olvidaste tu contraseña?</a>  
+                </div>
+              </li>
             <% else %>
               <li class="user">
                 <%= link_to(current_user.login, edit_user_path) %>
@@ -107,7 +125,6 @@
       <section>
         <%= yield %>
       </section>
-
       <aside>
         <div class="info-box search">
           <h3>buscador</h3>

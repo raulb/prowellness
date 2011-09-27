@@ -88,6 +88,58 @@ nav {
               background:url(application/menu/visual-guide-hover-bottom.png) no-repeat 0 0;
             }
           }
+          &.login {
+            .main-option {
+              width:74px;
+              background:url(application/menu/login-top.png) no-repeat 0 0;
+              left:108px;
+
+              a {
+                margin:10px 20px 0 12px
+              }
+            }
+            .options {
+              background:url(application/menu/login-bottom.png) no-repeat 0 0;
+              width:264px;
+              height:216px;
+              left:-120px;
+            }
+            
+            form {
+              float:left;
+              width:220px;
+              margin:20px 0 0 20px;
+              
+              label{
+                width:100%;
+                margin:5px 0 0 3px;
+              }
+              input {
+                width:214px;
+                height:17px;
+                padding:5px;
+                margin-top:3px;
+              }
+              
+              input[type="submit"]{
+                float:left;
+                height:28px; padding:0; width:227px; margin-top:12px;
+              }
+            }
+            .remember_pass {
+              float:left; width:auto; text-align:center; text-decoration:underline;
+              font:normal 0.9em Arial;
+              margin:7px 0 0 68px;
+              padding:0;
+              
+              &:hover {
+                background:none;
+                color:darken(white,25%);
+                @include box-shadow-none();
+              }
+              
+            }
+          }
           
           
         }
