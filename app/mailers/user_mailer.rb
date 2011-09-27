@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   default_url_options[:host] = "localhost:3000"
 
   def signup(user)
-    @name = user.name_and_surname
+    @name = user.login
     @url  = confirm_account_url(user.confirmation_token)
 
     mail :to => user.email,

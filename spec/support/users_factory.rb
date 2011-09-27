@@ -5,6 +5,7 @@ module Prowellness
     def new_user(attributes = {})
       attributes = attributes.dup
       user = User.new
+      user.login                 = attributes[:login] || String.random(5)
       user.name_and_surname      = attributes[:name_and_surname] || String.random(5) + ' ' +  String.random(5)
       user.email                 = attributes[:email]    || String.random(5).downcase + '@' + String.random(5).downcase + '.com'
       user.password              = attributes[:password] || user.email.split('@').first
@@ -17,7 +18,7 @@ module Prowellness
       user.save
       user
     end
-    
+
     def create_admin(attributes = {})
       user = create_user(attributes)
       user.set_as_admin!

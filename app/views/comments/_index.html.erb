@@ -16,8 +16,8 @@
     <span class="avatar">
       <%= image_tag(comment.user.url) %>
     </span>
-    
-    <p class="author"><%= comment.user.name_and_surname %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
+
+    <p class="author"><%= comment.user.signature %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
     <%= simple_format(auto_link(comment.text, :href_options => {:rel => 'nofollow'})) %>
   </div>
 <% end %>
@@ -26,17 +26,17 @@
                         :params => {:controller => 'comments', :action => 'index', :slug => @post.slug},
                         :window => 10, :outer_window => 4) %>
 
-<% if logged_in?  %> 
-  
+<% if logged_in?  %>
+
   <% if @comments.empty? %>
     <h6>Sé la primera persona en realizar un comentario</h6>
   <% end %>
-  
+
   <div class="logged">
     <% if !@comments.empty? %>
       <h6>Añade un nuevo comentario</h6>
     <% end %>
-    
+
     <%= form_for @post.comments.new, :remote => true do |f| %>
       <p>máx. <em id="left">500</em> caracteres</p>
       <span class="avatar">

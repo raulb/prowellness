@@ -18,18 +18,18 @@
   </header>
   <%= form_for(@user) do |f| %>
     <div class="field">
-      
+
       <%= image_tag "user/icon-name.png", :alt => 'Username icon' %>
-      <%= f.label :name_and_surname, "nombre de usuario" %>
-      <%= f.text_field :name_and_surname %>
+      <%= f.label :login, "nombre de usuario" %>
+      <%= f.text_field :login %>
     </div>
     <div class="field">
-      <%= image_tag "user/icon-email.png", :alt => 'Email icon' %>      
+      <%= image_tag "user/icon-email.png", :alt => 'Email icon' %>
       <%= f.label :email, "email" %>
       <%= f.text_field :email %>
     </div>
     <div class="field">
-      <%= image_tag "user/icon-password.png", :alt => 'Password icon' %>            
+      <%= image_tag "user/icon-password.png", :alt => 'Password icon' %>
       <%= f.label :password, "contraseña" %>
       <%= f.password_field :password %>
     </div>
@@ -38,7 +38,7 @@
       <%= f.label :password_confirmation, "confirma contraseña" %>
       <%= f.password_field :password_confirmation %>
     </div>
-    <div class="field">      
+    <div class="field">
       <%= f.check_box :newsletter, :class=>'styled' %><%= f.label :newsletter, "deseo suscribirme al boletín de noticias" %>
     </div>
     <%= f.submit "registrar" %>
@@ -54,6 +54,6 @@
     <li><p>Estarás al día de todo lo relacionado con el fitness de forma saludable.</p></li>
     <li><p>Porque próximamente recibirás ventajas que ni nosotros conocemos.</p></li>
   </ol>
-  
+
   <a id="ok">Está bien. Me has convencido, quiero registrarme</a>
 </div>
