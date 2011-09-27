@@ -34,28 +34,48 @@
         <a href="/" class="domingo"></a>
 
         <ul>
-          <li class="submenu">
-            <div class="with-options">
-              <%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
+          <li class="articles submenu">
+            
+            <%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
 
-              <div class="options">
-                <span class="main-option">
-                  <%= link_to("artículos", articles_path) %>
-                </span>
-                <ul>
-                  <li>
-                    <a href="<%= articles_path%>/fitness">fitness</a>
-                    <%= image_tag "application/arrow-suboption.png", :alt => 'subption-arrow' %>
-                    <a href="#">ejercicios del mes</a>
-                  </li>
-                  <li><a href="<%= articles_path%>/mujer">mujer</a></li>
-                  <li><a href="<%= articles_path%>/nutricion">nutrición</a></li>
-                  <li><a href="<%= articles_path%>/mi-opinion">mi opiníón</a></li>
-                </ul>
-              </div>
+            <div class="options">
+              <span class="main-option">
+                <%= link_to("artículos", articles_path) %>
+              </span>
+              <ul>
+                <li>
+                  <a href="<%= articles_path%>/fitness">fitness</a>
+                  <%= image_tag "application/arrow-suboption.png", :alt => 'subption-arrow' %>
+                  <a href="#">ejercicios del mes</a>
+                </li>
+                <li><a href="<%= articles_path%>/mujer">mujer</a></li>
+                <li><a href="<%= articles_path%>/nutricion">nutrición</a></li>
+                <li><a href="<%= articles_path%>/mi-opinion">mi opiníón</a></li>
+              </ul>
+            </div>
+
+          </li>
+          <li class="visual-guide submenu">
+
+            <%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %>
+            
+            <div class="options">
+              <span class="main-option">
+                <%= link_to("guía visual", visual_guide_path) %>
+              </span>
+              <ul>
+                <li>
+                  <a href="#">editorial</a>
+                </li>
+                <li>
+                  <a href="#">abdominales</a>
+                </li>
+                <li>
+                  <a href="#">estiramientos</a>
+                </li>
+              </ul>
             </div>
           </li>
-          <li><%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %></li>
           <li><%= link_to("blog", blog_path, :class => "#{'selected' if controller_name == 'blog_posts'}") %></li>
           <li><%= link_to("editorial", books_path, :class => "#{'selected' if controller_name == 'books'}") %></li>
           <li><%= link_to("galería de imágenes", images_path, :class => "#{'selected' if controller_name == 'images'}") %></li>
