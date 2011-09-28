@@ -1,7 +1,6 @@
 Prowellness::Application.routes.draw do
   root :to => 'site#home'
 
-  get   '/login'  => 'sessions#new',     :as => :login
   get   '/logout' => 'sessions#destroy', :as => :logout
   match '/sessions/create' => 'sessions#create', :as => :create_session
 

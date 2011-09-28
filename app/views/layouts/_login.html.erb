@@ -1,0 +1,9 @@
+<%= form_tag create_session_path, :remote => true, :id => 'login_form' do %>
+  <%= label_tag :email, 'email' %>
+  <%= text_field_tag :email, '', :class => (flash[:alert] ? 'error' : nil) %>
+  <span class="password">
+    <%= label_tag :password, 'contraseña' %>
+    <%= password_field_tag :password, '', :class => (flash[:alert] ? 'error' : nil) %>
+  </span>
+  <%= submit_tag 'entrar', :class => "login" %>
+<% end %>

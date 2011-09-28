@@ -35,7 +35,7 @@
 
         <ul>
           <li class="articles submenu">
-            
+
             <%= link_to("artículos", articles_path, :class => "#{'selected' if controller_name == 'articles'}") %>
 
             <div class="options">
@@ -58,7 +58,7 @@
           <li class="visual-guide submenu">
 
             <%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %>
-            
+
             <div class="options">
               <span class="main-option">
                 <%= link_to("guía visual", visual_guide_path) %>
@@ -87,23 +87,16 @@
             <% unless logged_in? %>
               <li><%= link_to("registro", new_users_path,:class => "#{'selected' if controller_name == 'users'}") %></li>
               <li class="submenu login">
-                <%= link_to("login", login_path) %>
-                
+                <%= link_to("login", "javascript:void(null)") %>
+
                 <div class="options">
                   <span class="main-option">
-                    <%= link_to("login", login_path) %>
+                    <%= link_to("login", "javascript:void(null)") %>
                   </span>
 
-                  <%= form_tag create_session_path do %>
-                    <%= label_tag :email, 'email' %>
-                    <%= text_field_tag :email, '', :class => (flash[:alert] ? 'error' : nil) %>
-                    <span class="password">
-                      <%= label_tag :password, 'contraseña' %>
-                      <%= password_field_tag :password, '', :class => (flash[:alert] ? 'error' : nil) %>
-                    </span>
-                    <%= submit_tag 'entrar', :class => "login" %>
-                  <% end %>
-                  <a href="#" class="remember_pass">¿olvidaste tu contraseña?</a>  
+                  <%= render "layouts/login" %>
+
+                  <a href="#" class="remember_pass">¿olvidaste tu contraseña?</a>
                 </div>
               </li>
             <% else %>
