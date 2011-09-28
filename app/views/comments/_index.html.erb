@@ -14,7 +14,7 @@
 <% @comments.each do |comment| %>
   <div class="comment" id="comment-<%= comment.id %>">
     <span class="avatar">
-      <%= image_tag(comment.user.url) %>
+      <%= image_tag(comment.user.avatar.url) %>
     </span>
 
     <p class="author"><%= comment.user.signature %> (<%= comment.created_at.strftime("%d/%m/%Y") %>)</p>
