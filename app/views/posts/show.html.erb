@@ -8,4 +8,4 @@
 
 <%= @post.body.try(:html_safe) %>
 
-<p><%= @post.tags.join(' ') %></p>
+<p><%= @post.tags(:limit => 10).join(' ') %></p>

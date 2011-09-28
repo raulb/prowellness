@@ -28,16 +28,20 @@ describe Post do
       post.tags = "training, diet, expertise"
       post.save
       post.reload
-      post.tags.size.should == 3
-      post.tags.should include("training")
-      post.tags.should include("diet")
-      post.tags.should include("expertise")
+      tags = post.tags(:limit => 10)
+      tags.size.should == 3
+      tags.should include("training")
+      tags.should include("diet")
+      tags.should include("expertise")
+
+      post.tags(:limit => 1).should == ["training"]
 
       post.tags = "running"
       post.save
       post.reload
-      post.tags.size.should == 1
-      post.tags.should include("running")
+      tags = post.tags(:limit => 10)
+      tags.size.should == 1
+      tags.should include("running")
     end
 
     it "has many categories" do
