@@ -47,6 +47,10 @@ class Post < ActiveRecord::Base
   scope :last_blog_posts, lambda { |how_many|
     where("? = ANY(categories)", "blog").order_by_publish_date.limit(how_many)
   }
+  scope :filter_by_tags, lambda { |tag_name|
+    where("? = ANY(tags)", tag_name).order_by_publish_date
+  }
+
   mount_uploader :image, ImageUploader
 
   def draft?

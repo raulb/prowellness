@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Post do
-  context "a new post" do
+  describe "a new post" do
     let(:post) do
       Post.new :title => "Title", :body => "Body", :excerpt => "Excerpt",
                :categories => "Artículos, Fitness",
@@ -138,7 +138,7 @@ describe Post do
     end
   end
 
-  context "an existing post" do
+  describe "an existing post" do
     let(:post){ create_post }
 
     it "should be destroyed successfully" do
@@ -149,9 +149,23 @@ describe Post do
         Post.find(post.id)
       }.should raise_error(ActiveRecord::RecordNotFound)
     end
+
+    context "with tags" do
+      before do
+        @post1 = create_post :tags => 'fitness,deporte,natación'
+        @post2 = create_post :tags => 'musculación,deporte,natación'
+        @post3 = create_post :tags => 'dieta'
+      end
+
+      it "should be found filtering by tags" do
+        Post.filter_by_tags("dieta").limit(1).should == [@post3]
+        Post.filter_by_tags("natación").all.should include(@post1)
+        Post.filter_by_tags("natación").all.should include(@post2)
+      end
+    end
   end
 
-  context "having losts of posts" do
+  describe "having losts of posts" do
     before do
       @posts = []
       @fitness = []
