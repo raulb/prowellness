@@ -63,8 +63,8 @@ window.MercurySetup = {
       enabled: true,
       allowedMimeTypes: ['image/jpeg', 'image/gif', 'image/png'],
       maxFileSize: 1235242880,
-      inputName: 'image[image]',
-      url: '/images'
+      inputName: 'attachment[image]',
+      url: '/attachments'
       },
 
 
@@ -14494,6 +14494,7 @@ Showdown.converter = function() {
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; }, __hasProp = Object.prototype.hasOwnProperty;
   this.Mercury.uploader = function(file, options) {
+    console.log(Mercury.config.uploading.enabled);
     if (Mercury.config.uploading.enabled) {
       Mercury.uploader.show(file, options);
     }
