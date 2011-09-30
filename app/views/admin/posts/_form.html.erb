@@ -6,8 +6,12 @@
   <%= f.text_area :excerpt, :rows => 4, :cols => 80 %>
   
   <%= f.label :body, "Cuerpo" %>
-  <%= f.text_area :body, :rows => 10, :cols => 80%>
+  <%= f.text_area :body, :rows => 10, :cols => 80 %>
 
+  <div id="primary" class="mercury-region" data-type="editable">
+    default content
+  </div>
+     
   <%= f.label :image, "Imagen" %>
   <%= f.file_field :image %>
 
