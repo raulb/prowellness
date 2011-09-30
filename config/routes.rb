@@ -26,4 +26,5 @@ Prowellness::Application.routes.draw do
 
   resources :comments
 
+  resources :attachments
 end
