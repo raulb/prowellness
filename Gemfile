@@ -12,6 +12,7 @@ gem 'exception_notification'
 gem 'rails_autolink'
 gem 'therubyracer', :platforms => :ruby
 gem 'bcrypt-ruby'
+gem 'mercury-rails'  
 
 # Gems used only for assets and not required
 # in production environments by default.

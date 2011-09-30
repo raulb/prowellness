@@ -85,9 +85,9 @@
         <div class="user_options">
           <ul>
             <% unless logged_in? %>
-              <li><%= link_to("registro", new_users_path,:class => "#{'selected' if controller_name == 'users'}") %></li>
+              <li><%= link_to("registro", new_users_path,:class => "default#{' selected' if controller_name == 'users'}") %></li>
               <li class="submenu login">
-                <%= link_to("login", "javascript:void(null)") %>
+                <%= link_to("login", "javascript:void(null)", :class=>'default') %>
 
                 <div class="options">
                   <span class="main-option">

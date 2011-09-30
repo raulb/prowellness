@@ -89,6 +89,7 @@ nav {
             }
           }
           &.login {
+            
             .main-option {
               width:74px;
               background:url(application/menu/login-top.png) no-repeat 0 0;
@@ -165,7 +166,7 @@ nav {
               }
               a {
                 font-size:1.4em; padding:4px 12px;
-
+                
                 &:hover {
                   background-color:$bg-black-darkest;
                   @include box-shadow-none();
@@ -181,6 +182,12 @@ nav {
 
           float:left; font:normal 1.8em AbadiMTCondensedLight; color:white; text-decoration:none; padding:4px 12px;
 
+          &.default {
+            &:hover {
+              background-color:$bg-blue-darkest;
+            }
+          }
+          
           &:hover {
             background-color:$bg-black-darkest;
             @include border-radius(6px);
