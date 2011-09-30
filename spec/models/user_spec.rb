@@ -76,6 +76,7 @@ describe User do
   end
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -91,5 +92,6 @@ end
 #  sex                :integer
 #  avatar             :string(255)
 #  confirmation_token :string(255)
+#  login              :string(255)
 #
 
