@@ -15,59 +15,60 @@ body {
 .error a {color:#8a1f11;}
 .notice a {color:#514721;}
 .success a {color:#264409;}
+input[type="submit"] {margin-left:13%;}
 /***** messages *********/
-
-
-form {
-  background-color: #fff;
-  text-align: left;
-}
-
-form label {
-  display: block;
-  font-size: 1.1em;
-  font-weight: bold;
-  letter-spacing: -0.025em;
-  margin: 0 0 5px;
-  text-align: left; 
-}
-
-form input {
-  display: block;
-  font: 15px Georgia,serif;
-}
-
-form input[type="text"],
-form input[type="password"] {
-  width: 240px;
-}
-
-form input[type="submit"] {
-  margin: 10px 0 0 5px;
-}
-
-form.post input[type="text"],
-          textarea {
-  width: 560px;
-}
-
-form.post textarea.tags {
-  height: 120px;
-}
-
-div.admin_content div.options, 
-div.admin_content div.options a {
-  background: #000;
-  color: #fff;
-  padding: 4px 4px;
-}
-
-div.admin_content div.content h2 {
-  border-bottom: 2px solid black;
-}
-
-div.admin_content div.content ul.posts li.post {
-  list-style-type: none; 
-  margin-left: 0px; 
-  padding-left: 0px;
-}
+// 
+// 
+// form {
+//   background-color: #fff;
+//   text-align: left;
+// }
+// 
+// form label {
+//   display: block;
+//   font-size: 1.1em;
+//   font-weight: bold;
+//   letter-spacing: -0.025em;
+//   margin: 0 0 5px;
+//   text-align: left; 
+// }
+// 
+// form input {
+//   display: block;
+//   font: 15px Georgia,serif;
+// }
+// 
+// form input[type="text"],
+// form input[type="password"] {
+//   width: 240px;
+// }
+// 
+// form input[type="submit"] {
+//   margin: 10px 0 0 5px;
+// }
+// 
+// form.post input[type="text"],
+//           textarea {
+//   width: 560px;
+// }
+// 
+// form.post textarea.tags {
+//   height: 120px;
+// }
+// 
+// div.admin_content div.options, 
+// div.admin_content div.options a {
+//   background: #000;
+//   color: #fff;
+//   padding: 4px 4px;
+// }
+// 
+// div.admin_content div.content h2 {
+//   border-bottom: 2px solid black;
+// }
+// 
+// div.admin_content div.content ul.posts li.post {
+//   list-style-type: none; 
+//   margin-left: 0px; 
+//   padding-left: 0px;
+// }

@@ -1,65 +1,12 @@
-<!-- esto es sólo para probar
-cuando esté la funcionalidad lo estilo donde debo -->
-<style type="text/css" media="screen">
-  #gallery{
-    display:inline-block; width:100%;
-    padding:20px 0;
-  } 
-  #gallery ul {width:210px; margin:0;}
-  #gallery ul,li,p {display:inline-block; margin:0;}
-  img {
-    display:inline-block; margin:3px;
-  }
-  #gallery p {text-align:center; width:210px;}
-  .image {display:inline-block; width:248px; height:210px;}
-  #gallery input {display:inline-block;}
-  #gallery label {display:inline-block; font-size:11px;}
-</style>
-
-<!-- ************************* END CSS -->
-
 <%= form_for [:admin, @post], :html => {:class => 'post', :multipart => true} do |f| %>
   <%= f.label :title, "Título" %>
   <%= f.text_field :title %>
 
   <%= f.label :excerpt, "Resumen" %>
   <%= f.text_area :excerpt, :rows => 4, :cols => 80 %>
-
-
-  <!-- INICIO DE PROPUESTA -->
-  <div class="new_section" style="float:left; padding:20px 0; background-color:#CCC;">
-    <label for="images_list">Listado de imágenes subidas -que yo haré galería- (no las que se muestran como imagen del post, serán otras que formen la noticia) (Estarán ordenadas de más reciente a más antigua)</label>
-
-    <div id="gallery">
-      <% for i in 0..5 %>
-        <div class="image">
-          <img src="http://farm2.static.flickr.com/1182/5109223210_25621f1174_m.jpg" alt="imagen1" />  
-          <p>TAGS</p>
-          <ul>
-            <% for tag in Array(0..rand(8)) %>
-              <li><%= tag %></li>
-            <% end %>
-          </ul>
-          <input type="checkbox" name="some_name" value="" id="some_name" />
-          <label for="some_name" >Adjuntar</label>
-        </div>
-      <% end %>
-      <a href="#" style="float:left; width:100%;">CON EL ONCLICK ADJUNTARÉ EN EL CUERPO LAS IMÁGENES SELECCIONADAS</a>    
-    </div>
-    <label for="filtra_por_tags">Filtra imágenes por tags (por ajax)</label>
-    <input type="text" name="filtra_por_tags" value="" id="filtra_por_tags" />
-    <input type="submit" name="some_name" value="Filtra" id="some_name"/>
-    
-    <label for="filtra_por_tags">O sube nuevas imágenes (con el image upload) - no hacer crop a ningún tamaño, porque tengo que mirarlo bien</label>
-    <input type="text" name="filtra_por_tags" value="Escribe sus tags" id="filtra_por_tags" />
-    <input type="file" name="filtra_por_tags" value="" id="filtra_por_tags" />
-    <input type="submit" name="some_name" value="Sube nuevas imágenes" id="some_name"/>
-    
-  </div>
-  <!-- FIN DE PROPUESTA -->  
   
   <%= f.label :body, "Cuerpo" %>
-  <%= f.text_area :body, :rows => 10, :cols => 80 %>
+  <%= f.text_area :body, :rows => 10, :cols => 80%>
 
   <%= f.label :image, "Imagen" %>
   <%= f.file_field :image %>
@@ -73,7 +20,7 @@ cuando esté la funcionalidad lo estilo donde debo -->
 
   <%= f.label :tags, "Tags" %>
   <%= f.text_area :tags, :rows => 2, :cols => 40 %>
-
+  
   <%= f.submit "Guardar como borrador", :name => :draft %>
   <%= f.submit "Publicar", :name => :publish %>
   <%= link_to 'Cancelar', admin_posts_path %>
