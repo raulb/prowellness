@@ -299,12 +299,42 @@ article {
 
   float:left; width:689px; margin-top:130px;
   
+  
+  // common elements in a post
+  table {
+    width:689px;
+  }
+  
+  img {
+    padding:5px; 
+    background-color:white;
+    border:1px solid $font-color-gray;
+    margin:15px;
+    max-width:642px;
+    
+  }
+  
   p {margin-top:20px;}
-
+  
+  p,a {
+   line-height:1.4em; 
+  }
+  
+  // video
+  iframe {
+    padding:5px; 
+    background-color:white;
+    border:1px solid $font-color-gray;
+    margin:15px;
+  }
+  
   h5 {
     float:left; width:450px;
     font:normal 1.6em AbadiMTCondensedLight; color:$date-font-color; 
   }
+  
+  
+  
   
   footer{
     width:659px;

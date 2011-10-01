@@ -42,12 +42,14 @@
 
   <footer>
     <div class="left">
-      <h5>TAGS</h5>
-      <ul class="tags">
-        <%  @post.tags.each do |tag| %>
-          <li><a href="#"><%= tag %></a></li>
-        <% end %>
-      </ul>
+      <% if !@post.tags.nil? %>
+        <h5>TAGS</h5>
+        <ul class="tags">
+          <%  @post.tags.each do |tag| %>
+            <li><a href="#"><%= tag %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
 
     <div class="right">

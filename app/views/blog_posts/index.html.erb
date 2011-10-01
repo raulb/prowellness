@@ -27,12 +27,13 @@
         
         <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
         
-        <ul class="tags">
-          <%  post.tags.each do |tag| %>
-            <li><a href="#"><%= tag %></a></li>
-          <% end %>
-        </ul>
-
+        <% if !post.tags.nil? %>
+          <ul class="tags">
+            <%  post.tags.each do |tag| %>
+              <li><a href="#"><%= tag %></a></li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
       <span class="shadow"></span>
     </li>
