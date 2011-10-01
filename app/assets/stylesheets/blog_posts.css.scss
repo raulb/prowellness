@@ -1,5 +1,9 @@
 .posts {
 
+  img {
+    width:311px; height:187px;
+  }
+  
   .main_post {
     float:left; margin:0;
 
@@ -18,4 +22,8 @@
       padding-bottom:10px;
     }
   }
+}
+
+.tags {
+  float:left; width:100%; margin-top:16px;
 }

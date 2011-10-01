@@ -1,0 +1,76 @@
+@import "application";
+
+.main_post {
+  float:left;
+  padding:11px 11px 15px;
+  width:667px;
+  height:370px;
+  border:1px solid $border-info-color;
+  position:relative;
+  
+  #slider {
+    float:left;
+    width:665px;
+    height:371px;
+    position:relative;
+  }
+  
+  .nivo-caption {
+    position:absolute;
+    top:0; left:0;
+    width:665px;
+    height:82px;
+  }
+  
+  .shadow {
+    position:absolute; bottom:-16px; left:0;
+    z-index:0;
+    background:url(application/wide-shadow.png) no-repeat 0 0;
+    width:689px;
+    height:16px;
+  }
+  
+  &:hover {
+    
+    border-color:darken($border-info-color,10%);
+
+    .shadow {
+      background:url(application/wide-shadow-hover.png) no-repeat 0 0;
+    }
+  }
+  
+}
+
+.posts {
+
+    img {
+      width:242px; height:136px;
+    }
+
+    .main_post {
+      float:left; margin:0;
+
+      h2 {
+        a {
+          font-size:2.1em;
+        }
+      }
+      div {
+        float:left; height:auto;
+      }
+
+      img {
+        width:665px;
+        height:371px;
+        padding-bottom:10px;
+      }
+    }
+}
+
+.tags {
+  float:none;
+  position:absolute;
+  bottom:23px;
+  left:269px;
+  width:410px;
+}
