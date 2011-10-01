@@ -30,13 +30,13 @@ group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rspec-rails'
   gem 'jasmine'
+  gem 'delorean'
 end
 
 group :test do
   gem 'steak'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'delorean'
   gem 'mocha'
   gem 'selenium'
   gem 'selenium-client'
