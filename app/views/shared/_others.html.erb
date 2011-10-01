@@ -1,0 +1,12 @@
+<div id="other_posts">
+  <ul class="short_post">
+    <% @other_posts.each do |post| %>
+      <li class="<%= cycle("even", "odd") %>">
+        <h4><%= link_to(post.title, post_path(post)) %></h4>
+        <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= posts_pagination(@other_posts) %>
+</div>

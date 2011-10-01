@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id])
     end
     @current_user
+  rescue ActiveRecord::RecordNotFound
+    @current_user = nil
   end
 
   def logged_in?
@@ -58,7 +60,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     return true if logged_in?
-    redirect_to login_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
+    redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
 
   def load_post
@@ -67,7 +69,7 @@ class ApplicationController < ActionController::Base
     else
       Post.find_by_slug(params[:slug])
     end
-    if @post.nil? || @post.draft? && current_user != @post.user
+    if @post.nil? || (@post.draft? && current_user != @post.user)
       render_404 and return false
     end
     @other_posts = Post.other_blog_posts(:page => params[:page], :per_page => 5, :exclude_ids => [@post.id])

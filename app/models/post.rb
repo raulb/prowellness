@@ -142,16 +142,20 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def self.other_articles(limit, offset, category = nil)
-    unless category
+  def self.other_articles(options = {})
+    default_options = {
+      :per_page => 5, :page => 1
+    }
+    options = default_options.merge(options)
+    unless options[:category]
       categories_conditions = %W{ fitness mujer nutricion mi-opinion }.map do |category|
         "('#{category}' = ANY(categories))"
       end.join(" OR ")
       where(categories_conditions).
-      order_by_publish_date.limit(limit).offset(offset)
+      order_by_publish_date.page(options[:page]).per(options[:per_page])
     else
-      where("? = ANY(categories)", category).
-      order_by_publish_date.limit(limit).offset(offset)
+      where("? = ANY(categories)", options[:category]).
+      order_by_publish_date.page(options[:page]).per(options[:per_page])
     end
   end
 

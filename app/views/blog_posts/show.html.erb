@@ -64,7 +64,10 @@
 </article>
 
 <% if @other_posts.any? %>
-  <div class="others" id="others">
-    <%= render "others" %>
+  <div class="others">
+    <div class="header">
+      <h2>Otras entradas en el blog</h2>  
+    </div>
+    <%= render "shared/others" %>
   </div>
 <% end %>

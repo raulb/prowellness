@@ -50,12 +50,10 @@
 <!-- AQUÍ IRÍA EL render "others", como en blog_posts. Llegué a crear el partial para el modulo articles pero me da un error en la paginación y lo he dejado -->
 
 <% if @other_posts.any? %>
-<div class="others">
-  <h2>Más artículos</h2>
-  <ul>
-    <% @other_posts.each do |post| %>
-    <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="others" id="others">
+    <div class="header">
+      <h2>Otros artículos</h2>  
+    </div>
+    <%= render "shared/others" %>  
+  </div>
 <% end %>

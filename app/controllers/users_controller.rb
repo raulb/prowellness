@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to edit_user_path, :flash => {:success => "Tu cuenta ha sido activada correctamente"}
     else
-      redirect_to login_path, :flash => {:alert => "Código de activación de cuenta inválido"}
+      redirect_to root_path, :flash => {:alert => "Código de activación de cuenta inválido"}
     end
   end
 
