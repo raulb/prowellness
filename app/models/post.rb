@@ -1,6 +1,10 @@
 # coding: UTF-8
 
+require 'texticle/searchable'
+
 class Post < ActiveRecord::Base
+
+  extend Searchable(:title, :excerpt, :body)
 
   CATEGORIES = {
     "Artículos > Fitness" => "articulos,fitness",

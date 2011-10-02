@@ -218,6 +218,8 @@ GEM
       capybara (>= 1.0.0)
       rspec-rails (>= 2.5.0)
     subexec (0.1.0)
+    texticle (2.0.2)
+      activerecord (>= 3.0.0)
     therubyracer (0.9.4)
       libv8 (~> 3.3.10)
     thor (0.14.6)
@@ -266,6 +268,7 @@ DEPENDENCIES
   selenium-client
   selenium-webdriver
   steak
+  texticle (~> 2.0.2)
   therubyracer
   uglifier
   yajl-ruby (~> 0.8.2)

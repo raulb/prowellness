@@ -1,0 +1,25 @@
+<p>buscar en todo el site</p>
+
+<form action="<%= search_path %>" method="get" id="search">
+  <span>
+    <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
+    <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" value="<%= params[:q] %>" />
+    <input type="submit" value="buscar" />
+  </span>
+</form>
+
+<div>
+  <h3>Resultados</h3>
+  <% unless @posts %>
+    <%= flash[:alert] %>
+  <% else %>
+    <p>Se han encontrado <%= pluralize(@posts.total_count, 'resultado', 'resultados') %> de búsqueda para <%= params[:q] %></p>
+
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p><%= link_to(post.title, post_path(post)) %> - por <%= post.user.signature %></p>
+        <p><%= post.categories.join(" > ") %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

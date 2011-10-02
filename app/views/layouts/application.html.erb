@@ -121,11 +121,10 @@
       <aside>
         <div class="info-box search">
           <h3>buscador</h3>
-          <form action="" method="get">
+          <form action="<%= search_path %>" method="get" id="search">
             <span>
               <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
-
-              <input type="search" name="user_search" placeholder="Escribe lo que necesitas" results="5" />
+              <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" />
               <input type="submit" value="buscar" />
             </span>
           </form>
