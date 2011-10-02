@@ -2,7 +2,7 @@
 
 class CommentsController < ApplicationController
 
-  before_filter :load_post, :only => [:index]
+  before_filter :load_post_and_comments, :only => [:index]
 
   def index
     respond_to do |format|

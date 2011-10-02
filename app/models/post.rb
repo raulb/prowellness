@@ -142,6 +142,10 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.get_last_article(category)
+    get_last_articles(1, [-1], category)
+  end
+
   def self.other_articles(options = {})
     default_options = {
       :per_page => 5, :page => 1
@@ -152,9 +156,11 @@ class Post < ActiveRecord::Base
         "('#{category}' = ANY(categories))"
       end.join(" OR ")
       where(categories_conditions).
+      where("id not IN (#{options[:exclude_ids].join(',')})").
       order_by_publish_date.page(options[:page]).per(options[:per_page])
     else
       where("? = ANY(categories)", options[:category]).
+      where("id not IN (#{options[:exclude_ids].join(',')})").
       order_by_publish_date.page(options[:page]).per(options[:per_page])
     end
   end

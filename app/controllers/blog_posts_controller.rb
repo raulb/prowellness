@@ -11,6 +11,10 @@ class BlogPostsController < PostsController
     end
   end
 
+  def show
+    @other_posts = Post.other_blog_posts(:page => params[:page], :per_page => 5, :exclude_ids => [@post.id])
+  end
+
   private
 
   def set_category

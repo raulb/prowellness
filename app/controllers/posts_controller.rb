@@ -3,7 +3,7 @@
 class PostsController < ApplicationController
 
   before_filter :set_category
-  before_filter :load_post, :only => :show
+  before_filter :load_post_and_comments, :only => :show
 
   def index
   end

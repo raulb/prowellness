@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
 
-  def load_post
+  def load_post_and_comments
     @post = if @categories
       Post.find_by_categories_and_slug(@categories, params[:slug])
     else
@@ -72,7 +72,6 @@ class ApplicationController < ActionController::Base
     if @post.nil? || (@post.draft? && current_user != @post.user)
       render_404 and return false
     end
-    @other_posts = Post.other_blog_posts(:page => params[:page], :per_page => 5, :exclude_ids => [@post.id])
     @comments = @post.comments.page(params[:comments_page])
   end
 
