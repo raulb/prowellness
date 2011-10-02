@@ -19,7 +19,7 @@ module Prowellness
 
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",
-      :sender_address => %{"notifier" <www-data@127.0.0.1>},
+      :sender_address => %{"notifier" <ubuntu@li348-253.members.linode.com>},
       :exception_recipients => %w{ferblape+prowellness@gmail.com}
   end
 end
