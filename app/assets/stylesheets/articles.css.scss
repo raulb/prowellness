@@ -15,13 +15,6 @@
     position:relative;
   }
   
-  .nivo-caption {
-    position:absolute;
-    top:0; left:0;
-    width:665px;
-    height:82px;
-  }
-  
   .shadow {
     position:absolute; bottom:-16px; left:0;
     z-index:0;
@@ -39,6 +32,72 @@
     }
   }
   
+  // Gallery elements
+  .nivo-caption {
+    position:absolute;
+    top:0; left:0;
+    width:645px;
+    height:62px;
+    
+    padding:10px;
+    h2 {
+      font:normal 2rem AbadiMTCondensedLight;
+      letter-spacing:-0.3px;
+      float:left;
+      margin:0;
+    }
+    
+    p {
+      float:left;
+      font:normal 1em Arial; 
+      color:white;
+      width:512px;
+    }
+    
+    a {
+      float:right;
+      text-decoration:none;
+      margin:0;
+      font:normal 1.7rem AbadiMTCondensedLight; color:white;
+      padding:5px 10px;
+      border:none;
+      text-align:center;
+      @include border-radius(6px);
+      @include linear-gradient(red);
+      
+      &:hover {
+        cursor:pointer;
+        @include linear-gradient-hover(red);
+      }
+    }
+  }
+    
+  .nivo-directionNav a {
+  	position:absolute;
+  	top:53%;
+  	z-index:9;
+  	cursor:pointer;
+  	width:23px; 
+  	height:23px;
+  }
+  .nivo-prevNav {
+  	left:10px;
+    background-position:left 0;  	
+    background:url(articles/gallery-arrows.png) no-repeat 0 0;    
+    
+  	&:hover {
+  	  background-position:left -24px;
+  	}
+  }
+  .nivo-nextNav {
+  	right:10px;
+  	background:url(articles/gallery-arrows.png) no-repeat right 0;
+    
+  	&:hover {
+  	  background-position:right -24px;
+  	}
+  }
+    
 }
 
 .posts {

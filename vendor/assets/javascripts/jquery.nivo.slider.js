@@ -86,7 +86,7 @@
 
         //Create caption
         slider.append(
-            $('<div class="nivo-caption"><p></p></div>').css({ display:'none', opacity:settings.captionOpacity })
+            $('<div class="nivo-caption"><h2></h2><p></p><a href="#">leer más</a></div>').css({ display:'none', opacity:settings.captionOpacity })
         );			
 		
 		// Process caption function
@@ -94,15 +94,29 @@
 			var nivoCaption = $('.nivo-caption', slider);
 			if(vars.currentImage.attr('title') != '' && vars.currentImage.attr('title') != undefined){
 				var title = vars.currentImage.attr('title');
+				var post = vars.currentImage.attr('alt');
+				var link = vars.currentImage.attr('link');
+				
 				if(title.substr(0,1) == '#') title = $(title).html();	
-
+				if(post.substr(0,1) == '#') post = $(post).html();
+				
 				if(nivoCaption.css('display') == 'block'){
-					nivoCaption.find('p').fadeOut(settings.animSpeed, function(){
+					nivoCaption.find('h2').fadeOut(settings.animSpeed, function(){
 						$(this).html(title);
 						$(this).fadeIn(settings.animSpeed);
 					});
+					nivoCaption.find('p').fadeOut(settings.animSpeed, function(){
+						$(this).html(post);
+						$(this).fadeIn(settings.animSpeed);
+					});
+					nivoCaption.find('a').fadeOut(settings.animSpeed, function(){
+						$(this).attr('href',link);
+						$(this).fadeIn(settings.animSpeed);
+					});
 				} else {
-					nivoCaption.find('p').html(title);
+					nivoCaption.find('h2').html(title);
+					nivoCaption.find('p').html(post);
+					nivoCaption.find('a').attr('href',link);
 				}					
 				nivoCaption.fadeIn(settings.animSpeed);
 			} else {

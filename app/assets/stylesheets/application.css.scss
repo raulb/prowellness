@@ -126,6 +126,20 @@ $bg-pag-current:#FF0000;
         rgb(51,51,51) 30%,
         rgb(0,0,0) 100%
     );  
+  }@else if $color == red{
+    background-image: linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -o-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -moz-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -webkit-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -ms-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.4, rgb(204,51,51)),
+    	color-stop(0.7, rgb(149,35,35))
+    );  
   }
   
 }
@@ -160,8 +174,22 @@ $bg-pag-current:#FF0000;
     	color-stop(0.14, rgb(56,55,56)),
     	color-stop(0.76, rgb(20,19,20))
     );
+  }@else if $color == red{
+    background-image: linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -o-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -moz-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -webkit-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -ms-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.4, rgb(204,51,51)),
+    	color-stop(0.7, rgb(149,35,35))
+    );
   }
-  
+
 }
 
 @mixin linear-blue-gradient($direction:top) {
