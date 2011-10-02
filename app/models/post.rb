@@ -34,6 +34,12 @@ class Post < ActiveRecord::Base
     "Blog" => "blog"
   }
 
+  def self.valid_categories
+    @valid_categories ||= CATEGORIES.values.map do |v|
+      v.split(',')
+    end.flatten.sort.uniq
+  end
+
   attr_accessible :title, :excerpt, :body, :state, :tags, :categories, :image
 
   validates_presence_of :categories, :title, :body, :image
@@ -49,10 +55,22 @@ class Post < ActiveRecord::Base
   scope :published, where(:state => 1)
   scope :order_by_publish_date, published.order("publish_date DESC")
   scope :last_blog_posts, lambda { |how_many|
-    where("? = ANY(categories)", "blog").order_by_publish_date.limit(how_many)
+    filter_by_category('blog').order_by_publish_date.limit(how_many)
   }
   scope :filter_by_tags, lambda { |tag_name|
     where("? = ANY(tags)", tag_name).order_by_publish_date
+  }
+  scope :filter_by_category, lambda { |category_name|
+    where("? = ANY(categories)", category_name)
+  }
+  scope :filter_by_categories, lambda { |categories|
+    query = []
+    categories.each do |k,v|
+      if v == "1" && valid_categories.include?(k)
+        query << "'#{k.sanitize_sql}' = ANY(categories)"
+      end
+    end
+    where('(' + query.join(" OR ") + ')')
   }
 
   mount_uploader :image, ImageUploader
@@ -111,14 +129,14 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_by_category_and_slug(category,slug)
-    where("? = ANY(categories)", category).where(:slug => slug).first
+    filter_by_category(category).where(:slug => slug).first
   end
 
   def self.find_by_categories_and_slug(categories,slug)
     raise ArgumentError unless categories.is_a?(Array)
-    conditions = where("? = ANY(categories)", categories[0])
+    conditions = filter_by_category(categories[0])
     categories[1..-1].each do |category|
-      conditions = conditions.where("? = ANY(categories)", category)
+      conditions = conditions.filter_by_category(category)
     end
     if candidate = conditions.where(:slug => slug).first
       return candidate if candidate.categories.size == categories.size
@@ -126,7 +144,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.get_last_5_articles(category = nil)
-    where("? = ANY(categories)", category || 'articulos').order_by_publish_date.limit(5)
+    filter_by_category(category || 'articulos').order_by_publish_date.limit(5)
   end
 
   def self.get_last_articles(how_many, exclude_ids, category = nil)
@@ -134,13 +152,13 @@ class Post < ActiveRecord::Base
     unless category
       result = {}
       %W{ fitness mujer nutricion mi-opinion }.each do |category|
-        result[category] = where("? = ANY(categories)", category).
+        result[category] = filter_by_category(category).
                            where("id not IN (#{exclude_ids.join(',')})").
                            order_by_publish_date.limit(how_many)
       end
       result
     else
-      where("? = ANY(categories)", category).
+      filter_by_category(category).
       where("id not IN (#{exclude_ids.join(',')})").
       order_by_publish_date.limit(how_many)
     end
@@ -163,7 +181,7 @@ class Post < ActiveRecord::Base
       where("id not IN (#{options[:exclude_ids].join(',')})").
       order_by_publish_date.page(options[:page]).per(options[:per_page])
     else
-      where("? = ANY(categories)", options[:category]).
+      filter_by_category(options[:category]).
       where("id not IN (#{options[:exclude_ids].join(',')})").
       order_by_publish_date.page(options[:page]).per(options[:per_page])
     end
@@ -172,7 +190,7 @@ class Post < ActiveRecord::Base
   def self.get_last_videos(how_many)
     result = {}
     %W{ abdominales estiramientos }.each do |category|
-      result[category] = where("? = ANY(categories)", category).
+      result[category] = filter_by_category(category).
                          order_by_publish_date.limit(how_many)
     end
     result
@@ -180,7 +198,7 @@ class Post < ActiveRecord::Base
 
   def self.other_blog_posts(options = {})
     options[:exclude_ids] = options[:exclude_ids].empty? ? options[:exclude_ids] = [-1] : options[:exclude_ids]
-    where("? = ANY(categories)", "blog").
+    filter_by_category('blog').
     where("id not IN (#{options[:exclude_ids].join(',')})").
     order_by_publish_date.
     page(options[:page] || 1).per(options[:per_page])

@@ -1,19 +1,40 @@
 <p>buscar en todo el site</p>
 
-<form action="<%= search_path %>" method="get" id="search">
+<%= form_tag search_path, :method => :get, :id => 'search' do %>
   <span>
     <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
     <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" value="<%= params[:q] %>" />
     <input type="submit" value="buscar" />
+    <a href="#" class="toggle_filters">mostrar filtros</a>
   </span>
-</form>
+
+  <div class="filters">
+    <%= check_box_tag "categories[videos]", "1", (params[:categories] && params[:categories]["videos"]), :id => "category_videos" %>
+    <%= label_tag "category_videos", "Vídeos" %>
+    <%= check_box_tag "categories[articulos]", "1", (params[:categories] && params[:categories]["articulos"]), :id => "category_articulos" %>
+    <%= label_tag "category_articulos", "Artículos" %>
+    <%= check_box_tag "categories[blog]", "1", (params[:categories] && params[:categories]["blog"]), :id => "category_blog" %>
+    <%= label_tag "category_blog", "Blog" %>
+    <%= check_box_tag "categories[mi-opinion]", "1", (params[:categories] && params[:categories]["mi-opinion"]), :id => "category_mi_opinion" %>
+    <%= label_tag "category_mi_opinion", "Mi opinión" %>
+
+    <a href="#" class="toggle_filters">ocultar filtros</a>
+  </div>
+<% end %>
 
 <div>
   <h3>Resultados</h3>
   <% unless @posts %>
     <%= flash[:alert] %>
   <% else %>
-    <p>Se han encontrado <%= pluralize(@posts.total_count, 'resultado', 'resultados') %> de búsqueda para <%= params[:q] %></p>
+    <p>
+      <% if @posts.total_count == 1 %>
+        Se ha encontrado un resultado
+      <% else %>
+        Se han encontrado <%= @posts.total_count %> resultados
+      <% end %>
+      de búsqueda para <%= params[:q] %>
+    </p>
 
     <% @posts.each do |post| %>
       <div class="post">
@@ -23,3 +44,13 @@
     <% end %>
   <% end %>
 </div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  $('.filters').hide();
+  $('.toggle_filters').click(function(e){
+    $('.filters').toggle();
+    e.stopPropagation(); e.preventDefault();
+  });
+});
+</script>

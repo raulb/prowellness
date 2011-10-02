@@ -34,5 +34,19 @@ feature 'Search posts', %q{
     page.should have_content "buscar en todo el site"
     page.should have_content "Resultados"
     page.should have_content "Se han encontrado 3 resultados de búsqueda para dieta"
+
+    page.should have_css "div.post a", :text => "Dieta para programadores"
+    page.should have_css "div.post a", :text => "Dieta para diseñadoras"
+    page.should have_css "div.post a", :text => "Dieta para diseñadoras"
+
+    click "mostrar filtros"
+
+    check "Blog"
+
+    click "buscar"
+
+    page.should have_content "Se ha encontrado un resultado de búsqueda para dieta"
+
+    page.should have_css "div.post a", :text => "Dieta para programadores"
   end
 end
