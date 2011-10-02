@@ -48,5 +48,13 @@ feature 'Search posts', %q{
     page.should have_content "Se ha encontrado un resultado de búsqueda para dieta"
 
     page.should have_css "div.post a", :text => "Dieta para programadores"
+
+    click "mostrar filtros"
+
+    fill_in "Autor", :with => "Anonimo"
+
+    click "buscar"
+
+    page.should have_content "Se han encontrado 0 resultados de búsqueda para dieta"
   end
 end

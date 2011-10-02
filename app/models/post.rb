@@ -72,6 +72,15 @@ class Post < ActiveRecord::Base
     end
     where('(' + query.join(" OR ") + ')')
   }
+  scope :filter_by_authors, lambda{ |authors|
+    users_ids = User.search(authors).select("id").map(&:id)
+    unless users_ids.empty?
+      where("user_id IN (#{users_ids.join(',')})")
+    else
+      # FIXME: if no user has been found posts should be empty
+      where("id < 0")
+    end
+  }
 
   mount_uploader :image, ImageUploader
 

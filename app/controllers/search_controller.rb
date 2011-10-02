@@ -9,6 +9,9 @@ class SearchController < ApplicationController
       if params[:categories]
         posts = posts.filter_by_categories(params[:categories])
       end
+      unless params[:author].blank?
+        posts = posts.filter_by_authors(params[:author])
+      end
       @posts = posts.order_by_publish_date.page(params[:page]).per(50)
     end
   end
