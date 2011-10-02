@@ -7,7 +7,7 @@ class BlogPostsController < PostsController
     @other_posts = Post.other_blog_posts(:page => params[:page], :per_page => 5, :exclude_ids => @posts.map(&:id))
     respond_to do |format|
       format.html
-      format.js
+      format.js   { render "posts/index" }
     end
   end
 
