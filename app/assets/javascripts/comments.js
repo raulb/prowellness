@@ -6,7 +6,8 @@ jQuery(document).ready(function($) {
     $.scrollTo('li.login',400); 
 
     var el = $('li.login').children('.options');
-    showLoginWindow(el);
+    showLoginWindow(el)
     
   });
+  
 });
