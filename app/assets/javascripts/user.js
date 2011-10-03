@@ -5,7 +5,7 @@ $(document).ready(function($) {
   
   $('#ok').click(function(event) {
     event.preventDefault();
-    
+
     $.scrollTo('#user_data', 400, {easing:'elasout'});
     $('#user_data form input[type="text"]:first').focus();
   });
