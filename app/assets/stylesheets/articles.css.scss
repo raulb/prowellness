@@ -133,3 +133,31 @@
   left:269px;
   width:410px;
 }
+
+.nav-section{ 
+ .box-options {
+   float:left;
+   margin:0;
+   background:url(articles/kind-articles-box-dashed.png) no-repeat 0 0;
+   width:305px;
+   height:52px;
+ }
+ 
+ .scissors {
+    &.fitness {
+      right: 35px;
+    }  
+    &.mujer {
+      right: 105px;
+    }
+    &.nutricion {
+      right: 165px;
+    }
+    &.mi-opinion {
+      right: 265px;
+    }
+    
+    
+ }
+ 
+}

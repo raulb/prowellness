@@ -29,7 +29,9 @@
 <% if @posts.any? %>
   <% %W{ fitness mujer nutricion mi-opinion }.each do |category| %>
     <div class="nav-section">
-      <span class="scissors"></span>
+      <span class="scissors <%= category %>"></span>
+      <div class="box-options">
+      </div>
     </div>
   
     
