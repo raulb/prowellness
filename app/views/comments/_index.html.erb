@@ -7,7 +7,7 @@
   <div class="not_logged">
     <h6>¿Quieres <%= (@comments.empty?)? 'ser la primera persona en':'' %> publicar un comentario?</h6>
     <p>Para poder comentar un artículo debes estar registrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
-    <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", "javascript:void(null)") %></p>
+    <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", "javascript:void(null)", :class=>'click_link') %></p>
   </div>
 <% end %>
 

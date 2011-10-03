@@ -1,13 +1,71 @@
-<h1><%= @category %></h1>
+<%= stylesheet_link_tag "posts" %>
 
-<h2><%= @post.title %></h2>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2><%= @category %></h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
 
-<%= @post.excerpt.try(:html_safe) %>
+</header>
 
-<% if @post.image? %>
-  <%= image_tag @post.image.heading.url %>
+<div id="header_article">
+  <h3>
+    <%= @post.title %>
+    <!-- MOSTRAR EL AUTOR DEL POST -->
+    <em>- por Domingo Sánchez</em>
+  </h3>
+  <div id="date">
+    <p class="day"><%= @post.publish_date.strftime("%d") %></p>
+    <p class="month"><%= @post.publish_date.strftime("%b") %></p>
+    <p class="year"><%= @post.publish_date.strftime("%Y") %></p>
+  </div>
+
+
+  <% if @post.image? %>
+    <div id="article_image">
+      <%= image_tag @post.image.heading.url %>
+      <span class="shadow"></span>
+    </div>
+  <% end %>
+</div>
+
+<article>
+  <!-- A qué corresponde esto? excerpt es el resumen y body es el cuerpo del artículo -->
+  <p><%= @post.excerpt.try(:html_safe) %></p>
+
+  <p><%= @post.body.try(:html_safe) %></p>
+
+  <footer>
+    <div class="left">
+      <% if !@post.tags.nil? %>
+        <h5>TAGS</h5>
+        <ul class="tags">
+          <%  @post.tags.each do |tag| %>
+            <li><a href="#"><%= tag %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="right">
+
+    </div>
+  </footer>
+
+  <div id="comments">
+    <%= render(:partial => "comments/index") %>
+  </div>
+
+</article>
+
+<% if @other_posts.any? %>
+  <div class="others" id="others">
+    <div class="header">
+      <h2>Otros artículos de <%= @category %></h2>  
+    </div>
+    <%= render "shared/others" %>  
+  </div>
 <% end %>
-
-<%= @post.body.try(:html_safe) %>
-
-<p><%= @post.tags.join(' ') %></p>

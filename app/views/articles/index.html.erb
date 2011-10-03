@@ -1,3 +1,6 @@
+<%= javascript_include_tag 'jquery.nivo.slider','articles' %>
+<%= stylesheet_link_tag "articles","posts","nivo-slider" %>
+
 <header>
   <span class="left-band"></span>
   <div class="right-band">
@@ -8,26 +11,28 @@
   </div>
 </header>
 
+
 <% if @main_posts.any? %>
-<div class="main_posts">
-  <% @main_posts.each do |post| %>
-    <div class="post">
-      <p><%= image_tag(post.image.rollover.url) %></p>
-      <p><%= link_to(post.title, post_path(post)) %></p>
-    </div>
-  <% end %>
+<div class="main_post">
+  <div id="slider" class="nivoSlider">
+    <% @main_posts.each do |post| %>
+      <a href="<%= post_path(post) %>">
+        <%= image_tag post.image.rollover.url, :title=> post.title, :alt=> post.excerpt+'...', :link=> post_path(post) %>    
+      </a>
+    <% end %>
+  </div>
+  <span class="shadow"></span>
 </div>
 <% end %>
 
-<ul class="sections">
-  <li><%= link_to("Fitness",    articles_category_path("fitness"), :class => "selected") %></li>
-  <li><%= link_to("Mujer",      articles_category_path("mujer")) %></li>
-  <li><%= link_to("Nutrición",  articles_category_path("nutricion")) %></li>
-  <li><%= link_to("Mi opinión", articles_category_path("mi-opinion")) %></li>
-</ul>
 
 <% if @posts.any? %>
   <% %W{ fitness mujer nutricion mi-opinion }.each do |category| %>
+    <div class="nav-section">
+      <span class="scissors"></span>
+    </div>
+  
+    
     <div class="posts <%= category %>">
       <% @posts[category].each do |post| %>
         <div class="post">
@@ -43,12 +48,10 @@
 <% end %>
 
 <% if @other_posts.any? %>
-<div class="others">
-  <h2>Más artículos</h2>
-  <ul>
-    <% @other_posts.each do |post| %>
-    <li class="short_post"><%= link_to(post.title, post_path(post)) %></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="others" id="others">
+    <div class="header">
+      <h2>Otros artículos</h2>  
+    </div>
+    <%= render "shared/others" %>  
+  </div>
 <% end %>

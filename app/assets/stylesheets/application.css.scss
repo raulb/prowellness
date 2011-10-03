@@ -443,6 +443,21 @@ aside {
   }
 }
 
+.nav-section{
+  float:left;
+  width:100%;
+  height:52px;
+  background:url(application/dashed-line.png) no-repeat 0 0;
+  position:relative;
+  
+  .scissors {
+    position:absolute;
+    top:-7px; right:20px;
+    background:url(application/scissors.png) no-repeat 0 0;
+    width:16px;
+    height:14px;
+  }
+}
 
 @import "partials/header";
 @import "partials/form_elements";

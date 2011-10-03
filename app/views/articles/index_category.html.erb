@@ -46,13 +46,10 @@
   <% end %>
 </ul>
 
-
-<!-- AQUÍ IRÍA EL render "others", como en blog_posts. Llegué a crear el partial para el modulo articles pero me da un error en la paginación y lo he dejado -->
-
 <% if @other_posts.any? %>
   <div class="others" id="others">
     <div class="header">
-      <h2>Otros artículos</h2>  
+      <h2>Otros artículos de <%= @category %></h2>  
     </div>
     <%= render "shared/others" %>  
   </div>
