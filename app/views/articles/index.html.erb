@@ -17,7 +17,7 @@
   <div id="slider" class="nivoSlider">
     <% @main_posts.each do |post| %>
       <a href="<%= post_path(post) %>">
-        <%= image_tag post.image.rollover.url, :title=> post.title, :alt=> post.excerpt+'...', :link=> post_path(post) %>    
+        <%= image_tag post.image.rollover.url, :title=> post.title, :alt=> post.excerpt+'...', :link=> post_path(post) %>
       </a>
     <% end %>
   </div>
@@ -37,15 +37,15 @@
         <a class="option <%= (category.eql? 'mi-opinion')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-mi-opinion',400);">Mi opinión</a>
       </div>
     </div>
-    
+
     <ul class="posts <%= category %> multiple-posts">
-      <% @posts[category].limit(3).each do |post| %>
+      <% @posts[category].each do |post| %>
         <li class="post">
           <div>
             <%= image_tag post.image.heading.url, :alt => post.title %>
             <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
             <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
-            <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>    
+            <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
             <% if !post.tags.nil? %>
               <ul class="tags">
                 <%  post.tags.each do |tag| %>
@@ -65,8 +65,8 @@
 <% if @other_posts.any? %>
   <div class="others" id="others">
     <div class="header">
-      <h2>Otros artículos</h2>  
+      <h2>Otros artículos</h2>
     </div>
-    <%= render "shared/others" %>  
+    <%= render "shared/others" %>
   </div>
 <% end %>

@@ -12,11 +12,11 @@ class ArticlesController < PostsController
         format.js   { render "posts/index" }
       end
     else
-      @main_posts = []
-      @posts = Post.get_last_articles(5, [-1])
+      @main_posts = Post.get_last_5_articles
+      @posts = Post.get_last_articles(3, @main_posts.map(&:id))
       exclude_ids = @posts.map do |k,v|
         v.map(&:id)
-      end.flatten
+      end.flatten + @main_posts.map(&:id)
       @other_posts = Post.other_articles(:page => params[:page], :exclude_ids => exclude_ids)
       respond_to do |format|
         format.html
