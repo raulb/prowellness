@@ -5,6 +5,9 @@
 // the compiled file.
 //
 
+//= require jquery-1.6.2.min
+//= require jquery-ui-1.8.16.custom.min
+//= require jquery.scrollTo-min
 //= require jquery_ujs
 
 jQuery(document).ready(function($) {

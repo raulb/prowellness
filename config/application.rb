@@ -17,6 +17,8 @@ module Prowellness
 
     config.assets.enabled = true
 
+    config.assets.precompile += ['reset.css', 'fonts.css']
+
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",
       :sender_address => %{"notifier" <ubuntu@li348-253.members.linode.com>},
