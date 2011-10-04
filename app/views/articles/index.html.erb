@@ -38,17 +38,27 @@
       </div>
     </div>
     
-    <div class="posts <%= category %>">
-      <% @posts[category].each do |post| %>
-        <div class="post">
-          <p><%= translate_category(post.categories.last) %></p>
-          <h3><%= link_to(post.title, post_path(post)) %></h3>
-          <p>por <%= post.user.signature %></p>
-        </div>
+    <ul class="posts <%= category %> multiple-posts">
+      <% @posts[category].limit(3).each do |post| %>
+        <li class="post">
+          <div>
+            <%= image_tag post.image.heading.url, :alt => post.title %>
+            <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+            <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+            <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>    
+            <% if !post.tags.nil? %>
+              <ul class="tags">
+                <%  post.tags.each do |tag| %>
+                  <li><a href="#"><%= tag %></a></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+          <span class="shadow"></span>
+        </li>
       <% end %>
-
-      <p><%= link_to("ver más artículos de #{translate_category(category).downcase}", articles_category_path(category)) %>
-    </div>
+      <%= link_to("ver más artículos de #{translate_category(category).downcase}", articles_category_path(category), :class=>'view-more') %>
+    </ul>
   <% end %>
 <% end %>
 

@@ -53,7 +53,7 @@ $spacing:40px;
   li {
     float:left; margin-top:$spacing;
     position:relative;
-  
+    
     div {
       padding:11px 11px 15px;
       width:667px;
@@ -93,6 +93,14 @@ $spacing:40px;
         background:url(application/wide-shadow-hover.png) no-repeat 0 0;
       }
       
+    }
+  }
+  
+  &.multiple-posts {
+    li {
+      &:first-child {
+        margin-top:0;
+      }
     }
   }
 }
@@ -297,7 +305,6 @@ $spacing:40px;
 article {
 
   float:left; width:689px; margin-top:130px;
-  
   
   // common elements in a post
   table {
