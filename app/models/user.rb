@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  scope :pending,   where("confirmation_token is null")
-  scope :confirmed, where("confirmation_token is not null")
+  scope :pending,   where("confirmation_token is not null")
+  scope :confirmed, where("confirmation_token is null")
 
   has_many :posts
 
