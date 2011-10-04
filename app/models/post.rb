@@ -179,7 +179,7 @@ class Post < ActiveRecord::Base
 
   def self.other_articles(options = {})
     default_options = {
-      :per_page => 5, :page => 1
+      :per_page => 5, :page => 1, :exclude_ids => [-1]
     }
     options = default_options.merge(options)
     unless options[:category]
