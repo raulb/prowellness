@@ -14,6 +14,8 @@ $bg-blue-darkest:#346F87;
 $bg-blue-normal:#009FB9;
 $bg-color-ads:#F5F5F5; // Background color for all advertisement elements
 $bg-color-hover:#B34700;
+$bg-color-section-menu:#ADADAD;
+$bg-color-section-menu-selected:#333333;
 $margin-left-header:130px;
 
 $space-top-boxes:15px;
@@ -450,12 +452,41 @@ aside {
   background:url(application/dashed-line.png) no-repeat 0 0;
   position:relative;
   
+  .box-options {
+    padding:11px 0 0 10px;
+  }
+  
   .scissors {
     position:absolute;
     top:-7px; right:20px;
     background:url(application/scissors.png) no-repeat 0 0;
     width:16px;
     height:14px;
+  }
+  
+  .option {
+    float:left;
+    margin-right:7px;
+    height:24px;
+    font:normal 1.4rem Arial; color:white;
+    
+    background-color:$bg-color-section-menu;
+    padding:7px 8px 0;
+    text-decoration:none;
+    @include border-radius(5px);
+    
+    &:last-child {
+      margin-right:0;
+    }
+    
+    &:hover {
+      cursor:pointer;
+      background-color:darken($bg-color-section-menu,30%);
+    }
+    
+    &.current {
+      background-color:$bg-color-section-menu-selected;
+    }
   }
   
 }

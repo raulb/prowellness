@@ -28,12 +28,15 @@
 
 <% if @posts.any? %>
   <% %W{ fitness mujer nutricion mi-opinion }.each do |category| %>
-    <div class="nav-section">
+    <div id="section-<%= category %>" class="nav-section">
       <span class="scissors <%= category %>"></span>
       <div class="box-options">
+        <a class="option <%= (category.eql? 'fitness')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-fitness',400);">Fitness</a>
+        <a class="option <%= (category.eql? 'mujer')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-mujer',400);">Mujer</a>
+        <a class="option <%= (category.eql? 'nutricion')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-nutricion',400);">Nutrición</a>
+        <a class="option <%= (category.eql? 'mi-opinion')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-mi-opinion',400);">Mi opinión</a>
       </div>
     </div>
-  
     
     <div class="posts <%= category %>">
       <% @posts[category].each do |post| %>
