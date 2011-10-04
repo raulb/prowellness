@@ -4,6 +4,9 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+
+//= require jquery_ujs
+
 jQuery(document).ready(function($) {
 
   // hover social icons (FOOTER)
@@ -30,13 +33,13 @@ jQuery(document).ready(function($) {
   // Showing login options
   $('li.login').find('a').click(function(event) {
     event.preventDefault();
-    
+
     var el = $(this).parents('.login').children('.options');
     showLoginWindow(el);
-    
+
   });
 
-  
+
 
 });
 
@@ -56,7 +59,7 @@ function showLoginWindow(el){
         el.hide();
         // document.unbind('click');
       };
-    });      
+    });
     // To hide any element when it's clicked outside
   }
 }
