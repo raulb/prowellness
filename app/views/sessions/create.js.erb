@@ -1,5 +1,5 @@
 <% if flash[:alert] %>
   $('#login_form').replaceWith('<%= escape_javascript(render(:partial => 'layouts/login')) %>');
 <% else %>
-  window.location.href = '<%= admin_posts_path %>';
+  $('.user_options ul').html('<%= escape_javascript(render(:partial => 'layouts/logged_in')) %>');
 <% end %>
