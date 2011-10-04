@@ -173,10 +173,6 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def self.get_last_article(category)
-    get_last_articles(1, [-1], category)
-  end
-
   def self.other_articles(options = {})
     default_options = {
       :per_page => 5, :page => 1, :exclude_ids => [-1]
