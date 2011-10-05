@@ -1,3 +1,6 @@
+<%= javascript_include_tag 'jquery.nivo.slider','articles' %>
+<%= stylesheet_link_tag "articles","blog_posts","posts","nivo-slider" %>
+
 
 <header>
   <span class="left-band"></span>
@@ -7,18 +10,22 @@
       <span class="triangle"></span>
     </div>
   </div>
-
 </header>
 
-<!-- MOSTRAR UN CARRUSEL DE LOS ÚLTIMOS 5 ARTÍCULOS
 
-+ 
+<% if @main_posts.any? %>
+<div class="main_post">
+  <div id="slider" class="nivoSlider">
+    <% @main_posts.each do |post| %>
+      <a href="<%= post_path(post) %>">
+        <%= image_tag post.image.rollover.url, :title=> post.title, :alt=> post.excerpt+'...', :link=> post_path(post), :category=> post.categories.last.capitalize %>
+      </a>
+    <% end %>
+  </div>
+  <span class="shadow"></span>
+</div>
+<% end %>
 
-2 ARTÍCULOS "SIMPLES"
-
-+
-
-LINK PARA VER "MÁS ARTÍCULOS" -->
 
 <header>
   <span class="left-band"></span>
@@ -47,6 +54,27 @@ LINK PARA VER MÁS VÍDEOS -->
   </div>
 
 </header>
+<ul class="posts blog multiple-posts">
+    <li class="post">
+      <div>
+        <%= link_to(image_tag(@last_post.image.heading.url, :alt => @last_post.title), post_path(@last_post)) %>
+        <h2><%= link_to(@last_post.title, post_path(@last_post), :title => @last_post.title) %></h2>
+        <p class="date">(<%= @last_post.publish_date.strftime("%d/%m/%y") %>)</p>
+        
+        <p class="post"><%= @last_post.excerpt %> ... <%= link_to("seguir leyendo", post_path(@last_post), :title => @last_post.title) %></p>
+        
+        <% if !@last_post.tags.nil? %>
+          <ul class="tags">
+            <%  @last_post.tags.each do |tag| %>
+              <li><a href="#"><%= tag %></a></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <span class="shadow"></span>
+    </li>
+</ul>
+
 
 <!-- MOSTRAR LA ÚLTIMA ENTRADA EN EL BLOG
 

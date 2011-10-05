@@ -1,25 +1,27 @@
 .posts {
 
-  img {
-    width:311px; height:187px;
-  }
-  
-  .main_post {
-    float:left; margin:0;
-
-    h2 {
-      a {
-        font-size:2.1em;
-      }
-    }
-    div {
-      float:left; height:auto;
-    }
-
+  &.blog {
     img {
-      width:665px;
-      height:371px;
-      padding-bottom:10px;
+      width:311px; height:187px;
+    }
+
+    .main_post {
+      float:left; margin:0;
+
+      h2 {
+        a {
+          font-size:2.1em;
+        }
+      }
+      div {
+        float:left; height:auto;
+      }
+
+      img {
+        width:665px;
+        height:371px;
+        padding-bottom:10px;
+      }
     }
   }
 }

@@ -5,6 +5,7 @@
 $font-color-ads:#686868; // Font color for ads elements
 $font-color-gray:#CCCCCC;
 $font-color-orange:#FF6600;
+$font-color-green:#7DAA00;
 
 // common-background colors
 
@@ -444,11 +445,6 @@ aside {
   img {
     float:left; width:55px; height:55px; background-color:$bg-tags-color; margin:0; padding:0; border:none;
   }
-}
-
-// I should do this with .nav-section:first-child ...
-#section-fitness {
-  margin-top:0;  
 }
 
 .nav-section{

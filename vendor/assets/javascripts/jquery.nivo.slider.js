@@ -87,7 +87,17 @@
         //Create caption
         slider.append(
             $('<div class="nivo-caption"><h2></h2><p></p><a href="#">leer más</a></div>').css({ display:'none', opacity:settings.captionOpacity })
-        );			
+        );
+        
+        // if there is a category
+        if (vars.currentImage.attr('category') != undefined) {
+
+          slider.children('.nivo-caption').prepend(
+              $('<h3></h3>')
+          );	
+        }
+        	
+        
 		
 		// Process caption function
 		var processCaption = function(settings){
@@ -96,6 +106,11 @@
 				var title = vars.currentImage.attr('title');
 				var post = vars.currentImage.attr('alt');
 				var link = vars.currentImage.attr('link');
+				
+				if (vars.currentImage.attr('category') != undefined) {
+				  var category = vars.currentImage.attr('category');
+				  if(category.substr(0,1) == '#') category = $(category).html();
+				}
 				
 				if(title.substr(0,1) == '#') title = $(title).html();	
 				if(post.substr(0,1) == '#') post = $(post).html();
@@ -113,7 +128,17 @@
 						$(this).attr('href',link);
 						$(this).fadeIn(settings.animSpeed);
 					});
+
+					if (vars.currentImage.attr('category') != undefined) {
+					  nivoCaption.find('h3').fadeOut(settings.animSpeed, function(){
+						  $(this).html(category);					    
+						  $(this).fadeIn(settings.animSpeed);
+					  });
+					}
+					
 				} else {
+				  
+				  if (vars.currentImage.attr('category') != undefined) nivoCaption.find('h3').html(category);  
 					nivoCaption.find('h2').html(title);
 					nivoCaption.find('p').html(post);
 					nivoCaption.find('a').attr('href',link);
