@@ -26,6 +26,33 @@
 </div>
 <% end %>
 
+<% if @posts.any? %>
+
+    <ul class="posts articles">
+      <% @posts.each do |post| %>
+        <li class="post">
+          <div>
+            <%= image_tag post.image.heading.url, :alt => post.title %>
+            <h3><%= link_to(post.categories.last.capitalize, articles_category_path(post.categories.last), :title => post.categories.last) %></h2>
+            <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+            <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+            <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+            <% if !post.tags.nil? %>
+              <ul class="tags">
+                <%  post.tags.each do |tag| %>
+                  <li><a href="#"><%= tag %></a></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+          <span class="shadow"></span>
+        </li>
+      <% end %>
+    </ul>
+<% end %>
+
+
+<%= link_to("ver más artículos", articles_path, :class=>'view-more') %>
 
 <header>
   <span class="left-band"></span>
@@ -35,14 +62,8 @@
       <span class="triangle"></span>
     </div>
   </div>
-
 </header>
 
-<!-- MOSTRAR LOS ÚLTIMOS 2 VÍDEOS SUBIDOS (SIN REPETIR SECCIÓN)
-
-+
-
-LINK PARA VER MÁS VÍDEOS -->
 
 <header>
   <span class="left-band"></span>

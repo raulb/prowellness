@@ -50,6 +50,21 @@ $spacing:40px;
 
   }
   
+  h3 {
+    width:100%; margin-top:0px;
+
+    a {
+      font:normal 1.3em YanoneKaffeesatzRegular;
+      text-decoration:none;
+      color:$font-color-green;
+
+      &:hover {
+        color:darken($font-color-green,20%);
+      }
+    }
+
+  }
+  
   li {
     float:left; margin-top:$spacing;
     position:relative;
