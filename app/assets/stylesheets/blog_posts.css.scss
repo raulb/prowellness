@@ -23,9 +23,11 @@
         padding-bottom:10px;
       }
     }
+    .tags {
+      float:left; width:100%; margin-top:16px; 
+      position:inherited;
+    }
+    
   }
 }
 
-.tags {
-  float:left; width:100%; margin-top:16px;
-}
