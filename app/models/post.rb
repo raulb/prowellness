@@ -156,6 +156,10 @@ class Post < ActiveRecord::Base
     filter_by_category(category || 'articulos').order_by_publish_date.limit(5)
   end
 
+  def self.get_last_article(category)
+    get_last_articles(1, [-1], category)
+  end
+
   def self.get_last_articles(how_many, exclude_ids, category = nil)
     exclude_ids += [-1]
     unless category
