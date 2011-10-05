@@ -44,4 +44,18 @@ end
   back_to_the_present
 end
 
+1.upto(10) do |i|
+  time_travel_to "#{11 - i} days ago"
+  post = create_post :title => "[Artículos] [Nutrición] Ejercicios para programadores ##{i}", :categories => "articulos,nutricion", :user => admin
+  putc '.'
+  back_to_the_present
+end
+
+1.upto(10) do |i|
+  time_travel_to "#{11 - i} days ago"
+  post = create_post :title => "[Artículos] [Mi opinión] Ejercicios para programadores ##{i}", :categories => "articulos,mi-opinion", :user => admin
+  putc '.'
+  back_to_the_present
+end
+
 puts

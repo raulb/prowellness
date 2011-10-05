@@ -1,0 +1,41 @@
+
+<script type="text/javascript" charset="utf-8">
+
+  // facebook button
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#appId=13428469974&xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+  // google plus button
+  window.___gcfg = {lang: 'es'};
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+  
+</script>
+
+<h6>¿Te ha gustado la noticia?</h6>
+<ul>
+  <li>
+    <div id="fb-root"></div>
+    <div class="fb-like" data-send="false" data-width="225" data-show-faces="false" data-font="arial"></div>
+  </li>
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button" 
+    data-text="No te pierdas este contenido en prowellness.es"
+    data-count="none" data-via="prowellness" data-lang="es">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+  </li>
+  <li>
+    <g:plusone size="medium" annotation="none"></g:plusone>
+  </li>
+  
+</ul>
+
+
+
