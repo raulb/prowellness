@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
-      @post = Post.find(params[:post_id])
+      @post = Post.find(params[:post_id]) unless params[:post_id].blank?
     else
       flash.now.alert = "E-mail o contraseña inválidos"
     end
