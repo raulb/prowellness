@@ -25,6 +25,14 @@ describe Comment do
     comment.user.should == @user
     comment.post.should == @post
   end
+
+  it "should update the counter_cache of the post" do
+    comment = @post.comments.new :text => "This is my comment!"
+    comment.user = @user
+    comment.save
+    @post.reload
+    @post.comments_count.should == 1
+  end
 end
 
 # == Schema Information

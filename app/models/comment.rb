@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
 
   attr_protected :post_id, :user_id, :ip, :created_at
 
-  belongs_to :post
+  belongs_to :post, :counter_cache => true
   belongs_to :user
 
   validates :text, :presence => true, :length => { :maximum => 500, :minimum => 2 }

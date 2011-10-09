@@ -44,7 +44,7 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :categories, :title, :body, :image
 
-  has_many :comments, :dependent => :destroy, :order => "created_at ASC"
+  has_many :comments, :dependent => :destroy, :order => "created_at ASC", :include => :user
 
   before_create :set_slug
   before_destroy :remove_associated_image
