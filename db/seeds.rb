@@ -68,4 +68,12 @@ end
   back_to_the_present
 end
 
+# 3 posts in visual guide, editorial
+
+1.upto(3) do |i|
+  time_travel_to "#{4 - i} days ago"
+  post = create_post :title => "[Guía visual] [Editorial] Ejercicios para programadores ##{i}", :categories => "guia-visual,editorial", :user => admin
+  putc '.'
+  back_to_the_present
+end
 puts

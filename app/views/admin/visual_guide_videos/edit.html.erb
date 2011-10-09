@@ -1,0 +1,9 @@
+<h2>Editar código de guía visual <%= @post.title %></h2>
+
+<%= form_for [:admin, @post], :url => admin_visual_guide_video_path(@post), :method => :put, :html => {:class => 'post'} do |f| %>
+  <%= f.label :video_code, "Código" %>
+  <%= f.text_field :video_code, :class => (!@post.errors.empty? ? 'error' : '') %>
+  <br />
+  <%= f.submit "Guardar" %>
+  <%= link_to 'Cancelar', admin_visual_guide_videos_path %>
+<% end %>

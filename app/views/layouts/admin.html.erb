@@ -11,6 +11,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="header" style="float:right;background:#eee;color:#000;padding:8px;">
+  Hola <%= current_user.login %> · <%= link_to("volver al front", "/") %> · <%= link_to("salir", logout_path) %>
+</div>
+<div class="options">
+  <%= link_to_unless_current "Crear nuevo post", new_admin_post_path %> ·
+  <%= link_to_unless_current "Guía visual editorial", admin_visual_guide_videos_path %>
+</div>
+
 <div class="admin_content">
 
   <%= flush_the_flash %>

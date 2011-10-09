@@ -35,6 +35,7 @@ describe Comment do
   end
 end
 
+
 # == Schema Information
 #
 # Table name: comments
@@ -43,6 +44,7 @@ end
 #  post_id    :integer
 #  user_id    :integer
 #  text       :text
+#  ip         :string(255)
 #  created_at :datetime
 #
 

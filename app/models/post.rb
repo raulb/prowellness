@@ -44,6 +44,8 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :categories, :title, :body, :image
 
+  validates :video_code, :uniqueness => true, :allow_nil => true, :allow_blank => true
+
   has_many :comments, :dependent => :destroy, :order => "created_at ASC", :include => :user
 
   before_create :set_slug
@@ -225,6 +227,7 @@ class Post < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -243,5 +246,6 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #  image          :string(255)
+#  video_code     :string(255)
 #
 
