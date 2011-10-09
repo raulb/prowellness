@@ -55,7 +55,8 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_required
-    logged_in? && current_user.admin?
+    return true if logged_in? && current_user.admin?
+    redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
 
   def login_required
