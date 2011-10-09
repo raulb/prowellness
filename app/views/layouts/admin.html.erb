@@ -2,8 +2,12 @@
 <html>
 <head>
   <title>Prowellness</title>
-  <%= stylesheet_link_tag    "admin",'mercury' %>
-  <%= javascript_include_tag "admin/admin",'mercury_loader', %>
+  <%= stylesheet_link_tag    "admin" %>
+  <%= javascript_include_tag "admin/admin" %>
+  <% if load_mercury? %>
+    <%= stylesheet_link_tag    'mercury' %>
+    <%= javascript_include_tag 'mercury_loader' %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,7 +18,7 @@
   <%= raw notice_about_drafts %>
 
   <%= yield %>
-  
+
 </div>
 
 </body>

@@ -55,4 +55,8 @@ module ApplicationHelper
     paginate(posts, :remote => true, :params => {:action => 'index', :controller => controller_name})
   end
 
+  def load_mercury?
+    controller_name == 'posts' && action_name != 'index'
+  end
+
 end
