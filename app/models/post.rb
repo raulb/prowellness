@@ -215,6 +215,10 @@ class Post < ActiveRecord::Base
     page(options[:page] || 1).per(options[:per_page])
   end
 
+  def self.get_last_ejercicio_del_mes
+    filter_by_category("ejercicio-del-mes").order_by_publish_date.select("id,slug,categories,title,state").first
+  end
+
   private
 
   def set_slug

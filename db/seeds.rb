@@ -76,4 +76,8 @@ end
   putc '.'
   back_to_the_present
 end
+
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+
 puts

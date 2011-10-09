@@ -171,11 +171,13 @@
           <a href="#" class="more">ver más vídeos</a>
         </div>
 
+        <% if Post.get_last_ejercicio_del_mes %>
         <div class="info-box calendar">
           <h3>ejercicios del mes</h3>
-          <h4><a href="#">cada mes, un ejercicio especial</a></h4>
+          <h4><%= link_to("cada mes, un ejercicio especial", post_path(Post.get_last_ejercicio_del_mes)) %></h4>
           <span class="kind-box"></span>
         </div>
+        <% end %>
 
       </aside>
 
