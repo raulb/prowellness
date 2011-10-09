@@ -219,6 +219,36 @@ class Post < ActiveRecord::Base
     filter_by_category("ejercicio-del-mes").order_by_publish_date.select("id,slug,categories,title,state").first
   end
 
+  def incr_visits!
+    Stat.transaction do
+      if stats = Stat.where(:year => Date.today.year, :month => Date.today.month, :post_id => self.id).first
+        stats.increment!(:visits)
+      else
+        Stat.create :year => Date.today.year, :month => Date.today.month, :post_id => self.id, :visits => 1
+      end
+    end
+  end
+
+  def self.find_more_visited(category = nil)
+    sql = if category
+<<-SQL
+  select visits,title,slug,posts.id,categories from posts
+  inner join stats on stats.post_id = posts.id
+  where month=#{Date.today.month} and year=#{Date.today.year}
+        and '#{category}' = ANY(categories)
+  order by visits DESC limit 5
+SQL
+    else
+<<-SQL
+  select visits,title,slug,posts.id,categories from posts
+  inner join stats on stats.post_id = posts.id
+  where month=#{Date.today.month} and year=#{Date.today.year}
+  order by visits DESC limit 5
+SQL
+    end
+    find_by_sql(sql)
+  end
+
   private
 
   def set_slug

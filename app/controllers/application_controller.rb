@@ -85,4 +85,8 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
 
+  def increase_post_visits
+    @post.incr_visits!
+  end
+
 end
