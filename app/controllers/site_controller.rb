@@ -2,6 +2,8 @@
 
 class SiteController < ApplicationController
 
+  before_filter :store_location
+
   def home
     @main_posts = Post.get_last_5_articles
     @posts = Post.filter_by_category('articulos').order_by_publish_date.

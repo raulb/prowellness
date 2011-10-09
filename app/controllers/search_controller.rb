@@ -1,6 +1,9 @@
 # coding: UTF-8
 
 class SearchController < ApplicationController
+
+  before_filter :store_location
+
   def index
     if params[:q].blank?
       flash.now.alert = "Debes de indicar un término para la búsqueda"

@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?, :post_path, :translate_category
+  helper_method :current_user, :logged_in?, :post_path, :translate_category, :redirect_back_or_default
 
   before_filter :authenticate
 
@@ -73,5 +73,16 @@ class ApplicationController < ActionController::Base
       render_404 and return false
     end
   end
+
+  def store_location(location = nil)
+    return unless request.format == :html
+    session[:return_to] = location || request.fullpath
+  end
+
+  def redirect_back_or_default(default, options = {})
+    redirect_to((session[:return_to] || default), options.merge(:format => :html))
+    session[:return_to] = nil
+  end
+
 
 end
