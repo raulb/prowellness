@@ -23,7 +23,11 @@ class SearchController < ApplicationController
       unless params[:author].blank?
         posts = posts.filter_by_authors(params[:author])
       end
-      @posts = posts.order_by_publish_date.page(params[:page]).per(50)
+      @posts = posts.order_by_publish_date.page(params[:page]).per(20)
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

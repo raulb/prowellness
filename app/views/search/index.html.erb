@@ -45,12 +45,9 @@
       de búsqueda para <%= params[:q] %>
     </p>
 
-    <% @posts.each do |post| %>
-      <div class="post">
-        <p><%= link_to(post.title, post_path(post)) %> - por <%= post.user.signature %></p>
-        <p><%= post.categories.join(" > ") %></p>
-      </div>
-    <% end %>
+    <%= render(:partial => 'post', :collection => @posts) %>
+
+    <a href="<%= url_for(params) %>" style="display:none" rel="pagination">siguiente</a>
   <% end %>
 </div>
 
@@ -61,5 +58,35 @@ jQuery(document).ready(function($) {
     $('.filters').toggle();
     e.stopPropagation(); e.preventDefault();
   });
+
+  var page = 1,
+      loading = false;
+
+  function nearBottomOfPage() {
+    return $(window).scrollTop() > $('.post:last').position().top - 300;
+  }
+
+  $(window).scroll(function(){
+    if (loading) {
+      return;
+    }
+
+    if(nearBottomOfPage()) {
+      loading=true;
+      page++;
+      $.ajax({
+        url: $('a[rel=pagination]').attr('href') + '&page=' + page,
+        type: 'get',
+        dataType: 'script',
+        success: function() {
+          $(window).sausage('draw');
+          loading=false;
+        }
+      });
+    }
+  });
+
+  $(window).sausage();
 });
 </script>
+
