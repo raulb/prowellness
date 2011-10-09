@@ -93,7 +93,7 @@ feature 'Blog Posts', %q{
     end
   end
 
-  scenario 'Comment a post in the blog section' do
+  scenario 'A new user comments a post in the blog section' do
     admin = create_user
     post = create_post :title => "Ejercicios para programadores", :categories => "blog", :user => admin
 
@@ -120,6 +120,62 @@ feature 'Blog Posts', %q{
     visit "/blog/#{post.slug}"
 
     page.should have_content "Sé la primera persona en realizar un comentario"
+
+    fill_in "comment_text", :with => "No estoy para nada de acuerdo"
+    click "publicar comentario"
+
+    within(:css, "div.comment:eq(1)") do
+      page.should have_content("No estoy para nada de acuerdo")
+    end
+
+    fill_in "comment_text", :with => "Bueno"
+    click "publicar comentario"
+
+    fill_in "comment_text", :with => "Mira"
+    click "publicar comentario"
+
+    fill_in "comment_text", :with => "No sé"
+    click "publicar comentario"
+
+    fill_in "comment_text", :with => "Esto..."
+    click "publicar comentario"
+
+    fill_in "comment_text", :with => "Ahí lo dejo"
+    click "publicar comentario"
+
+    page.should have_content("1")
+    page.should have_content("2")
+
+    within(:css, "div.comment:eq(1)") do
+      page.should have_content("Ahí lo dejo")
+    end
+
+    click "1"
+
+    within(:css, "div.comment:eq(2)") do
+      page.should have_content("Bueno")
+    end
+
+    within(:css, "div.comment:eq(3)") do
+      page.should have_content("Mira")
+    end
+
+  end
+
+  scenario 'An existing user comments a post in the blog section' do
+    admin = create_user
+    post = create_post :title => "Ejercicios para programadores", :categories => "blog", :user => admin
+
+    visit "/blog/#{post.slug}"
+
+    page.should have_content "COMENTARIOS (0)"
+    page.should have_content "¿Ya eres un usuario registrado?"
+
+    click "haz login"
+
+    fill_in "email", :with => admin.email
+    fill_in "contraseña", :with => admin.email.split('@').first
+    click "entrar"
 
     fill_in "comment_text", :with => "No estoy para nada de acuerdo"
     click "publicar comentario"
