@@ -6,6 +6,16 @@ require File.expand_path("../../spec/support/string_extension", __FILE__)
 include Delorean
 include Prowellness::Factories
 
+# Setup a user pending confirmation
+
+user_pending_confirmation = User.new
+user_pending_confirmation.email = 'user_pending_confirmation@example.com'
+user_pending_confirmation.password = 'user_pending_confirmation'
+user_pending_confirmation.password_confirmation = 'user_pending_confirmation'
+user_pending_confirmation.login = 'user_pending_confirmation'
+user_pending_confirmation.name_and_surname = 'User Pending'
+user_pending_confirmation.save
+
 # Setup a new user
 
 admin = User.new

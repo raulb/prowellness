@@ -28,4 +28,9 @@ Prowellness::Application.routes.draw do
 
   resources :comments
   resources :attachments
+
+  # Preview email routes
+  if Rails.env.development?
+    mount UserMailer::Preview => 'mail_view/user_mailer'
+  end
 end

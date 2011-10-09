@@ -23,6 +23,7 @@ end
 group :development do
   gem 'capistrano'
   gem 'annotate'
+  gem 'mail_view', :git => 'git://github.com/37signals/mail_view.git'
 end
 
 group :development, :test do
