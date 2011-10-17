@@ -37,19 +37,19 @@
     position:absolute;
     top:0; left:0;
     width:645px;
-    height:66px;
+    height:50px;
     
     padding:8px 10px;
     
     h2 {
-      font:normal 2rem AbadiMTCondensedLight;
+      font:normal 2rem AbadiCondensed;
       letter-spacing:-0.3px;
       float:left;
       margin:0;
     }
 
     h3 {
-      font:normal 1.6rem AbadiMTCondensedLight;
+      font:normal 1.6rem AbadiCondensed;
       color:$font-color-green;
     }
     
@@ -66,7 +66,7 @@
       right:20px;
       text-decoration:none;
       margin:0;
-      font:normal 1.7rem AbadiMTCondensedLight; color:white;
+      font:normal 1.7rem AbadiCondensed; color:white;
       padding:5px 10px;
       border:none;
       text-align:center;
@@ -82,7 +82,7 @@
     
   .nivo-directionNav a {
   	position:absolute;
-  	top:53%;
+  	top:50%;
   	z-index:9;
   	cursor:pointer;
   	width:23px; 

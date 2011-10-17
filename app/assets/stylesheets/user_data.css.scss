@@ -16,7 +16,7 @@
       display:inline-block;
       width:100%;
       text-align:center;
-      font:normal 2.3em AbadiMTCondensedLight; 
+      font:normal 2.3em AbadiCondensed; 
       color:white;
       margin-top:7px;
     }
@@ -82,7 +82,7 @@
         @include border-radius(6px);
         @include linear-gradient(black);
         color:white;
-        font:normal 1.2em AbadiMTCondensedLight;          
+        font:normal 1.2em AbadiCondensed;          
         
         &:hover {
           cursor:pointer;
@@ -175,7 +175,7 @@
         
     &#ok {
       float:right;
-      font:normal 1.8em AbadiMTCondensedLight; 
+      font:normal 1.8em AbadiCondensed; 
       text-decoration:underline;
       margin-top:30px;
     }

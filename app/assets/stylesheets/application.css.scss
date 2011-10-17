@@ -236,7 +236,10 @@ $bg-pag-current:#FF0000;
 html {font-size: 62.5%;}
 body {background-color:#D2D2D2; font-family:Arial; font-size:1.2rem; color:#333333;}
 p,a { font:normal 1.0em Arial;}
-p {color:$bg-black-normal;}
+p {
+  color:$bg-black-normal;
+}
+
 a {
   color:$font-color-orange; font-weight:bold;
   &:hover {
@@ -378,7 +381,7 @@ aside {
           @include linear-gradient(black);
           width:70px;
           color:white;
-          font:normal 1.4em AbadiMTCondensedLight;          
+          font:normal 1.4em AbadiCondensed;          
           
           &:hover {
             cursor:pointer;
@@ -424,7 +427,7 @@ aside {
       }
       
       a {
-        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; font:normal 1.3em AbadiMTCondensedLight;
+        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; font:normal 1.3em AbadiCondensed;
         
         span {
           font-size:0.9em;

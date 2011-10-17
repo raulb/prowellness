@@ -11,7 +11,7 @@
 }
 
 @font-face {
-    font-family: 'AbadiMTCondensedLight';
+    font-family: 'AbadiCondensed';
     src: url('/fonts/abadi_mt_condensed_light-webfont.eot');
     src: url('/fonts/abadi_mt_condensed_light-webfont.eot?#iefix') format('embedded-opentype'),
          url('/fonts/abadi_mt_condensed_light-webfont.woff') format('woff'),
@@ -25,7 +25,7 @@
 
 /* LEFT EOT FILE*/
 @font-face {
-    font-family: 'AbadiMTCondensedLight';
+    font-family: 'AbadiCondensed';
 
     src: url('/fonts/abadiMT-CondensedExtraBold.woff') format('woff'),
          url('/fonts/abadiMT-CondensedExtraBold.ttf') format('truetype'),

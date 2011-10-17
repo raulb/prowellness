@@ -86,7 +86,7 @@
 
         //Create caption
         slider.append(
-            $('<div class="nivo-caption"><h2></h2><p></p><a href="#">leer más</a></div>').css({ display:'none', opacity:settings.captionOpacity })
+            $('<div class="nivo-caption"><h2></h2><a href="#">leer más</a></div>').css({ display:'none', opacity:settings.captionOpacity })
         );
         
         // if there is a category
@@ -104,7 +104,8 @@
 			var nivoCaption = $('.nivo-caption', slider);
 			if(vars.currentImage.attr('title') != '' && vars.currentImage.attr('title') != undefined){
 				var title = vars.currentImage.attr('title');
-				var post = vars.currentImage.attr('alt');
+        // var post = vars.currentImage.attr('alt');
+        // if (post.length > 170) post = post.substr(0,170) + '...';
 				var link = vars.currentImage.attr('link');
 				
 				if (vars.currentImage.attr('category') != undefined) {
@@ -113,7 +114,7 @@
 				}
 				
 				if(title.substr(0,1) == '#') title = $(title).html();	
-				if(post.substr(0,1) == '#') post = $(post).html();
+        // if(post.substr(0,1) == '#') post = $(post).html();
 				
 				if(nivoCaption.css('display') == 'block'){
 					nivoCaption.find('h2').fadeOut(settings.animSpeed, function(){
@@ -140,7 +141,7 @@
 				  
 				  if (vars.currentImage.attr('category') != undefined) nivoCaption.find('h3').html(category);  
 					nivoCaption.find('h2').html(title);
-					nivoCaption.find('p').html(post);
+          // nivoCaption.find('p').html(post);
 					nivoCaption.find('a').attr('href',link);
 				}					
 				nivoCaption.fadeIn(settings.animSpeed);

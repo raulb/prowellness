@@ -286,18 +286,18 @@ $spacing:30px;
     p {
       float:left; margin:0;
       color:white; letter-spacing:-1.0px;
-      font:normal 2em/0.9em AbadiMTCondensedLight; width:100%; text-align:center;
+      font:normal 2em/0.9em AbadiCondensed; width:100%; text-align:center;
       
       &.day {
         margin-top:4px;
-        font:normal 2.6em/1em AbadiMTCondensedLight;
+        font:normal 2.6em/1em AbadiCondensed;
       }
       &.month {
-        font:normal 2.0em/0.8em AbadiMTCondensedLight;
+        font:normal 2.0em/0.8em AbadiCondensed;
         text-transform:uppercase;
       }
       &.year {
-        font:normal 1.6em/1em AbadiMTCondensedLight;
+        font:normal 1.6em/1em AbadiCondensed;
       }
     }
   }
@@ -320,11 +320,11 @@ $spacing:30px;
 article {
   
   h5 {
-    font:normal 1.6em AbadiMTCondensedLight; color:$date-font-color; 
+    font:normal 1.6em AbadiCondensed; color:$date-font-color; 
   }
   
   h6 {
-    font:normal 1.4em AbadiMTCondensedLight; color:$date-font-color; 
+    font:normal 1.4em AbadiCondensed; color:$date-font-color; 
   }  
   
   
@@ -420,7 +420,7 @@ article {
   
   h6 {
     float:left;
-    font:normal 1.5em AbadiMTCondensedLight; color:$date-font-color; padding-bottom:10px;
+    font:normal 1.5em AbadiCondensed; color:$date-font-color; padding-bottom:10px;
   }
   p {
     float:left; font:normal 1.2rem Arial; color:$date-font-color; width:100%; margin:0; line-height:1.4em;
@@ -463,7 +463,7 @@ article {
     input[type="submit"] {
       float:right;
       margin-top:10px;
-      font:normal 1.7rem AbadiMTCondensedLight; color:white;
+      font:normal 1.7rem AbadiCondensed; color:white;
       padding:5px 10px;
       border:none;
       text-align:center;
