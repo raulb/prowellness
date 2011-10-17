@@ -10,6 +10,7 @@ Prowellness::Application.routes.draw do
 
   namespace :admin do
     resources :posts, :except => [:show]
+    resources :visual_guide_videos
   end
 
   get '/sobre-prowellness'             => 'site#about',               :as => :about
@@ -28,4 +29,9 @@ Prowellness::Application.routes.draw do
 
   resources :comments
   resources :attachments
+
+  # Preview email routes
+  if Rails.env.development?
+    mount UserMailer::Preview => 'mail_view/user_mailer'
+  end
 end

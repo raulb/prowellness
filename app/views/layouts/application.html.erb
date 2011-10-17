@@ -137,13 +137,11 @@
           <h4>durante el último mes</h4>
           <span class="kind-box"></span>
           <ul>
-            <li><p>1.</p><a href="#">Abdominales, 5 rutinas para tu cuerpo <span>(fitness)</span></a></li>
-            <li class="odd"><p>2.</p><a href="#">Hacer la compra, para una alimentación equilibrada <span>(nutrición)</span></a></li>
-            <li><p>3.</p><a href="#">La anemia, cómo evitarla <span>(fitness)</span></a></li>
-            <li class="odd"><p>4.</p><a href="#">Estrategias nutricionales para triatlón <span>(nutrición)</span></a></li>
-            <li><p>5.</p><a href="#">4 errores de entrenamiento que no te permiten perder peso <span>(fitness)</span></a></li>
+            <% Post.find_more_visited.each_with_index do |post, i| %>
+            <li <%= cycle('', raw('class="odd"')) %>><p><%= i+1 %>.</p><%= link_to(post.title, post_path(post)) %></li>
+            <% end %>
           </ul>
-          <a href="#" class="more">ver más artículos</a>
+          <a href="<%= articles_path %>" class="more">ver más artículos</a>
         </div>
 
         <div class="banner-300x100 ads">
@@ -171,11 +169,13 @@
           <a href="#" class="more">ver más vídeos</a>
         </div>
 
+        <% if Post.get_last_ejercicio_del_mes %>
         <div class="info-box calendar">
           <h3>ejercicios del mes</h3>
-          <h4><a href="#">cada mes, un ejercicio especial</a></h4>
+          <h4><%= link_to("cada mes, un ejercicio especial", post_path(Post.get_last_ejercicio_del_mes)) %></h4>
           <span class="kind-box"></span>
         </div>
+        <% end %>
 
       </aside>
 

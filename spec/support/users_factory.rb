@@ -16,6 +16,8 @@ module Prowellness
     def create_user(attributes = {})
       user = new_user(attributes)
       user.save
+      user.activate!
+      user.reload
       user
     end
 

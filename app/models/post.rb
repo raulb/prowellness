@@ -44,7 +44,9 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :categories, :title, :body, :image
 
-  has_many :comments, :dependent => :destroy, :order => "created_at ASC"
+  validates :video_code, :uniqueness => true, :allow_nil => true, :allow_blank => true
+
+  has_many :comments, :dependent => :destroy, :order => "created_at ASC", :include => :user
 
   before_create :set_slug
   before_destroy :remove_associated_image
@@ -213,6 +215,40 @@ class Post < ActiveRecord::Base
     page(options[:page] || 1).per(options[:per_page])
   end
 
+  def self.get_last_ejercicio_del_mes
+    filter_by_category("ejercicio-del-mes").order_by_publish_date.select("id,slug,categories,title,state").first
+  end
+
+  def incr_visits!
+    Stat.transaction do
+      if stats = Stat.where(:year => Date.today.year, :month => Date.today.month, :post_id => self.id).first
+        stats.increment!(:visits)
+      else
+        Stat.create :year => Date.today.year, :month => Date.today.month, :post_id => self.id, :visits => 1
+      end
+    end
+  end
+
+  def self.find_more_visited(category = nil)
+    sql = if category
+<<-SQL
+  select visits,title,slug,posts.id,categories from posts
+  inner join stats on stats.post_id = posts.id
+  where month=#{Date.today.month} and year=#{Date.today.year}
+        and '#{category}' = ANY(categories)
+  order by visits DESC limit 5
+SQL
+    else
+<<-SQL
+  select visits,title,slug,posts.id,categories from posts
+  inner join stats on stats.post_id = posts.id
+  where month=#{Date.today.month} and year=#{Date.today.year}
+  order by visits DESC limit 5
+SQL
+    end
+    find_by_sql(sql)
+  end
+
   private
 
   def set_slug
@@ -224,6 +260,7 @@ class Post < ActiveRecord::Base
   end
 
 end
+
 
 # == Schema Information
 #
@@ -243,5 +280,6 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #  image          :string(255)
+#  video_code     :string(255)
 #
 

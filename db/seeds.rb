@@ -6,6 +6,16 @@ require File.expand_path("../../spec/support/string_extension", __FILE__)
 include Delorean
 include Prowellness::Factories
 
+# Setup a user pending confirmation
+
+user_pending_confirmation = User.new
+user_pending_confirmation.email = 'user_pending_confirmation@example.com'
+user_pending_confirmation.password = 'user_pending_confirmation'
+user_pending_confirmation.password_confirmation = 'user_pending_confirmation'
+user_pending_confirmation.login = 'user_pending_confirmation'
+user_pending_confirmation.name_and_surname = 'User Pending'
+user_pending_confirmation.save
+
 # Setup a new user
 
 admin = User.new
@@ -57,5 +67,17 @@ end
   putc '.'
   back_to_the_present
 end
+
+# 3 posts in visual guide, editorial
+
+1.upto(3) do |i|
+  time_travel_to "#{4 - i} days ago"
+  post = create_post :title => "[Guía visual] [Editorial] Ejercicios para programadores ##{i}", :categories => "guia-visual,editorial", :user => admin
+  putc '.'
+  back_to_the_present
+end
+
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
 
 puts

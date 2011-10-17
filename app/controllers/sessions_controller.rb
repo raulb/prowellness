@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
+      @post = Post.find(params[:post_id]) unless params[:post_id].blank?
     else
       flash.now.alert = "E-mail o contraseña inválidos"
     end
@@ -14,8 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-    redirect_to root_path
+    reset_session
+    redirect_back_or_default('/')
   end
 
 end

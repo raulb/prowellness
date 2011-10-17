@@ -27,6 +27,9 @@ class ArticlesController < PostsController
 
   def show
     @other_posts = Post.other_articles(:page => params[:page])
+    respond_to do |format|
+      format.html
+    end
   end
 
   private

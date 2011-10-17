@@ -25,3 +25,5 @@ Prowellness::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 end
+
+require 'prowellness/mail_view/user_mailer'

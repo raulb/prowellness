@@ -223,6 +223,7 @@ describe Post do
 
   end
 end
+
 # == Schema Information
 #
 # Table name: posts
@@ -241,5 +242,6 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #  image          :string(255)
+#  video_code     :string(255)
 #
 

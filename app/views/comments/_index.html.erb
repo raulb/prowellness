@@ -1,17 +1,16 @@
 <%= javascript_include_tag "comments" %>
 
-<h5>COMENTARIOS (<%= @post.comments.count %>)</h5>
-
+<h5>COMENTARIOS (<%= @post.comments_count %>)</h5>
 
 <% unless logged_in? %>
   <div class="not_logged">
-    <h6>¿Quieres <%= (@comments.empty?)? 'ser la primera persona en':'' %> publicar un comentario?</h6>
+    <h6>¿Quieres <%= @post.comments_count == 0 ? 'ser la primera persona en' : '' %> publicar un comentario?</h6>
     <p>Para poder comentar un artículo debes estar registrado, <%= link_to("¡Regístrate!", new_users_path) %></p>
     <p>¿Ya eres un usuario registrado?, <%= link_to("haz login", "javascript:void(null)", :class=>'click_link') %></p>
   </div>
 <% end %>
 
-<% @comments.each do |comment| %>
+<% (@comments || @post.comments.page(params[:comments_page])).each do |comment| %>
   <div class="comment" id="comment-<%= comment.id %>">
     <span class="avatar">
       <%= image_tag(comment.user.avatar.url) %>
@@ -22,18 +21,19 @@
   </div>
 <% end %>
 
-<%= paginate(@comments, :remote => true, :param_name => :comments_page,
-                        :params => {:controller => 'comments', :action => 'index', :slug => @post.slug},
-                        :window => 10, :outer_window => 4) %>
+<%= paginate(@comments || @post.comments.page(params[:comments_page]),
+               :remote => true, :param_name => :comments_page,
+               :params => {:controller => 'comments', :action => 'index', :slug => @post.slug},
+               :window => 10, :outer_window => 4) %>
 
-<% if logged_in?  %>
+<% if logged_in? %>
 
-  <% if @comments.empty? %>
+  <% if @post.comments_count == 0 %>
     <h6>Sé la primera persona en realizar un comentario</h6>
   <% end %>
 
   <div class="logged">
-    <% if !@comments.empty? %>
+    <% if @post.comments_count == 0 %>
       <h6>Añade un nuevo comentario</h6>
     <% end %>
 

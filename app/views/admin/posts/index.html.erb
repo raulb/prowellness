@@ -1,7 +1,3 @@
-<div class="options">
-  <%= link_to "Crear nuevo post", new_admin_post_path %>
-</div>
-
 <div class="content">
   <h2>Archivo de posts</h2>
   <ul class="posts">
@@ -11,7 +7,7 @@
     </li>
     <% end %>
   </ul>
-  
+
   <%= paginate @posts %>
 </div>
 

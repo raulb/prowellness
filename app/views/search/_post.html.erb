@@ -1,0 +1,4 @@
+<div class="post">
+  <p><%= link_to(post.title, post_path(post)) %> - por <%= post.user.signature %></p>
+  <p><%= post.categories.join(" > ") %></p>
+</div>

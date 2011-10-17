@@ -9,6 +9,7 @@
 //= require jquery-ui-1.8.16.custom.min
 //= require jquery.scrollTo-min
 //= require jquery_ujs
+//= require jquery.sausage
 
 jQuery(document).ready(function($) {
 

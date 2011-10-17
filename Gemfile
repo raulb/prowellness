@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails',              '3.1.1.rc1'
+gem 'rails',              '3.1.1'
 gem 'rake',               '0.8.7'
 gem 'yajl-ruby',          '~> 0.8.2'
 gem 'pg',                 '~> 0.11.0'
@@ -14,9 +14,8 @@ gem 'therubyracer', :platforms => :ruby
 gem 'bcrypt-ruby'
 gem "mercury-rails", "~> 0.2.0"
 gem "texticle", "~> 2.0.2"
+gem 'rails-i18n'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails', "~> 3.1.0"
   gem 'uglifier'
@@ -25,6 +24,7 @@ end
 group :development do
   gem 'capistrano'
   gem 'annotate'
+  gem 'mail_view', :git => 'git://github.com/37signals/mail_view.git'
 end
 
 group :development, :test do

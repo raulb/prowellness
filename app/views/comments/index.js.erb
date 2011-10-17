@@ -1,5 +1,8 @@
 $('#comments').html('<%= escape_javascript(render(:partial => "comments/index")) %>');
+$('#comments h6').remove();
 <% if @comment %>
   // $('#comment-<%= @comment.id %>').scroll();
   window.location.href = '#comment-<%= @comment.id %>';
+<% else %>
+  window.location.href = '#comments';
 <% end %>

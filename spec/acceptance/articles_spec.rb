@@ -8,7 +8,7 @@ feature 'Articles', %q{
   I want to be able to create and edit posts and view them in the section Articles
 } do
 
-  scenario "Create and view an article in Fitness section" do
+  pending "Create and view an article in Fitness section" do
     admin = create_admin
 
     login_as admin
@@ -42,7 +42,7 @@ feature 'Articles', %q{
     page.should have_content("The page you were looking for doesn't exist.")
   end
 
-  scenario "Create and view an article in Mujer section" do
+  pending "Create and view an article in Mujer section" do
     admin = create_admin
 
     login_as admin
@@ -76,7 +76,7 @@ feature 'Articles', %q{
     page.should have_content("The page you were looking for doesn't exist.")
   end
 
-  scenario "Create and view an article in Nutrición section" do
+  pending "Create and view an article in Nutrición section" do
     admin = create_admin
 
     login_as admin
@@ -110,7 +110,7 @@ feature 'Articles', %q{
     page.should have_content("The page you were looking for doesn't exist.")
   end
 
-  scenario "Create and view an article in Mi opinión section" do
+  pending "Create and view an article in Mi opinión section" do
     admin = create_admin
 
     login_as admin
@@ -144,7 +144,7 @@ feature 'Articles', %q{
     page.should have_content("The page you were looking for doesn't exist.")
   end
 
-  scenario "Create and view an article in Ejercicio del mes section" do
+  pending "Create and view an article in Ejercicio del mes section" do
     admin = create_admin
 
     login_as admin
@@ -181,8 +181,6 @@ feature 'Articles', %q{
   scenario "Create and view multiple articles in the Articles section" do
     admin = create_admin
 
-    login_as admin
-
     1.upto(4) do |i|
       time_travel_to "#{5 - i} days ago"
       create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
@@ -199,200 +197,296 @@ feature 'Articles', %q{
 
     page.should have_content("Artículos")
 
-    page.should have_css("ul.sections li a.selected", :text => "Fitness")
-    page.should have_css("ul.sections li a", :text => "Mujer")
-    page.should have_css("ul.sections li a", :text => "Nutrición")
-    page.should have_css("ul.sections li a", :text => "Mi opinión")
+    page.should have_css("ul li a", :text => "fitness")
+    page.should have_css("ul li a", :text => "mujer")
+    page.should have_css("ul li a", :text => "nutrición")
+    page.should have_css("ul li a", :text => "mi opinión")
 
-    page.all("div.main_posts div.post").size.should == 5
+    page.all("div.main_post a img").size.should == 5
 
-    page.all("div.posts.fitness div.post").size.should == 2
-    page.all("div.posts.mujer div.post").size.should == 2
-    page.all("div.posts.nutricion div.post").size.should == 2
-    page.all("div.posts.mi-opinion div.post").size.should == 2
+    page.all("ul.posts.fitness li.post").size.should == 3
+    page.all("ul.posts.mujer li.post").size.should == 3
+    page.all("ul.posts.nutricion li.post").size.should == 3
+    page.all("ul.posts.mi-opinion li.post").size.should == 2
 
-    within("div.main_posts") do
-      within("div.post:eq(1)") do
-        page.should have_css("p a", :text => "Ejercicios mi opinión para programadores #4")
-      end
-      within("div.post:eq(2)") do
-        page.should have_css("p a", :text => "Ejercicios nutrición para programadores #4")
-      end
-      within("div.post:eq(3)") do
-        page.should have_css("p a", :text => "Ejercicios mujer para programadores #4")
-      end
-      within("div.post:eq(4)") do
-        page.should have_css("p a", :text => "Ejercicios fitness para programadores #4")
-      end
-      within("div.post:eq(5)") do
-        page.should have_css("p a", :text => "Ejercicios mi opinión para programadores #3")
-      end
+    within("div.main_post") do
+      page.should have_css("a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-4']:eq(1)")
+      page.should have_css("a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-4']:eq(2)")
+      page.should have_css("a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-4']:eq(3)")
+      page.should have_css("a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-4']:eq(4)")
+      page.should have_css("a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-3']:eq(5)")
     end
 
-    within("div.posts.fitness") do
-      within("div.post:eq(1)") do
-        page.should have_content("Fitness")
-        page.should have_css("h3 a", :text => "Ejercicios fitness para programadores #3")
+    within("ul.posts.fitness") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #3")
         page.should have_content("por #{admin.name_and_surname}")
       end
-      within("div.post:eq(2)") do
-        page.should have_content("Fitness")
-        page.should have_css("h3 a", :text => "Ejercicios fitness para programadores #2")
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #2")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #1")
         page.should have_content("por #{admin.name_and_surname}")
       end
       page.should have_css("a", :text => "ver más artículos de fitness")
     end
 
-    within(:css, "div.others") do
-      page.should have_content("Más artículos")
-      page.should have_css("li.short_post a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-1']", :text => "Ejercicios fitness para programadores #1")
-      page.should have_css("li.short_post a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-1']", :text => "Ejercicios mujer para programadores #1")
-      page.should have_css("li.short_post a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-1']", :text => "Ejercicios nutrición para programadores #1")
+    within("ul.posts.mujer") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #3")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #2")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #1")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      page.should have_css("a", :text => "ver más artículos de mujer")
     end
 
+    within("ul.posts.nutricion") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #3")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #2")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #1")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      page.should have_css("a", :text => "ver más artículos de nutrición")
+    end
+
+    within("ul.posts.mi-opinion") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #2")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #1")
+        page.should have_content("por #{admin.name_and_surname}")
+      end
+      page.should have_css("a", :text => "ver más artículos de mi opinión")
+    end
   end
 
   scenario "Create and view multiple articles in the Fitness section" do
     admin = create_admin
 
-    login_as admin
-
     1.upto(12) do |i|
       time_travel_to "#{13 - i} days ago"
       create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
-      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
+      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer" if(i%3==0)
       back_to_the_present
     end
 
     visit "/articulos/fitness"
 
-    page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Fitness")
 
-    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios fitness para programadores #12"
-    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios fitness para programadores #11"
-    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios fitness para programadores #10"
-    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios fitness para programadores #9"
-    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios fitness para programadores #8"
+    within("div.main_post") do
+      page.should have_css("a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-12']:eq(1)")
+    end
 
-    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios fitness para programadores #7"
-    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios fitness para programadores #6"
-    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios fitness para programadores #5"
-    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios fitness para programadores #4"
-    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios fitness para programadores #3"
+    within("ul.posts") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #11")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #10")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #9")
+      end
+      within("li.post:eq(4)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #8")
+      end
+      within("li.post:eq(5)") do
+        page.should have_css("h2 a", :text => "Ejercicios fitness para programadores #7")
+      end
+    end
 
     within(:css, "div.others") do
-      page.should have_content("Más artículos")
-      page.should have_css("li.short_post:eq(1) a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-2']", :text => "Ejercicios fitness para programadores #2")
-      page.should have_css("li.short_post:eq(2) a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-1']", :text => "Ejercicios fitness para programadores #1")
+      page.should have_content("Otros artículos de Fitness")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-6']", :text => "Ejercicios fitness para programadores #6")
+      page.should have_css("ul.short_post li:eq(2) h4 a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-5']", :text => "Ejercicios fitness para programadores #5")
+      page.should have_css("ul.short_post li:eq(3) h4 a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-4']", :text => "Ejercicios fitness para programadores #4")
+      page.should have_css("ul.short_post li:eq(4) h4 a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-3']", :text => "Ejercicios fitness para programadores #3")
+      page.should have_css("ul.short_post li:eq(5) h4 a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-2']", :text => "Ejercicios fitness para programadores #2")
+    end
+
+    click "2"
+
+    within(:css, "div.others") do
+      page.should have_content("Otros artículos de Fitness")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/fitness/ejercicios-fitness-para-programadores-1']", :text => "Ejercicios fitness para programadores #1")
     end
   end
 
   scenario "Create and view multiple articles in the Mujer section" do
     admin = create_admin
 
-    login_as admin
-
     1.upto(12) do |i|
       time_travel_to "#{13 - i} days ago"
-      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness"
       create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
+      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness" if(i%3==0)
       back_to_the_present
     end
 
     visit "/articulos/mujer"
 
-    page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Mujer")
 
-    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios mujer para programadores #12"
-    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios mujer para programadores #11"
-    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios mujer para programadores #10"
-    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios mujer para programadores #9"
-    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios mujer para programadores #8"
-
-    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios mujer para programadores #7"
-    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios mujer para programadores #6"
-    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios mujer para programadores #5"
-    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios mujer para programadores #4"
-    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios mujer para programadores #3"
-
-    within(:css, "div.others") do
-      page.should have_content("Más artículos")
-      page.should have_css("li.short_post:eq(1) a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-2']", :text => "Ejercicios mujer para programadores #2")
-      page.should have_css("li.short_post:eq(2) a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-1']", :text => "Ejercicios mujer para programadores #1")
-    end
-  end
-
-  scenario "Create and view multiple articles in the Nutrición section" do
-    admin = create_admin
-
-    login_as admin
-
-    1.upto(12) do |i|
-      time_travel_to "#{13 - i} days ago"
-      create_post :user => admin, :title => "Ejercicios nutrición para programadores ##{i}", :categories => "articulos,nutricion"
-      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
-      back_to_the_present
+    within("div.main_post") do
+      page.should have_css("a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-12']:eq(1)")
     end
 
-    visit "/articulos/nutricion"
-
-    page.should have_css("div.navigation a.selected", :text => "Artículos")
-    page.should have_content("Nutrición")
-
-    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios nutrición para programadores #12"
-    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios nutrición para programadores #11"
-    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios nutrición para programadores #10"
-    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios nutrición para programadores #9"
-    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios nutrición para programadores #8"
-
-    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios nutrición para programadores #7"
-    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios nutrición para programadores #6"
-    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios nutrición para programadores #5"
-    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios nutrición para programadores #4"
-    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios nutrición para programadores #3"
+    within("ul.posts") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #11")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #10")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #9")
+      end
+      within("li.post:eq(4)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #8")
+      end
+      within("li.post:eq(5)") do
+        page.should have_css("h2 a", :text => "Ejercicios mujer para programadores #7")
+      end
+    end
 
     within(:css, "div.others") do
-      page.should have_content("Más artículos")
-      page.should have_css("li.short_post:eq(1) a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-2']", :text => "Ejercicios nutrición para programadores #2")
-      page.should have_css("li.short_post:eq(2) a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-1']", :text => "Ejercicios nutrición para programadores #1")
+      page.should have_content("Otros artículos de Mujer")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-6']", :text => "Ejercicios mujer para programadores #6")
+      page.should have_css("ul.short_post li:eq(2) h4 a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-5']", :text => "Ejercicios mujer para programadores #5")
+      page.should have_css("ul.short_post li:eq(3) h4 a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-4']", :text => "Ejercicios mujer para programadores #4")
+      page.should have_css("ul.short_post li:eq(4) h4 a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-3']", :text => "Ejercicios mujer para programadores #3")
+      page.should have_css("ul.short_post li:eq(5) h4 a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-2']", :text => "Ejercicios mujer para programadores #2")
+    end
+
+    click "2"
+
+    within(:css, "div.others") do
+      page.should have_content("Otros artículos de Mujer")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/mujer/ejercicios-mujer-para-programadores-1']", :text => "Ejercicios mujer para programadores #1")
     end
   end
 
   scenario "Create and view multiple articles in the Mi opinión section" do
     admin = create_admin
 
-    login_as admin
-
     1.upto(12) do |i|
       time_travel_to "#{13 - i} days ago"
       create_post :user => admin, :title => "Ejercicios mi opinión para programadores ##{i}", :categories => "articulos,mi-opinion"
-      create_post :user => admin, :title => "Ejercicios mujer para programadores ##{i}", :categories => "articulos,mujer"
+      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness" if(i%3==0)
       back_to_the_present
     end
 
     visit "/articulos/mi-opinion"
 
-    page.should have_css("div.navigation a.selected", :text => "Artículos")
     page.should have_content("Mi opinión")
 
-    page.all("div.main_posts div.post")[0].find("a").text.should == "Ejercicios mi opinión para programadores #12"
-    page.all("div.main_posts div.post")[1].find("a").text.should == "Ejercicios mi opinión para programadores #11"
-    page.all("div.main_posts div.post")[2].find("a").text.should == "Ejercicios mi opinión para programadores #10"
-    page.all("div.main_posts div.post")[3].find("a").text.should == "Ejercicios mi opinión para programadores #9"
-    page.all("div.main_posts div.post")[4].find("a").text.should == "Ejercicios mi opinión para programadores #8"
+    within("div.main_post") do
+      page.should have_css("a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-12']:eq(1)")
+    end
 
-    page.all("div.posts div.post")[0].find("h2").text.should == "Ejercicios mi opinión para programadores #7"
-    page.all("div.posts div.post")[1].find("h2").text.should == "Ejercicios mi opinión para programadores #6"
-    page.all("div.posts div.post")[2].find("h2").text.should == "Ejercicios mi opinión para programadores #5"
-    page.all("div.posts div.post")[3].find("h2").text.should == "Ejercicios mi opinión para programadores #4"
-    page.all("div.posts div.post")[4].find("h2").text.should == "Ejercicios mi opinión para programadores #3"
+    within("ul.posts") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #11")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #10")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #9")
+      end
+      within("li.post:eq(4)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #8")
+      end
+      within("li.post:eq(5)") do
+        page.should have_css("h2 a", :text => "Ejercicios mi opinión para programadores #7")
+      end
+    end
 
     within(:css, "div.others") do
-      page.should have_content("Más artículos")
-      page.should have_css("li.short_post:eq(1) a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-2']", :text => "Ejercicios mi opinión para programadores #2")
-      page.should have_css("li.short_post:eq(2) a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-1']", :text => "Ejercicios mi opinión para programadores #1")
+      page.should have_content("Otros artículos de Mi opinión")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-6']", :text => "Ejercicios mi opinión para programadores #6")
+      page.should have_css("ul.short_post li:eq(2) h4 a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-5']", :text => "Ejercicios mi opinión para programadores #5")
+      page.should have_css("ul.short_post li:eq(3) h4 a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-4']", :text => "Ejercicios mi opinión para programadores #4")
+      page.should have_css("ul.short_post li:eq(4) h4 a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-3']", :text => "Ejercicios mi opinión para programadores #3")
+      page.should have_css("ul.short_post li:eq(5) h4 a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-2']", :text => "Ejercicios mi opinión para programadores #2")
+    end
+
+    click "2"
+
+    within(:css, "div.others") do
+      page.should have_content("Otros artículos de Mi opinión")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/mi-opinion/ejercicios-mi-opinion-para-programadores-1']", :text => "Ejercicios mi opinión para programadores #1")
+    end
+  end
+
+  scenario "Create and view multiple articles in the Nutrición section" do
+    admin = create_admin
+
+    1.upto(12) do |i|
+      time_travel_to "#{13 - i} days ago"
+      create_post :user => admin, :title => "Ejercicios nutrición para programadores ##{i}", :categories => "articulos,nutricion"
+      create_post :user => admin, :title => "Ejercicios fitness para programadores ##{i}", :categories => "articulos,fitness" if(i%3==0)
+      back_to_the_present
+    end
+
+    visit "/articulos/nutricion"
+
+    page.should have_content("Nutrición")
+
+    within("div.main_post") do
+      page.should have_css("a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-12']:eq(1)")
+    end
+
+    within("ul.posts") do
+      within("li.post:eq(1)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #11")
+      end
+      within("li.post:eq(2)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #10")
+      end
+      within("li.post:eq(3)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #9")
+      end
+      within("li.post:eq(4)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #8")
+      end
+      within("li.post:eq(5)") do
+        page.should have_css("h2 a", :text => "Ejercicios nutrición para programadores #7")
+      end
+    end
+
+    within(:css, "div.others") do
+      page.should have_content("Otros artículos de Nutrición")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-6']", :text => "Ejercicios nutrición para programadores #6")
+      page.should have_css("ul.short_post li:eq(2) h4 a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-5']", :text => "Ejercicios nutrición para programadores #5")
+      page.should have_css("ul.short_post li:eq(3) h4 a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-4']", :text => "Ejercicios nutrición para programadores #4")
+      page.should have_css("ul.short_post li:eq(4) h4 a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-3']", :text => "Ejercicios nutrición para programadores #3")
+      page.should have_css("ul.short_post li:eq(5) h4 a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-2']", :text => "Ejercicios nutrición para programadores #2")
+    end
+
+    click "2"
+
+    within(:css, "div.others") do
+      page.should have_content("Otros artículos de Nutrición")
+      page.should have_css("ul.short_post li:eq(1) h4 a[@href$='/articulos/nutricion/ejercicios-nutricion-para-programadores-1']", :text => "Ejercicios nutrición para programadores #1")
     end
   end
 

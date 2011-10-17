@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930215233) do
+ActiveRecord::Schema.define(:version => 20111009230227) do
 
   create_table "attachments", :force => true do |t|
     t.string   "image"
@@ -50,7 +50,20 @@ ActiveRecord::Schema.define(:version => 20110930215233) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.string   "video_code"
   end
+
+  create_table "stats", :force => true do |t|
+    t.integer "post_id"
+    t.integer "month"
+    t.integer "year"
+    t.integer "visits",  :default => 0
+  end
+
+  add_index "stats", ["month"], :name => "index_stats_on_month"
+  add_index "stats", ["post_id"], :name => "index_stats_on_post_id"
+  add_index "stats", ["visits"], :name => "index_stats_on_visits"
+  add_index "stats", ["year"], :name => "index_stats_on_year"
 
   create_table "users", :force => true do |t|
     t.string   "name_and_surname"

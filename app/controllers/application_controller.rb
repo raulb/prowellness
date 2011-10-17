@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?, :post_path, :translate_category
+  helper_method :current_user, :logged_in?, :post_path, :translate_category, :redirect_back_or_default
 
   before_filter :authenticate
 
@@ -55,7 +55,8 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_required
-    logged_in? && current_user.admin?
+    return true if logged_in? && current_user.admin?
+    redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
 
   def login_required
@@ -63,7 +64,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
 
-  def load_post_and_comments
+  def load_post
     @post = if @categories
       Post.find_by_categories_and_slug(@categories, params[:slug])
     else
@@ -72,7 +73,20 @@ class ApplicationController < ActionController::Base
     if @post.nil? || (@post.draft? && current_user != @post.user)
       render_404 and return false
     end
-    @comments = @post.comments.page(params[:comments_page])
+  end
+
+  def store_location(location = nil)
+    return unless request.format == :html
+    session[:return_to] = location || request.fullpath
+  end
+
+  def redirect_back_or_default(default, options = {})
+    redirect_to((session[:return_to] || default), options.merge(:format => :html))
+    session[:return_to] = nil
+  end
+
+  def increase_post_visits
+    @post.incr_visits!
   end
 
 end
