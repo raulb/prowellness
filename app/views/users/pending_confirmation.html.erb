@@ -1,1 +1,18 @@
-<p>En unos segundos recibirás un email a <%= @user.email %> para que puedas activar tu cuenta</p>
+<!-- VENTANA MODAL -->
+<div class="window">
+  <div id="modal-window" class="register-success">
+    <div class="outside"></div>
+    <div class="inside">
+      <a class="close"></a>
+      <%= image_tag "application/modal-window/check-green.png", :alt => 'Check green', :class=>'check-green' %>
+      <h2></h2>
+      <p>¡Hola <%= @user.name %>!.</p>
+      <p>En unos segundos recibirás un mail a <em><%= @user.mail %></em> para que puedas activar tu cuenta.</p>
+      <p>Una vez lo hagas, podrás empezar a utilizar la web sin limitaciones además de completar tu perfil si lo deseas.</p>
+
+      <%= image_tag "application/modal-window/register-success-signature.png", :alt => 'Register success', :class=>'signature' %>
+    </div>
+  </div>
+  <div class="overlay-layer"></div>
+</div>
+<!-- FIN VENTANA MODAL -->

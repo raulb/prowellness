@@ -1,0 +1,174 @@
+@import "application";
+
+.main_post {
+  float:left;
+  padding:11px 11px 15px;
+  width:667px;
+  height:401px;
+  border:1px solid $border-info-color;
+  position:relative;
+  
+  #slider {
+    float:left;
+    width:665px;
+    height:401px;
+    position:relative;
+  }
+  
+  .shadow {
+    position:absolute; bottom:-16px; left:0;
+    z-index:0;
+    background:url(application/wide-shadow.png) no-repeat 0 0;
+    width:689px;
+    height:16px;
+  }
+  
+  &:hover {
+    
+    border-color:darken($border-info-color,10%);
+
+    .shadow {
+      background:url(application/wide-shadow-hover.png) no-repeat 0 0;
+    }
+  }
+  
+  // Gallery elements
+  .nivo-caption {
+    position:absolute;
+    top:0; left:0;
+    width:645px;
+    height:50px;
+    
+    padding:8px 10px;
+    
+    h2 {
+      font:normal 2rem AbadiCondensed;
+      letter-spacing:-0.3px;
+      float:left;
+      margin:0;
+    }
+
+    h3 {
+      font:normal 1.6rem AbadiCondensed;
+      color:$font-color-green;
+    }
+    
+    p {
+      float:left;
+      font:normal 1em Arial; 
+      color:white;
+      width:512px;
+    }
+    
+    a {
+      position:absolute; z-index:10;
+      top:20px;
+      right:20px;
+      text-decoration:none;
+      margin:0;
+      font:normal 1.7rem AbadiCondensed; color:white;
+      padding:5px 10px;
+      border:none;
+      text-align:center;
+      @include border-radius(6px);
+      @include linear-gradient(red);
+      
+      &:hover {
+        cursor:pointer;
+        @include linear-gradient-hover(red);
+      }
+    }
+  }
+    
+  .nivo-directionNav a {
+  	position:absolute;
+  	top:50%;
+  	z-index:9;
+  	cursor:pointer;
+  	width:23px; 
+  	height:23px;
+  }
+  .nivo-prevNav {
+  	left:10px;
+    background-position:left 0;  	
+    background:url(articles/gallery-arrows.png) no-repeat 0 0;    
+    
+  	&:hover {
+  	  background-position:left -24px;
+  	}
+  }
+  .nivo-nextNav {
+  	right:10px;
+  	background:url(articles/gallery-arrows.png) no-repeat right 0;
+    
+  	&:hover {
+  	  background-position:right -24px;
+  	}
+  }
+    
+}
+
+.posts {
+
+  &.articles {
+    img {
+      width:242px; height:136px;
+    }
+
+    .main_post {
+      float:left; margin:0;
+
+      h2 {
+        a {
+          font-size:2.1em;
+        }
+      }
+      div {
+        float:left; height:auto;
+      }
+
+      img {
+        width:665px;
+        height:371px;
+        padding-bottom:10px;
+      }
+    }
+    .tags {
+      float:none;
+      position:absolute;
+      bottom:23px;
+      left:269px;
+      width:410px;
+    }
+  }
+
+}
+
+
+.nav-section{ 
+ .box-options {
+   float:left;
+   margin:0;
+   background:url(articles/kind-articles-box-dashed.png) no-repeat 0 0;
+   width:295px;
+   height:41px;
+   
+ }
+ 
+ .scissors {
+    &.fitness {
+      right: 35px;
+    }  
+    &.mujer {
+      right: 105px;
+    }
+    &.nutricion {
+      right: 165px;
+    }
+    &.mi-opinion {
+      right: 265px;
+    }
+    
+ }
+ 
+}

@@ -1,6 +1,10 @@
 $(document).ready(function($) {
+
+  // Testing Modal window
+  MODAL.open();
+
   // page onloaded, go to input register
-  if ($('#register_band').length > 0) $.scrollTo('#register_band',400); 
+  // if ($('#register_band').length > 0) $.scrollTo('#register_band',400); 
   $('#user_data form input[type="text"]:first').focus();
   
   $('#ok').click(function(event) {

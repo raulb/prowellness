@@ -1,0 +1,521 @@
+/* THIS CSS IS COMMON FOR ALL APPLICATION*/
+
+// VARIABLES ***************************************************************
+
+$font-color-ads:#686868; // Font color for ads elements
+$font-color-gray:#CCCCCC;
+$font-color-orange:#FF6600;
+$font-color-green:#7DAA00;
+
+// common-background colors
+
+$bg-black-darkest:#1B1B1B;
+$bg-black-normal:#333333;
+$bg-blue-darkest:#346F87;
+$bg-blue-normal:#009FB9;
+$bg-color-ads:#F5F5F5; // Background color for all advertisement elements
+$bg-color-hover:#B34700;
+$bg-color-section-menu:#ADADAD;
+$bg-color-section-menu-selected:#333333;
+$margin-left-header:130px;
+
+$space-top-boxes:15px;
+
+// articles
+$border-info-color:#CCCCCC;
+$title-font-color:#336D85;
+$date-font-color:#666666;
+$bg-tags-color:#999999;
+$bg-date-color:#0899B3;
+$bg-pag-normal:#1A1A1A;
+$bg-pag-current:#FF0000;
+
+
+// FUNCTIONS ***************************************************************
+@mixin opacity ($opacity:0){
+  opacity:$opacity;
+  -moz-opacity:$opacity;
+  
+}
+
+@mixin box-shadow ($x-radius:0px,$y-radius:0px,$length:10px,$alpha:0.3) {
+  -moz-box-shadow:$x-radius $y-radius $length rgba(0,0,0,$alpha);
+  -webkit-box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
+  box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
+}
+
+@mixin box-shadow-none() {
+  -moz-box-shadow:none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin box-shadow-bottom-none () {
+  -moz-box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+@mixin box-shadow-inset ($x-radius:0px,$y-radius:0px,$length:6px,$alpha:0.5) {
+  -moz-box-shadow:inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
+  -webkit-box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
+  box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
+}
+
+@mixin border-radius($radius:25px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-radius-top($radius:25px) {
+  -webkit-border-top-left-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  -moz-border-radius-topleft: $radius;
+  -moz-border-radius-topright: $radius;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-radius-bottom($radius:25px) {
+  -webkit-border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  -moz-border-radius-bottomright: $radius;
+  -moz-border-radius-bottomleft: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+
+
+@mixin text-blur($color: white){
+  text-shadow: -1px 1px 10px lighten($color, 50%);  
+}
+
+@mixin hover-transition($time-effect:150ms) {
+  -webkit-transition: $time-effect linear 0s;
+  -moz-transition: $time-effect linear 0s;
+  -o-transition: $time-effect linear 0s;
+  transition: $time-effect linear 0s;
+}
+
+@mixin linear-gradient($color:black) {
+
+  @if $color == green{
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0.29, rgb(135,180,0)),
+        color-stop(0.83, rgb(104,142,0))
+    );
+    background-image: -moz-linear-gradient(
+        left center,
+        rgb(135,180,0) 29%,
+        rgb(104,142,0) 83%
+    );
+  }@else if $color == black{
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.3, rgb(51,51,51)),
+        color-stop(1, rgb(0,0,0))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(51,51,51) 30%,
+        rgb(0,0,0) 100%
+    );  
+  }@else if $color == red{
+    background-image: linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -o-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -moz-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -webkit-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -ms-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.4, rgb(204,51,51)),
+    	color-stop(0.7, rgb(149,35,35))
+    );  
+  }
+  
+}
+
+@mixin linear-gradient-hover($color:black) {
+
+  @if $color == green{
+    // if you need it with green gradient, define it!
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0.29, rgb(135,180,0)),
+        color-stop(0.83, rgb(104,142,0))
+    );
+    background-image: -moz-linear-gradient(
+        left center,
+        rgb(135,180,0) 29%,
+        rgb(104,142,0) 83%
+    );
+  }@else if $color == black{
+    background-image: linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -o-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -moz-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -webkit-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+    background-image: -ms-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.14, rgb(56,55,56)),
+    	color-stop(0.76, rgb(20,19,20))
+    );
+  }@else if $color == red{
+    background-image: linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -o-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -moz-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -webkit-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+    background-image: -ms-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.4, rgb(204,51,51)),
+    	color-stop(0.7, rgb(149,35,35))
+    );
+  }
+
+}
+
+@mixin linear-blue-gradient($direction:top) {
+
+  @if $direction == top {
+    background-image: linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -o-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -moz-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -webkit-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -ms-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.17, rgb(1,112,132)),
+    	color-stop(0.59, rgb(27,76,91))
+    );
+  }
+  @else {
+    background-image: linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -o-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -moz-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -webkit-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+    background-image: -ms-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left bottom,
+    	left top,
+    	color-stop(0.17, rgb(1,112,132)),
+    	color-stop(0.59, rgb(27,76,91))
+    );
+  }
+}
+
+
+
+// STYLES ***************************************************************
+
+html {font-size: 62.5%;}
+body {background-color:#D2D2D2; font-family:Arial; font-size:1.2rem; color:#333333;}
+p,a { font:normal 1.0em Arial;}
+p {
+  color:$bg-black-normal;
+}
+
+a {
+  color:$font-color-orange; font-weight:bold;
+  &:hover {
+    cursor:pointer;
+    color:darken($font-color-orange,20%);    
+  }
+}
+
+
+.layout {
+   width:1147px;
+   margin:0 auto;
+   
+   .inner-layout {
+     float:left;
+     width:1067px; height:100%;
+     padding:0 40px 25px;
+     background-color:#FFF;
+     @include box-shadow(0px,-1px,30px,0.3);
+     
+   }
+}
+
+section {
+  
+  padding:0 0 50px;
+  display:inline-block;
+  width:689px;
+  
+    
+  header {
+    position:relative; float:left; width:689px; background:none; margin-top:27px;
+    
+    h2 {
+      font:normal 2.3em QuicksandBook; color:white; letter-spacing:-2.0px; 
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .left-band {
+      position:absolute; left:-61px; top:0; background:url(application/left-front-section.png) no-repeat 0 0; width:61px; height:66px;
+    }
+    .right-band {
+      position:absolute; left:0; top:0; width:auto; height:46px; padding-right:55px; padding-top:12px;
+
+      @include linear-gradient(green);      
+      
+      .fixed-content {
+        float:left; width:100%; height:21px; position:relative; padding-right:55px;
+        background:url(application/band-shadow.png) repeat-x 0 bottom;
+        
+        .triangle {
+          position:absolute; top:-45px; right:0; width:21px; height:66px; background:url(application/triangle-shadow.png) no-repeat 0 0;
+        }        
+      }
+    }
+  }
+  
+} // section
+
+aside {
+  float:right;
+  width:338px;
+  height:100%;
+  margin-top:10px;
+}
+
+.info-box {
+  float:left; width:337px; padding:10px 0 15px; margin-top:$space-top-boxes;
+  background-color:$bg-black-normal;
+  @include border-radius(10px); color:white; position:relative;
+  
+  em {font-weight:bold;}
+  
+  h3,h4,form {margin-left:15px;}
+  
+  h3 {
+    float:left; 
+    font:normal 1.8em QuicksandBook; 
+    letter-spacing:-2.0px;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h4 {
+    float:left; font:normal 1.4em/0.8em QuicksandBook; letter-spacing:-1.4px;
+    
+    a {
+      color:white;
+      font:normal 0.9em Arial; letter-spacing:-0.4px;
+      
+      &:hover {
+        color:$font-color-orange;
+      }
+    }
+  }
+  
+  .kind-box {
+    position:absolute; top:15px; right:15px;
+  }
+  
+  &.articles {
+    .kind-box {
+      background:url(application/icon-articles.png) no-repeat 0 0; width:32px; height:29px;
+    }
+  }
+
+  &.videos {
+    .kind-box {
+      background:url(application/icon-videos.png) no-repeat 0 0; width:30px; height:27px;
+    }
+  }
+  
+  &.calendar {
+    .kind-box {
+      background:url(application/icon-calendar.png) no-repeat 0 0; width:27px; height:32px;
+    }
+  }
+  
+  &.search {
+    form {
+      float:left; width:308px; margin-top:5px;
+      
+      span {
+        float:left; width:100%; height:27px; position:relative; @include border-radius(6px); background-color:white;
+        border:1px solid darken($bg-black-normal,20%);
+
+        img {
+          position:absolute; top:6px; left:7px; width:15px; height:15px;
+        }
+        
+        input {
+          border:none;
+        }
+
+        input[type="search"] {
+          position:absolute; top:0; left:29px; width:205px; height:25px;
+          
+          &::-webkit-input-placeholder,&::-moz-placeholder	{ font:normal 1.1em Arial; font-style:italic; color:darken($font-color-gray,30%); }
+        }
+                
+        input[type="submit"] {
+          position:absolute; top:2px; right:3px; text-align:center;
+          @include border-radius(6px);
+          @include linear-gradient(black);
+          width:70px;
+          color:white;
+          font:normal 1.4em AbadiCondensed;          
+          -webkit-font-smoothing: antialiased;
+          
+          &:hover {
+            cursor:pointer;
+            @include linear-gradient-hover;
+          }
+        }
+        
+      }
+    }
+  }
+  
+  a.more {
+    float:right;
+    margin-top:10px;
+    margin-right:18px;
+    font:bold 1em Arial; color:white;
+    
+    &:hover {
+      color:$font-color-orange;
+    }
+  }
+  
+  
+  ul {
+    float:left; margin-top:15px; width:100%;
+    
+    li {
+      float:left; width:307px;
+      padding:5px 15px;
+      background-color:lighten($bg-black-normal,10%);
+      color:white;
+      
+      &.odd {
+        background-color:$bg-black-normal;        
+      } 
+           
+      &:hover {
+        background-color:$bg-color-hover;
+      }
+      
+      p {
+        float:left; 
+        font:bold 1.5em QuicksandBook; 
+        -webkit-font-smoothing: antialiased;
+        width:13px; margin-right:6px; height:100%; color:white;
+      }
+      
+      a {
+        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; 
+        font:normal 1.3em AbadiCondensed;
+        -webkit-font-smoothing: antialiased;
+        
+        span {
+          font-size:0.9em;
+        }
+        
+      }
+    }
+  }
+  
+}
+
+.avatar {
+  float:left; width:55px; height:55px; border:1px solid $font-color-gray; 
+  background-color:white;
+  padding:5px; 
+  margin-right:15px;
+  
+  img {
+    float:left; width:55px; height:55px; background-color:$bg-tags-color; margin:0; padding:0; border:none;
+  }
+}
+
+.nav-section{
+  float:left;
+  width:100%;
+  height:82px;
+  background:url(application/dashed-line.png) no-repeat 0 0;
+  position:relative;
+  margin-top:30px;
+  
+  .box-options {
+    padding:11px 0 0 10px;
+  }
+  
+  .scissors {
+    position:absolute;
+    top:-7px; right:20px;
+    background:url(application/scissors.png) no-repeat 0 0;
+    width:16px;
+    height:14px;
+  }
+  
+  .option {
+    float:left;
+    margin-right:7px;
+    height:24px;
+    font:normal 1.4rem Arial; color:white;
+    
+    background-color:$bg-color-section-menu;
+    padding:7px 8px 0;
+    text-decoration:none;
+    @include border-radius(5px);
+    
+    &:last-child {
+      margin-right:0;
+    }
+    
+    &:hover {
+      cursor:pointer;
+      background-color:darken($bg-color-section-menu,30%);
+    }
+    
+    &.current {
+      background-color:$bg-color-section-menu-selected;
+    }
+  }
+  
+}
+// generic link to view more in a specific section
+.view-more {
+  float:right;
+  text-align:right;
+  margin-top:20px;
+}
+
+
+@import "partials/header";
+@import "partials/form_elements";
+@import "partials/footer";
+@import "partials/advertisement";
+@import "partials/modal_window";

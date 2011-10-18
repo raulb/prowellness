@@ -12,7 +12,7 @@
 //= require jquery.sausage
 
 jQuery(document).ready(function($) {
-
+  
   // hover social icons (FOOTER)
   $('footer').find('a').hover(function() {
     $(this).parent().children('p').show();
