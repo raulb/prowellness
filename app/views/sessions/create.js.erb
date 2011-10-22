@@ -1,6 +1,0 @@
-<% if flash[:alert] %>
-  $('#login_form').replaceWith('<%= escape_javascript(render(:partial => 'layouts/login')) %>');
-<% end %>
-<% if @post %>
-  $('#comments').html('<%= escape_javascript(render(:partial => "comments/index")) %>');
-<% end %>

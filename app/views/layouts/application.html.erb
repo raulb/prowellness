@@ -242,5 +242,11 @@
     </div>
   </footer>
 
+  <% if flash[:alert] && flash[:show_login] %>
+  <script type="text/javascript">
+    showLoginWindow($('li.login .options'));
+  </script>
+  <% end %>
+
 </body>
 </html>

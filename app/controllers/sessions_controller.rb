@@ -7,11 +7,20 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       @post = Post.find(params[:post_id]) unless params[:post_id].blank?
     else
-      flash.now.alert = "E-mail o contraseña inválidos"
+      flash[:show_login] = true
+      flash.alert = "E-mail o contraseña inválidos"
     end
     respond_to do |format|
-      format.js
+      format.html do
+        if logged_in?
+          redirect_back_or_default('/')
+        else
+          redirect_to :back
+        end
+      end
     end
+  rescue
+    redirect_back_or_default('/')
   end
 
   def destroy
