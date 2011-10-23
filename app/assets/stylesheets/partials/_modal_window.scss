@@ -15,6 +15,29 @@
   display:none; 
   z-index:9999; 
   padding:10px;
+  width:735px; 
+  
+  a {
+    font-weight:normal;
+    text-decoration:none;
+    
+    &:hover {
+      text-decoration:underline;
+    }
+  }
+  
+  p {
+    float:left; 
+    width:570px;
+    font:normal 1.7rem Arial;
+    color:$date-font-color;
+    margin:15px 0 0 100px;
+  }
+  
+  em {
+    font:normal 1.7rem Arial;
+    color:$font-color-orange;
+  }
   
   .check-green {
     width:91px;
@@ -23,8 +46,36 @@
     margin:50px 0 0 60px;
   }
   
+  .forbidden {
+    width:85px;
+    height:85px;
+    float:left;
+    margin:50px 0 0 60px;
+  }
+  
+  &.forbidden-access {
+    height:322px;
+    
+    h2 {
+      float:left;
+      background:url(application/modal-window/access-restricted.png) no-repeat 0 0;
+      width:330px;
+      height:80px;
+      margin:70px 45px 0;
+    }
+    .prowellness {
+      font:normal 1.4em YanoneKaffeesatzRegular;
+      color:darken($bg-blue-darkest,10%);
+      // background:url(application/modal-window/prowellness-inline.png) no-repeat 0 0;
+
+      em {
+        font:normal 0.7em YanoneKaffeesatzRegular;
+        color:darken($bg-blue-darkest,10%);        
+      }
+    }
+  }
+  
   &.register-success {
-    width:735px; 
     height:519px;
     
     h2 {
@@ -33,19 +84,6 @@
       width:330px;
       height:94px;
       margin:58px 58px 30px;
-    }
-    
-    p {
-      float:left; 
-      width:570px;
-      font:normal 1.7rem Arial;
-      color:$date-font-color;
-      margin:15px 0 0 100px;
-    }
-    
-    em {
-      font:normal 1.7rem Arial;
-      color:$font-color-orange;
     }
     
     .signature {

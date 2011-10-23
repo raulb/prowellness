@@ -55,10 +55,15 @@ jQuery(document).ready(function($) {
 
 // PUBLIC SCOPE
 function showLoginWindow(el){
+
+  
   if (el.is(':visible')){
     el.hide();
     document.unbind('click');
   }else{
+    
+    console.log(el);
+    
     el.show();
     $('#email').focus();
 

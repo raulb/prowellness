@@ -42,4 +42,11 @@ $(document).ready( function() {
      $(this).hide();
      $('.window').hide();
   });
+  
+  $('#modal-window .login').click(function(event) {
+    $('.overlay-layer').hide();
+    $('.window').hide();
+    $('li.login .options').show();
+    $('#email').focus();
+  });
 });
