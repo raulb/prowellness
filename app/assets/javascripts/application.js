@@ -43,7 +43,12 @@ jQuery(document).ready(function($) {
 
   });
 
-
+  $('input.error').click(function(event) {
+    // Only applied when it's coming from an error action (placeholder contains the error message)
+    if ($(this).val() == $(this).attr('placeholder')) {
+     $(this).val(''); 
+    }
+  });
 
 });
 

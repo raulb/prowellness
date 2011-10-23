@@ -120,17 +120,22 @@ nav {
                 height:17px;
                 padding:5px;
                 margin-top:3px;
+                
+                &.error {
+                  border:2px solid red;
+                }
               }
               
               input[type="submit"]{
                 float:left;
                 height:28px; padding:0; width:227px; margin-top:12px; letter-spacing:-1.0px;
               }
+              
             }
             .remember_pass {
               float:left; width:auto; text-align:center; text-decoration:underline;
               font:normal 0.9em Arial;
-              margin:7px 0 0 68px;
+              margin:7px 0 0 53px;
               padding:0;
               
               &:hover {
