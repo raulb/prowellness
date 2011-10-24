@@ -317,6 +317,7 @@ aside {
   
   h3 {
     float:left; 
+    width:307px;
     font:normal 1.8em QuicksandBook; 
     letter-spacing:-2.0px;
     -webkit-font-smoothing: antialiased;
@@ -327,7 +328,7 @@ aside {
     
     a {
       color:white;
-      font:normal 0.9em Arial; letter-spacing:-0.4px;
+      font:normal 1em AbadiCondensed; letter-spacing:-0.4px;
       
       &:hover {
         color:$font-color-orange;
@@ -352,6 +353,25 @@ aside {
   }
   
   &.calendar {
+    background-color:$bg-blue-darkest;
+    
+    img {
+      float:left;
+      width:114px;
+      height:69px;
+      border:3px solid #6692A4;
+      margin:13px 17px 0;
+    }
+    
+    h4 {
+      width:170px;
+      margin:20px 0 0;
+      
+      a:hover {
+        color:$font-color-gray;
+      }
+    }
+    
     .kind-box {
       background:url(application/icon-calendar.png) no-repeat 0 0; width:27px; height:32px;
     }

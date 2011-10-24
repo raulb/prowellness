@@ -31,4 +31,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :quality => 100 
   end
 
+  version :ejercicio_del_mes do
+    process :resize_to_fill => [114,69]
+    process :quality => 100 
+  end
+
 end

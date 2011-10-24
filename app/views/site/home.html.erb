@@ -32,7 +32,7 @@
       <% @posts.each do |post| %>
         <li class="post">
           <div>
-            <%= image_tag post.image.heading.url, :alt => post.title %>
+            <%= link_to(image_tag(post.image.heading.url, :alt => post.title), post_path(post)) %>
             <h3><%= link_to(post.categories.last.capitalize, articles_category_path(post.categories.last), :title => post.categories.last) %></h2>
             <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
             <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>

@@ -130,7 +130,7 @@
           <p>publicidad</p>
           <div class="banner"></div>
         </div>
-
+        
         <div class="info-box articles">
           <h3>los <em>5</em> artículos más vistos</h3>
           <h4>durante el último mes</h4>
@@ -143,6 +143,17 @@
           <a href="<%= articles_path %>" class="more">ver más artículos</a>
         </div>
 
+        <% if Post.get_last_ejercicio_del_mes %>
+        <div class="info-box calendar">
+          <h3>ejercicio del mes</h3>
+          <%= link_to(image_tag(Post.get_last_ejercicio_del_mes.image.ejercicio_del_mes.url, 
+          :alt => Post.get_last_ejercicio_del_mes.title), post_path(Post.get_last_ejercicio_del_mes)) %>
+          
+          <h4><%= link_to(Post.get_last_ejercicio_del_mes.title, post_path(Post.get_last_ejercicio_del_mes)) %></h4>
+          <span class="kind-box"></span>
+        </div>
+        <% end %>
+        
         <div class="banner-300x100 ads">
           <p>publicidad</p>
           <div class="banner"></div>
@@ -167,15 +178,6 @@
           </ul>
           <a href="#" class="more">ver más vídeos</a>
         </div>
-
-        <% if Post.get_last_ejercicio_del_mes %>
-        <div class="info-box calendar">
-          <h3>ejercicios del mes</h3>
-          <h4><%= link_to("cada mes, un ejercicio especial", post_path(Post.get_last_ejercicio_del_mes)) %></h4>
-          <span class="kind-box"></span>
-        </div>
-        <% end %>
-
       </aside>
 
     </div>
