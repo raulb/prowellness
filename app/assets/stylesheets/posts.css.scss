@@ -1,4 +1,4 @@
-@import "application";
+@import "partials/common_properties";
 
 $spacing:30px;
 
@@ -266,7 +266,7 @@ $spacing:30px;
 }
 
 #header_article {
-  float:left; width:569px; height:60px; position:relative;
+  float:left; width:569px; height:auto; position:relative;
   padding:30px 60px;
   
   background:url(application/bgr-article-mash.png);

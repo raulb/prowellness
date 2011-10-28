@@ -1,4 +1,12 @@
-<div class="post">
-  <p><%= link_to(post.title, post_path(post)) %> - por <%= post.user.signature %></p>
-  <p><%= post.categories.join(" > ") %></p>
-</div>
+<li <%= cycle('', raw('class="odd"')) %>>
+  <%= link_to(post.title, post_path(post)) %> <p>- por <%= post.user.signature %></p>
+
+  <p class="breadcrumb">
+    
+  <% post.categories.each_with_index do |category,index| %>
+    <%= category %>
+    <% if index != post.categories.length-1  %>
+      <%= image_tag "search/arrow.png", :alt => 'Array join', :class=>'arrow' %>
+    <% end %>
+  <% end %>
+</li>

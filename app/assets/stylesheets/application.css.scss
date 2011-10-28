@@ -1,233 +1,6 @@
 /* THIS CSS IS COMMON FOR ALL APPLICATION*/
 
-// VARIABLES ***************************************************************
-
-$font-color-ads:#686868; // Font color for ads elements
-$font-color-gray:#CCCCCC;
-$font-color-orange:#FF6600;
-$font-color-green:#7DAA00;
-
-// common-background colors
-
-$bg-black-darkest:#1B1B1B;
-$bg-black-normal:#333333;
-$bg-blue-darkest:#346F87;
-$bg-blue-normal:#009FB9;
-$bg-color-ads:#F5F5F5; // Background color for all advertisement elements
-$bg-color-hover:#B34700;
-$bg-color-section-menu:#ADADAD;
-$bg-color-section-menu-selected:#333333;
-$margin-left-header:130px;
-
-$space-top-boxes:15px;
-
-// articles
-$border-info-color:#CCCCCC;
-$title-font-color:#336D85;
-$date-font-color:#666666;
-$bg-tags-color:#999999;
-$bg-date-color:#0899B3;
-$bg-pag-normal:#1A1A1A;
-$bg-pag-current:#FF0000;
-
-
-// FUNCTIONS ***************************************************************
-@mixin opacity ($opacity:0){
-  opacity:$opacity;
-  -moz-opacity:$opacity;
-  
-}
-
-@mixin box-shadow ($x-radius:0px,$y-radius:0px,$length:10px,$alpha:0.3) {
-  -moz-box-shadow:$x-radius $y-radius $length rgba(0,0,0,$alpha);
-  -webkit-box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
-  box-shadow: $x-radius $y-radius $length rgba(0,0,0,$alpha);
-}
-
-@mixin box-shadow-none() {
-  -moz-box-shadow:none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-@mixin box-shadow-bottom-none () {
-  -moz-box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: -5px -15px 10px rgba(0, 0, 0, 0.2), 5px -15px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
-@mixin box-shadow-inset ($x-radius:0px,$y-radius:0px,$length:6px,$alpha:0.5) {
-  -moz-box-shadow:inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
-  -webkit-box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
-  box-shadow: inset $x-radius $y-radius $length rgba(0,0,0,$alpha);
-}
-
-@mixin border-radius($radius:25px) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
-}
-
-@mixin border-radius-top($radius:25px) {
-  -webkit-border-top-left-radius: $radius;
-  -webkit-border-top-right-radius: $radius;
-  -moz-border-radius-topleft: $radius;
-  -moz-border-radius-topright: $radius;
-  border-top-left-radius: $radius;
-  border-top-right-radius: $radius;
-}
-
-@mixin border-radius-bottom($radius:25px) {
-  -webkit-border-bottom-right-radius: $radius;
-  -webkit-border-bottom-left-radius: $radius;
-  -moz-border-radius-bottomright: $radius;
-  -moz-border-radius-bottomleft: $radius;
-  border-bottom-right-radius: $radius;
-  border-bottom-left-radius: $radius;
-}
-
-
-
-@mixin text-blur($color: white){
-  text-shadow: -1px 1px 10px lighten($color, 50%);  
-}
-
-@mixin hover-transition($time-effect:150ms) {
-  -webkit-transition: $time-effect linear 0s;
-  -moz-transition: $time-effect linear 0s;
-  -o-transition: $time-effect linear 0s;
-  transition: $time-effect linear 0s;
-}
-
-@mixin linear-gradient($color:black) {
-
-  @if $color == green{
-    background-image: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        color-stop(0.29, rgb(135,180,0)),
-        color-stop(0.83, rgb(104,142,0))
-    );
-    background-image: -moz-linear-gradient(
-        left center,
-        rgb(135,180,0) 29%,
-        rgb(104,142,0) 83%
-    );
-  }@else if $color == black{
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.3, rgb(51,51,51)),
-        color-stop(1, rgb(0,0,0))
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        rgb(51,51,51) 30%,
-        rgb(0,0,0) 100%
-    );  
-  }@else if $color == red{
-    background-image: linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -o-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -moz-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -webkit-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -ms-linear-gradient(top, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left top,
-    	left bottom,
-    	color-stop(0.4, rgb(204,51,51)),
-    	color-stop(0.7, rgb(149,35,35))
-    );  
-  }
-  
-}
-
-@mixin linear-gradient-hover($color:black) {
-
-  @if $color == green{
-    // if you need it with green gradient, define it!
-    background-image: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        color-stop(0.29, rgb(135,180,0)),
-        color-stop(0.83, rgb(104,142,0))
-    );
-    background-image: -moz-linear-gradient(
-        left center,
-        rgb(135,180,0) 29%,
-        rgb(104,142,0) 83%
-    );
-  }@else if $color == black{
-    background-image: linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
-    background-image: -o-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
-    background-image: -moz-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
-    background-image: -webkit-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
-    background-image: -ms-linear-gradient(top, rgb(56,55,56) 14%, rgb(20,19,20) 76%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left top,
-    	left bottom,
-    	color-stop(0.14, rgb(56,55,56)),
-    	color-stop(0.76, rgb(20,19,20))
-    );
-  }@else if $color == red{
-    background-image: linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -o-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -moz-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -webkit-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-    background-image: -ms-linear-gradient(bottom, rgb(204,51,51) 40%, rgb(149,35,35) 70%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left bottom,
-    	left top,
-    	color-stop(0.4, rgb(204,51,51)),
-    	color-stop(0.7, rgb(149,35,35))
-    );
-  }
-
-}
-
-@mixin linear-blue-gradient($direction:top) {
-
-  @if $direction == top {
-    background-image: linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -o-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -moz-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -webkit-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -ms-linear-gradient(top, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left top,
-    	left bottom,
-    	color-stop(0.17, rgb(1,112,132)),
-    	color-stop(0.59, rgb(27,76,91))
-    );
-  }
-  @else {
-    background-image: linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -o-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -moz-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -webkit-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-    background-image: -ms-linear-gradient(bottom, rgb(1,112,132) 17%, rgb(27,76,91) 59%);
-
-    background-image: -webkit-gradient(
-    	linear,
-    	left bottom,
-    	left top,
-    	color-stop(0.17, rgb(1,112,132)),
-    	color-stop(0.59, rgb(27,76,91))
-    );
-  }
-}
+@import "partials/common_properties";
 
 
 
@@ -274,7 +47,8 @@ section {
     position:relative; float:left; width:689px; background:none; margin-top:27px;
     
     h2 {
-      font:normal 2.3em QuicksandBook; color:white; letter-spacing:-2.0px;
+      font:normal 2.3em QuicksandBook; color:white; letter-spacing:-2.0px; height:33px;
+      -webkit-font-smoothing: antialiased;
     }
     
     .left-band {
@@ -286,7 +60,7 @@ section {
       @include linear-gradient(green);      
       
       .fixed-content {
-        float:left; width:100%; height:21px; position:relative; padding-right:55px;
+        float:left; width:100%; height:21px; position:relative; padding-right:55px; margin:0;
         background:url(application/band-shadow.png) repeat-x 0 bottom;
         
         .triangle {
@@ -306,7 +80,7 @@ aside {
 }
 
 .info-box {
-  float:left; width:337px; padding:10px 0 15px; margin-top:$space-top-boxes;
+  float:left; width:337px; padding:10px 0; margin-top:$space-top-boxes;
   background-color:$bg-black-normal;
   @include border-radius(10px); color:white; position:relative;
   
@@ -315,7 +89,11 @@ aside {
   h3,h4,form {margin-left:15px;}
   
   h3 {
-    float:left; font:normal 1.8em QuicksandBook; letter-spacing:-2.0px;
+    float:left; 
+    width:307px;
+    font:normal 1.8em QuicksandBook; 
+    letter-spacing:-2.0px;
+    -webkit-font-smoothing: antialiased;
   }
   
   h4 {
@@ -323,7 +101,7 @@ aside {
     
     a {
       color:white;
-      font:normal 0.9em Arial; letter-spacing:-0.4px;
+      font:normal 1em AbadiCondensed; letter-spacing:-0.4px;
       
       &:hover {
         color:$font-color-orange;
@@ -348,8 +126,44 @@ aside {
   }
   
   &.calendar {
+    background-color:lighten($bg-blue-darkest,10%);
+    padding-bottom:0;
+  
+    img {
+      float:left;
+      width:114px;
+      height:69px;
+      border:3px solid #6692A4;
+      margin:13px 17px 0;
+    }
+    
+    h4 {
+      width:170px;
+      margin:20px 0 0;
+      
+      a{
+        text-decoration:none;
+        &:hover {
+          color:$font-color-gray;
+        }
+      }
+    }
+    
     .kind-box {
       background:url(application/icon-calendar.png) no-repeat 0 0; width:27px; height:32px;
+    }
+    .band {
+      float:left;
+      width:337px;
+      height:auto;
+      background-color:darken($bg-blue-darkest,20%);
+      margin-top:8px;
+      padding-bottom:13px;
+      @include border-radius-bottom(10px);
+      
+      &:hover {
+        background-color:darken($bg-blue-darkest,25%);
+      }
     }
   }
   
@@ -382,6 +196,7 @@ aside {
           width:70px;
           color:white;
           font:normal 1.4em AbadiCondensed;          
+          -webkit-font-smoothing: antialiased;
           
           &:hover {
             cursor:pointer;
@@ -423,11 +238,16 @@ aside {
       }
       
       p {
-        float:left; font:bold 1.5em QuicksandBook; width:13px; margin-right:6px; height:100%; color:white;
+        float:left; 
+        font:bold 1.5em QuicksandBook; 
+        -webkit-font-smoothing: antialiased;
+        width:13px; margin-right:6px; height:100%; color:white;
       }
       
       a {
-        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; font:normal 1.3em AbadiCondensed;
+        float:left; width:255px; margin-top:3px; color:white; text-decoration:none; 
+        font:normal 1.3em AbadiCondensed;
+        -webkit-font-smoothing: antialiased;
         
         span {
           font-size:0.9em;
@@ -508,3 +328,4 @@ aside {
 @import "partials/form_elements";
 @import "partials/footer";
 @import "partials/advertisement";
+@import "partials/modal_window";

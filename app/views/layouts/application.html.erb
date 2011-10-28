@@ -115,24 +115,25 @@
         <%= yield %>
       </section>
       <aside>
-        <div class="info-box search">
-          <h3>buscador</h3>
-          <%= form_tag search_path, :method => :get, :id => 'search' do %>
-            <span>
-              <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
-              <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" />
-              <input type="submit" value="buscar" />
-            </span>
-          <% end %>
-        </div>
-
+        <% if controller_name != 'search' %>
+          <div class="info-box search">
+            <h3>buscador</h3>
+            <%= form_tag search_path, :method => :get, :id => 'search' do %>
+              <span>
+                <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
+                <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" />
+                <input type="submit" value="buscar" />
+              </span>
+            <% end %>
+          </div>
+        <% end %>
         <div class="banner-300x250 ads">
           <p>publicidad</p>
           <div class="banner"></div>
         </div>
         
         <div class="info-box articles">
-          <h3>los <em>5</em> artículos más vistos</h3>
+          <h3>los <em><%= Post.find_more_visited.length %></em> artículos más vistos</h3>
           <h4>durante el último mes</h4>
           <span class="kind-box"></span>
           <ul>
@@ -146,11 +147,14 @@
         <% if Post.get_last_ejercicio_del_mes %>
         <div class="info-box calendar">
           <h3>ejercicio del mes</h3>
-          <%= link_to(image_tag(Post.get_last_ejercicio_del_mes.image.ejercicio_del_mes.url, 
-          :alt => Post.get_last_ejercicio_del_mes.title), post_path(Post.get_last_ejercicio_del_mes)) %>
           
-          <h4><%= link_to(Post.get_last_ejercicio_del_mes.title, post_path(Post.get_last_ejercicio_del_mes)) %></h4>
-          <span class="kind-box"></span>
+          <div class="band">
+            <%= link_to(image_tag(Post.get_last_ejercicio_del_mes.image.ejercicio_del_mes.url, 
+            :alt => Post.get_last_ejercicio_del_mes.title), post_path(Post.get_last_ejercicio_del_mes)) %>
+
+            <h4><%= link_to(Post.get_last_ejercicio_del_mes.title, post_path(Post.get_last_ejercicio_del_mes)) %></h4>
+          </div>
+          <!-- <span class="kind-box"></span> -->
         </div>
         <% end %>
         

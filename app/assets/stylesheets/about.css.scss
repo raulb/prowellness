@@ -1,4 +1,4 @@
-@import "application";
+@import "partials/common_properties";
 
 article {
   float:left;
@@ -13,7 +13,7 @@ article {
   h3 {
     font:normal 2.6rem QuicksandBook;
     margin-top:20px;
-    letter-spacing:-1.0px;
+    letter-spacing:-2.0px;
   }
   .nav-section{
     
