@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
   def visual_guide_login_required
     if !logged_in?
       if controller_name == "visual_guide_posts" && action_name == "index" && params[:category].blank?
-        flash[:login_required_front] = true
+        flash.now[:login_required_front] = true
       else
         redirect_to visual_guide_path and return false
       end

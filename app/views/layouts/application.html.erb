@@ -288,6 +288,12 @@
       MODAL.open();
     </script>  
   <% end %>
+  <% if flash[:modal_signup] %>
+    <%= render :partial => "shared/signup_success" %>
+    <script type="text/javascript">
+      MODAL.open();
+    </script>  
+  <% end %>
 
 </body>
 </html>

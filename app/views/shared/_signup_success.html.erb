@@ -1,0 +1,18 @@
+<!-- VENTANA MODAL -->
+<div class="window">
+  <div id="modal-window" class="forbidden-access">
+    <div class="outside"></div>
+    <div class="inside">
+      <a class="close"></a>
+      <!-- TODO: poner imagen de registro success -->
+      <%= image_tag "application/modal-window/forbidden.png", :alt => 'Access restricted', :class=>'forbidden' %>
+      <h2>Bienvenido a prowellness.es</h2>
+      <p>¡Hola <%= flash[:modal_signup][:login] %>!</p>
+      <p>En unos segundos recibirás un mail a <%= flash[:modal_signup][:email] %> para que puedas activar tu cuenta.</p>
+      <p>Una vez lo hagas, podrás empezar a usar la web sin limitaciones, además de completar tu perfil si lo deseas.</p>
+      <!-- TODO: falta añadir la firma de Domingo -->
+    </div>
+  </div>
+  <div class="overlay-layer"></div>
+</div>
+<!-- FIN VENTANA MODAL -->
