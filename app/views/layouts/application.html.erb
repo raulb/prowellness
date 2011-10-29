@@ -282,6 +282,12 @@
       showLoginWindow($('li.login .options'));
     </script>
   <% end %>
+  <% if flash[:login_required_front] %>
+    <%= render :partial => "shared/login_required_front" %>
+    <script type="text/javascript">
+      MODAL.open();
+    </script>  
+  <% end %>
 
 </body>
 </html>

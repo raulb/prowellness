@@ -2,7 +2,7 @@
 
 class VisualGuidePostsController < PostsController
 
-  before_filter :login_required
+  before_filter :visual_guide_login_required
 
   def index
     @posts = Post.get_last_videos(4)

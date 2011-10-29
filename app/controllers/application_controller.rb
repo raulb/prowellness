@@ -63,6 +63,16 @@ class ApplicationController < ActionController::Base
     return true if logged_in?
     redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
+  
+  def visual_guide_login_required
+    if !logged_in?
+      if controller_name == "visual_guide_posts" && action_name == "index" && params[:category].blank?
+        flash[:login_required_front] = true
+      else
+        redirect_to visual_guide_path and return false
+      end
+    end
+  end
 
   def load_post
     @post = if @categories

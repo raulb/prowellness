@@ -2,6 +2,8 @@
 
 class BookVideosController < ApplicationController
   
+  before_filter :visual_guide_login_required
+  
   def index
     @book = Book.first
   end
