@@ -1,0 +1,11 @@
+<div class="content">
+  <h2>Lista de libros</h2>
+  <ul class="books">
+    <% @books.each do |book| %>
+    <li class="book">
+      <%= book.title %> - <%= link_to("Editar vídeos", admin_book_book_videos_path(book)) %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+

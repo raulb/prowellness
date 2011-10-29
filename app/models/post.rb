@@ -12,7 +12,6 @@ class Post < ActiveRecord::Base
     "Artículos > Mujer" => "articulos,mujer",
     "Artículos > Nutrición" => "articulos,nutricion",
     "Artículos > Mi opinión" => "articulos,mi-opinion",
-    "Guía Visual > Editorial" => "guia-visual,editorial",
     "Guía Visual > Dietas" => "guia-visual,dietas",
     "Guía Visual > Planes" => "guia-visual,planes",
     "Guía Visual > Abdominales > Nivel 1 - Activación" => "guia-visual,abdominales,nivel-1-activacion",
@@ -29,8 +28,6 @@ class Post < ActiveRecord::Base
     "Guía Visual > Estiramientos > Hombro" => "guia-visual,estiramientos,hombro",
     "Guía Visual > Estiramientos > Brazo" => "guia-visual,estiramientos,brazo",
     "Guía Visual > Estiramientos > Antebrazo" => "guia-visual,estiramientos,antebrazo",
-    "Guía Visual > Dietas" => "guia-visual,dietas",
-    "Guía Visual > Planes" => "guia-visual,planes",
     "Blog" => "blog"
   }
 

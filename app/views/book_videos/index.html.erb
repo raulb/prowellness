@@ -1,0 +1,10 @@
+<p>Consulta los vídeos del libro "Entérate"</p>
+
+<% if flash[:alert] %>
+<%= flush_the_flash %>
+<% end %>
+
+<%= form_tag visual_guide_editorial_video_path, :method => :post do %>
+  <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
+  <%= submit_tag "ver vídeo" %>
+<% end %>

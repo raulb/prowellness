@@ -11,10 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009230227) do
+ActiveRecord::Schema.define(:version => 20111029183310) do
 
   create_table "attachments", :force => true do |t|
     t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "book_videos", :force => true do |t|
+    t.string   "code"
+    t.integer  "book_id"
+    t.text     "video"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

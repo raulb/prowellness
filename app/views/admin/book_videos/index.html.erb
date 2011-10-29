@@ -1,0 +1,12 @@
+<div class="content">
+  <h2>Lista de vídeos del libro <%= @book.title %></h2>
+  <p><%= link_to("Nuevo vídeo", new_admin_book_book_video_path(@book)) %></p>
+  <ul class="videos">
+    <% @book_videos.each do |video| %>
+    <li class="video">
+      <%= video.code %> - <%= raw video.video %> - <%= link_to("Editar", edit_admin_book_book_video_path(@book, video)) %> - <%= link_to("Eliminar", admin_book_book_video_path(@book, video), :method => :delete, :confirm => "¿Estás seguro?") %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+

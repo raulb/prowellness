@@ -81,3 +81,9 @@ create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del
 putc '.'
 
 puts
+
+# Create book "Entrénate"
+@book = Book.create :title => "Entrénate"
+
+# Create some videos for the book "Entérate"
+@book.videos.create :code => "123ABC", :video => '<iframe width="560" height="315" src="http://www.youtube.com/embed/P-Un2t25aqE" frameborder="0" allowfullscreen></iframe>'

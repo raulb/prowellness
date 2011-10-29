@@ -9,8 +9,11 @@ Prowellness::Application.routes.draw do
   resource :users, :only => [:new, :create]
 
   namespace :admin do
+    root :to => redirect("/admin/posts")
     resources :posts, :except => [:show]
-    resources :visual_guide_videos
+    resources :books, :only => [:index] do
+      resources :book_videos
+    end
   end
 
   get '/sobre-prowellness'             => 'site#about',               :as => :about
@@ -20,6 +23,8 @@ Prowellness::Application.routes.draw do
   get '/articulos/:category'           => 'articles#index',           :as => :articles_category
   get '/articulos/*categories/:slug'   => 'articles#show',            :as => :article
   get '/guia-visual'                   => 'visual_guide_posts#index', :as => :visual_guide
+  get  '/guia-visual/editorial'         => 'book_videos#index',        :as => :visual_guide_editorial
+  post '/guia-visual/editorial/video'   => 'book_videos#show',         :as => :visual_guide_editorial_video
   get '/guia-visual/:category'         => 'visual_guide_posts#index', :as => :visual_guide_category
   get '/guia-visual/*categories/:slug' => 'visual_guide_posts#show',  :as => :visual_guide_post
   get '/blog'                          => 'blog_posts#index',         :as => :blog

@@ -1,0 +1,10 @@
+<%= form_for([:admin, @book, @book_video]) do |f| %>
+  <%= f.label :code, "Código" %><br />
+  <%= f.text_field :code %><br />
+  
+  <%= f.label :video, "Vídeo" %><br />
+  <%= f.text_area :video, :rows => 4, :cols => 80 %><br />
+  
+  <%= f.submit "Guardar" %> 
+  <%= link_to("Cancelar", admin_book_book_videos_path(@book)) %>
+<% end %>
