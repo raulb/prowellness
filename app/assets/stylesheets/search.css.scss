@@ -99,6 +99,7 @@
       li {
         float:left; 
         width:100%;
+        margin-top:5px;
       }
     
     }
@@ -114,6 +115,22 @@
     
     .checkbox {
       margin-right:5px;
+    }
+    
+    input[type="text"]{
+      float:left; 
+      width:150px;
+      height:13px;
+      padding:3px; 
+      @include border-radius(6px); 
+      background-color:white;
+      border:1px solid darken($bg-black-normal,20%);
+      
+      &.date {
+        width:62px;
+        margin-left:3px;
+        margin-right:10px;
+      }
     }
   } // filters
 }

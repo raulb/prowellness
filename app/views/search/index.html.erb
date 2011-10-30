@@ -1,5 +1,5 @@
-<%= javascript_include_tag 'custom-form-elements','search' %>
-<%= stylesheet_link_tag "search" %>
+<%= javascript_include_tag 'custom-form-elements','jquery.ui.datepicker-es','search' %>
+<%= stylesheet_link_tag "search","prowellness-theme/jquery-ui",'prowellness-theme/jquery.ui.datepicker','prowellness-theme/jquery.ui.theme' %>
 
 <header>
   <span class="left-band"></span>
@@ -35,11 +35,13 @@
           <%= check_box_tag "categories[mi-opinion]", "1", (params[:categories] && params[:categories]["mi-opinion"]), :id => "category_mi_opinion", :class=>'styled' %>
         </li>
         <li>
-          <%= label_tag "from", "Desde" %>
-          <%= select_date Date.today, :order => [:day, :month, :year], :prefix => 'from' %>
+          <%= label_tag "from", "Fecha desde" %>
+          <input id="date_from" type="text" class="date" />
+          <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'from'}, :class=>"hidden" %>
 
-          <%= label_tag "to", "Hasta" %>
-          <%= select_date Date.today, :order => [:day, :month, :year], :prefix => 'to' %>
+          <%= label_tag "to", "Fecha hasta" %>
+          <input id="date_to" type="text" class="date" />
+          <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'to'}, :class=>"hidden" %>
 
           <%= label_tag "author", "Autor" %>
           <%= text_field_tag "author", params[:author] %>
