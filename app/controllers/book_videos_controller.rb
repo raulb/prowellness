@@ -5,14 +5,15 @@ class BookVideosController < ApplicationController
   before_filter :visual_guide_login_required
   
   def index
-    @book = Book.first
+    @books = Book.all
   end
   
   def show
-    @book = Book.first
-    unless @book_video = @book.videos.where(:code => params[:code]).first
-      redirect_to visual_guide_editorial_path, :flash => {:alert => "El código introducido no corresponde a ningún vídeo"}
+    @books = Book.all
+    unless @book_video = BookVideo.where(:code => params[:code]).first
+      redirect_to visual_guide_editorial_path, :flash => {:alert => "El código introducido no corresponde a ningún vídeo"} and return
     end
+    @book = @book_video.book
   end
   
 end

@@ -1,4 +1,4 @@
-<p>Consulta los vídeos del libro "Entérate"</p>
+<p>Consulta los vídeos del libro "<%= @book.title %>"</p>
 
 <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
   <%= text_field_tag :code, @book_video.code, :placeholder => "introduce el código" %> <br />

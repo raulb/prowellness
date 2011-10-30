@@ -27,6 +27,8 @@ admin.name_and_surname = 'Domingo Sánchez'
 admin.save
 admin.set_as_admin!
 admin.reload
+admin.activate!
+admin.reload
 
 puts "Loading posts"
 
@@ -87,3 +89,9 @@ puts
 
 # Create some videos for the book "Entérate"
 @book.videos.create :code => "123ABC", :video => '<iframe width="560" height="315" src="http://www.youtube.com/embed/P-Un2t25aqE" frameborder="0" allowfullscreen></iframe>'
+
+# Create book "Mujer"
+@book = Book.create :title => "Mujer"
+
+# Create some videos for the book "Mujer"
+@book.videos.create :code => "345ABC", :video => '<iframe width="560" height="315" src="http://www.youtube.com/embed/l78yD0NMM9I" frameborder="0" allowfullscreen></iframe>'

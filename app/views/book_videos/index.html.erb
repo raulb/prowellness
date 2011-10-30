@@ -1,10 +1,42 @@
-<p>Consulta los vídeos del libro "Entérate"</p>
+<% @books.each do |book| %>
+  <div id="section-<%= book.id %>" class="nav-section">
+    <span class="scissors book-<%= book.id %>"></span>
+    <div class="box-options">
+      <a class="option <%= (book.title.eql? 'Entrénate')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-<%= book.id %>',400);">Entrénate</a>
+      <a class="option <%= (book.title.eql? 'Mujer')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-<%= book.id %>',400);">Mujer</a>
+    </div>
+  </div>
+  
+  <% if book.title == "Entrénate" %>
+    
+    <div class="book">
+      <p>Consulta los vídeos del libro "<%= book.title %>"</p>
 
-<% if flash[:alert] %>
-<%= flush_the_flash %>
+      <% if flash[:alert] %>
+      <%= flush_the_flash %>
+      <% end %>
+
+      <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
+        <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
+        <%= submit_tag "ver vídeo" %>
+      <% end %>
+    </div>
+  
+  <% elsif book.title == "Mujer" %>
+
+    <div class="book">
+      <p>Consulta los vídeos del libro "<%= book.title %>"</p>
+
+      <% if flash[:alert] %>
+      <%= flush_the_flash %>
+      <% end %>
+
+      <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
+        <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
+        <%= submit_tag "ver vídeo" %>
+      <% end %>
+    </div>
+  
+  <% end %>
 <% end %>
 
-<%= form_tag visual_guide_editorial_video_path, :method => :post do %>
-  <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
-  <%= submit_tag "ver vídeo" %>
-<% end %>
