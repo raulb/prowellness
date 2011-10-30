@@ -6,37 +6,39 @@
       <a class="option <%= (book.title.eql? 'Mujer')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-<%= book.id %>',400);">Mujer</a>
     </div>
   </div>
-  
+
   <% if book.title == "Entrénate" %>
-    
+
     <div class="book">
       <p>Consulta los vídeos del libro "<%= book.title %>"</p>
 
       <% if flash[:alert] %>
-      <%= flush_the_flash %>
+        <%= flush_the_flash %>
       <% end %>
+
+      <p>Si aún no lo tienes, puedes solicitarlo <%= link_to("aquí", buy_book_path(:id => book.slug)) %></p>
 
       <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
         <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
         <%= submit_tag "ver vídeo" %>
       <% end %>
     </div>
-  
+
   <% elsif book.title == "Mujer" %>
 
     <div class="book">
       <p>Consulta los vídeos del libro "<%= book.title %>"</p>
 
       <% if flash[:alert] %>
-      <%= flush_the_flash %>
+        <%= flush_the_flash %>
       <% end %>
 
+      <p>Si aún no lo tienes, puedes solicitarlo <%= link_to("aquí", buy_book_path(:id => book.slug)) %></p>
       <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
         <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
         <%= submit_tag "ver vídeo" %>
       <% end %>
     </div>
-  
+
   <% end %>
 <% end %>
-

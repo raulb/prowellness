@@ -12,4 +12,12 @@ class UserMailer < ActionMailer::Base
          :subject => "[prowellness] Confirma tu cuenta"
   end
 
+  def buy_notification(book, email, text)
+    @email = email
+    @text = text
+    @book = book
+    mail :to => "dsanchez@prowellness.es",
+         :subject => "Un nuevo pedido del libro #{book.title} de #{email}"
+  end
+
 end
