@@ -1,4 +1,4 @@
-<li <%= cycle('', raw('class="odd"')) %>>
+<li class="post<%= cycle('', raw(' odd')) %>">
   <%= link_to(post.title, post_path(post)) %> <p>- por <%= post.user.signature %></p>
 
   <p class="breadcrumb">

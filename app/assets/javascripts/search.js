@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
       loading = false;
 
   function nearBottomOfPage() {
-    return $(window).scrollTop() > $('li:last').position().top - 300;
+    return $(window).scrollTop() > $('.post:last').position().top - 300;
   }
 
   $(window).scroll(function(){

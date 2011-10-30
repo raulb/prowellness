@@ -1,6 +1,5 @@
-<%= javascript_include_tag 'search' %>
+<%= javascript_include_tag 'custom-form-elements','search' %>
 <%= stylesheet_link_tag "search" %>
-
 
 <header>
   <span class="left-band"></span>
@@ -16,7 +15,7 @@
   <h3>buscar en todo el site</h3>
   
   <%= form_tag search_path, :method => :get, :id => 'search' do %>
-    <span>
+    <span id="search-value">
       <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
       <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" value="<%= params[:q] %>" />
       <input type="submit" value="buscar" />
@@ -24,24 +23,28 @@
     <a href="#" class="toggle_filters">mostrar filtros</a>
     
     <div class="filters">
-      <%= check_box_tag "categories[videos]", "1", (params[:categories] && params[:categories]["videos"]), :id => "category_videos" %>
-      <%= label_tag "category_videos", "Vídeos" %>
-      <%= check_box_tag "categories[articulos]", "1", (params[:categories] && params[:categories]["articulos"]), :id => "category_articulos" %>
-      <%= label_tag "category_articulos", "Artículos" %>
-      <%= check_box_tag "categories[blog]", "1", (params[:categories] && params[:categories]["blog"]), :id => "category_blog" %>
-      <%= label_tag "category_blog", "Blog" %>
-      <%= check_box_tag "categories[mi-opinion]", "1", (params[:categories] && params[:categories]["mi-opinion"]), :id => "category_mi_opinion" %>
-      <%= label_tag "category_mi_opinion", "Mi opinión" %>
+      <ul>
+        <li>
+          <%= label_tag "category_videos", "Vídeos" %>
+          <%= check_box_tag "categories[videos]", "1", (params[:categories] && params[:categories]["videos"]), :id => "category_videos", :class=>'styled' %>
+          <%= label_tag "category_articulos", "Artículos" %>
+          <%= check_box_tag "categories[articulos]", "1", (params[:categories] && params[:categories]["articulos"]), :id => "category_articulos", :class=>'styled' %>
+          <%= label_tag "category_blog", "Blog" %>
+          <%= check_box_tag "categories[blog]", "1", (params[:categories] && params[:categories]["blog"]), :id => "category_blog", :class=>'styled' %>
+          <%= label_tag "category_mi_opinion", "Mi opinión" %>
+          <%= check_box_tag "categories[mi-opinion]", "1", (params[:categories] && params[:categories]["mi-opinion"]), :id => "category_mi_opinion", :class=>'styled' %>
+        </li>
+        <li>
+          <%= label_tag "from", "Desde" %>
+          <%= select_date Date.today, :order => [:day, :month, :year], :prefix => 'from' %>
 
-      <%= label_tag "from", "Desde" %>
-      <%= select_date Date.today, :order => [:day, :month, :year], :prefix => 'from' %>
+          <%= label_tag "to", "Hasta" %>
+          <%= select_date Date.today, :order => [:day, :month, :year], :prefix => 'to' %>
 
-      <%= label_tag "to", "Hasta" %>
-      <%= select_date Date.today, :order => [:day, :month, :year], :prefix => 'to' %>
-
-      <%= label_tag "author", "Autor" %>
-      <%= text_field_tag "author", params[:author] %>
-
+          <%= label_tag "author", "Autor" %>
+          <%= text_field_tag "author", params[:author] %>
+        </li>
+      </ul>
       <a href="#" class="toggle_filters">ocultar filtros</a>
     </div>
   <% end %>
