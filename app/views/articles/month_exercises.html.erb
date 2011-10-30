@@ -1,0 +1,53 @@
+<%= javascript_include_tag 'jquery.nivo.slider','articles' %>
+<%= stylesheet_link_tag "articles","posts","nivo-slider" %>
+
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Ejercicios del mes</h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
+</header>
+
+<% if @main_post %>
+<div class="main_post">
+  <div id="slider" class="nivoSlider">
+    <a href="<%= post_path(@main_post) %>">
+      <%= image_tag @main_post.image.rollover.url, :title=> @main_post.title, :alt=> @main_post.excerpt+'...', :link=> post_path(@main_post) %>
+    </a>
+  </div>
+  <span class="shadow"></span>
+</div>
+<% end %>
+
+<ul class="posts articles">
+  <% @posts.each do |post| %>
+    <li class="post">
+      <div>
+        <%= image_tag post.image.heading.url, :alt => post.title %>
+        <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+        <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+        <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+        <% if !post.tags.nil? %>
+          <ul class="tags">
+            <%  post.tags.each do |tag| %>
+              <li><a href="#"><%= tag %></a></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <span class="shadow"></span>
+    </li>
+  <% end %>
+</ul>
+
+<% if @other_posts.any? %>
+  <div class="others" id="others">
+    <div class="header">
+      <h2>Artículos de otros meses</h2>
+    </div>
+    <%= render "shared/others" %>
+  </div>
+<% end %>

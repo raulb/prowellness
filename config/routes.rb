@@ -22,6 +22,7 @@ Prowellness::Application.routes.draw do
   post '/libros/:id/comprar'           => 'books#buy',                :as => :submit_buy_book
   get '/galeria-imagenes'              => 'images#index',             :as => :images
   get '/articulos'                     => 'articles#index',           :as => :articles
+  get '/articulos/fitness/ejercicio-del-mes' => 'articles#month_exercises',    :as => :month_exercises
   get '/articulos/:category'           => 'articles#index',           :as => :articles_category
   get '/articulos/*categories/:slug'   => 'articles#show',            :as => :article
   get '/guia-visual'                   => 'visual_guide_posts#index', :as => :visual_guide

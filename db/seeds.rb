@@ -79,6 +79,22 @@ end
   back_to_the_present
 end
 
+back_to_the_present
+time_travel_to "3 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+time_travel_to "2 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+time_travel_to "1 month ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
 create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
 putc '.'
 

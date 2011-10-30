@@ -32,6 +32,12 @@ class ArticlesController < PostsController
     end
   end
 
+  def month_exercises
+    @main_post = Post.get_last_article("ejercicio-del-mes").first
+    @posts = Post.get_last_articles(5, [@main_post.id], "ejercicio-del-mes")
+    @other_posts = Post.other_articles(:category => "ejercicio-del-mes", :page => params[:page], :exclude_ids => (@posts + [@main_post]).map(&:id))
+  end
+
   private
 
   def set_category

@@ -47,7 +47,7 @@
                 <li>
                   <a href="<%= articles_path%>/fitness">fitness</a>
                   <%= image_tag "application/arrow-suboption.png", :alt => 'subption-arrow' %>
-                  <a href="#">ejercicios del mes</a>
+                  <a href="<%= month_exercises_path %>">ejercicios del mes</a>
                 </li>
                 <li><a href="<%= articles_path%>/mujer">mujer</a></li>
                 <li><a href="<%= articles_path%>/nutricion">nutrición</a></li>
@@ -131,7 +131,7 @@
           <p>publicidad</p>
           <div class="banner"></div>
         </div>
-        
+
         <div class="info-box articles">
           <h3>los <em><%= Post.find_more_visited.length %></em> artículos más vistos</h3>
           <h4>durante el último mes</h4>
@@ -147,9 +147,9 @@
         <% if Post.get_last_ejercicio_del_mes %>
         <div class="info-box calendar">
           <h3>ejercicio del mes</h3>
-          
+
           <div class="band">
-            <%= link_to(image_tag(Post.get_last_ejercicio_del_mes.image.ejercicio_del_mes.url, 
+            <%= link_to(image_tag(Post.get_last_ejercicio_del_mes.image.ejercicio_del_mes.url,
             :alt => Post.get_last_ejercicio_del_mes.title), post_path(Post.get_last_ejercicio_del_mes)) %>
 
             <h4><%= link_to(Post.get_last_ejercicio_del_mes.title, post_path(Post.get_last_ejercicio_del_mes)) %></h4>
@@ -157,7 +157,7 @@
           <!-- <span class="kind-box"></span> -->
         </div>
         <% end %>
-        
+
         <div class="banner-300x100 ads">
           <p>publicidad</p>
           <div class="banner"></div>
@@ -275,7 +275,7 @@
 
     </div>
   </footer>
-  
+
   <!-- ERRORS IN LOGIN PROCESS -->
   <% if flash[:alert] && flash[:show_login] %>
     <script type="text/javascript">
@@ -286,13 +286,13 @@
     <%= render :partial => "shared/login_required_front" %>
     <script type="text/javascript">
       MODAL.open();
-    </script>  
+    </script>
   <% end %>
   <% if flash[:modal_signup] %>
     <%= render :partial => "shared/signup_success" %>
     <script type="text/javascript">
       MODAL.open();
-    </script>  
+    </script>
   <% end %>
 
 </body>
