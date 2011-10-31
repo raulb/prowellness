@@ -63,14 +63,12 @@ class ApplicationController < ActionController::Base
     return true if logged_in?
     redirect_to root_path, :flash => {:alert => "Debes de iniciar sesión para ver esta sección"} and return false
   end
-  
+
   def visual_guide_login_required
+    store_location
     if !logged_in?
-      if controller_name == "visual_guide_posts" && action_name == "index" && params[:category].blank?
-        flash.now[:login_required_front] = true
-      else
-        redirect_to visual_guide_path and return false
-      end
+      flash[:login_required_front] = true
+      redirect_to root_path and return false
     end
   end
 
