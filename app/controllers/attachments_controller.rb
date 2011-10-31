@@ -1,19 +1,23 @@
 class AttachmentsController < ApplicationController
 
-  respond_to :json
-
   # POST /images.json
   def create
-    @attachment = Attachment.new(params[:attachment])
+    @attachment = Attachment.new(:image => params[:image])
     @attachment.save
-    respond_with @attachment
+    render :json => [@attachment.to_jq_upload].to_json
   end
 
   # DELETE /images/1.json
   def destroy
     @attachment = Attachment.find(params[:id])
     @attachment.destroy
-    respond_with @attachment
+    render :json => {:id => @attachment.id}.to_json
+  rescue
+    logger.info "==============================="
+    logger.info "== $!: #{$!} =="
+    logger.info "==============================="
+
+    render :text => "", :status => 404
   end
 
 end

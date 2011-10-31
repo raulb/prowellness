@@ -1,16 +1,30 @@
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
+//= require jquery.tmpl.min
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require jquery.fileupload-ui
 
-jQuery(document).ready(function() {
-  
-  // At the beginning, we need to paste the original content to its editable elem
-  $('#edit_body').html($('#post_body').html());
-  
-  $('input[type="submit"]').click(function(event) {
-    console.log('body ', $('#edit_body').html());
-    console.log('body sin html ', $('#edit_body'));
-    
-    
-    $('#post_body').html($('#edit_body').html());
+jQuery(document).ready(function(){
+
+  $('#post_body').keyup(function(e){
+    $('#preview').html($(this).val());
+    e.preventDefault(); e.stopPropagation();
   });
+
+
+  $('#fileupload').fileupload({
+    url: "/attachments.json",
+    type: "POST",
+    limitConcurrentUploads: 1,
+    autoUpload: true
+  });
+
+  $('.attachment').live('focus', function(){
+    window.setTimeout(function(){
+        $(this).select();
+    },100);
+  });
+
 });

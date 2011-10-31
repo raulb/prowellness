@@ -9,4 +9,8 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  version :small do
+    process :resize_to_fill => [60, 60]
+  end
+
 end
