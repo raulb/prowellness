@@ -14,6 +14,11 @@
     padding:5px 10px;
     @include border-radius(5px);
     
+    &:hover {
+      cursor:pointer;
+      background-color:darken($bg-blue-darkest,20%);
+    }
+    
     h3 {
       float:left;
       font:normal 1.6em QuicksandBook;
@@ -42,7 +47,7 @@
   .content {
     float:left;
     width:665px;
-    height:445px;
+    height:525px;
     position:relative;
   }
   

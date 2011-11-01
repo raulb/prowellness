@@ -6,7 +6,6 @@ jQuery(document).ready(function($) {
     $('.filters').slideToggle('fast');
 
     // TODO: Should I clean filters when it's hidden?
-    
     e.stopPropagation(); e.preventDefault();
   });
 

@@ -12,6 +12,13 @@ jQuery(document).ready(function() {
     });
   });
   
+  $('.header').click(function(event) {
+    event.preventDefault(); 
+    event.stopPropagation();
+    
+    $(this).parent().children('.gallery').slideToggle('fast');
+    
+  });
   
   
 });
