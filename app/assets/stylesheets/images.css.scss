@@ -1,0 +1,140 @@
+@import "partials/common_properties";
+
+.photo_sets {
+  float:left;
+  width:689px;
+  padding-bottom:20px;
+  
+  .header {
+        
+    float:left;
+    width:671px;
+    height:24px;
+    background-color:darken($bg-blue-darkest,10%);
+    padding:5px 10px;
+    @include border-radius(5px);
+    
+    h3 {
+      float:left;
+      font:normal 1.6em QuicksandBook;
+      color:white;
+      letter-spacing:-1.0px;
+    }
+    
+    p {
+      float:right;
+      font:normal 1em Arial;
+      color:white;
+      margin-top:5px;
+    }
+  }
+}
+
+.gallery {
+  float:left;
+  margin-top:20px;
+  padding:11px 11px 15px;
+  width:667px;
+  height:523px;
+  border:1px solid $border-info-color;
+  position:relative;
+  
+  .content {
+    float:left;
+    width:665px;
+    height:445px;
+    position:relative;
+  }
+  
+  .shadow {
+    position:absolute; bottom:-16px; left:0;
+    z-index:0;
+    background:url(application/wide-shadow.png) no-repeat 0 0;
+    width:689px;
+    height:16px;
+  }
+  
+  &:hover {
+    
+    border-color:darken($border-info-color,10%);
+
+    .shadow {
+      background:url(application/wide-shadow-hover.png) no-repeat 0 0;
+    }
+  }
+  
+  // Gallery elements
+  .nivo-caption {
+    position:absolute;
+    top:0; left:0;
+    width:645px;
+    height:50px;
+    
+    padding:8px 10px;
+    
+    h2 {
+      font:normal 2rem AbadiCondensed;
+      letter-spacing:-0.3px;
+      float:left;
+      margin:0;
+    }
+
+    h3 {
+      font:normal 1.6rem AbadiCondensed;
+      color:$font-color-green;
+    }
+    
+    p {
+      float:left;
+      font:normal 1em Arial; 
+      color:white;
+      width:512px;
+    }
+    
+    a {
+      position:absolute; z-index:10;
+      top:20px;
+      right:20px;
+      text-decoration:none;
+      margin:0;
+      font:normal 1.7rem AbadiCondensed; color:white;
+      padding:5px 10px;
+      border:none;
+      text-align:center;
+      @include border-radius(6px);
+      @include linear-gradient(red);
+      
+      &:hover {
+        cursor:pointer;
+        @include linear-gradient-hover(red);
+      }
+    }
+  }
+    
+  .nivo-directionNav a {
+  	position:absolute;
+  	top:50%;
+  	z-index:9;
+  	cursor:pointer;
+  	width:23px; 
+  	height:23px;
+  }
+  .nivo-prevNav {
+  	left:10px;
+    background-position:left 0;  	
+    background:url(articles/gallery-arrows.png) no-repeat 0 0;    
+    
+  	&:hover {
+  	  background-position:left -24px;
+  	}
+  }
+  .nivo-nextNav {
+  	right:10px;
+  	background:url(articles/gallery-arrows.png) no-repeat right 0;
+    
+  	&:hover {
+  	  background-position:right -24px;
+  	}
+  }
+    
+}

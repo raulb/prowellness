@@ -80,6 +80,7 @@ GEM
     execjs (1.2.9)
       multi_json (~> 1.0)
     ffi (1.0.9)
+    flickraw (0.9.3)
     formtastic (2.0.2)
       rails (~> 3.0)
     git (1.2.5)
@@ -259,6 +260,7 @@ DEPENDENCIES
   delorean
   email_spec
   exception_notification
+  flickraw (~> 0.9.3)
   jasmine
   jquery-rails
   kaminari

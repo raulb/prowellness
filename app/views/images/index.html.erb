@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'images'%>
+<%= javascript_include_tag 'galleria-1.2.5.min','galleria.flickr.min','images' %>
+
 <header>
   <span class="left-band"></span>
   <div class="right-band">
@@ -7,3 +10,24 @@
     </div>
   </div>
 </header>
+
+
+<% @photo_sets.each do |set| %>
+
+  <div class="photo_sets">
+    
+    <span class="header">
+      <h3><%= set.title.capitalize %></h3>
+      <p>(<%= set.photos %> fotos)</p>
+    </span>
+    
+    <div class="gallery">
+      <div id="<%= set.id %>" class="content">
+        
+      </div>
+      <span class="shadow"></span>
+    </div>
+  </div>
+
+<% end %>
+
