@@ -40,14 +40,16 @@
   margin-top:20px;
   padding:11px 11px 15px;
   width:667px;
-  height:523px;
+  height:515px;
   border:1px solid $border-info-color;
   position:relative;
+  
+  display:none;
   
   .content {
     float:left;
     width:665px;
-    height:525px;
+    height:445px;
     position:relative;
   }
   
