@@ -230,6 +230,18 @@ article {
         width:100%;
         margin-top:10px; margin-left:20px;
         
+        &.webs {
+          margin:0;
+        
+          li {
+            list-style:none;
+
+            &.first {
+              margin-top:0;
+            }
+          }
+        }
+        
         li {
           float:left;
           margin:10px 0 0 0;
@@ -266,6 +278,7 @@ article {
     float:left; 
     width:100%;
     font:bold 1.3em Arial;
+    margin-top:10px;
     padding-bottom:15px;
   }
   
