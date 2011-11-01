@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'about' %>
+<%= javascript_include_tag 'easySlider1.7','about' %>
 <%= stylesheet_link_tag "about" %>
 
 <header>
@@ -13,10 +13,8 @@
 
 <article>
   
-  <!-- TODO: SHOW SPECIFIC INFORMATION WITH THE SECTION THAT I'VE SEEN -->
-  <!-- to pass the specific section, like in articles   -->
-  
-  <%= render "about_sections" %>
+  <!-- ****************************** QUÉ ES -->
+  <%= render "about_sections", :current_section=>'que-es' %>
   <p><b>Prowellness</b> es un portal de estilo de vida donde se pretende ofrecer información en todo lo relacionado con la actividad física y la salud. El objetivo no es solo de transmitir ejercicios y recursos, sino también, y este es el verdadero valor, la pretensión de conseguir educar, elevando los conocimientos y comprendiendo los fundamentos del ejercicio físico. El resultado final perseguido es conseguir elevarse en la espiral de conocimiento.</p>
 
   <h3>Domingo Sánchez, creador de Prowellness</h3>
@@ -37,4 +35,65 @@
   <p>Prowellness es un proyecto personal, a través de los contenidos y opiniones personales del blog, permite una via de comunicación y sobre todo la posibilidad no solo de transmitir unos conocimientos, sino ideas y forma de entender el ejercicio y un estilo de vida saludable. Espero sinceramente que pueda servirte de ayuda en alguna de sus partes.
   </p>
   <p>Finalmente, Prowellness queda abierta a sugerencias y opiniones que puedan aportar ideas y crecimiento que nos enriquezca en este apasionante mundo.</p>
+
+  <!-- ****************************** DOMINGO -->
+  
+  <%= render "about_sections", :current_section=>'domingo' %>
+  
+  <div class="image-domingo">
+    <%= image_tag "about/domingo-front.jpg", :alt => 'Domingo Sánchez' %>
+    <span class="shadow"></span>    
+  </div>
+
+  <p><b>Domingo Sánchez</b> es Licenciado en Ciencias de la Actividad Física y el Deporte (Universidad Politécnica de Madrid) y Master de Experto en Actividad Física y Salud (Universidad Complutense de Madrid)</p>
+
+  <p>Especializado en el área del Fitness y la Salud, hoy en día es una referencia en el área del entrenamiento.</p>
+
+  <p>Referenciado en su faceta de formación, es profesor ponente habitual en congresos y convenciones, y profesor colaborador en Facultades de Ciencias de la Actividad Física; INEF de Madrid, Facultad de Toledo y Universidad Europea CES.</p>
+
+  <p>Es autor de varios libros sobre actividad física y salud, entrenamiento, nutrición y pedagogía, ha editado audiovisuales, y publica continuamente artículos en revistas del sector sobre entrenamiento, gestión técnica y promoción de la actividad física relacionada con el fitness y la salud en centros deportivos.</p>
+
+  <p>Actualmente es responsable del área de fitness de la revista y web de Sport Life y desarrolla una intensa labor formativa con el concepto BASE donde ha desarrollado sus propios métodos y programas, tanto para salas de fitness como en clases colectivas.</p>
+  
+  <!-- ****************************** LIBROS PROWELLNESS -->
+  
+  <%= render "about_sections", :current_section=>'libros-prowellness' %>
+  
+  <div class="book_gallery">
+    <span class="drop"></span>
+    <div id="books_prowellness" class="gallery">
+      	<ul>				
+  				<li>
+            <div class="inside">
+    				  <%= link_to(image_tag('about/entrenate-book.png', :alt => 'Libro entrénate'), '/', :class=>'image') %>
+              <div class="buy">
+                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí','/' %></p>
+                <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
+              </div>
+              <h3>Entrénate</h3>
+              <p>Editorial Prowellness</p>
+              <p>Madrid, 2010</p>
+            </div>
+  				</li>
+  				<li>
+            <div class="inside">
+    				  <%= link_to(image_tag('about/entrenate-book.png', :alt => 'Libro entrénate'), '/', :class=>'image') %>
+              <div class="buy">
+                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí','/' %></p>
+                <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
+              </div>
+              <h3>Mujer</h3>
+              <p>Editorial Prowellness</p>
+              <p>Madrid, 2011</p>
+            </div>
+  				</li>
+  			</ul>
+    </div>
+    <span class="shadow"></span>
+  </div>
+  
 </article>
+
+ 
+  
+ 

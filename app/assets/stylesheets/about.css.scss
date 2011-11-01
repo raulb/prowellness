@@ -3,7 +3,7 @@
 article {
   float:left;
   margin:0;
-  
+  width:100%;
   
   p {
     margin-top:20px;
@@ -35,15 +35,209 @@ article {
         right: 5px;
       }  
       &.domingo {
-        right: 5px;
+        right: 20px;
       }  
       &.libros-prowellness {
-        right: 5px;
+        right: 40px;
       }  
       &.trayectoria {
-        right: 5px;
+        right: 60px;
       }  
    }
 
   }  
 }
+
+.image-domingo {
+  float:left;
+  margin-right:20px;
+  padding:11px;
+  width:203px;
+  height:301px;
+  border:1px solid $border-info-color;
+  position:relative;
+  
+  .shadow {
+    position:absolute; bottom:-16px; left:0;
+    z-index:0;
+    background:url(about/domingo-shadow.png) no-repeat 0 0;
+    width:226px;
+    height:16px;
+  }
+}
+
+
+.book_gallery {
+
+  float:left;
+  margin-right:20px;
+  width:689px;
+  height:377px;
+  border:1px solid $border-info-color;
+  position:relative;
+  
+  .drop {
+    position:absolute;
+    top:0;
+    left:0;
+    width:581px;
+    height:156px;
+    z-index:0;
+    background:url(about/drop-books.png) no-repeat 0 0;
+  }
+  
+  .shadow {
+    position:absolute; bottom:-16px; left:0;
+    z-index:0;
+    background:url(application/wide-shadow.png) no-repeat 0 0;
+    width:689px;
+    height:16px;
+  }
+
+  .gallery {
+    float:left; 
+    position:relative;
+    z-index:10;
+    width:689px;
+    height:377px;
+
+    li{ 
+    	width:689px;
+    	height:377px;
+    	overflow:hidden; 
+    	
+    	.inside {
+    	  padding:25px 0 25px 120px;  
+    	  width:569px;
+    	  height:327px;
+    	}
+    	
+    	
+    	a {
+
+    	  &.image {
+    	    float:left;
+    	    margin-right:25px;
+    	  }
+    	}
+    	
+    	.buy {
+    	  float:left;
+    	  margin-top:10px;
+    	  width:150px;
+    	  height:60px;
+        
+        p {
+          width:100%;
+          color:$date-font-color;
+          
+          a {
+            color:$font-color-orange;
+            text-decoration:none;
+            
+            &:hover {
+              color:darken($font-color-orange,20%);
+            }
+          }
+        }
+        
+        img {
+          float:left;
+          margin-top:5px;
+        }
+    	}
+    	
+    	h3 {
+    	  float:left;
+    	  width:250px;
+    	  font:normal 2.9em AbadiCondensed; letter-spacing:-0.4px;
+    	  color:$bg-blue-darkest;
+    	  margin-top:80px;
+    	  padding-bottom:20px;
+    	}
+    	
+    	p {
+    	  float:left;
+    	  width:250px;
+    	  margin:0;
+    	}
+    	
+    }
+    
+  }
+  #controls{
+  	
+  	position:absolute;
+  	bottom:30px;
+  	left:140px;
+  	z-index:10;
+  	width:200px;
+  	
+    li{
+    	margin:0 5px 0 0; 
+    	padding:0;
+    	float:left;
+    	list-style:none;
+    	height:12px;
+    	line-height:28px;
+    	
+    	
+
+      &.current a{
+        background:url(application/gallery/index-nav.png) no-repeat 0 -12px;
+        
+        &:hover {
+      	  background-position:-13px -12px;
+      	}
+      }  	
+      	
+    	a{
+      	float:left;
+      	width:12px;
+      	height:12px;
+      	background:url(application/gallery/index-nav.png) no-repeat 0 1px;
+      	text-decoration:none;
+      	
+      	&:hover {
+      	  background-position:-13px 1px;
+      	}
+      }
+    }
+    a:focus{outline:none;}
+  }
+}
+// 
+// 
+// .gallery ul, .gallery li,
+// #slider2 ul, #slider2 li{
+//  margin:0;
+//  padding:0;
+//  list-style:none;
+//  }
+// #slider2{margin-top:1em;}
+// 
+// #prevBtn, #nextBtn,
+// #slider1next, #slider1prev{ 
+//  display:block;
+//  width:30px;
+//  height:77px;
+//  position:absolute;
+//  left:-30px;
+//  top:71px;
+//  z-index:1000;
+//  } 
+// #nextBtn, #slider1next{ 
+//  left:696px;
+//  }                           
+// #prevBtn a, #nextBtn a,
+// #slider1next a, #slider1prev a{  
+//  display:block;
+//  position:relative;
+//  width:30px;
+//  height:77px;
+//  background:url(../images/btn_prev.gif) no-repeat 0 0; 
+//  } 
+// #nextBtn a, #slider1next a{ 
+//  background:url(../images/btn_next.gif) no-repeat 0 0; 
+//  } 
+	

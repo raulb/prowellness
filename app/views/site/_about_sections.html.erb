@@ -1,9 +1,9 @@
-<div id="section-que-es" class="nav-section">
-  <span class="scissors que-es"></span>
+<div id="section-<%= current_section %>" class="nav-section">
+  <span class="scissors <%= current_section %>"></span>
   <div class="box-options">
-    <a class="option que-es current" onclick="javascript:void $.scrollTo('#section-que-es',400);">Qué es prowellness</a>
-    <a class="option domingo" onclick="javascript:void $.scrollTo('#section-domingo',400);">Domingo Sánchez</a>    
-    <a class="option libros-prowellness" onclick="javascript:void $.scrollTo('#section-libros-prowellness',400);">Libros Prowellness</a>        
-    <a class="option trayectoria" onclick="javascript:void $.scrollTo('#section-trayectoria',400);">Trayectoria profesional</a>        
+    <a class="option que-es <%= (current_section == 'que-es')? 'current':''%>" onclick="javascript:void $.scrollTo('#section-que-es',400);">Qué es prowellness</a>
+    <a class="option domingo <%= (current_section == 'domingo')? 'current':''%>" onclick="javascript:void $.scrollTo('#section-domingo',400);">Domingo Sánchez</a>    
+    <a class="option libros-prowellness <%= (current_section == 'libros-prowellness')? 'current':''%>" onclick="javascript:void $.scrollTo('#section-libros-prowellness',400);">Libros Prowellness</a>        
+    <a class="option trayectoria <%= (current_section == 'trayectoria')? 'current':''%>" onclick="javascript:void $.scrollTo('#section-trayectoria',400);">Trayectoria profesional</a>        
   </div>
 </div>
