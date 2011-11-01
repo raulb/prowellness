@@ -15,6 +15,7 @@ article {
     margin-top:20px;
     letter-spacing:-2.0px;
   }
+  
   .nav-section{
     
     &:first-child {
@@ -93,7 +94,7 @@ article {
     width:689px;
     height:16px;
   }
-
+  
   .gallery {
     float:left; 
     position:relative;
@@ -113,13 +114,11 @@ article {
     	}
     	
     	
-    	a {
+      img {
+  	    float:left;
+  	    margin-right:25px;
+  	  }
 
-    	  &.image {
-    	    float:left;
-    	    margin-right:25px;
-    	  }
-    	}
     	
     	.buy {
     	  float:left;
@@ -150,7 +149,7 @@ article {
     	h3 {
     	  float:left;
     	  width:250px;
-    	  font:normal 2.9em AbadiCondensed; letter-spacing:-0.4px;
+    	  font:normal 2.9em/0.9em AbadiCondensed; letter-spacing:-0.4px;
     	  color:$bg-blue-darkest;
     	  margin-top:80px;
     	  padding-bottom:20px;
@@ -165,7 +164,7 @@ article {
     }
     
   }
-  #controls{
+  ol{
   	
   	position:absolute;
   	bottom:30px;
@@ -302,4 +301,23 @@ article {
       width:195px;
     }
   }
+  
+  .other {
+    float:left;
+    background-color:lighten($date-font-color,55%);
+    padding-bottom:10px;
+    
+    h3 {
+      margin:10px 0 0 10px;
+    }
+    .book_gallery {
+      margin:7px 10px 0;
+      
+      .inside {
+        background-color:white;
+      }
+    }
+  }
 }
+
+

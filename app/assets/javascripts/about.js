@@ -1,5 +1,12 @@
 jQuery(document).ready(function() {
   $("#books_prowellness").easySlider({ 
-     numeric: true
+     numeric: true,
+     numericId:'prowellness'
    });
+   
+   $("#other_books").easySlider({ 
+      numeric: true,
+      numericId:'others'
+    });
+   
 });
