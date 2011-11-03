@@ -10,10 +10,11 @@
 //= require jquery.scrollTo-min
 //= require jquery_ujs
 //= require jquery.sausage
+//= require easySlider1.7
 
 jQuery(document).ready(function($) {
   
-  // hover social icons (FOOTER)
+// hover social icons (FOOTER)
   $('footer').find('a').hover(function() {
     $(this).parent().children('p').show();
   }, function() {
@@ -49,6 +50,14 @@ jQuery(document).ready(function($) {
      $(this).val(''); 
     }
   });
+
+  $("#selling_books").easySlider({ 
+     numeric: true,
+     numericId:'little_prowellness',
+     continuous:true,
+     auto:true,
+     pause:10000
+   });
 
 });
 

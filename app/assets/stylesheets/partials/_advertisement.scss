@@ -10,7 +10,7 @@
 
 .banner-981x106 {
   float:left;
-  margin-top:15px;  
+  margin-top:$space-top-boxes;  
   width:100%;
   height:146px;
   background-color:$bg-color-ads;
@@ -34,7 +34,7 @@
 
 .banner-300x250 {
   float:left;
-  margin-top:15px;  
+  margin-top:$space-top-boxes;  
   width:338px;
   height:295px;
   background-color:$bg-color-ads;
@@ -58,7 +58,7 @@
 
 .banner-300x100 {
   float:left;
-  margin-top:15px;  
+  margin-top:$space-top-boxes;  
   width:338px;
   height:142px;
   background-color:$bg-color-ads;
@@ -82,7 +82,7 @@
 
 .banner-140x100 {
   float:left;
-  margin-top:15px;  
+  margin-top:$space-top-boxes;  
   width:317px;
   height:142px;
   background-color:$bg-color-ads;

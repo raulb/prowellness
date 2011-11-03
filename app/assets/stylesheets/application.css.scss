@@ -320,6 +320,121 @@ aside {
   }
   
 }
+
+// Slide box for selling books
+#prowellness_books {
+  float:left;
+  margin-top:$space-top-boxes;
+  width:338px;
+  height:357px;
+  background-color:$bg-color-ads;
+  position:relative;
+  
+  h3 {
+    float:left;
+    font:normal 2.4rem YanoneKaffeesatzRegular;
+    color:$font-color-green;
+    margin:13px 20px 0;
+    padding-bottom:10px;
+  }
+  
+  h5 {
+    float:left;
+    font:normal 2.2rem/0.9em AbadiCondensed;
+    color:$bg-blue-darkest;
+    letter-spacing:-1.0px;
+    width:133px;
+    margin-top:50px;
+  }
+  
+  p {
+    float:left;
+    width:130px;
+    margin-top:10px;
+  }
+  
+  .more_info {
+    float:left;
+    text-decoration:underline;
+    margin-top:45px;
+    width:110px;
+  }
+  
+  .data {
+    float:left;
+    margin:5px 0 0 30px;
+    width:233px;
+    
+    p {
+      float:left;
+      font:normal 1.5rem YanoneKaffeesatzRegular;
+      margin:0;
+      color:lighten($date-font-color,10%);
+    }
+  }
+  
+  
+  .image {
+    float:left; 
+    margin:0 15px 0 20px;
+  }
+  
+  .gallery {
+    float:left; 
+    position:relative;
+    z-index:10;
+    width:338px;
+    height:357px;
+    
+    li {
+      float:left;
+      width:338px;
+      height:357px;
+      overflow:hidden;
+    }
+  }  
+  
+  
+  ol{
+  	
+  	position:absolute;
+  	top:70px;
+  	left:190px;
+  	z-index:10;
+  	width:40px;
+  	
+    li{
+    	margin:0 5px 0 0; 
+    	padding:0;
+    	float:left;
+    	list-style:none;
+    	height:12px;
+    	line-height:28px;
+
+      &.current a{
+        background:url(application/gallery/index-nav.png) no-repeat 0 -12px;
+        
+        &:hover {
+      	  background-position:-13px -12px;
+      	}
+      }  	
+      	
+    	a{
+      	float:left;
+      	width:12px;
+      	height:12px;
+      	background:url(application/gallery/index-nav.png) no-repeat 0 1px;
+      	text-decoration:none;
+      	
+      	&:hover {
+      	  background-position:-13px 1px;
+      	}
+      }
+    }
+    a:focus{outline:none;}
+  }
+}
+
 // generic link to view more in a specific section
 .view-more {
   float:right;

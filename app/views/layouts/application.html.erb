@@ -126,6 +126,39 @@
             <% end %>
           </div>
         <% end %>
+
+        <div id="prowellness_books">
+          <h3>¡Compra tu libro Prowellness!</h3>
+          <div id="selling_books" class="gallery">
+            <ul>
+              <li>
+                <%= link_to(image_tag('application/gallery/entrenate-book.png',
+                :alt => 'Libro Entrénate'), '/', :class=>'image') %>
+                <h5>Entrénate con Domingo Sánchez</h5>
+                <p>Explota todas tus cualidades físicas y aprende a conocer todo tu potencial.</p>
+                <a class="more_info">más información</a>
+                <span class="data">
+                  <p>16 cm x 24 cm</p>
+                  <p>280 páginas a color</p>
+                </span>
+              </li>
+              
+              <li>
+                <%= link_to(image_tag('application/gallery/mujer-book.png',
+                :alt => 'Libro Entrénate'), '/', :class=>'image') %>
+                <h5>Mujer en forma</h5>
+                <p>Explota todas tus cualidades físicas y aprende a conocer todo tu potencial.</p>
+                <a class="more_info">más información</a>
+                <span class="data">
+                  <p>16 cm x 24 cm</p>
+                  <p>280 páginas a color</p>
+                </span>
+              </li>
+              
+              
+            </ul>
+          </div>
+        </div> <!-- prowellness_books -->
         <div class="banner-300x250 ads">
           <p>publicidad</p>
           <div class="banner"></div>
