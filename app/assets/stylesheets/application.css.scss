@@ -338,13 +338,18 @@ aside {
     padding-bottom:10px;
   }
   
-  h5 {
+  h5 > a {
     float:left;
     font:normal 2.2rem/0.9em AbadiCondensed;
     color:$bg-blue-darkest;
     letter-spacing:-1.0px;
     width:133px;
     margin-top:50px;
+    text-decoration:none;
+    
+    &:hover {
+      color:darken($bg-blue-darkest,20%);
+    }
   }
   
   p {
