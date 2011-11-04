@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   before_filter :store_location
 
   def index
+    
   end
 
   def show

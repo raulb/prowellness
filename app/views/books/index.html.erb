@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "books" %>
+<%= javascript_include_tag "books" %>
+
 <header>
   <span class="left-band"></span>
   <div class="right-band">
@@ -7,3 +10,89 @@
     </div>
   </div>
 </header>
+
+<h3>Libros publicados por la editorial Prowellness. ¡Compra el tuyo!</h3>
+
+<div class="nav-section">
+  <div id="main-book-option" class="box-options">
+    <a class="option current" onclick="javascript:showBook(0);">Entrénate</a>
+    <a class="option" onclick="javascript:showBook(1);">Mujer en forma</a>    
+  </div>
+</div>
+
+<div class="books-box">
+  
+  <ol id="index-books">
+    <li id="index-entrenate" class="current">
+      <a rel="0" onclick="javascript:showBook(0);"></a>
+    </li>
+    <li id="index-mujer" class="">
+      <a rel="1" onclick="javascript:showBook(1);"></a>
+    </li>
+  </ol>
+  <ul id="books">
+    <li id="entrenate">
+      <div class="left">
+        <%= image_tag "books/entrenate.png", :alt => 'Entrénate con Domingo Sánchez' %>
+        <span class="info">
+          <p>16 cm x 24 cm</p>
+          <p>280 páginas a color</p>
+        </span>
+      </div>
+
+      <div class="right">
+
+        <a href="#" class="preview"></a>
+
+        <h4>Entrénate con Domingo Sánchez</h4>
+        <p>Entrénate contiene <b>consejos</b>, <b>trucos</b> y <b>respuestas</b> a las preguntas más frecuentes. A través de los diferentes capítulos te llevará, de forma sencilla y amena, a un nivel de conocimiento sobre el ejercicio y sus diferentes adaptaciones que te permitirá desarrollar de forma autónoma contenidos sobre las diferentes cualidades físicas, como la fuerza, cardiovascular o la movilidad articular.</p>
+
+        <p>Sabrás diseñar una pauta de alimentación adaptada a cada necesidad y, sobre todo, aprenderás a organizar un programa de entrenamiento y a llevar un estilo de vida saludable a lo largo de toda una temporada, coordinando las diferentes <b>cualidades físicas</b> con la alimentación.</p>
+
+        <p>Además, si estás registrado a <b>Prowellness</b>, podrás consultar sus vídeos aquí</p>
+
+        <%= image_tag "books/paypal.png", :alt => 'Paypal', :class=>'paypal' %>
+        
+        <a href="#" class="buy-now"></a>
+        <div class="price">
+          <h5>22<em>€</em></h5>
+          <p>(iva incluído)</p>
+        </div>
+        <a href="#" class="pay-transfer">transferencia bancaria</a>
+      </div>
+    </li>
+    <li id="index-mujer">
+      <div class="left">
+        <%= image_tag "books/mujer.png", :alt => 'Mujer en forma' %>
+        <span class="info">
+          <p>16 cm x 24 cm</p>
+          <p>280 páginas a color</p>
+        </span>
+      </div>
+
+      <div class="right">
+
+        <a href="#" class="preview"></a>
+
+        <h4>Mujer en forma</h4>
+        <p>Entrénate contiene <b>consejos</b>, <b>trucos</b> y <b>respuestas</b> a las preguntas más frecuentes. A través de los diferentes capítulos te llevará, de forma sencilla y amena, a un nivel de conocimiento sobre el ejercicio y sus diferentes adaptaciones que te permitirá desarrollar de forma autónoma contenidos sobre las diferentes cualidades físicas, como la fuerza, cardiovascular o la movilidad articular.</p>
+
+        <p>Sabrás diseñar una pauta de alimentación adaptada a cada necesidad y, sobre todo, aprenderás a organizar un programa de entrenamiento y a llevar un estilo de vida saludable a lo largo de toda una temporada, coordinando las diferentes <b>cualidades físicas</b> con la alimentación.</p>
+
+        <p>Además, si estás registrado a <b>Prowellness</b>, podrás consultar sus vídeos aquí</p>
+
+        <%= image_tag "books/paypal.png", :alt => 'Paypal', :class=>'paypal' %>
+
+        <a href="#" class="buy-now"></a>
+        <div class="price">
+          <h5>22<em>€</em></h5>
+          <p>(iva incluído)</p>
+        </div>
+        <a href="#" class="pay-transfer">transferencia bancaria</a>
+
+      </div>
+    </li>
+  </ul>
+
+  <span class="shadow"></span>
+</div>

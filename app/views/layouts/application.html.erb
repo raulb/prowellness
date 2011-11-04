@@ -32,7 +32,7 @@
     <div class="layout">
       <div class="inner-layout">
         <a href="/" class="domingo"></a>
-
+        
         <ul>
           <li class="articles submenu">
 
@@ -126,7 +126,7 @@
             <% end %>
           </div>
         <% end %>
-
+        <% if controller_name != "books" %>
         <div id="prowellness_books">
           <h3>¡Compra tu libro Prowellness!</h3>
           <div id="selling_books" class="gallery">
@@ -154,11 +154,11 @@
                   <p>280 páginas a color</p>
                 </span>
               </li>
-              
-              
             </ul>
           </div>
         </div> <!-- prowellness_books -->
+        <% end %>
+
         <div class="banner-300x250 ads">
           <p>publicidad</p>
           <div class="banner"></div>
