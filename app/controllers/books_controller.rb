@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     
     # by default
     if @book.blank?
-      @book = 'entrenate'
+      @book = Book.find_by_slug('entrenate')
     end
 
   end
