@@ -451,6 +451,8 @@ article {
     textarea {
       float:right;
       border:1px solid $font-color-gray;
+      
+      background-color:$bg-color-ads;
       padding:10px;
       width:583px; max-width:583px;
       height:75px; max-height:75px;

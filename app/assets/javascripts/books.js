@@ -3,6 +3,10 @@ jQuery(document).ready(function() {
   var indexActive = $('#index-books').children('.current').children('a').attr('rel');
   showBook(indexActive);
 
+  $('.pay-on-delivery').click(function(e){
+    MODAL.open();
+    e.preventDefault(); e.stopPropagation();
+  });
   
   
 });

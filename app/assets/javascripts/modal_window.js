@@ -22,7 +22,7 @@ MODAL = {
     var winW = $(window).width();
 
     //Set the popup window to center
-    $(id).css('top',winH/2-($(id).height()/2));
+    $(id).css('top',winH/2-($(id).height()/2)+window.pageYOffset);
     // center
     // $(id).css('top',  winH/2-$(id).height()/2);
     $(id).css('left', winW/2-$(id).width()/2);

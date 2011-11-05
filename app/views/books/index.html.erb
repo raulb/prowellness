@@ -57,7 +57,7 @@
           <h5>22<em>€</em></h5>
           <p>(iva incluído)</p>
         </div>
-        <a href="#" class="pay-transfer">transferencia bancaria</a>
+        <a href="#" class="pay-on-delivery">transferencia bancaria</a>
       </div>
     </li>
     <li id="index-mujer">
@@ -87,7 +87,7 @@
           <h5>22<em>€</em></h5>
           <p>(iva incluído)</p>
         </div>
-        <a href="#" class="pay-transfer">transferencia bancaria</a>
+        <a href="#" class="pay-on-delivery">transferencia bancaria</a>
 
       </div>
     </li>
@@ -95,3 +95,33 @@
 
   <span class="shadow"></span>
 </div>
+
+
+<!-- VENTANA MODAL -->
+<div class="window">
+  <div id="modal-window" class="window-send-book">
+    <div class="outside"></div>
+    <div class="inside">
+      <a class="close"></a>
+      <%= form_tag(submit_buy_book_path(@book.id), :method => :post) do %>
+        <div class="left">
+          <h2>Pago por transferencia</h2>
+          <p>Facilítanos tu <b>mail</b> y si lo deseas, añade algún comentario. Te responderemos a la dirección que nos facilites con los datos de la cuenta bancaria a la que deberás hacer la transferencia para poder realizar la compra.</p>
+          <%= label :email, "tu mail" %>
+          <%= text_field_tag :email, nil, :place_holder => "Introduce tu e-mail" %>
+        </div>
+        <div class="right">
+          <%= image_tag "about/entrenate-book.png", :alt => 'Entrénate con Domingo Sánchez' %>
+        </div>
+        <div class="bottom">
+          <%= label :text, "comentario" %>
+          <%= text_area_tag :text, nil, :rows => 4, :cols => 80 %><br />
+          <%= submit_tag "enviar mail" %>
+        </div>
+      <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="overlay-layer"></div>
+</div>
+<!-- FIN VENTANA MODAL -->

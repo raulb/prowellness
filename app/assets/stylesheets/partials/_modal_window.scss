@@ -14,7 +14,7 @@
   position:absolute; 
   display:none; 
   z-index:9999; 
-  padding:10px;
+  padding:5px;
   width:735px; 
   
   a {
@@ -73,6 +73,94 @@
         color:darken($bg-blue-darkest,10%);        
       }
     }
+  }
+  
+  &.window-send-book {
+    
+    height:593px;
+    
+    .left {
+      float:left;
+      width:435px;
+      height:300px;
+      margin:40px 0 0 40px;
+    }
+    
+    p {
+      margin:20px 0 0 0;
+      width:100%;
+      height:175px;
+      
+    }
+    
+    .right {
+      float:right;
+      width:220px;
+      height:300px;
+      margin:60px 20px 0 0;
+    }
+    
+    .bottom {
+      float:left;
+      margin:20px 0 0 40px;
+    }
+    
+    h2 {
+      float:left; 
+      font:normal 4.7rem YanoneKaffeesatzRegular;
+      color:$bg-blue-darkest;
+    }
+    
+    label {
+      float:left;
+      font:normal 2.3em YanoneKaffeesatzRegular;
+      color:$bg-black-normal;
+      letter-spacing:-1.0px;
+      width:100%;
+      margin-left:10px;
+      padding-bottom:3px;
+    }
+    
+    #email {
+      float:left;
+      border:1px solid $font-color-gray;
+      background-color:$bg-color-ads;
+      padding:5px 10px;
+      width:282px;
+      height:25px;
+      font-size:1.2em;
+      color:$bg-black-normal;
+    }
+    
+    textarea {
+      float:left;
+      border:1px solid $font-color-gray;
+      background-color:$bg-color-ads;
+      padding:10px;
+      width:637px; max-width:637px;
+      height:75px; max-height:75px;
+      color:$bg-black-normal;
+      @include border-radius(10px);
+      font:normal 1.2em Arial;
+      resize:none;
+    }
+    
+    input[type="submit"] {
+      float:right;
+      margin-top:10px;
+      font:normal 1.7rem AbadiCondensed; color:white;
+      padding:5px 10px;
+      border:none;
+      text-align:center;
+      @include border-radius(6px);
+      @include linear-gradient(black);
+      margin:15px 35px;
+      &:hover {
+        cursor:pointer;
+        @include linear-gradient-hover;
+      }
+    }
+    
   }
   
   &.register-success {
