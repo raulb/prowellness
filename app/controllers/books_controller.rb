@@ -5,7 +5,13 @@ class BooksController < ApplicationController
   before_filter :store_location
 
   def index
-    
+    @book = params[:book]
+
+    # by default
+    if @book.blank?
+      @book = 'entrenate'
+    end
+
   end
 
   def show

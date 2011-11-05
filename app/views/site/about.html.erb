@@ -65,24 +65,24 @@
       	<ul>				
   				<li>
             <div class="inside">
-    				  <%= link_to(image_tag('about/entrenate-book.png', :alt => 'Libro entrénate'), '/', :class=>'image') %>
+    				  <%= link_to(image_tag('about/entrenate-book.png', :alt => 'Libro entrénate'), editorial_entrenate_path, :class=>'image') %>
               <div class="buy">
-                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí','/' %></p>
+                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',editorial_entrenate_path %></p>
                 <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
               </div>
-              <h3>Entrénate</h3>
+              <h3><%= link_to 'Entrénate', editorial_entrenate_path %></h3>
               <p>Editorial Prowellness</p>
               <p>Madrid, 2010</p>
             </div>
   				</li>
   				<li>
             <div class="inside">
-    				  <%= link_to(image_tag('about/mujer-book.png', :alt => 'Libro Mujer en forma'), '/', :class=>'image') %>
+    				  <%= link_to(image_tag('about/mujer-book.png', :alt => 'Libro Mujer en forma'), editorial_mujer_path, :class=>'image') %>
               <div class="buy">
-                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí','/' %></p>
+                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',editorial_mujer_path %></p>
                 <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
               </div>
-              <h3>Mujer en forma</h3>
+              <h3><%= link_to 'Mujer en forma', editorial_mujer_path %></h3>
               <p>Editorial Prowellness</p>
               <p>Madrid, 2011</p>
             </div>

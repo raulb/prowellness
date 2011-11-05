@@ -146,13 +146,19 @@ article {
         }
     	}
     	
-    	h3 {
+    	h3 a {
     	  float:left;
     	  width:250px;
-    	  font:normal 2.9em/0.9em AbadiCondensed; letter-spacing:-0.4px;
+    	  font:normal 1.7em/0.9em AbadiCondensed; letter-spacing:-0.4px;
     	  color:$bg-blue-darkest;
     	  margin-top:80px;
     	  padding-bottom:20px;
+    	  text-decoration:none;
+    	  
+    	  &:hover {
+    	    color:darken($bg-blue-darkest,20%);
+    	  }
+    	  
     	}
     	
     	p {

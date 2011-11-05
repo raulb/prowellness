@@ -18,6 +18,9 @@ Prowellness::Application.routes.draw do
 
   get '/sobre-prowellness'             => 'site#about',               :as => :about
   get '/editorial'                     => 'books#index',              :as => :books
+  match '/editorial/entrenate'          => 'books#index',             :as => :editorial_entrenate, :book => 'entrenate'
+  match '/editorial/mujer'              => 'books#index',             :as => :editorial_mujer,     :book => 'mujer'
+  
   get '/libros/:id'                    => 'books#show',               :as => :buy_book
   post '/libros/:id/comprar'           => 'books#buy',                :as => :submit_buy_book
   get '/galeria-imagenes'              => 'images#index',             :as => :images
