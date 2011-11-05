@@ -15,17 +15,17 @@
 
 <div class="nav-section">
   <div id="main-book-option" class="box-options">
-    <a class="option <%= (@book == 'entrenate')? 'current':'' %>" onclick="javascript:showBook(0);">Entrénate</a>
-    <a class="option <%= (@book == 'mujer')? 'current':'' %>" onclick="javascript:showBook(1);">Mujer en forma</a>    
+    <a class="option <%= (@book.slug == 'entrenate')? 'current':'' %>" onclick="javascript:showBook(0);">Entrénate</a>
+    <a class="option <%= (@book.slug == 'mujer')? 'current':'' %>" onclick="javascript:showBook(1);">Mujer en forma</a>    
   </div>
 </div>
 
 <div class="books-box">
   <ol id="index-books">
-    <li id="index-entrenate" class="<%= (@book == 'entrenate')? 'current':'' %>">
+    <li id="index-entrenate" class="<%= (@book.slug == 'entrenate')? 'current':'' %>">
       <a rel="0" onclick="javascript:showBook(0);"></a>
     </li>
-    <li id="index-mujer" class="<%= (@book == 'mujer')? 'current':'' %>">
+    <li id="index-mujer" class="<%= (@book.slug == 'mujer')? 'current':'' %>">
       <a rel="1" onclick="javascript:showBook(1);"></a>
     </li>
   </ol>

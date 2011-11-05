@@ -133,10 +133,10 @@
             <ul>
               <li>
                 <%= link_to(image_tag('application/gallery/entrenate-book.png',
-                :alt => 'Libro Entrénate'), editorial_entrenate_path, :class=>'image') %>
-                <h5><%= link_to 'Entrénate con Domingo Sánchez', editorial_entrenate_path %></h5>
+                :alt => 'Libro Entrénate'), buy_book_path('entrenate'), :class=>'image') %>
+                <h5><%= link_to 'Entrénate con Domingo Sánchez', buy_book_path('entrenate') %></h5>
                 <p>Explota todas tus cualidades físicas y aprende a conocer todo tu potencial.</p>
-                <%= link_to 'más información', editorial_entrenate_path, :class=>'more_info' %>
+                <%= link_to 'más información', buy_book_path('entrenate'), :class=>'more_info' %>
                 
                 <span class="data">
                   <p>16 cm x 24 cm</p>
@@ -146,10 +146,10 @@
               
               <li>
                 <%= link_to(image_tag('application/gallery/mujer-book.png',
-                :alt => 'Libro Entrénate'), editorial_mujer_path, :class=>'image') %>
-                <h5><%= link_to 'Mujer en forma', editorial_mujer_path %></h5>
+                :alt => 'Libro Entrénate'), buy_book_path('mujer'), :class=>'image') %>
+                <h5><%= link_to 'Mujer en forma', buy_book_path('mujer') %></h5>
                 <p>Explota todas tus cualidades físicas y aprende a conocer todo tu potencial.</p>
-                <%= link_to 'más información', editorial_mujer_path, :class=>'more_info' %>
+                <%= link_to 'más información', buy_book_path('mujer'), :class=>'more_info' %>
                 <span class="data">
                   <p>16 cm x 24 cm</p>
                   <p>280 páginas a color</p>

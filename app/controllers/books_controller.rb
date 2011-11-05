@@ -5,17 +5,13 @@ class BooksController < ApplicationController
   before_filter :store_location
 
   def index
-    @book = params[:book]
-
+    @book = Book.find_by_slug(params[:id])
+    
     # by default
     if @book.blank?
       @book = 'entrenate'
     end
 
-  end
-
-  def show
-    @book = Book.find_by_slug(params[:id])
   end
 
   def buy
