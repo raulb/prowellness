@@ -5,6 +5,9 @@
 //= require jquery.iframe-transport
 //= require jquery.fileupload
 //= require jquery.fileupload-ui
+/* WYSIWYG */
+//= require wysihtml5/advanced
+//= require wysihtml5/wysihtml5-0.2.0
 
 jQuery(document).ready(function(){
 
@@ -12,7 +15,6 @@ jQuery(document).ready(function(){
     $('#preview').html($(this).val());
     e.preventDefault(); e.stopPropagation();
   });
-
 
   $('#fileupload').fileupload({
     url: "/attachments.json",
