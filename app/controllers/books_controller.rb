@@ -15,7 +15,7 @@ class BooksController < ApplicationController
       if params[:email].blank? || params[:email] !~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
         flash.alert = "Por favor, introduce un e-mail válido"
       elsif  params[:text].blank?
-        flash.alert = "Por favor, introduce tus datos personales"
+        flash.alert = "Si borras nuestro comentario, ¡escribe algo!"
       else
         UserMailer.buy_notification(@book, params[:email], params[:text]).deliver
         flash.notice = "El pedido se ha enviado correctamente"

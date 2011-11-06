@@ -79,10 +79,22 @@
     
     height:593px;
     
+    .errors {
+      position:absolute;
+      top:242px;
+      left:0;
+      width:476px;
+      padding:5px 10px;
+      border:1px solid $bg-red-darkest;
+      background-color:$bg-red-normal;
+      color:white;
+      font:normal 1.3em Arial;
+    }
+    
     .left {
       float:left;
       width:435px;
-      height:300px;
+      height:auto;
       margin:40px 0 0 40px;
     }
     
@@ -164,6 +176,24 @@
     
   }
   
+  &.window-book-requested {
+    height:407px;
+    
+    h2 {
+      float:left; 
+      font:normal 4.7rem YanoneKaffeesatzRegular;
+      color:$bg-blue-darkest;
+      margin:70px 0 0 30px;
+    }
+    
+    p {
+      width:485px;
+      margin:15px 0 0 184px;
+    }
+    
+  }
+  
+  
   &.register-success {
     height:519px;
     
@@ -175,15 +205,16 @@
       margin:58px 58px 30px;
     }
     
-    .signature {
-      position:absolute;
-      bottom:0;
-      right:90px;
-      width:373px;
-      height:131px;
-    }
   }
-  
+
+  .signature {
+    position:absolute;
+    bottom:0;
+    right:90px;
+    width:373px;
+    height:131px;
+  }
+    
   .outside {
     position:absolute;
     top:0;

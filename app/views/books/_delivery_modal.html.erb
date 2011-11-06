@@ -7,6 +7,12 @@
         <div class="left">
           <h2>Pago por transferencia</h2>
           <p>Facilítanos tu <b>mail</b> y si lo deseas, añade algún comentario. Te responderemos a la dirección que nos facilites con los datos de la cuenta bancaria a la que deberás hacer la transferencia para poder realizar la compra.</p>
+          
+          <% if flash[:alert] %>
+            <div class="errors">
+              <%= flash[:alert] %>  
+            </div>
+          <% end %>
           <%= label :email, "tu mail" %>
           <%= text_field_tag :email, nil, :place_holder => "Introduce tu e-mail" %>
         </div>
@@ -23,7 +29,6 @@
           <%= submit_tag "enviar mail" %>
         </div>
       <% end %>
-      </p>
     </div>
   </div>
   <div class="overlay-layer"></div>
