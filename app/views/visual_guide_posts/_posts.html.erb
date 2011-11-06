@@ -1,0 +1,15 @@
+<div>
+  <p>filtrar los vídeos mostrados</p>
+  <p><%= link_to("mostrar filtros", "#") %></p>
+  <div class="filters" style="display:none">
+  </div>
+  <%= visual_guide_posts_pagination(@posts, params[:category]) %>
+</div>
+
+<div>
+  <%= render :partial => "post", :collection => @posts %>
+</div>
+
+<div>
+  <%= visual_guide_posts_pagination(@posts, params[:category]) %>
+</div>

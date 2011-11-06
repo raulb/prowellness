@@ -9,19 +9,23 @@ class VisualGuidePostsController < PostsController
       if params[:slug]
         load_post
         load_other_posts
-      else
-        @other_posts = Post.other_visual_guide_posts({
-          :page => params[:page], :exclude_ids => @posts.map(&:id),
-          :category => params[:categories].split("/").first,
-        })
+        respond_to do |format|
+          format.js   { render "posts/index" }
+        end
+      end
+    elsif params[:category]
+      @posts = Post.filter_by_category(params[:category]).order_by_publish_date.page(params[:page]).per(8)
+      respond_to do |format|
+        format.html { render "index_category" }
+        format.js   { render "posts" }
       end
     else
       @posts = Post.get_last_posts_from_guia_visual(4)
       @books = Book.all
-    end
-    respond_to do |format|
-      format.html
-      format.js   { render "posts/index" }
+      respond_to do |format|
+        format.html
+        format.js   { render "posts/index" }
+      end
     end
   end
 

@@ -55,6 +55,10 @@ module ApplicationHelper
     paginate(posts, :remote => true, :params => {:action => 'index', :controller => controller_name})
   end
 
+  def visual_guide_posts_pagination(posts, category)
+    paginate(posts, :remote => true, :params => {:action => 'index', :controller => 'visual_guide_posts', :category => category})
+  end
+
   def load_mercury?
     controller_name == 'posts' && action_name != 'index'
   end

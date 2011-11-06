@@ -1,0 +1,13 @@
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Guía visual de <%= translate_category(params[:category]) %></h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
+</header>
+
+<div id="posts">
+  <%= render :partial => "posts" %>
+</div>

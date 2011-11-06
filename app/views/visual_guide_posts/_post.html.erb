@@ -1,0 +1,16 @@
+<li class="post">
+  <div>
+    <%= image_tag post.image.heading.url, :alt => post.title %>
+    <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
+    <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+    <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+    <% if !post.tags.nil? %>
+      <ul class="tags">
+        <%  post.tags.each do |tag| %>
+          <li><a href="#"><%= tag %></a></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <span class="shadow"></span>
+</li>
