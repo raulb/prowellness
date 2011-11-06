@@ -6,6 +6,7 @@ class VisualGuidePostsController < PostsController
 
   def index
     @posts = Post.get_last_posts_from_guia_visual(4)
+    @books = Book.all
   end
 
   private
