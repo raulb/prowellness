@@ -16,51 +16,6 @@
     <%= image_tag @post.image.list.url %>
   <% end %>
 
-  <p>Imágenes adicionales</p>
-  <div id="fileupload">
-      <form action="<%= attachments_path %>" method="POST" enctype="multipart/form-data">
-          <div class="fileupload-buttonbar">
-              <label class="fileinput-button">
-                  <span>Add files...</span>
-                  <input type="file" name="image" multiple>
-              </label>
-          </div>
-      </form>
-      <div class="fileupload-content">
-          <table class="files"></table>
-          <div class="fileupload-progressbar"></div>
-      </div>
-  </div>
-  <script id="template-upload" type="text/x-jquery-tmpl">
-      <tr class="template-upload{{if error}} ui-state-error{{/if}}">
-          <td class="preview"></td>
-          <td class="size">${sizef}</td>
-          {{if error}}
-              <td class="error" colspan="2">${error}
-              </td>
-          {{else}}
-              <td class="progress"><div></div></td>
-          {{/if}}
-      </tr>
-  </script>
-  <script id="template-download" type="text/x-jquery-tmpl">
-      <tr class="template-download{{if error}} ui-state-error{{/if}}">
-          {{if error}}
-              <td class="error" colspan="3">Error: ${error}</td>
-          {{else}}
-              <td class="preview">
-                <img src="${thumbnail_url}" />
-              </td>
-          {{/if}}
-          <td class="delete">
-              <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
-          </td>
-          <td>
-            <input type="text" value="&lt;img src=&quot;${url}&quot; /&gt;" class="attachment" />
-          </td>
-      </tr>
-  </script>
-
   <%= f.label :categories, "Categoría" %>
   <%= f.select :categories, categories_for_select, { :include_blank => false, :prompt => "Selecciona una categoría" } %>
 

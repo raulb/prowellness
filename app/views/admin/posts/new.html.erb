@@ -5,6 +5,64 @@
 </div>
 
 <div style="overflow:hidden; height:1%; margin: 10px 10px;">
-  <h3>Previsualización del contenido</h3>
-  <div id="preview"></div>
+  <h3>Adjuntos</h3>
+  <div id="fileupload">
+      <form action="<%= attachments_path %>" method="POST" enctype="multipart/form-data">
+          <div class="fileupload-buttonbar">
+              <label class="fileinput-button">
+                  <span>Haz click para subir imágenes...</span>
+                  <input type="file" name="image" multiple>
+              </label>
+          </div>
+      </form>
+      <div class="fileupload-content">
+          <table class="files"></table>
+          <div class="fileupload-progressbar"></div>
+      </div>
+  </div>
+  <script id="template-upload" type="text/x-jquery-tmpl">
+      <tr class="template-upload{{if error}} ui-state-error{{/if}}">
+          <td class="preview"></td>
+          <td class="size">${sizef}</td>
+          {{if error}}
+              <td class="error" colspan="2">${error}
+              </td>
+          {{else}}
+              <td class="progress"><div></div></td>
+          {{/if}}
+      </tr>
+  </script>
+  <script id="template-download" type="text/x-jquery-tmpl">
+      <tr class="template-download{{if error}} ui-state-error{{/if}}">
+          {{if error}}
+              <td class="error" colspan="3">Error: ${error}</td>
+          {{else}}
+              <td class="preview">
+                <img src="${thumbnail_url}" />
+              </td>
+          {{/if}}
+          <td class="delete">
+              <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
+          </td>
+          <td>
+            <input type="text" value="&lt;img src=&quot;${url}&quot; /&gt;" class="attachment" />
+          </td>
+      </tr>
+  </script>
+  <hr />
 </div>
+
+<% content_for :js do %>
+  $.ajax({
+    url:"/attachments",
+    dataType: 'json',
+    success: function(files) {
+      var fu = $('#fileupload').data('fileupload');
+      fu._renderDownload(files)
+        .prependTo($('#fileupload .files'))
+        .fadeIn(function () {
+          $(this).show();
+        });
+    }
+  });
+<% end %>
