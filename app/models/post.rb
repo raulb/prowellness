@@ -195,6 +195,16 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.other_visual_guide_posts(options = {})
+    default_options = {
+      :per_page => 5, :page => 1, :exclude_ids => [-1]
+    }
+    options = default_options.merge(options)
+    filter_by_category(options[:category]).
+    where("id not IN (#{options[:exclude_ids].join(',')})").
+    order_by_publish_date.page(options[:page]).per(options[:per_page])
+  end
+
   def self.get_last_videos(how_many)
     result = {}
     %W{ abdominales estiramientos }.each do |category|
