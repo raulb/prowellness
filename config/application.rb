@@ -17,7 +17,7 @@ module Prowellness
 
     config.assets.enabled = true
 
-    config.assets.precompile += ['reset.css', 'fonts.css']
+    config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'books.css']
 
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",

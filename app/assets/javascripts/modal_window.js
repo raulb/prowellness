@@ -13,7 +13,8 @@ MODAL = {
       $(id).fadeIn(250);
       
       if ($(id).hasClass('window-send-book')) {
-        $('#email').focus();
+        $(id).find('#email').focus();
+        $(id).find('#text').val('Hola Domingo. Me gustaría comprar el libro de Entrénate y aunque Paypal sea un método seguro que además me permite comprar con mi tarjeta de crédito sin ningún problema, prefiero este método.');
       }
     });
 
