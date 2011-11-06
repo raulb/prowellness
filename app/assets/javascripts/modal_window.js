@@ -1,22 +1,22 @@
 MODAL = {
-  open: function() {
-    //Get the A tag
-    var id = $('#modal-window');
-    
+  open: function(id) {
+
     //Get the screen height and width
     var maskHeight = $(document).height();
     var maskWidth = $(window).width();
 
     //Set height and width to mask to fill up the whole screen
-    $('.overlay-layer').css({'width':maskWidth,'height':maskHeight});
+    $(id).parent().children('.overlay-layer').css({'width':maskWidth,'height':maskHeight});
 
     //transition effect
-    $('.overlay-layer').hide().fadeIn(100,function() {
+    $(id).parent().children('.overlay-layer').hide().fadeIn(100,function() {
+      $(id).fadeIn(250);
+      
+      if ($(id).hasClass('window-send-book')) {
+        $('#email').focus();
+      }
+    });
 
-          //transition effect
-          $(id).fadeIn(250);});
-
-    // $('#mask').fadeTo(500,0.8);
     //Get the window height and width
     var winH = $(window).height();
     var winW = $(window).width();
@@ -30,22 +30,25 @@ MODAL = {
 }
 
 $(document).ready( function() {
+
   //if close button is clicked
   $('.close').click(function (e) {
      //Cancel the link behavior
      e.preventDefault();
-     $('.window').hide();
+ 
+     $('.modal-window').hide();
+     $('.overlay-layer').hide();
   });
 
   //if mask is clicked
   $('.overlay-layer').click(function () {
+    $('.modal-window').hide();
      $(this).hide();
-     $('.window').hide();
   });
   
-  $('#modal-window .login').click(function(event) {
+  $('.modal-window .login').click(function(event) {
     $('.overlay-layer').hide();
-    $('.window').hide();
+     $('.modal-window').hide();
     $('li.login .options').show();
     $('#email').focus();
   });

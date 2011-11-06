@@ -4,7 +4,9 @@ jQuery(document).ready(function() {
   showBook(indexActive);
 
   $('.pay-on-delivery').click(function(e){
-    MODAL.open();
+    if ($(this).attr('id') == 'training_book') MODAL.open('#send_training_book');
+    else if ($(this).attr('id') == 'woman_book') MODAL.open('#send_woman_book');
+
     e.preventDefault(); e.stopPropagation();
   });
   

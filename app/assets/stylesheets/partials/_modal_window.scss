@@ -10,7 +10,7 @@
   display:none;
 }
 
-#modal-window {
+.modal-window {
   position:absolute; 
   display:none; 
   z-index:9999; 
@@ -119,6 +119,7 @@
       width:100%;
       margin-left:10px;
       padding-bottom:3px;
+      text-transform:lowercase;
     }
     
     #email {
@@ -204,8 +205,8 @@
     
     .close {
       position:absolute;
-      top:30px;
-      right:30px;
+      top:20px;
+      right:20px;
       width:17px;
       height:17px;
       background:url(application/modal-window/close.png) no-repeat 0 0;

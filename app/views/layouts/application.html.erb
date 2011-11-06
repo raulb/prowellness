@@ -318,13 +318,13 @@
   <% if flash[:login_required_front] %>
     <%= render :partial => "shared/login_required_front" %>
     <script type="text/javascript">
-      MODAL.open();
+      MODAL.open('#forbidden_access');
     </script>
   <% end %>
   <% if flash[:modal_signup] %>
     <%= render :partial => "shared/signup_success" %>
     <script type="text/javascript">
-      MODAL.open();
+      MODAL.open('#register_pending_confirmation');
     </script>
   <% end %>
 

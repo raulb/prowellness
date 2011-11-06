@@ -1,0 +1,30 @@
+<div class="window">
+  <div id="<%= modal_id %>" class="modal-window window-send-book">
+    <div class="outside"></div>
+    <div class="inside">
+      <a class="close"></a>
+      <%= form_tag(submit_buy_book_path(@book.id), :method => :post) do %>
+        <div class="left">
+          <h2>Pago por transferencia</h2>
+          <p>Facilítanos tu <b>mail</b> y si lo deseas, añade algún comentario. Te responderemos a la dirección que nos facilites con los datos de la cuenta bancaria a la que deberás hacer la transferencia para poder realizar la compra.</p>
+          <%= label :email, "tu mail" %>
+          <%= text_field_tag :email, nil, :place_holder => "Introduce tu e-mail" %>
+        </div>
+        <div class="right">
+          <% if modal_id == 'send_training_book' %>
+            <%= image_tag "about/entrenate-book.png", :alt => title %>
+          <% elsif modal_id == 'send_woman_book'%>
+            <%= image_tag "about/mujer-book.png", :alt => title %>
+          <% end %>
+        </div>
+        <div class="bottom">
+          <%= label :text, "comentario" %>
+          <%= text_area_tag :text, nil, :rows => 4, :cols => 80 %><br />
+          <%= submit_tag "enviar mail" %>
+        </div>
+      <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="overlay-layer"></div>
+</div>
