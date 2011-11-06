@@ -5,7 +5,9 @@ class BooksController < ApplicationController
   before_filter :store_location
 
   def index
-    @book = Book.find_by_slug(params[:id] || Book::SLUG_ENTRENATE)
+    params[:id] ||= Book::SLUG_ENTRENATE
+    render_404 and return unless [Book::SLUG_ENTRENATE, Book::SLUG_MUJER].include?(params[:id])
+    @book = Book.find_by_slug(params[:id])
   end
 
   def buy
