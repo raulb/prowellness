@@ -17,7 +17,12 @@ module Prowellness
 
     config.assets.enabled = true
 
-    config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'books.css']
+    # CSS
+    config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'admin.css','articles.css','blog_posts.css','books.css','comments.css','image.css','posts.css','search.css','site.css','user_data.css']
+
+    # JS
+    config.assets.precompile += ['about.js','articles.js','books.js','comments.js','images.js','modal_window.js','search.js','user.js']
+    
 
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",
