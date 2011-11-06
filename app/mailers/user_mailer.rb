@@ -1,7 +1,7 @@
 # coding: UTF-8
 
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "no-reply@prowellness.com"
   default_url_options[:host] = "localhost:3000"
 
   def signup(user)
@@ -17,7 +17,8 @@ class UserMailer < ActionMailer::Base
     @text = text
     @book = book
     mail :to => "dsanchez@prowellness.es",
-         :subject => "Un nuevo pedido del libro #{book.title} de #{email}"
+         :subject => "Un nuevo pedido del libro #{book.title} de #{email}",
+         :reply_to => email
   end
 
 end

@@ -5,17 +5,11 @@ class BooksController < ApplicationController
   before_filter :store_location
 
   def index
-    @book = Book.find_by_slug(params[:id])
-    
-    # by default
-    if @book.blank?
-      @book = Book.find_by_slug('entrenate')
-    end
-
+    @book = Book.find_by_slug(params[:id] || Book::SLUG_ENTRENATE)
   end
 
   def buy
-    if @book = Book.find_by_id(params[:id])
+    if @book = Book.find_by_slug(params[:id])
       if params[:email].blank? || params[:email] !~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
         flash.alert = "Por favor, introduce un e-mail válido"
       elsif  params[:text].blank?

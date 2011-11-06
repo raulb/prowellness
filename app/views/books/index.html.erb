@@ -15,17 +15,17 @@
 
 <div class="nav-section">
   <div id="main-book-option" class="box-options">
-    <a class="option <%= (@book.slug == 'entrenate')? 'current':'' %>" onclick="javascript:showBook(0);">Entrénate</a>
-    <a class="option <%= (@book.slug == 'mujer')? 'current':'' %>" onclick="javascript:showBook(1);">Mujer en forma</a>    
+    <a class="option <%= (@book.slug == Book::SLUG_ENTRENATE)? 'current':'' %>" onclick="javascript:showBook(0);">Entrénate</a>
+    <a class="option <%= (@book.slug == Book::SLUG_MUJER)? 'current':'' %>" onclick="javascript:showBook(1);">Mujer en forma</a>
   </div>
 </div>
 
 <div class="books-box">
   <ol id="index-books">
-    <li id="index-entrenate" class="<%= (@book.slug == 'entrenate')? 'current':'' %>">
+    <li id="index-entrenate" class="<%= (@book.slug == Book::SLUG_ENTRENATE)? 'current':'' %>">
       <a rel="0" onclick="javascript:showBook(0);"></a>
     </li>
-    <li id="index-mujer" class="<%= (@book.slug == 'mujer')? 'current':'' %>">
+    <li id="index-mujer" class="<%= (@book.slug == Book::SLUG_MUJER)? 'current':'' %>">
       <a rel="1" onclick="javascript:showBook(1);"></a>
     </li>
   </ol>
@@ -51,7 +51,7 @@
         <p>Además, si estás registrado a <b>Prowellness</b>, podrás consultar sus vídeos aquí</p>
 
         <%= image_tag "books/paypal.png", :alt => 'Paypal', :class=>'paypal' %>
-        
+
         <a href="#" class="buy-now"></a>
         <div class="price">
           <h5>22<em>€</em></h5>
@@ -95,5 +95,11 @@
 </div>
 
 <!-- VENTANAS MODALES -->
-<%= render :partial => "delivery_modal", :locals => { :modal_id =>'send_training_book', :title => 'Entrenate' } %>
-<%= render :partial => "delivery_modal", :locals => { :modal_id =>'send_woman_book', :title => 'Mujer en forma' } %> 
+<%= render :partial => "delivery_modal", :locals => {
+  :modal_id =>'send_training_book', :title => 'Entrenate', :slug => Book::SLUG_ENTRENATE,
+  :text => 'Hola Domingo. Me gustaría comprar el libro de Entrénate y aunque Paypal sea un método seguro que además me permite comprar con mi tarjeta de crédito sin ningún problema, prefiero este método.'
+ } %>
+<%= render :partial => "delivery_modal", :locals => {
+  :modal_id =>'send_woman_book', :title => 'Mujer en forma', :slug => Book::SLUG_MUJER,
+  :text => 'Hola Domingo. Me gustaría comprar el libro de Mujer en forma y aunque Paypal sea un método seguro que además me permite comprar con mi tarjeta de crédito sin ningún problema, prefiero este método.'
+ } %>

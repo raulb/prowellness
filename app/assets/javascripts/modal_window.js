@@ -11,10 +11,9 @@ MODAL = {
     //transition effect
     $(id).parent().children('.overlay-layer').hide().fadeIn(100,function() {
       $(id).fadeIn(250);
-      
+
       if ($(id).hasClass('window-send-book')) {
         $(id).find('#email').focus();
-        $(id).find('#text').val('Hola Domingo. Me gustaría comprar el libro de Entrénate y aunque Paypal sea un método seguro que además me permite comprar con mi tarjeta de crédito sin ningún problema, prefiero este método.');
       }
     });
 
@@ -36,7 +35,7 @@ $(document).ready( function() {
   $('.close').click(function (e) {
      //Cancel the link behavior
      e.preventDefault();
- 
+
      $('.modal-window').hide();
      $('.overlay-layer').hide();
   });
@@ -46,7 +45,7 @@ $(document).ready( function() {
     $('.modal-window').hide();
      $(this).hide();
   });
-  
+
   $('.modal-window .login').click(function(event) {
     $('.overlay-layer').hide();
      $('.modal-window').hide();

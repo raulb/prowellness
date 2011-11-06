@@ -1,5 +1,8 @@
 class Book < ActiveRecord::Base
 
+  SLUG_ENTRENATE = 'entrenate'
+  SLUG_MUJER = 'mujer'
+
   has_many :videos, :dependent => :destroy, :class_name => "BookVideo"
 
   before_create :set_slug
