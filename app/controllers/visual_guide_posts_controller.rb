@@ -14,7 +14,20 @@ class VisualGuidePostsController < PostsController
         end
       end
     elsif params[:category]
-      @posts = Post.filter_by_category(params[:category]).order_by_publish_date.page(params[:page]).per(8)
+      posts = Post.filter_by_category(params[:category])
+      # TODO
+      # - param subcategory
+      # - param from
+      # - param to
+      # - param category
+      if params[:subcategory]
+        posts = posts.filter_by_category(params[:subcategory])
+      end
+      if params[:from]
+      end
+      if params[:to]
+      end
+      @posts = posts.order_by_publish_date.page(params[:page]).per(8)
       respond_to do |format|
         format.html { render "index_category" }
         format.js   { render "posts" }

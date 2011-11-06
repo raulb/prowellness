@@ -56,11 +56,43 @@ module ApplicationHelper
   end
 
   def visual_guide_posts_pagination(posts, category)
-    paginate(posts, :remote => true, :params => {:action => 'index', :controller => 'visual_guide_posts', :category => category})
+    paginate(posts, {
+      :remote => true,
+      :params => {:action => 'index', :controller => 'visual_guide_posts', :category => category},
+      :theme => :visual_guide_paginator
+    })
   end
 
   def load_mercury?
     controller_name == 'posts' && action_name != 'index'
+  end
+
+  def select_visual_guide_subcategories(category)
+    options = case category
+      when 'abdominales'
+        [
+          ["todos los niveles", nil],
+          ["nivel 1 - activación", "nivel-1-activacion"],
+          ["nivel 2 - estables", "nivel-2-estables"],
+          ["nivel 3 - en apoyo", "nivel-3-en-apoyo"],
+          ["nivel 4 - con material", "nivel-4-con-material"],
+          ["nivel 5 - potencia", "nivel-5-potencia"]
+        ]
+      when 'estiramientos'
+        [
+          ["todos los tipos", nil],
+          ["pantorilla", "pantorilla"],
+          ["músculo", "musculo"],
+          ["cadera", "cadera"],
+          ["tronco", "tronco"],
+          ["pectoral", "pectoral"],
+          ["dorsal", "dorsal"],
+          ["hombro", "hombro"],
+          ["brazo", "brazo"],
+          ["antebrazo", "antebrazo"]
+        ]
+    end
+    select_tag("subcategory",options_for_select(options))
   end
 
 end
