@@ -13,4 +13,6 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [60, 60]
   end
 
+  process :resize_to_limit => [690, 1024]
+
 end
