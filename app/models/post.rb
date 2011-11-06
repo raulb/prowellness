@@ -246,6 +246,25 @@ SQL
     find_by_sql(sql)
   end
 
+  def self.get_last_posts_from_guia_visual(limit = 4)
+    result = {}
+    %W{ abdominales estiramientos }.each do |category|
+      query = []
+      case category
+        when 'abdominales'
+          subcategories = %W{ nivel-1-activacion nivel-2-estables nivel-3-en-apoyo nivel-4-con-material nivel-5-potencia }
+        when 'estiramientos'
+          subcategories = %W{ pantorilla musculo cadera tronco pectoral dorsal hombro brazo antebrazo }
+      end
+
+      subcategories.each do |c|
+        query << "'#{c}' = ANY(categories)"
+      end
+      result[category] = where('(' + query.join(" OR ") + ')').order_by_publish_date.limit(limit).all
+    end
+    result
+  end
+
   private
 
   def set_slug

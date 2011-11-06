@@ -22,6 +22,9 @@
           <p><%= translate_category(category) %></p>
           <h3><%= link_to(post.title, post_path(post)) %></h3>
           <p>por <%= post.user.signature %></p>
+          <%= simple_format(post.excerpt) %>
+          <!-- #nivel1, nivel2, pantorillas... -->
+          <p><%= translate_category(post.categories.last).split(' - ').first %></p>
         </div>
       <% end %>
 
