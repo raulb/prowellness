@@ -23,6 +23,9 @@ class VisualGuidePostsController < PostsController
       if params[:subcategory]
         posts = posts.filter_by_category(params[:subcategory])
       end
+      if !params[:q].blank?
+        posts = posts.search(params[:q])
+      end
       if params[:from]
       end
       if params[:to]
