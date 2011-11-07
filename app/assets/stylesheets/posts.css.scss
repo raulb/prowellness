@@ -319,6 +319,15 @@ $spacing:30px;
 
 article {
   
+  float:left; width:689px; 
+  
+  .white-box {
+    float:right;
+    width:380px;
+    height:145px;
+    background-color:white;
+    
+  }
   h5 {
     font:normal 1.6em AbadiCondensed; color:$date-font-color; 
   }
@@ -326,10 +335,7 @@ article {
   h6 {
     font:normal 1.4em AbadiCondensed; color:$date-font-color; 
   }  
-  
-  
-  float:left; width:689px; margin-top:130px;
-  
+    
   // common elements in a post
   table {
     width:689px;
@@ -344,7 +350,9 @@ article {
     
   }
   
-  p {margin-top:20px;}
+  p {
+    margin-top:20px;
+  }
   
   p,a {
    line-height:1.4em; 

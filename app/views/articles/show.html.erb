@@ -14,8 +14,8 @@
 <div id="header_article">
   <h3>
     <%= @post.title %>
-    <!-- MOSTRAR EL AUTOR DEL POST -->
-    <em>- por Domingo Sánchez</em>
+
+    <em>- por <%= @post.user.signature %></em>
   </h3>
   <div id="date">
     <p class="day"><%= @post.publish_date.strftime("%d") %></p>
@@ -33,6 +33,7 @@
 </div>
 
 <article>
+  <span class="white-box"></span>
   <!-- A qué corresponde esto? excerpt es el resumen y body es el cuerpo del artículo -->
   <p><%= @post.excerpt.try(:html_safe) %></p>
 
