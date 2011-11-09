@@ -14,7 +14,7 @@
 
 <% if @posts.any? %>
   <% %W{ abdominales estiramientos }.each do |category| %>
-  
+
     <div id="section-<%= category %>" class="nav-section">
       <span class="scissors <%= category %>"></span>
       <div class="box-options">
@@ -23,14 +23,14 @@
         <a class="option" onclick="javascript:void $.scrollTo('#section-editorial',400);">Editorial</a>
       </div>
     </div>
-  
+
     <ul class="videos">
 
       <% @posts[category].each do |post| %>
         <li class="post <%= cycle('', raw('odd ')) %><%= category %>">
           <div>
             <span class="video">
-              
+
             </span>
             <h4><%= translate_category(category) %></h4>
             <h2><%= link_to(post.title, post_path(post)) %></h2>
@@ -42,8 +42,8 @@
                   <li><a href="#"><%= tag %></a></li>
                 <% end %>
               </ul>
-            <% end %>            
-            <%= link_to("", '#', :class=>'level '+ nice_slug(translate_category(post.categories.last).split(' - ').first.downcase.delete(' ')) ) %>
+            <% end %>
+            <%= link_to("", '#', :class => css_class(post)) %>
           </div>
           <span class="shadow"></span>
         </li>

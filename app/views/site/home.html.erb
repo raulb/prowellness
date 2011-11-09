@@ -65,11 +65,6 @@
 </header>
 
 
-<!-- QUIERO PINTAR EL ÚLTIMO EJERCICIO DE ABDOMINALES Y EL ÚLTIMO DE ESTIRAMIENTOS
-  HE INTENTADO OBTENERLOS PERO NO ENTIENDO BIEN LA ESTRUCTURA DEL POST COMO PARA EXTRAER CADA UNO DE LOS DATOS
-  MIRAR EN EL SITE_CONTROLLER LAS DOS VARIABLES QUE HE AÑADIDO EN MI INTENTO.
-   -->
-<% if false %>
 <ul class="videos">
     <li class="post abdominales">
       <div>
@@ -85,9 +80,9 @@
               <li><a href="#"><%= tag %></a></li>
             <% end %>
           </ul>
-        <% end %>            
+        <% end %>
 
-        <%= link_to("", '#', :class=>'level '+ nice_slug(translate_category(video.categories.last).split(' - ').first.downcase.delete(' ')) ) %>
+        <%= link_to("", '#', :class => css_class(@last_video_abdominales)) %>
 
       </div>
       <span class="shadow"></span>
@@ -107,15 +102,13 @@
               <li><a href="#"><%= tag %></a></li>
             <% end %>
           </ul>
-        <% end %>            
+        <% end %>
 
-        <%= link_to("", '#', :class=>'level '+ nice_slug(translate_category(video.categories.last).split(' - ').first.downcase.delete(' ')) ) %>
-
+        <%= link_to("", '#', :class => css_class(@last_video_estiramientos)) %>
       </div>
       <span class="shadow"></span>
     </li>
 </ul>
-<% end %>
 <%= link_to("ver más vídeos", visual_guide_path, :class=>'view-more') %>
 
 <header>
@@ -134,9 +127,9 @@
         <%= link_to(image_tag(@last_post.image.heading.url, :alt => @last_post.title), post_path(@last_post)) %>
         <h2><%= link_to(@last_post.title, post_path(@last_post), :title => @last_post.title) %></h2>
         <p class="date">(<%= @last_post.publish_date.strftime("%d/%m/%y") %>)</p>
-        
+
         <p class="post"><%= @last_post.excerpt %> ... <%= link_to("seguir leyendo", post_path(@last_post), :title => @last_post.title) %></p>
-        
+
         <% if !@last_post.tags.nil? %>
           <ul class="tags">
             <%  @last_post.tags.each do |tag| %>
