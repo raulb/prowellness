@@ -2,6 +2,7 @@
 
 $spacing:30px;
 
+
 .posts {
 
   .main_post {
@@ -235,6 +236,15 @@ $spacing:30px;
     }
     
     
+  }
+}
+
+.tags {
+  float:left;
+  
+  li {
+    float:left; margin:0 5px 0 0;
+  
   }
 }
 

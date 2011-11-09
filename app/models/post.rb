@@ -256,7 +256,7 @@ SQL
     find_by_sql(sql)
   end
 
-  def self.get_last_posts_from_guia_visual(limit = 4)
+  def self.get_last_posts_from_guia_visual(limit = 1)
     result = {}
     %W{ abdominales estiramientos }.each do |category|
       query = []

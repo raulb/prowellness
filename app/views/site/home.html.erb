@@ -1,5 +1,5 @@
 <%= javascript_include_tag 'jquery.nivo.slider','articles' %>
-<%= stylesheet_link_tag "articles","blog_posts","posts","nivo-slider" %>
+<%= stylesheet_link_tag "articles","blog_posts","posts","visual-guide","nivo-slider" %>
 
 
 <header>
@@ -64,6 +64,59 @@
   </div>
 </header>
 
+
+<!-- QUIERO PINTAR EL ÚLTIMO EJERCICIO DE ABDOMINALES Y EL ÚLTIMO DE ESTIRAMIENTOS
+  HE INTENTADO OBTENERLOS PERO NO ENTIENDO BIEN LA ESTRUCTURA DEL POST COMO PARA EXTRAER CADA UNO DE LOS DATOS
+  MIRAR EN EL SITE_CONTROLLER LAS DOS VARIABLES QUE HE AÑADIDO EN MI INTENTO.
+   -->
+<% if false %>
+<ul class="videos">
+    <li class="post abdominales">
+      <div>
+        <span class="video"></span>
+        <h4>Abdominales</h4>
+        <h2><%= link_to(@last_video_abdominales.title, post_path(@last_video_abdominales)) %></h2>
+        <p class="date">por <%= @last_video_abdominales.user.signature %></p>
+        <%= simple_format(@last_video_abdominales.excerpt) %>
+
+        <% if !@last_video_abdominales.tags.nil? %>
+          <ul class="tags">
+            <%  @last_video_abdominales.tags.each do |tag| %>
+              <li><a href="#"><%= tag %></a></li>
+            <% end %>
+          </ul>
+        <% end %>            
+
+        <%= link_to("", '#', :class=>'level '+ nice_slug(translate_category(video.categories.last).split(' - ').first.downcase.delete(' ')) ) %>
+
+      </div>
+      <span class="shadow"></span>
+    </li>
+
+    <li class="post abdominales">
+      <div>
+        <span class="video"></span>
+        <h4>Estiramientos</h4>
+        <h2><%= link_to(@last_video_estiramientos.title, post_path(@last_video_estiramientos)) %></h2>
+        <p class="date">por <%= @last_video_estiramientos.user.signature %></p>
+        <%= simple_format(@last_video_estiramientos.excerpt) %>
+
+        <% if !@last_video_estiramientos.tags.nil? %>
+          <ul class="tags">
+            <%  @last_video_estiramientos.tags.each do |tag| %>
+              <li><a href="#"><%= tag %></a></li>
+            <% end %>
+          </ul>
+        <% end %>            
+
+        <%= link_to("", '#', :class=>'level '+ nice_slug(translate_category(video.categories.last).split(' - ').first.downcase.delete(' ')) ) %>
+
+      </div>
+      <span class="shadow"></span>
+    </li>
+</ul>
+<% end %>
+<%= link_to("ver más vídeos", visual_guide_path, :class=>'view-more') %>
 
 <header>
   <span class="left-band"></span>
