@@ -1,15 +1,72 @@
-<h1>Guía visual de <%= @parent_category %></h1>
+<%= stylesheet_link_tag "posts" %>
 
-<h2><%= @category %></h2>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Guía visual de <%= translate_category(@post.categories[1]) %></h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
 
-<h3><%= @post.title %></h3>
+</header>
 
-<%= @post.excerpt.try(:html_safe) %>
+<div id="header_article">
+  <h3>
+    <%= @post.title %>
+    <em>- por <%= @post.user.signature %></em>
+    <!-- TODO:maquetar triangulito rojo -->
+    <p><%= translate_category(@post.categories.last) %></p>
+  </h3>
 
-<% if @post.image? %>
-  <%= image_tag @post.image.heading.url %>
+  <div id="date">
+    <p class="day"><%= @post.publish_date.strftime("%d") %></p>
+    <p class="month"><%= @post.publish_date.strftime("%b") %></p>
+    <p class="year"><%= @post.publish_date.strftime("%Y") %></p>
+  </div>
+
+
+  <% if @post.image? %>
+    <div id="article_image">
+      <%= image_tag @post.image.heading.url %>
+      <span class="shadow"></span>
+    </div>
+  <% end %>
+</div>
+
+<article>
+  <p><%= @post.excerpt.try(:html_safe) %></p>
+
+  <p><%= @post.body.try(:html_safe) %></p>
+
+  <footer>
+    <div class="left">
+      <% if !@post.tags.nil? %>
+        <h5>TAGS</h5>
+        <ul class="tags">
+          <%  @post.tags.each do |tag| %>
+            <li><a href="#"><%= tag %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="right">
+      <%= render(:partial => "posts/share") %>
+    </div>
+  </footer>
+
+  <div id="comments">
+    <%= render(:partial => "comments/index") %>
+  </div>
+
+</article>
+
+<% if @other_posts.any? %>
+  <div class="others" id="others">
+    <div class="header">
+      <h2>Vídeos relacionados (<%= @other_posts.total_count %>)</h2>
+    </div>
+    <%= render "shared/others" %>
+  </div>
 <% end %>
-
-<%= @post.body.try(:html_safe) %>
-
-<p><%= @post.tags.join(' ') %></p>

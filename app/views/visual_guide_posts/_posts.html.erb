@@ -1,0 +1,43 @@
+<div>
+  <p>filtrar los vídeos mostrados</p>
+
+  <a href="#" class="toggle_filters">mostrar filtros</a>
+
+  <%= form_tag visual_guide_category_path(params[:category]), :method => :get, :id => 'search' do %>
+    <div class="filters">
+      <span id="search-value">
+        <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
+        <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" value="<%= params[:q] %>" />
+        <input type="submit" value="buscar" />
+      </span>
+
+      <ul>
+        <li>
+          <%= label_tag "category", "Nivel" %>
+          <%= select_visual_guide_subcategories(params[:category]) %>
+        </li>
+        <li>
+          <%= label_tag "from", "Fecha desde" %>
+          <input id="date_from" type="text" class="date" />
+          <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'from'}, :class=>"hidden" %>
+
+          <%= label_tag "to", "Fecha hasta" %>
+          <input id="date_to" type="text" class="date" />
+          <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'to'}, :class=>"hidden" %>
+        </li>
+      </ul>
+      <a href="#" class="toggle_filters">ocultar filtros</a>
+    </div>
+
+  <% end %>
+
+  <%= visual_guide_posts_pagination(@posts, params[:category]) %>
+</div>
+
+<div>
+  <%= render :partial => "post", :collection => @posts %>
+</div>
+
+<div>
+  <%= visual_guide_posts_pagination(@posts, params[:category]) %>
+</div>

@@ -195,6 +195,16 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.other_visual_guide_posts(options = {})
+    default_options = {
+      :per_page => 5, :page => 1, :exclude_ids => [-1]
+    }
+    options = default_options.merge(options)
+    filter_by_category(options[:category]).
+    where("id not IN (#{options[:exclude_ids].join(',')})").
+    order_by_publish_date.page(options[:page]).per(options[:per_page])
+  end
+
   def self.get_last_videos(how_many)
     result = {}
     %W{ abdominales estiramientos }.each do |category|
@@ -244,6 +254,25 @@ SQL
 SQL
     end
     find_by_sql(sql)
+  end
+
+  def self.get_last_posts_from_guia_visual(limit = 4)
+    result = {}
+    %W{ abdominales estiramientos }.each do |category|
+      query = []
+      case category
+        when 'abdominales'
+          subcategories = %W{ nivel-1-activacion nivel-2-estables nivel-3-en-apoyo nivel-4-con-material nivel-5-potencia }
+        when 'estiramientos'
+          subcategories = %W{ pantorilla musculo cadera tronco pectoral dorsal hombro brazo antebrazo }
+      end
+
+      subcategories.each do |c|
+        query << "'#{c}' = ANY(categories)"
+      end
+      result[category] = where('(' + query.join(" OR ") + ')').order_by_publish_date.limit(limit).all
+    end
+    result
   end
 
   private

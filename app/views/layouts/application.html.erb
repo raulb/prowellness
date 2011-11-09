@@ -32,7 +32,7 @@
     <div class="layout">
       <div class="inner-layout">
         <a href="/" class="domingo"></a>
-        
+
         <ul>
           <li class="articles submenu">
 
@@ -68,10 +68,10 @@
                   <%= link_to("editorial", visual_guide_editorial_path) %>
                 </li>
                 <li>
-                  <a href="#">abdominales</a>
+                  <%= link_to('abdominales', visual_guide_category_path("abdominales")) %>
                 </li>
                 <li>
-                  <a href="#">estiramientos</a>
+                  <%= link_to('estiramientos', visual_guide_category_path("estiramientos")) %>
                 </li>
               </ul>
             </div>
@@ -137,13 +137,13 @@
                 <h5><%= link_to 'Entrénate con Domingo Sánchez', buy_book_path('entrenate') %></h5>
                 <p>Explota todas tus cualidades físicas y aprende a conocer todo tu potencial.</p>
                 <%= link_to 'más información', buy_book_path('entrenate'), :class=>'more_info' %>
-                
+
                 <span class="data">
                   <p>16 cm x 24 cm</p>
                   <p>280 páginas a color</p>
                 </span>
               </li>
-              
+
               <li>
                 <%= link_to(image_tag('application/gallery/mujer-book.png',
                 :alt => 'Libro Entrénate'), buy_book_path('mujer'), :class=>'image') %>

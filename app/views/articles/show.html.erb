@@ -14,7 +14,6 @@
 <div id="header_article">
   <h3>
     <%= @post.title %>
-
     <em>- por <%= @post.user.signature %></em>
   </h3>
   <div id="date">
@@ -34,9 +33,7 @@
 
 <article>
   <span class="white-box"></span>
-  <!-- A qué corresponde esto? excerpt es el resumen y body es el cuerpo del artículo -->
   <p><%= @post.excerpt.try(:html_safe) %></p>
-
   <p><%= @post.body.try(:html_safe) %></p>
 
   <footer>
@@ -65,8 +62,8 @@
 <% if @other_posts.any? %>
   <div class="others" id="others">
     <div class="header">
-      <h2>Otros artículos de <%= @category %></h2>  
+      <h2>Otros artículos de <%= @category %></h2>
     </div>
-    <%= render "shared/others" %>  
+    <%= render "shared/others" %>
   </div>
 <% end %>

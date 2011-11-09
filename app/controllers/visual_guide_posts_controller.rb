@@ -5,10 +5,62 @@ class VisualGuidePostsController < PostsController
   before_filter :visual_guide_login_required
 
   def index
-    @posts = Post.get_last_videos(4)
+    if params[:categories]
+      if params[:slug]
+        load_post
+        load_other_posts
+        respond_to do |format|
+          format.js   { render "posts/index" }
+        end
+      end
+    elsif params[:category]
+      posts = Post.filter_by_category(params[:category])
+      # TODO
+      # - param subcategory
+      # - param from
+      # - param to
+      # - param category
+      if params[:subcategory]
+        posts = posts.filter_by_category(params[:subcategory])
+      end
+      if !params[:q].blank?
+        posts = posts.search(params[:q])
+      end
+      if params[:from]
+      end
+      if params[:to]
+      end
+      @posts = posts.order_by_publish_date.page(params[:page]).per(8)
+      respond_to do |format|
+        format.html { render "index_category" }
+        format.js   { render "posts" }
+      end
+    else
+      @posts = Post.get_last_posts_from_guia_visual(4)
+      @books = Book.all
+      respond_to do |format|
+        format.html
+        format.js   { render "posts/index" }
+      end
+    end
+  end
+
+  def show
+    load_other_posts
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
+
+  def load_other_posts
+    @other_posts = Post.other_visual_guide_posts({
+      :page => params[:page], :exclude_ids => [@post.id],
+      :category => @post.categories[1],
+    })
+  end
 
   def set_category
     @categories = ["guia-visual"]
