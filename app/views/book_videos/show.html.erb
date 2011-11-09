@@ -12,11 +12,10 @@
 </header>
 
 <div class="books-box play-video">
-
   <div class="content">
     <h4>Editorial</h4>
-    <h3>Consulta los vídeos del libro "<%= @book.title %>"</h3>
-    <p>Tan sencillo como introducir el <b>código</b> que encontrarás en el libro y ver el vídeo del ejercicio.</p>
+    <h3>Estás consultando los vídeos del libro "<%= @book.title %>"</h3>
+    <p>Si quieres ver otro, introduce su <b>código</b></p>
 
     <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
       <%= text_field_tag :code, @book_video.code, :placeholder => "introduce el código" %>

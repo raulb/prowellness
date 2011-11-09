@@ -1,12 +1,26 @@
 <%= stylesheet_link_tag "visual-guide-editorial" %>
 <%= javascript_include_tag 'visual-guide-editorial' %>
 
+<% if controller_name == 'book_videos' %>
+
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Guía visual Editorial</h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
+</header>
+
 <div class="nav-section editorial">
   <div id="main-book-option" class="box-options">
     <a class="option" onclick="javascript:showBook(0);">Entrénate</a>
     <a class="option current" onclick="javascript:showBook(1);">Mujer en forma</a>
   </div>
 </div>
+
+<% end %>
 
 <div class="books-box">
   <ol id="index-books">
@@ -35,15 +49,10 @@
           
           <p>Tan sencillo como introducir el <b>código</b> que encontrarás en el interior del libro y ver el vídeo del ejercicio.</p>
           
-          <% if flash[:alert] %>
-            <%= flush_the_flash %>
-          <% end %>
-          
-          
           <%= image_tag "visual-guide/"+book.slug+"-video-example.jpg", :alt => 'Ejemplo de un vídeo de '+book.title %>
           
-          <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
-            <%= text_field_tag :code, nil, :placeholder => "introduce el código" %>
+          <%= form_tag( visual_guide_editorial_video_path, :method => :post) do %>
+            <%= text_field_tag :code, nil, :placeholder => flash[:alert]? 'código incorrecto':'introduce el código'  %>
             <%= submit_tag "ver vídeo" %>
           <% end %>
           
