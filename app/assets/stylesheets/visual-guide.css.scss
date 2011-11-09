@@ -2,6 +2,7 @@
 
 $spacing:30px;
 $inside-post:311px;
+$little-level-height:58px;
 
 .nav-section{ 
  .box-options {
@@ -86,6 +87,15 @@ $inside-post:311px;
       border:1px solid $border-info-color;
       float:left; z-index:10;
       
+      .level {
+
+        position:absolute;
+        bottom:-2px;
+        right:0;
+        width:94px;
+        height:$little-level-height;
+      }
+      
       .tags {
         position:absolute;
         bottom:17px;
@@ -120,9 +130,7 @@ $inside-post:311px;
       height:175px;
       background-color:red;
     }
-    
-    
-  
+
     .shadow {
       position:absolute; bottom:-16px; left:0;
       z-index:0;
@@ -141,6 +149,75 @@ $inside-post:311px;
       }
       
     }
+    
+    &.abdominales {
+      .level {
+        background:url(visual-guide/abdo-levels-little.png) no-repeat 0 0;
+
+        &.nivel1 {
+          background-position:0 0;
+        }
+
+        &.nivel2 {
+          background-position:0 #{-($little-level-height)};
+        }
+
+        &.nivel3 {
+          background-position:0 #{-($little-level-height*2)};
+        }
+
+        &.nivel4 {
+          background-position:0 #{-($little-level-height*3)};
+        }
+      
+        &.nivel5 {
+          background-position:0 #{-($little-level-height*4)};
+        }
+      }
+    }
+    
+    &.estiramientos {
+      .level {
+        background:url(visual-guide/estira-levels-little.png) no-repeat 0 0;
+
+        &.pantorrilla {
+          background-position:0 0;
+        }
+
+        &.musculo {
+          background-position:0 #{-($little-level-height)};
+        }
+
+        &.cadera {
+          background-position:0 #{-($little-level-height*2)};
+        }
+
+        &.tronco {
+          background-position:0 #{-($little-level-height*3)};
+        }
+      
+        &.pectoral {
+          background-position:0 #{-($little-level-height*4)};
+        }
+        
+        &.dorsal {
+          background-position:0 #{-($little-level-height*5)};
+        }
+
+        &.hombro {
+          background-position:0 #{-($little-level-height*6)};
+        }
+
+        &.brazo {
+          background-position:0 #{-($little-level-height*7)};
+        }
+
+        &.antebrazo {
+          background-position:0 #{-($little-level-height*8)};
+        }
+      }
+    }
+    
   }
   
   &.multiple-posts {
