@@ -2,14 +2,6 @@ jQuery(document).ready(function() {
   
   var indexActive = $('#index-books').children('.current').children('a').attr('rel');
   showBook(indexActive);
-
-  $('.pay-on-delivery').click(function(e){
-    if ($(this).attr('id') == 'training_book') MODAL.open('#send_training_book');
-    else if ($(this).attr('id') == 'woman_book') MODAL.open('#send_woman_book');
-
-    e.preventDefault(); e.stopPropagation();
-  });
-  
   
 });
 

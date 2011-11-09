@@ -1,8 +1,31 @@
-<p>Consulta los vídeos del libro "<%= @book.title %>"</p>
+<%= stylesheet_link_tag "visual-guide-editorial" %>
+<%= javascript_include_tag 'visual-guide-editorial' %>
 
-<%= form_tag visual_guide_editorial_video_path, :method => :post do %>
-  <%= text_field_tag :code, @book_video.code, :placeholder => "introduce el código" %> <br />
-  <%= submit_tag "ver vídeo" %>
-<% end %>
+<header>
+  <span class="left-band"></span>
+  <div class="right-band">
+    <h2>Guía visual Editorial</h2>
+    <div class="fixed-content">
+      <span class="triangle"></span>
+    </div>
+  </div>
+</header>
 
-<%=raw @book_video.video %>
+<div class="books-box play-video">
+
+  <div class="content">
+    <h4>Editorial</h4>
+    <h3>Consulta los vídeos del libro "<%= @book.title %>"</h3>
+    <p>Tan sencillo como introducir el <b>código</b> que encontrarás en el libro y ver el vídeo del ejercicio.</p>
+
+    <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
+      <%= text_field_tag :code, @book_video.code, :placeholder => "introduce el código" %>
+      <%= submit_tag "ver vídeo" %>
+    <% end %>
+    
+    <%=raw @book_video.video %>
+    
+  </div>
+  <span class="shadow"></span>
+</div>
+
