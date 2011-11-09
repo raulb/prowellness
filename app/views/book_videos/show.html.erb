@@ -17,13 +17,15 @@
     <h3>Estás consultando los vídeos del libro "<%= @book.title %>"</h3>
     <p>Si quieres ver otro, introduce su <b>código</b></p>
     <%= link_to '',visual_guide_editorial_path, :class => 'back' %>
-    <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
+    <%= form_tag visual_guide_editorial_video_path, :method => :post, :remote => true do %>
       <%= text_field_tag :code, @book_video.code, :placeholder => "introduce el código" %>
       <%= submit_tag "ver vídeo" %>
     <% end %>
-    
-    <%=raw @book_video.video %>
-    
+
+    <div id="video">
+      <%=raw @book_video.video %>
+    </div>
+
   </div>
   <span class="shadow"></span>
 </div>
