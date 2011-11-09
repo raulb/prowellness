@@ -1,3 +1,6 @@
+<%= javascript_include_tag 'visual-guide' %>
+<%= stylesheet_link_tag "visual-guide" %>
+
 <header>
   <span class="left-band"></span>
   <div class="right-band">
@@ -8,31 +11,62 @@
   </div>
 </header>
 
-<ul class="sections">
-  <li><%= link_to("Abdominales",   visual_guide_category_path("abdominales"), :class => "selected") %></li>
-  <li><%= link_to("Estiramientos", visual_guide_category_path("estiramientos")) %></li>
-  <li><%= link_to("Editorial",     visual_guide_category_path("editorial")) %></li>
-</ul>
-
 <% if @posts.any? %>
   <% %W{ abdominales estiramientos }.each do |category| %>
-    <div class="posts <%= category %>">
-      <% @posts[category].each do |post| %>
-        <div class="post">
-          <p><%= translate_category(category) %></p>
-          <h3><%= link_to(post.title, post_path(post)) %></h3>
-          <p>por <%= post.user.signature %></p>
-          <%= simple_format(post.excerpt) %>
-          <!-- #nivel1, nivel2, pantorillas... -->
-          <p><%= translate_category(post.categories.last).split(' - ').first %></p>
-        </div>
-      <% end %>
-
-      <p><%= link_to("ver más vídeos sobre #{translate_category(category).downcase}", visual_guide_category_path(category)) %>
+  
+    <div id="section-<%= category %>" class="nav-section">
+      <span class="scissors <%= category %>"></span>
+      <div class="box-options">
+        <a class="option <%= (category.eql? 'abdominales')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-abdominales',400);">Abdominales</a>
+        <a class="option <%= (category.eql? 'estiramientos')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-estiramientos',400);">Estiramientos</a>
+        <a class="option" onclick="javascript:void $.scrollTo('#section-editorial',400);">Editorial</a>
+      </div>
     </div>
+  
+    <ul class="posts <%= category %>">
+
+      <% @posts[category].each do |post| %>
+        <li class="post <%= cycle('', raw('odd')) %>">
+          <div>
+            <span class="video">
+              
+            </span>
+            <h4><%= translate_category(category) %></h4>
+            <h2><%= link_to(post.title, post_path(post)) %></h2>
+            <p class="date">por <%= post.user.signature %></p>
+            <%= simple_format(post.excerpt) %>
+            <!-- #nivel1, nivel2, pantorillas... -->
+            <% if !post.tags.nil? %>
+              <ul class="tags">
+                <%  post.tags.each do |tag| %>
+                  <li><a href="#"><%= tag %></a></li>
+                <% end %>
+              </ul>
+            <% end %>            
+            <span class="level">
+              <p><%= translate_category(post.categories.last).split(' - ').first %></p>  
+            </span>
+          </div>
+          <span class="shadow"></span>
+        </li>
+      <% end %>
+      <%= link_to("ver más vídeos sobre #{translate_category(category).downcase}", visual_guide_category_path(category), :class=>'view-more') %>
+    </ul>
   <% end %>
 <% end %>
 
-<%= render(:template => "book_videos/index") %>
 
-<p><%= link_to("consulta los vídeos de la editorial", visual_guide_editorial_path) %></p>
+<div id="section-editorial" class="nav-section">
+  <span class="scissors editorial"></span>
+  <div class="box-options">
+    <a class="option" onclick="javascript:void $.scrollTo('#section-abdominales',400);">Abdominales</a>
+    <a class="option" onclick="javascript:void $.scrollTo('#section-estiramientos',400);">Estiramientos</a>
+    <a class="option current" onclick="javascript:void $.scrollTo('#section-editorial',400);">Editorial</a>
+  </div>
+</div>
+
+<div class="editorial-videos">
+  <%= render(:template => "book_videos/index") %>
+  <%= link_to("consulta los vídeos de la editorial", visual_guide_editorial_path,:class=>'view-more') %>
+</div>
+

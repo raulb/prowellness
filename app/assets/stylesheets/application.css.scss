@@ -441,6 +441,33 @@ aside {
   }
 }
 
+.date {
+  margin-top:2px;
+  font:normal 1.0em Arial;
+  color:$date-font-color;
+}
+
+.tags {
+  float:left;
+  
+  li {
+    float:left; margin:0 5px 0 0;
+    
+    a {
+      font:normal 0.9em Arial; color:white;
+      text-decoration:none;
+      padding:3px 8px; background-color:$bg-tags-color;
+      @include border-radius(4px);
+      
+      &:hover {
+        background-color:darken($bg-tags-color,20%);
+      }
+      
+    }
+  }
+}
+
+
 // generic link to view more in a specific section
 .view-more {
   float:right;

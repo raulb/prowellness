@@ -1,0 +1,157 @@
+@import "partials/common_properties";
+
+$spacing:30px;
+$inside-post:311px;
+
+.nav-section{ 
+ .box-options {
+   float:left;
+   margin:0;
+   background:url(visual-guide/kind-videos-box-dashed.png) no-repeat 0 0;
+   width:298px;
+   height:52px;
+   
+ }
+ 
+ .scissors {
+    &.abdominales {
+      right: 35px;
+    }  
+    &.estiramientos {
+      right: 175px;
+    }
+    &.editorial {
+      right: 302px;
+    }    
+ }
+ 
+}
+
+.date {
+  float:left;
+  width:$inside-post;
+}
+
+
+.posts {
+
+  
+  h2 {
+    width:100%; margin-top:4px;
+
+    a {
+      font:normal 1.9em YanoneKaffeesatzRegular;
+      text-decoration:none;
+      color:$title-font-color;
+
+      &:hover {
+        color:darken($title-font-color,20%);
+      }
+    }
+
+  }
+  
+  h3 {
+    width:100%; margin-top:0px;
+
+    a {
+      font:normal 1.3em YanoneKaffeesatzRegular;
+      text-decoration:none;
+      color:$font-color-green;
+
+      &:hover {
+        color:darken($font-color-green,20%);
+      }
+    }
+
+  }
+  
+  li {
+    float:left; 
+    margin-bottom:$spacing;
+    margin-right:19px;
+    
+    position:relative;
+    
+    &.odd {
+      margin-right:0;
+    }
+    
+    div {
+      padding:11px 11px 15px;
+      width:$inside-post;
+      height:331px;
+      position:relative;
+      
+      border:1px solid $border-info-color;
+      float:left; z-index:10;
+      
+      .tags {
+        position:absolute;
+        bottom:17px;
+        left:11px;
+        width:$inside-post;
+        li {
+          margin:0 5px 0 0;  
+        }
+      }
+      
+    }
+    
+    h4 {
+      color:darken($font-color-green,10%);
+      float:left;
+      margin-top:10px;
+      width:$inside-post;
+      font:normal 1.4em AbadiCondensed;
+    }
+    
+    .date {
+      float:left;
+      
+      margin-top:2px;
+      font:normal 1.0em Arial;
+      color:$date-font-color;
+    }
+    
+    .video {
+      float:left;
+      width:$inside-post;
+      height:175px;
+      background-color:red;
+    }
+    
+    
+  
+    .shadow {
+      position:absolute; bottom:-16px; left:0;
+      z-index:0;
+      background:url(visual-guide/video-shadow.png) no-repeat 0 0;
+      width:332px;
+      height:16px;
+    }
+    
+    &:hover {
+      div {
+        border-color:darken($border-info-color,10%);
+      }
+      
+      .shadow {
+        background:url(visual-guide/video-shadow-hover.png) no-repeat 0 0;
+      }
+      
+    }
+  }
+  
+  &.multiple-posts {
+    li {
+      &:first-child {
+        margin-top:0;
+      }
+    }
+  }
+}
+
+.editorial-videos {
+  float:left;
+}
