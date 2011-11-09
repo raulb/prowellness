@@ -118,10 +118,10 @@ end
   back_to_the_present
 end
 
-# Setup 3 articles in visual guide, estiramientos, pantorilla
+# Setup 3 articles in visual guide, estiramientos, pantorrilla
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pantorilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pantorilla", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pantorrilla", :user => admin
   putc '.'
   back_to_the_present
 end
@@ -129,7 +129,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, musculo
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pantorilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,musculo", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,musculo", :user => admin
   putc '.'
   back_to_the_present
 end
@@ -137,7 +137,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, cadera
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pantorilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,cadera", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,cadera", :user => admin
   putc '.'
   back_to_the_present
 end
@@ -145,7 +145,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, tronco
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pantorilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,tronco", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,tronco", :user => admin
   putc '.'
   back_to_the_present
 end
@@ -153,7 +153,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, pectorales
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pantorilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pectorales", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pectorales", :user => admin
   putc '.'
   back_to_the_present
 end

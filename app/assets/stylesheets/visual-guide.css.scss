@@ -3,6 +3,7 @@
 $spacing:30px;
 $inside-post:311px;
 $little-level-height:58px;
+$little-level-width:96px;
 
 .nav-section{ 
  .box-options {
@@ -91,8 +92,8 @@ $little-level-height:58px;
 
         position:absolute;
         bottom:-2px;
-        right:0;
-        width:94px;
+        right:-2px;
+        width:$little-level-width;
         height:$little-level-height;
       }
       
@@ -156,22 +157,42 @@ $little-level-height:58px;
 
         &.nivel1 {
           background-position:0 0;
+          
+           &:hover {
+              background-position:#{-($little-level-width)} 0;
+            }
         }
 
         &.nivel2 {
           background-position:0 #{-($little-level-height)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height)};
+          }
         }
 
         &.nivel3 {
           background-position:0 #{-($little-level-height*2)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*2)};
+          }
         }
 
         &.nivel4 {
           background-position:0 #{-($little-level-height*3)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*3)};
+          }
         }
       
         &.nivel5 {
           background-position:0 #{-($little-level-height*4)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*4)};
+          }
         }
       }
     }
@@ -182,38 +203,76 @@ $little-level-height:58px;
 
         &.pantorrilla {
           background-position:0 0;
+          
+          &:hover {
+            background-position:#{-($little-level-width)} 0;
+          }
         }
 
         &.musculo {
           background-position:0 #{-($little-level-height)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height)};
+          }
+          
         }
 
         &.cadera {
           background-position:0 #{-($little-level-height*2)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*2)};
+          }
+          
         }
 
         &.tronco {
           background-position:0 #{-($little-level-height*3)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*3)};
+          }
         }
       
         &.pectoral {
           background-position:0 #{-($little-level-height*4)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*4)};
+          }
         }
         
         &.dorsal {
           background-position:0 #{-($little-level-height*5)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*5)};
+          }
         }
 
         &.hombro {
           background-position:0 #{-($little-level-height*6)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*6)};
+          }
         }
 
         &.brazo {
           background-position:0 #{-($little-level-height*7)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*7)};
+          }
         }
 
         &.antebrazo {
           background-position:0 #{-($little-level-height*8)};
+          
+          &:hover {
+            background-position:#{-($little-level-width)} #{-($little-level-height*8)};
+          }
         }
       }
     }

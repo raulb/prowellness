@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
     "Guía Visual > Abdominales > Nivel 3 - En apoyo" => "guia-visual,abdominales,nivel-3-en-apoyo",
     "Guía Visual > Abdominales > Nivel 4 - Con material" => "guia-visual,abdominales,nivel-4-con-material",
     "Guía Visual > Abdominales > Nivel 5 - Potencia" => "guia-visual,abdominales,nivel-5-potencia",
-    "Guía Visual > Estiramientos > Pantorilla" => "guia-visual,estiramientos,pantorilla",
+    "Guía Visual > Estiramientos > Pantorilla" => "guia-visual,estiramientos,pantorrilla",
     "Guía Visual > Estiramientos > Músculo" => "guia-visual,estiramientos,musculo",
     "Guía Visual > Estiramientos > Cadera" => "guia-visual,estiramientos,cadera",
     "Guía Visual > Estiramientos > Tronco" => "guia-visual,estiramientos,tronco",
@@ -264,7 +264,7 @@ SQL
         when 'abdominales'
           subcategories = %W{ nivel-1-activacion nivel-2-estables nivel-3-en-apoyo nivel-4-con-material nivel-5-potencia }
         when 'estiramientos'
-          subcategories = %W{ pantorilla musculo cadera tronco pectoral dorsal hombro brazo antebrazo }
+          subcategories = %W{ pantorrilla musculo cadera tronco pectoral dorsal hombro brazo antebrazo }
       end
 
       subcategories.each do |c|
