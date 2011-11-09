@@ -89,13 +89,39 @@ $bg-pag-current:#FF0000;
   border-bottom-left-radius: $radius;
 }
 
+@mixin border-top-left-none($radius:0) {
+  -webkit-border-top-left-radius: $radius;
+  -moz-border-radius-topleft: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-bottom-left-none($radius:0) {
+  -webkit-border-bottom-left-radius: $radius;
+  -moz-border-radius-bottomleft: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-none($radius:0) {
+  @include border-top-left-none();
+  @include border-bottom-left-none();
+}
+
+@mixin border-top-right-none($radius:0) {
+  -webkit-border-top-right-radius: $radius;
+  -moz-border-radius-topright: $radius;
+  border-top-right-radius: $radius;
+}
+
 @mixin border-bottom-right-none($radius:0) {
   -webkit-border-bottom-right-radius: $radius;
   -moz-border-radius-bottomright: $radius;
   border-bottom-right-radius: $radius;
 }
 
-
+@mixin border-right-none($radius:0) {
+  @include border-top-right-none();
+  @include border-bottom-right-none();
+}
 
 @mixin text-blur($color: white){
   text-shadow: -1px 1px 10px lighten($color, 50%);  
@@ -199,7 +225,38 @@ $bg-pag-current:#FF0000;
     	color-stop(0.7, rgb(149,35,35))
     );
   }
+}
 
+@mixin linear-dark-blue-gradient($direction:top){
+  @if $direction == top {
+    background-image: linear-gradient(top, rgb(0,76,152) 9%, rgb(0,60,105) 47%);
+    background-image: -o-linear-gradient(top, rgb(0,76,152) 9%, rgb(0,60,105) 47%);
+    background-image: -moz-linear-gradient(top, rgb(0,76,152) 9%, rgb(0,60,105) 47%);
+    background-image: -webkit-linear-gradient(top, rgb(0,76,152) 9%, rgb(0,60,105) 47%);
+    background-image: -ms-linear-gradient(top, rgb(0,76,152) 9%, rgb(0,60,105) 47%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.09, rgb(0,76,152)),
+    	color-stop(0.47, rgb(0,60,105))
+    );
+  }@else {
+    background-image: linear-gradient(top, rgb(9,67,125) 9%, rgb(1,42,71) 37%);
+    background-image: -o-linear-gradient(top, rgb(9,67,125) 9%, rgb(1,42,71) 37%);
+    background-image: -moz-linear-gradient(top, rgb(9,67,125) 9%, rgb(1,42,71) 37%);
+    background-image: -webkit-linear-gradient(top, rgb(9,67,125) 9%, rgb(1,42,71) 37%);
+    background-image: -ms-linear-gradient(top, rgb(9,67,125) 9%, rgb(1,42,71) 37%);
+
+    background-image: -webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0.09, rgb(9,67,125)),
+    	color-stop(0.37, rgb(1,42,71))
+    );
+  }
 }
 
 @mixin linear-blue-gradient($direction:top) {

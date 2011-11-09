@@ -1,39 +1,46 @@
-
-  <% @books.each do |book| %>
-
-    <% if book.title == "Entrénate" %>
-
-      <div class="book">
-        <p>Consulta los vídeos del libro "<%= book.title %>"</p>
-
-        <% if flash[:alert] %>
-          <%= flush_the_flash %>
-        <% end %>
-
-        <p>Si aún no lo tienes, puedes solicitarlo <%= link_to("aquí", buy_book_path(:id => book.slug)) %></p>
-
-        <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
-          <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
-          <%= submit_tag "ver vídeo" %>
-        <% end %>
-      </div>
-
-    <% elsif book.title == "Mujer" %>
-
-      <div class="book">
-        <p>Consulta los vídeos del libro "<%= book.title %>"</p>
-
-        <% if flash[:alert] %>
-          <%= flush_the_flash %>
-        <% end %>
-
-        <p>Si aún no lo tienes, puedes solicitarlo <%= link_to("aquí", buy_book_path(:id => book.slug)) %></p>
-        <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
-          <%= text_field_tag :code, nil, :placeholder => "introduce el código" %> <br />
-          <%= submit_tag "ver vídeo" %>
-        <% end %>
-      </div>
-
+<div class="books-box">
+  <ol id="index-books">
+    <li id="index-entrenate" class="">
+      <a rel="0" onclick="javascript:showBook(0);"></a>
+    </li>
+    <li id="index-mujer" class="current">
+      <a rel="1" onclick="javascript:showBook(1);"></a>
+    </li>
+  </ol>
+  <ul id="books">
+    <% @books.each do |book| %>
+      <li id="index-<%= book.slug %>">
+        <div class="left">
+            <%= image_tag "books/"+book.slug+".png", :alt => book.title %>
+          <div class="buy">
+            <p>Si aún no lo tienes, puedes solicitarlo <%= link_to("aquí", buy_book_path(:id => book.slug)) %></p>
+            <%= image_tag "application/credit-card.png", :alt => 'Compra un libro Prowellness' %>
+            
+          </div>
+        </div>
+        <div class="right">
+          <h4>Editorial</h4>
+          <h3>Consulta los vídeos del libro</h3>
+          <h3>"<%= book.title %>"</h3>
+          
+          <p>Tan sencillo como introducir el código que encontrarás en el libro y ver el vídeo del ejercicio.</p>
+          
+          <% if flash[:alert] %>
+            <%= flush_the_flash %>
+          <% end %>
+          
+          
+          <%= image_tag "visual-guide/"+book.slug+"-video-example.jpg", :alt => 'Ejemplo de un vídeo de '+book.title %>
+          
+          <%= form_tag visual_guide_editorial_video_path, :method => :post do %>
+            <%= text_field_tag :code, nil, :placeholder => "¿código?" %>
+            <%= submit_tag "ver vídeo" %>
+          <% end %>
+          
+        </div>
+      </li>
     <% end %>
-  <% end %>  
+  </ul>
+  <span class="shadow"></span>
+</div>
 

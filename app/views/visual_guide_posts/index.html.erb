@@ -35,7 +35,6 @@
             <h2><%= link_to(post.title, post_path(post)) %></h2>
             <p class="date">por <%= post.user.signature %></p>
             <%= simple_format(post.excerpt) %>
-            <!-- #nivel1, nivel2, pantorrillas... -->
             <% if !post.tags.nil? %>
               <ul class="tags">
                 <%  post.tags.each do |tag| %>
@@ -43,10 +42,7 @@
                 <% end %>
               </ul>
             <% end %>            
-            <!--  -->
             <%= link_to("", '#', :class=>'level '+ nice_slug(translate_category(post.categories.last).split(' - ').first.downcase.delete(' ')) ) %>
-                <!-- <%= translate_category(post.categories.last).split(' - ').first.downcase.delete(' ') %> -->
-
           </div>
           <span class="shadow"></span>
         </li>
