@@ -47,6 +47,20 @@ h3 {
       float:left;
       margin-top:105px;
     }
+    
+    .back {
+      position:absolute;
+      top:20px;
+      right:20px;
+      
+      background:url(visual-guide/arrow-back.png) no-repeat 0 0;
+      width:25px;
+      height:27px;
+      
+      &:hover {
+        background-position:0 -27px;
+      }
+    }
   }
   
   h3 {
@@ -184,7 +198,7 @@ h3 {
       }
       
       p {
-        width:455px;
+        width:435px;
         margin-top:15px;
       }
     } 
