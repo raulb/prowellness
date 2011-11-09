@@ -158,9 +158,9 @@ describe Post do
       end
 
       it "should be found filtering by tags" do
-        Post.filter_by_tags("dieta").limit(1).should == [@post3]
-        Post.filter_by_tags("natación").all.should include(@post1)
-        Post.filter_by_tags("natación").all.should include(@post2)
+        Post.filter_by_tag("dieta").limit(1).should == [@post3]
+        Post.filter_by_tag("natación").all.should include(@post1)
+        Post.filter_by_tag("natación").all.should include(@post2)
       end
     end
   end

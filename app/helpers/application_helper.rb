@@ -125,4 +125,8 @@ module ApplicationHelper
   def css_class(post)
     'level '+ nice_slug(translate_category(post.categories.last).split(' - ').first.downcase.delete(' '))
   end
+
+  def tag_path(tag_name)
+    search_path(:q => "tag:#{tag_name}")
+  end
 end

@@ -8,7 +8,11 @@ class SearchController < ApplicationController
     if params[:q].blank?
       flash.now.alert = "Debes de indicar un término para la búsqueda"
     else
-      posts = Post.search(params[:q])
+      posts = if params[:q] =~ /^tag:/
+        Post.filter_by_tag(params[:q].split(':').last)
+      else
+        Post.search(params[:q])
+      end
       if params[:from]
         from = Date.parse(params[:from].values.join("/"))
         posts = posts.where("publish_date >= ?", from)

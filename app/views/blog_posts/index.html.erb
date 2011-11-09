@@ -24,13 +24,13 @@
 
         <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
         <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
-        
+
         <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
-        
+
         <% if !post.tags.nil? %>
           <ul class="tags">
             <%  post.tags.each do |tag| %>
-              <li><a href="#"><%= tag %></a></li>
+            <li><%= link_to(tag, tag_path(tag)) %></li>
             <% end %>
           </ul>
         <% end %>
@@ -43,7 +43,7 @@
 <% if @other_posts.any? %>
   <div class="others">
     <div class="header">
-      <h2>Otras entradas en el blog</h2>  
+      <h2>Otras entradas en el blog</h2>
     </div>
     <%= render "shared/others" %>
   </div>

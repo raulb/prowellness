@@ -42,7 +42,7 @@
         <h5>TAGS</h5>
         <ul class="tags">
           <%  @post.tags.each do |tag| %>
-            <li><a href="#"><%= tag %></a></li>
+          <li><%= link_to(tag, tag_path(tag)) %></li>
           <% end %>
         </ul>
       <% end %>

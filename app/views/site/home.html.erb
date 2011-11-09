@@ -40,7 +40,9 @@
             <% if !post.tags.nil? %>
               <ul class="tags">
                 <%  post.tags.each do |tag| %>
-                  <li><a href="#"><%= tag %></a></li>
+                  <li>
+                    <%= link_to(tag, tag_path(tag)) %>
+                  </li>
                 <% end %>
               </ul>
             <% end %>
@@ -77,13 +79,12 @@
         <% if !@last_video_abdominales.tags.nil? %>
           <ul class="tags">
             <%  @last_video_abdominales.tags.each do |tag| %>
-              <li><a href="#"><%= tag %></a></li>
+            <li><%= link_to(tag, tag_path(tag)) %></li>
             <% end %>
           </ul>
         <% end %>
 
         <%= link_to("", '#', :class => css_class(@last_video_abdominales)) %>
-
       </div>
       <span class="shadow"></span>
     </li>
@@ -99,7 +100,7 @@
         <% if !@last_video_estiramientos.tags.nil? %>
           <ul class="tags">
             <%  @last_video_estiramientos.tags.each do |tag| %>
-              <li><a href="#"><%= tag %></a></li>
+            <li><%= link_to(tag, tag_path(tag)) %></li>
             <% end %>
           </ul>
         <% end %>
@@ -133,7 +134,7 @@
         <% if !@last_post.tags.nil? %>
           <ul class="tags">
             <%  @last_post.tags.each do |tag| %>
-              <li><a href="#"><%= tag %></a></li>
+            <li><%= link_to(tag, tag_path(tag)) %></li>
             <% end %>
           </ul>
         <% end %>

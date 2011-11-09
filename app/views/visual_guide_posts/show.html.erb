@@ -15,7 +15,6 @@
   <h3>
     <%= @post.title %>
     <em>- por <%= @post.user.signature %></em>
-    <!-- TODO:maquetar triangulito rojo -->
     <p><%= translate_category(@post.categories.last) %></p>
   </h3>
 
@@ -45,7 +44,7 @@
         <h5>TAGS</h5>
         <ul class="tags">
           <%  @post.tags.each do |tag| %>
-            <li><a href="#"><%= tag %></a></li>
+          <li><%= link_to(tag, tag_path(tag)) %></li>
           <% end %>
         </ul>
       <% end %>

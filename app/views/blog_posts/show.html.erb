@@ -15,8 +15,7 @@
 <div id="header_article">
   <h3>
     <%= @post.title %>
-    <!-- MOSTRAR EL AUTOR DEL POST -->
-    <em>- por Domingo Sánchez</em>
+    <em>- por <%= @post.author.signature %></em>
   </h3>
   <div id="date">
     <p class="day"><%= @post.publish_date.strftime("%d") %></p>
@@ -46,7 +45,7 @@
         <h5>TAGS</h5>
         <ul class="tags">
           <%  @post.tags.each do |tag| %>
-            <li><a href="#"><%= tag %></a></li>
+          <li><%= link_to(tag, tag_path(tag)) %></li>
           <% end %>
         </ul>
       <% end %>
@@ -66,7 +65,7 @@
 <% if @other_posts.any? %>
   <div class="others">
     <div class="header">
-      <h2>Otras entradas en el blog</h2>  
+      <h2>Otras entradas en el blog</h2>
     </div>
     <%= render "shared/others" %>
   </div>

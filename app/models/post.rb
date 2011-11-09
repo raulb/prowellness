@@ -4,7 +4,7 @@ require 'texticle/searchable'
 
 class Post < ActiveRecord::Base
 
-  extend Searchable(:title, :excerpt, :body)
+  extend Searchable(:title, :excerpt, :body, :tags)
 
   CATEGORIES = {
     "Artículos > Fitness" => "articulos,fitness",
@@ -56,7 +56,7 @@ class Post < ActiveRecord::Base
   scope :last_blog_posts, lambda { |how_many|
     filter_by_category('blog').order_by_publish_date.limit(how_many)
   }
-  scope :filter_by_tags, lambda { |tag_name|
+  scope :filter_by_tag, lambda { |tag_name|
     where("? = ANY(tags)", tag_name).order_by_publish_date
   }
   scope :filter_by_category, lambda { |category_name|
