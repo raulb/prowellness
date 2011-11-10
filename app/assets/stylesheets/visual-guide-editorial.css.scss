@@ -136,7 +136,10 @@ h3 {
      @include border-radius(20px);
      @include border-right-none;
      border-right:none;
-
+     
+     &:focus {
+       outline:none;
+     }
     }
     input[type="submit"]{
       float:left;      
