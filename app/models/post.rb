@@ -4,7 +4,7 @@ require 'texticle/searchable'
 
 class Post < ActiveRecord::Base
 
-  extend Searchable(:title, :excerpt, :body, :tags)
+  extend Searchable(:title, :excerpt, :body)
 
   CATEGORIES = {
     "Artículos > Fitness" => "articulos,fitness",
@@ -273,6 +273,10 @@ SQL
       result[category] = where('(' + query.join(" OR ") + ')').order_by_publish_date.limit(limit).all
     end
     result
+  end
+
+  def to_home_params
+    {:category => self.categories[1], :subcategory => self.categories.last}
   end
 
   private

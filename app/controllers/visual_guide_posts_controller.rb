@@ -15,21 +15,21 @@ class VisualGuidePostsController < PostsController
       end
     elsif params[:category]
       posts = Post.filter_by_category(params[:category])
-      # TODO
-      # - param subcategory
-      # - param from
-      # - param to
-      # - param category
-      if params[:subcategory]
+      unless params[:subcategory].blank?
         posts = posts.filter_by_category(params[:subcategory])
       end
-      if !params[:q].blank?
+      unless params[:q].blank?
         posts = posts.search(params[:q])
       end
-      if params[:from]
-      end
-      if params[:to]
-      end
+      # TODO
+      # unless params[:from].blank?
+      #   from = Date.parse(params[:from].values.join("/"))
+      #   posts = posts.where("publish_date >= ?", from)
+      # end
+      # unless params[:to].blank?
+      #   to = Date.parse(params[:to].values.join("/"))
+      #   posts = posts.where("publish_date <= ?", to)
+      # end
       @posts = posts.order_by_publish_date.page(params[:page]).per(8)
       respond_to do |format|
         format.html { render "index_category" }

@@ -67,7 +67,7 @@ module ApplicationHelper
     controller_name == 'posts' && action_name != 'index'
   end
 
-  def select_visual_guide_subcategories(category)
+  def select_visual_guide_subcategories(category, subcategory)
     options = case category
       when 'abdominales'
         [
@@ -92,7 +92,7 @@ module ApplicationHelper
           ["antebrazo", "antebrazo"]
         ]
     end
-    select_tag("subcategory",options_for_select(options))
+    select_tag("subcategory",options_for_select(options, subcategory))
   end
 
   def nice_slug(str)

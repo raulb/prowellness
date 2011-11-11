@@ -84,7 +84,7 @@
           </ul>
         <% end %>
 
-        <%= link_to("", '#', :class => css_class(@last_video_abdominales)) %>
+        <%= link_to("", visual_guide_category_path(@last_video_abdominales.to_home_params), :class => css_class(@last_video_abdominales)) %>
       </div>
       <span class="shadow"></span>
     </li>
@@ -105,7 +105,7 @@
           </ul>
         <% end %>
 
-        <%= link_to("", '#', :class => css_class(@last_video_estiramientos)) %>
+        <%= link_to("", visual_guide_category_path(@last_video_estiramientos.to_home_params), :class => css_class(@last_video_estiramientos)) %>
       </div>
       <span class="shadow"></span>
     </li>

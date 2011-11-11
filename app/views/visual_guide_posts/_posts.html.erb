@@ -3,7 +3,7 @@
 
   <a href="#" class="toggle_filters">mostrar filtros</a>
 
-  <%= form_tag visual_guide_category_path(params[:category]), :method => :get, :id => 'search' do %>
+  <%= form_tag visual_guide_category_path(params[:category]), :method => :get, :remote => true do %>
     <div class="filters">
       <span id="search-value">
         <%= image_tag "application/icon-len.png", :alt => 'Lupa para buscar' %>
@@ -14,7 +14,7 @@
       <ul>
         <li>
           <%= label_tag "category", "Nivel" %>
-          <%= select_visual_guide_subcategories(params[:category]) %>
+          <%= select_visual_guide_subcategories(params[:category], params[:subcategory]) %>
         </li>
         <li>
           <%= label_tag "from", "Fecha desde" %>
