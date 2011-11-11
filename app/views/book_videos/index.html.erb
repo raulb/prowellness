@@ -39,23 +39,24 @@
           <div class="buy">
             <p>Si aún no lo tienes, puedes solicitarlo <%= link_to("aquí", buy_book_path(:id => book.slug)) %></p>
             <%= image_tag "application/credit-card.png", :alt => 'Compra un libro Prowellness' %>
-            
+
           </div>
         </div>
         <div class="right">
           <h4>Editorial</h4>
           <h3>Consulta los vídeos del libro</h3>
           <h3>"<%= book.title %>"</h3>
-          
+
           <p>Tan sencillo como introducir el <b>código</b> que encontrarás en el interior del libro y ver el vídeo del ejercicio.</p>
-          
+
           <%= image_tag "visual-guide/"+book.slug+"-video-example.jpg", :alt => 'Ejemplo de un vídeo de '+book.title %>
-          
+
           <%= form_tag( visual_guide_editorial_video_path, :method => :post) do %>
             <%= text_field_tag :code, nil, :placeholder => flash[:alert]? 'código incorrecto':'introduce el código'  %>
+            <%= hidden_field_tag "id", book.id %>
             <%= submit_tag "ver vídeo" %>
           <% end %>
-          
+
         </div>
       </li>
     <% end %>

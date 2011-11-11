@@ -19,6 +19,7 @@
     <%= link_to '',visual_guide_editorial_path, :class => 'back' %>
     <%= form_tag visual_guide_editorial_video_path, :method => :post, :remote => true do %>
       <%= text_field_tag :code, @book_video.code, :placeholder => "introduce el código" %>
+      <%= hidden_field_tag "id", @book.id %>
       <%= submit_tag "ver vídeo" %>
     <% end %>
 

@@ -9,7 +9,9 @@ class BookVideosController < ApplicationController
   end
 
   def show
-    @books = Book.all
+    unless @book = Book.find_by_id(params[:id])
+      render_404 and return
+    end
     unless @book_video = BookVideo.where(:code => params[:code]).first
       redirect_to visual_guide_editorial_path, :flash => {:alert => "El código introducido no corresponde a ningún vídeo"} and return
     end
