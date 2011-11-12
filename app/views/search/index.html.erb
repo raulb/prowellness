@@ -1,15 +1,7 @@
 <%= javascript_include_tag 'custom-form-elements','jquery.ui.datepicker-es','search' %>
 <%= stylesheet_link_tag "search","ui-theme/jquery-ui",'ui-theme/jquery.ui.datepicker','ui-theme/jquery.ui.theme' %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Buscar</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-</header>
+<%= render "site/header_page", :title => 'Buscar' %>
 
 <div class="search-box">
   <h3>buscar en todo el site</h3>

@@ -1,31 +1,7 @@
 <%= stylesheet_link_tag 'images'%>
 <%= javascript_include_tag 'galleria-1.2.5.min','galleria.flickr.min','images' %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Galería de imágenes</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-</header>
-
-
-<!-- <div class="photo_sets">
-  
-  <span class="header">
-    <h3><%= @photo_sets.first.title.capitalize %></h3>
-    <p>(<%= @photo_sets.first.photos %> fotos)</p>
-  </span>
-  
-  <div class="gallery">
-    <div id="<%= @photo_sets.first.id %>" class="content">
-      
-    </div>
-    <span class="shadow"></span>
-  </div>
-</div> -->
+<%= render "site/header_page", :title => 'Galería de imágenes' %>
 
 <% @photo_sets.each do |set| %>
 

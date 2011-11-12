@@ -1,15 +1,7 @@
 <%= javascript_include_tag 'jquery.nivo.slider','articles' %>
 <%= stylesheet_link_tag "articles","posts","nivo-slider" %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Ejercicios del mes</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-</header>
+<%= render "site/header_page", :title => 'Ejercicios del mes' %>
 
 <% if @main_post %>
 <div class="main_post">

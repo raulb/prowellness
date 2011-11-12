@@ -1,15 +1,6 @@
 <%= stylesheet_link_tag "posts" %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Guía visual de <%= translate_category(@post.categories[1]) %></h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-
-</header>
+<%= render "site/header_page", :title => 'Guía visual de '+ <%= translate_category(@post.categories[1]) %> %>
 
 <div id="header_article">
   <h3>

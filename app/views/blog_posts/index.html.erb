@@ -1,15 +1,6 @@
 <%= stylesheet_link_tag "blog_posts","posts" %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Blog de Domingo Sánchez</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-
-</header>
+<%= render "site/header_page", :title => 'Blog de Domingo Sánchez' %>
 
 <ul class="posts blog">
   <% @posts.each_with_index do |post, i| %>

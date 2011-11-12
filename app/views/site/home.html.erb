@@ -2,15 +2,7 @@
 <%= stylesheet_link_tag "articles","blog_posts","posts","visual-guide","nivo-slider" %>
 
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Últimos artículos</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-</header>
+<%= render "site/header_page", :title => 'Últimos artículos' %>
 
 
 <% if @main_posts.any? %>
@@ -56,16 +48,7 @@
 
 <%= link_to("ver más artículos", articles_path, :class=>'view-more') %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Últimos vídeos</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
-</header>
-
+<%= render "site/header_page", :title => 'Últimos vídeos' %>
 
 <ul class="videos">
     <li class="post abdominales">
@@ -112,16 +95,8 @@
 </ul>
 <%= link_to("ver más vídeos", visual_guide_path, :class=>'view-more') %>
 
-<header>
-  <span class="left-band"></span>
-  <div class="right-band">
-    <h2>Última entrada en el blog</h2>
-    <div class="fixed-content">
-      <span class="triangle"></span>
-    </div>
-  </div>
+<%= render "site/header_page", :title => 'Última entrada en el blog' %>
 
-</header>
 <ul class="posts blog multiple-posts">
     <li class="post">
       <div>
