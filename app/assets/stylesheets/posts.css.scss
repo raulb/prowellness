@@ -261,6 +261,12 @@ $spacing:30px;
     }
   }
   
+  &.visual-guide {
+    h3 {
+      width:550px;
+    }  
+  }
+
   #date {
     position:absolute; left:-20px; top:20px; width:62px; height:79px;
     
@@ -298,6 +304,17 @@ $spacing:30px;
       float:left; background:url(blog/photo-shadow.png) no-repeat 0 0; width:348px; height:22px; margin-top:5px;
     }
   }
+}
+
+#intro_article {
+
+  float:left; width:659px; height:auto; position:relative;
+  padding:15px;
+    
+  background:url(application/bgr-article-intro-mash.png);
+
+
+
 }
 
 article {

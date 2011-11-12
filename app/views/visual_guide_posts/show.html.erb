@@ -1,12 +1,11 @@
-<%= stylesheet_link_tag "posts" %>
+<%= stylesheet_link_tag "posts", "visual-guide" %>
 
 <%= render "site/header_page", :title => 'Guía visual de '+translate_category(@post.categories[1]) %>
 
-<div id="header_article">
+<div id="header_article" class="visual-guide <%= translate_category(@post.categories[1]).downcase %>">
   <h3>
     <%= @post.title %>
     <em>- por <%= @post.user.signature %></em>
-    <p><%= translate_category(@post.categories.last) %></p>
   </h3>
 
   <div id="date">
@@ -14,19 +13,13 @@
     <p class="month"><%= @post.publish_date.strftime("%b") %></p>
     <p class="year"><%= @post.publish_date.strftime("%Y") %></p>
   </div>
-
-
-  <% if @post.image? %>
-    <div id="article_image">
-      <%= image_tag @post.image.heading.url %>
-      <span class="shadow"></span>
-    </div>
-  <% end %>
+  <%= link_to("", visual_guide_category_path(@post.to_home_params), :class => css_class(@post)) %>
+</div>
+<div id="intro_article">
+  <p><%= @post.excerpt.try(:html_safe) %></p>
 </div>
 
 <article>
-  <p><%= @post.excerpt.try(:html_safe) %></p>
-
   <p><%= @post.body.try(:html_safe) %></p>
 
   <footer>

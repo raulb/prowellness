@@ -5,6 +5,9 @@ $inside-post:311px;
 $little-level-height:58px;
 $little-level-width:96px;
 
+$big-level-height:78px;
+$big-level-width:124px;
+
 .nav-section{ 
  .box-options {
    float:left;
@@ -286,4 +289,142 @@ $little-level-width:96px;
       }
     }
   }
+}
+
+#header_article {
+
+  .level {
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:$big-level-width;
+    height:$big-level-height;
+
+  }
+
+  &.abdominales {
+    .level {
+        background:url(visual-guide/abdo-levels-big.png) no-repeat 0 0;
+
+        &.nivel1 {
+          background-position:0 0;
+          
+           &:hover {
+              background-position:#{-($big-level-width)} 0;
+            }
+        }
+
+        &.nivel2 {
+          background-position:0 #{-($big-level-height)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height)};
+          }
+        }
+
+        &.nivel3 {
+          background-position:0 #{-($big-level-height*2)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*2)};
+          }
+        }
+
+        &.nivel4 {
+          background-position:0 #{-($big-level-height*3)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*3)};
+          }
+        }
+      
+        &.nivel5 {
+          background-position:0 #{-($big-level-height*4)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*4)};
+          }
+        }
+      }
+  }
+  &.estiramientos {
+      .level {
+        background:url(visual-guide/estira-levels-big.png) no-repeat 0 0;
+
+        &.pantorrilla {
+          background-position:0 0;
+          
+          &:hover {
+            background-position:#{-($big-level-width)} 0;
+          }
+        }
+
+        &.musculo {
+          background-position:0 #{-($big-level-height)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height)};
+          }
+          
+        }
+
+        &.cadera {
+          background-position:0 #{-($big-level-height*2)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*2)};
+          }
+          
+        }
+
+        &.tronco {
+          background-position:0 #{-($big-level-height*3)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*3)};
+          }
+        }
+      
+        &.pectoral {
+          background-position:0 #{-($big-level-height*4)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*4)};
+          }
+        }
+        
+        &.dorsal {
+          background-position:0 #{-($big-level-height*5)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*5)};
+          }
+        }
+
+        &.hombro {
+          background-position:0 #{-($big-level-height*6)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*6)};
+          }
+        }
+
+        &.brazo {
+          background-position:0 #{-($big-level-height*7)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*7)};
+          }
+        }
+
+        &.antebrazo {
+          background-position:0 #{-($big-level-height*8)};
+          
+          &:hover {
+            background-position:#{-($big-level-width)} #{-($big-level-height*8)};
+          }
+        }
+      }
+    }
+  
 }

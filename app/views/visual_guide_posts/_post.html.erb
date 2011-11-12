@@ -1,6 +1,7 @@
-<li class="post">
+<li class="post <%= cycle('', raw('odd ')) %><%= translate_category(post.categories[1]).downcase %>">
   <div>
-    <%= image_tag post.image.heading.url, :alt => post.title %>
+    <span class="video"></span>
+    
     <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
     <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
     <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
@@ -11,6 +12,7 @@
         <% end %>
       </ul>
     <% end %>
+    <%= link_to("", visual_guide_category_path(post.to_home_params), :class => css_class(post)) %>
   </div>
   <span class="shadow"></span>
 </li>

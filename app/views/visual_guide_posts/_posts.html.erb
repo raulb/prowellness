@@ -1,5 +1,7 @@
-<div>
-  <p>filtrar los vídeos mostrados</p>
+<%= stylesheet_link_tag 'search' %>
+
+<div class="search-box">
+  <h3>filtrar los vídeos mostrados</h3>
 
   <a href="#" class="toggle_filters">mostrar filtros</a>
 
@@ -34,9 +36,9 @@
   <%= visual_guide_posts_pagination(@posts, params[:category]) %>
 </div>
 
-<div>
+<ul class="videos">
   <%= render :partial => "post", :collection => @posts %>
-</div>
+</ul>
 
 <div>
   <%= visual_guide_posts_pagination(@posts, params[:category]) %>
