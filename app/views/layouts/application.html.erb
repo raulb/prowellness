@@ -268,14 +268,13 @@
                 <%= link_to("guía visual", visual_guide_path, :class => "#{'selected' if controller_name == 'visual_guide_posts'}") %>
                 <ul>
                   <li>
-                    <a href="#">editorial</a>
+                    <%= link_to("editorial", visual_guide_editorial_path) %>
                   </li>
                   <li>
-                    <a href="#">abdominales</a>
+                    <%= link_to('abdominales', visual_guide_category_path("abdominales")) %>
                   </li>
                   <li>
-                    <a href="#">estiramientos</a>
-                  </li>
+                    <%= link_to('estiramientos', visual_guide_category_path("estiramientos")) %>
                 </ul>
               </li>
               <li class="suboptions">
@@ -302,7 +301,6 @@
 
         </div>
       </div>
-
 
     </div>
   </footer>
