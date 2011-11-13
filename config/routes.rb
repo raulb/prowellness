@@ -10,6 +10,7 @@ Prowellness::Application.routes.draw do
 
   namespace :admin do
     root :to => redirect("/admin/posts")
+    resources :users, :except => [:new, :create]
     resources :posts, :except => [:show]
     resources :books, :only => [:index] do
       resources :book_videos

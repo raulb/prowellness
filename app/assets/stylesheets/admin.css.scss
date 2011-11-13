@@ -30,3 +30,26 @@ input[type="submit"] {margin-left:13%;}
 label {
   display: block;
 }
+
+/******* users table *****/
+
+table.users {
+  width: 100%;
+}
+
+table.users th {
+  background-color: black;
+  color: white;
+}
+
+table.users tr {
+  padding: 1.5em;
+}
+
+table.users td {
+  text-align: center;
+}
+
+#filters {
+  margin: 1.5em;
+}

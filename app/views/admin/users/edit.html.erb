@@ -1,0 +1,53 @@
+<%= flush_the_flash %>
+
+<div id="user_data" class="edit">
+  <header>
+    <h3>Editar usuario <%= @user.signature %></h3>
+  </header>
+  <%= form_for([:admin, @user]) do |f| %>
+    <div class="field">
+      <span class="avatar">
+        <%= image_tag @user.avatar.url %>
+      </span>
+      <%= f.label :avatar, "avatar" %>
+      <span class="file">
+        <p class="empty">Selecciona una imagen</p>
+        <%= f.file_field :avatar %>
+        <a class="update_img">selecciona</a>
+      </span>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-man-woman.png", :alt => 'Sex icon', :class=>'wide' %>
+      <label>elige el sexo</label>
+
+      <div class="options">
+        <%= f.radio_button :sex, 0, :class=>'styled' %>
+        <%= f.label :sex_0, "hombre" %>
+        <%= f.radio_button :sex, 1, :class=>'styled' %>
+        <%= f.label :sex_1, "mujer" %>
+      </div>
+    </div>
+    <div class="field">
+
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-name.png", :alt => 'Username icon' %>
+      <%= f.label :login, "nombre de usuario" %>
+      <%= f.text_field :login %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-name.png", :alt => 'Username icon' %>
+      <%= f.label :name_and_surname, "nombre y apellidos" %>
+      <%= f.text_field :name_and_surname %>
+    </div>
+    <div class="field">
+      <%= image_tag "user/icon-email.png", :alt => 'Email icon' %>
+      <%= f.label :email, "email" %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.check_box :newsletter, :class=>'styled' %><%= f.label :newsletter, "suscribir al boletín de noticias" %>
+    </div>
+    <%= f.submit "guardar datos" %>
+  <% end %>
+</div>

@@ -4,7 +4,7 @@ require 'texticle/searchable'
 
 class User < ActiveRecord::Base
 
-  extend Searchable(:login, :name_and_surname)
+  extend Searchable(:login, :name_and_surname, :email)
 
   attr_accessible :email, :password, :password_confirmation, :avatar,
                   :name_and_surname, :newsletter, :sex, :login

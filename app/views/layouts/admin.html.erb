@@ -16,6 +16,7 @@
   Hola <%= current_user.login %> · <%= link_to("volver al front", "/") %> · <%= link_to("salir", logout_path) %>
 </div>
 <div class="options">
+  <%= link_to_unless_current "Usuarios", admin_users_path %> ·
   <%= link_to_unless_current "Posts", admin_posts_path %> ·
   <%= link_to_unless_current "Crear nuevo post", new_admin_post_path %> ·
   <%= link_to_unless_current "Guía visual editorial", admin_books_path %>
