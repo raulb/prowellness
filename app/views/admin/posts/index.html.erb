@@ -1,13 +1,46 @@
-<div class="content">
-  <h2>Archivo de posts</h2>
-  <ul class="posts">
-    <% @posts.each do |post| %>
-    <li class="post">
-      <%= post_status(post) %> <%= link_to(post.title, post_path(post)) %> - <%= link_to('editar', edit_admin_post_path(post)) %> - Cat: <%= post.categories.join(', ') %>
-    </li>
-    <% end %>
-  </ul>
+<div id="filters">
+  <%= form_tag admin_posts_path, :method => :get do %>
+    <%= label_tag "q", "Buscar" %>
+    <%= search_field_tag "q", params[:q], :placeholder => "Introduce un término de búsqueda o un tag (tag:<nombredeltag>)", :size => 60  %>
 
-  <%= paginate @posts %>
+    <%= label_tag "from", "Fecha desde" %>
+    <%= select_date nil, {:order => [:day, :month, :year], :prefix => 'from', :prompt => true}, :class=>"xhidden" %>
+
+    <%= label_tag "to", "Fecha hasta" %>
+    <%= select_date nil, {:order => [:day, :month, :year], :prefix => 'to', :prompt => true}, :class=>"xhidden" %>
+
+    <%= label_tag "state", "Estado" %>
+    <%= select_tag "state", options_for_select([["Cualquier estado", nil], ["Borrador",0], ["Publicado", 1], ["Publicado en el futuro", 2]], params[:state]) %>
+
+    <%= label_tag "category", "Categoría" %>
+    <%= select_tag "category", options_for_select([""] + Post::CATEGORIES.map{|k,v| [k,v]}, params[:category]) %>
+
+    <%= submit_tag "Buscar" %> <%= link_to("Resetear búsqueda", admin_posts_path) %>
+  <% end %>
 </div>
+
+<table class="items">
+  <thead>
+    <th>Título</th>
+    <th>Autor</th>
+    <th>Categorías</th>
+    <th>Estado</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to(post.title, edit_admin_post_path(post)) %></td>
+      <td><%= post.user.signature %></td>
+      <td><%= post.categories.join(", ") %></td>
+      <td><%= post_status(post) %></td>
+      <td><%= link_to('editar', edit_admin_post_path(post)) %></td>
+      <td><%= link_to('eliminar', admin_post_path(post), :method => :delete, :confirm => '¿Estás seguro?') %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @posts %>
 

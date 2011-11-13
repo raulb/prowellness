@@ -33,21 +33,21 @@ label {
 
 /******* users table *****/
 
-table.users {
+table.items {
   width: 100%;
 }
 
-table.users th {
+table.items th {
   background-color: black;
   color: white;
 }
 
-table.users tr {
+table.items tr {
   padding: 1.5em;
 }
 
-table.users td {
-  text-align: center;
+table.items td {
+  text-align: left;
 }
 
 #filters {
