@@ -81,7 +81,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 1
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 1] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-2-estables", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 1] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-1-activacion", :user => admin
   putc '.'
   back_to_the_present
 end
@@ -89,7 +89,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 2
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 2] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-1-activacion", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 2] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-2-estables", :user => admin
   putc '.'
   back_to_the_present
 end
