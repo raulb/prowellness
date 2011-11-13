@@ -52,7 +52,8 @@ module ApplicationHelper
   end
 
   def posts_pagination(posts)
-    paginate(posts, :remote => true, :params => {:action => 'index', :controller => controller_name})
+    action_name = params[:action] == 'month_exercises' ? 'month_exercises' : 'index'
+    paginate(posts, :remote => true, :params => {:action => action_name, :controller => controller_name})
   end
 
   def visual_guide_posts_pagination(posts, category)
@@ -92,7 +93,7 @@ module ApplicationHelper
           ["antebrazo", "antebrazo"]
         ]
     end
-    select_tag("subcategory",options_for_select(options, subcategory), :class => 'custom-select') 
+    select_tag("subcategory",options_for_select(options, subcategory), :class => 'custom-select')
   end
 
   def nice_slug(str)
