@@ -223,7 +223,8 @@ class Post < ActiveRecord::Base
   end
 
   def self.get_last_ejercicio_del_mes
-    filter_by_category("ejercicio-del-mes").order_by_publish_date.select("id,slug,categories,title,state,image").first
+    @get_last_ejercicio_del_mes ||=
+      filter_by_category("ejercicio-del-mes").order_by_publish_date.select("id,slug,categories,title,state,image").first
   end
 
   def incr_visits!
