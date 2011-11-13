@@ -29,6 +29,12 @@ $spacing:30px;
     float:left; margin-right:15px;
   }
   
+  &.month-exercises {
+    h2 {
+      width:90%;
+    }
+  }
+  
   h2 {
     width:100%; margin-top:4px;
 
@@ -68,6 +74,32 @@ $spacing:30px;
       width:665px;
       border:1px solid $border-info-color;
       float:left; z-index:10;
+    }
+    
+    .band-date {
+      position:absolute;
+      top:-8px;
+      right:7px;
+      width:48px;
+      height:45px;
+      z-index:20;
+      padding:6px 7px 0 0;
+      background:url(articles/date-articles-list.png) no-repeat 0 0;
+      
+      p {
+        float:left; margin:0;
+        color:white; letter-spacing:-1.0px;
+        font:normal 2em/0.9em AbadiCondensed; width:100%; text-align:center;
+
+        &.month {
+          font:normal 1.7em/0.8em AbadiCondensed;
+          text-transform:uppercase;
+        }
+        &.year {
+          font:normal 1.3em/1em AbadiCondensed;
+        }
+      }
+      
     }
     
     .post {
@@ -134,6 +166,7 @@ $spacing:30px;
       height:40px;
       width:659px;
       padding:10px 15px;
+      position:relative;
       
       h4 {
         width:100%;
@@ -157,7 +190,31 @@ $spacing:30px;
         background-color:white;        
       }
       
-      
+      .band-date {
+        background-color:$bg-tags-color;
+        @include border-radius(3px);
+        width:46px;
+        height:42px;
+        position:absolute;
+        top:8px;
+        right:15px;
+        
+        p {
+          float:left; margin:0;
+          color:white; letter-spacing:-1.0px;
+          font:normal 2em/0.9em AbadiCondensed; width:100%; text-align:center;
+
+          &.month {
+            font:normal 1.7em/0.8em AbadiCondensed;
+            text-transform:uppercase;
+            margin-top:6px;
+          }
+          &.year {
+            font:normal 1.3em/1em AbadiCondensed;
+          }
+        }
+        
+      }
     }
   }
 }
@@ -287,6 +344,21 @@ $spacing:30px;
       &.year {
         font:normal 1.6em/1em AbadiCondensed;
       }
+    }
+    
+    &.month-exercise {
+      
+      height:59px;
+      
+      p {
+        &.day {
+          display:none;
+        }
+        &.month {
+          margin-top:11px;
+        } 
+      }
+      
     }
   }
   

@@ -159,6 +159,54 @@ end
 end
 
 back_to_the_present
+time_travel_to "11 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "10 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "9 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "8 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "7 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "6 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "5 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
+time_travel_to "4 months ago"
+create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
+putc '.'
+back_to_the_present
+
+back_to_the_present
 time_travel_to "3 months ago"
 create_post :title => "[Artículos] [Fitness] [Ejercicio del mes] Ejercicios del mes de #{Date.today.month}", :categories => "articulos,fitness,ejercicio-del-mes", :user => admin
 putc '.'

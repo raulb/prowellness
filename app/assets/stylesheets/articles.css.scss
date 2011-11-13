@@ -8,7 +8,7 @@
   border:1px solid $border-info-color;
   position:relative;
   
-  #slider {
+  #slider,.no-slider  {
     float:left;
     width:665px;
     height:401px;
@@ -105,7 +105,31 @@
   	  background-position:right -24px;
   	}
   }
+  
+  .band-date {
+    position:absolute;
+    top:170px;
+    right:-43px;
+    width:81px;
+    height:54px;
+    z-index:20;
+    padding:21px 3px 0;
+    background:url(articles/date-article-main.png) no-repeat 0 0;
     
+    p {
+      float:left; margin:0;
+      color:white; letter-spacing:-1.0px;
+      font:normal 2em/0.9em AbadiCondensed; width:100%; text-align:center;
+
+      &.month {
+        font:normal 2.1em/0.8em AbadiCondensed;
+        text-transform:uppercase;
+      }
+      &.year {
+        font:normal 1.8em/1em AbadiCondensed;
+      }
+    }
+  }
 }
 
 .posts {

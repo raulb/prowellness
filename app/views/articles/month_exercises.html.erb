@@ -5,7 +5,16 @@
 
 <% if @main_post %>
 <div class="main_post">
-  <div id="slider" class="nivoSlider">
+  <div class="no-slider">
+    <span class="band-date">
+      <p class="month"><%= @main_post.publish_date.strftime("%b") %></p>
+      <p class="year"><%= @main_post.publish_date.strftime("%Y") %></p>
+    </span>
+    <div class="nivo-caption" style="opacity: 0.8;">
+      <h2 style="display: block;"><%= @main_post.title %></h2>
+      <%= link_to "leer más", post_path(@main_post) %>
+    </div>
+    
     <a href="<%= post_path(@main_post) %>">
       <%= image_tag @main_post.image.rollover.url, :title=> @main_post.title, :alt=> @main_post.excerpt+'...', :link=> post_path(@main_post) %>
     </a>
@@ -14,13 +23,17 @@
 </div>
 <% end %>
 
-<ul class="posts articles">
+<ul class="posts articles month-exercises">
   <% @posts.each do |post| %>
     <li class="post">
       <div>
+        <span class="band-date">
+          <p class="month"><%= post.publish_date.strftime("%b") %></p>
+          <p class="year"><%= post.publish_date.strftime("%Y") %></p>
+        </span>
         <%= image_tag post.image.heading.url, :alt => post.title %>
         <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
-        <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
+        <p class="date">por <%= post.user.signature %></p>
         <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
         <% if !post.tags.nil? %>
           <ul class="tags">
