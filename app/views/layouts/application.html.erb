@@ -166,11 +166,11 @@
         </div>
 
         <div class="info-box articles">
-          <h3>los <em><%= Post.find_more_visited.length %></em> artículos más vistos</h3>
+          <h3>los <em><%= Post.find_more_visited('articulos').length %></em> artículos más vistos</h3>
           <h4>durante el último mes</h4>
           <span class="kind-box"></span>
           <ul>
-            <% Post.find_more_visited.each_with_index do |post, i| %>
+            <% Post.find_more_visited('articulos').each_with_index do |post, i| %>
             <li <%= cycle('', raw('class="odd"')) %>><p><%= i+1 %>.</p><%= link_to(post.title, post_path(post)) %></li>
             <% end %>
           </ul>
@@ -183,8 +183,8 @@
 
           <div class="band">
             <%= link_to(image_tag(Post.get_last_ejercicio_del_mes.image.ejercicio_del_mes.url,
-            :alt => Post.get_last_ejercicio_del_mes.title), post_path(Post.get_last_ejercicio_del_mes)) %>
-
+                                  :alt => Post.get_last_ejercicio_del_mes.title),
+                        post_path(Post.get_last_ejercicio_del_mes)) %>
             <h4><%= link_to(Post.get_last_ejercicio_del_mes.title, post_path(Post.get_last_ejercicio_del_mes)) %></h4>
           </div>
           <!-- <span class="kind-box"></span> -->
@@ -203,17 +203,15 @@
         </div>
 
         <div class="info-box last-videos">
-          <h3>los <em>5</em> vídeos más vistos</h3>
+          <h3>los <em><%= Post.find_more_visited('guia-visual').length %></em> vídeos más vistos</h3>
           <h4>durante el último mes</h4>
           <span class="kind-box"></span>
           <ul>
-            <li><p>1.</p><a href="#">Abdominales, 5 rutinas para tu cuerpo <span>(fitness)</span></a></li>
-            <li class="odd"><p>2.</p><a href="#">Hacer la compra, para una alimentación equilibrada <span>(nutrición)</span></a></li>
-            <li><p>3.</p><a href="#">La anemia, cómo evitarla <span>(fitness)</span></a></li>
-            <li class="odd"><p>4.</p><a href="#">Estrategias nutricionales para triatlón <span>(nutrición)</span></a></li>
-            <li><p>5.</p><a href="#">4 errores de entrenamiento que no te permiten perder peso <span>(fitness)</span></a></li>
+            <% Post.find_more_visited('guia-visual').each_with_index do |post, i| %>
+            <li <%= cycle('', raw('class="odd"')) %>><p><%= i+1 %>.</p><%= link_to(raw(post.title + ' <span>(' + translate_category(post.categories.last).downcase + ')</span>'), post_path(post)) %></li>
+            <% end %>
           </ul>
-          <a href="#" class="more">ver más vídeos</a>
+          <a href="<%= visual_guide_path %>" class="more">ver más vídeos</a>
         </div>
       </aside>
 
