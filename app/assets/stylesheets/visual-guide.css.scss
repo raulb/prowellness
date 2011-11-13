@@ -125,6 +125,16 @@ $big-level-width:124px;
       margin-top:10px;
       width:$inside-post;
       font:normal 1.4em AbadiCondensed;
+      
+      a {
+        color:darken($font-color-green,10%);
+        font:normal 1em AbadiCondensed;
+        text-decoration:none;
+        
+        &:hover {
+          color:darken($font-color-green,30%);
+        }
+      }
     }
     
     .date {
@@ -515,15 +525,19 @@ $big-level-width:124px;
 
 .videos {
   float:left;
-  margin-top:50px;
 }
 
-.search-box {
 
+
+.search-box {
 
   .pagination {
     @include border-top-none;  
     @include border-bottom-right-none;
   }
   
+}
+
+.search-box + .videos {
+ margin-top:40px; 
 }

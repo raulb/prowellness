@@ -22,7 +22,7 @@
             <span class="video">
 
             </span>
-            <h4><%= translate_category(category) %></h4>
+            <h4><%= link_to(translate_category(category), visual_guide_category_path(category)) %></h4>
             <h2><%= link_to(post.title, post_path(post)) %></h2>
             <p class="date">por <%= post.user.signature %></p>
             <%= simple_format(post.excerpt) %>
