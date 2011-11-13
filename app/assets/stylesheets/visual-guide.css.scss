@@ -40,9 +40,16 @@ $big-level-width:124px;
 
 .videos {
 
+  &.no-category {
+    h2 {
+
+      margin-top:10px;
+    }
+  }
   
   h2 {
-    width:100%; margin-top:4px;
+    float:left;
+    width:100%; margin-top:0px;
 
     a {
       font:normal 1.9em YanoneKaffeesatzRegular;
@@ -426,5 +433,97 @@ $big-level-width:124px;
         }
       }
     }
+  
+}
+
+.pagination {
+  background-color:lighten($bg-black-normal,15%);
+  @include border-radius(10px);
+  padding-top:6px;
+  height:22px;
+  
+  text-align:center;
+  
+  span {
+    color:$bg-black-normal;
+    
+    &.current {
+      with:100%; height:100%; text-align:center;
+      background-color:$bg-pag-current;
+      color:white; 
+      padding:3px 7px;
+      font:normal 1em Arial;
+      @include border-radius(3px);
+    }
+    
+    &.first {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat -33px 1px white;
+        padding-top:3px;
+        padding-left:16px;
+      }
+    }
+    
+    &.prev {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat -33px -17px white;
+        padding-top:3px;
+        padding-left:16px;
+      }
+      margin:0 5px;
+    }
+    
+    
+    &.next {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat -50px -17px white;
+        padding-top:3px;
+        padding-left:16px;
+      }
+      margin:0 5px;
+    }
+    
+    &.last {
+
+      a {
+        background:url(application/page-arrows.png) no-repeat -50px 1px white;
+        padding-top:3px;
+        padding-left:16px;
+      }
+    }
+    
+    a {
+      with:100%; height:100%; text-align:center;
+      background-color:white; 
+      padding:3px 7px;
+      font:normal 1em Arial; color:$bg-pag-normal;
+      @include border-radius(3px);
+      
+      text-decoration:none;
+      
+      &:hover {
+        background-color:lighten($bg-pag-normal,60%);
+      }
+    }
+    
+    
+  }
+}
+
+.videos {
+  float:left;
+  margin-top:50px;
+}
+
+.search-box {
+
+
+  .pagination {
+    @include border-top-none;  
+    @include border-bottom-right-none;
+  }
   
 }

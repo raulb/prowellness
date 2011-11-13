@@ -75,6 +75,21 @@
     }
   }
   
+  &.abdo-levels {
+    h2 {
+      float:left; 
+      font:normal 4.7rem YanoneKaffeesatzRegular;
+      color:$bg-blue-darkest;
+      margin:15px 0 0 20px;
+      padding-bottom:10px;
+    }
+    
+    p {
+      margin:0 0 0 20px;
+      width:100%;
+    }
+  }
+  
   &.window-send-book {
     
     height:593px;

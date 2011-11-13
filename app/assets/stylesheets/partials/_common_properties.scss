@@ -101,6 +101,7 @@ $bg-pag-current:#FF0000;
   border-bottom-left-radius: $radius;
 }
 
+
 @mixin border-left-none($radius:0) {
   @include border-top-left-none();
   @include border-bottom-left-none();
@@ -110,6 +111,11 @@ $bg-pag-current:#FF0000;
   -webkit-border-top-right-radius: $radius;
   -moz-border-radius-topright: $radius;
   border-top-right-radius: $radius;
+}
+
+@mixin border-top-none($radius:0) {
+  @include border-top-left-none();
+  @include border-top-right-none();
 }
 
 @mixin border-bottom-right-none($radius:0) {

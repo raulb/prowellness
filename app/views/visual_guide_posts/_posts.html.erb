@@ -1,6 +1,11 @@
-<%= stylesheet_link_tag 'search' %>
+<%= javascript_include_tag 'custom-form-elements','jquery.ui.datepicker-es' %>
+<%= stylesheet_link_tag 'search','ui-theme/jquery-ui','ui-theme/jquery.ui.datepicker','ui-theme/jquery.ui.theme' %>
 
-<div class="search-box">
+<% if params[:category] == 'abdominales' %>
+  <%= render :partial => "abdominal_levels" %>
+<% end %>
+
+<div class="search-box filters-hidden">
   <h3>filtrar los vídeos mostrados</h3>
 
   <a href="#" class="toggle_filters">mostrar filtros</a>
@@ -17,8 +22,7 @@
         <li>
           <%= label_tag "category", "Nivel" %>
           <%= select_visual_guide_subcategories(params[:category], params[:subcategory]) %>
-        </li>
-        <li>
+
           <%= label_tag "from", "Fecha desde" %>
           <input id="date_from" type="text" class="date" />
           <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'from'}, :class=>"hidden" %>
@@ -28,7 +32,11 @@
           <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'to'}, :class=>"hidden" %>
         </li>
       </ul>
-      <a href="#" class="toggle_filters">ocultar filtros</a>
+      <% if params[:category] == 'abdominales' %>
+        <%= link_to 'consulta qué nivel buscas', '#', :class => 'question', :onclick => "javascript:MODAL.open('#abdo-levels');" %>        
+      <% end %>
+      
+      <%= link_to "ocultar filtros", '#', :class => 'toggle_filters' %>
     </div>
 
   <% end %>
@@ -36,10 +44,9 @@
   <%= visual_guide_posts_pagination(@posts, params[:category]) %>
 </div>
 
-<ul class="videos">
+<ul class="videos no-category">
   <%= render :partial => "post", :collection => @posts %>
 </ul>
 
-<div>
-  <%= visual_guide_posts_pagination(@posts, params[:category]) %>
-</div>
+
+<%= visual_guide_posts_pagination(@posts, params[:category]) %>

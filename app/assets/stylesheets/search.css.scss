@@ -1,6 +1,40 @@
 @import "partials/common_properties";
 
 .search-box {
+
+  &.filters-hidden {
+    padding-bottom:0;
+
+    .filters {
+      margin-top:0;
+      padding-bottom:10px;
+      width:637px;
+      
+      ul {
+        margin-top:3px;
+      }
+      
+      label {
+        margin-top:3px;
+      }
+      
+      .question {
+        float:left;
+        background:url(search/ask-levels.png) no-repeat 0 0;
+        font:normal 1em Arial;
+        color:white;
+        text-decoration:underline;
+        padding:2px 0 8px 35px;
+        margin-top:10px;
+        
+        &:hover {
+          color:$font-color-orange;
+        }
+        
+      }
+    }
+  }
+
   float:left; 
   width:668px; 
   padding:10px 0 15px; 
@@ -95,7 +129,6 @@
     ul {
       float:left;
       width:100%;
-      
       li {
         float:left; 
         width:100%;
@@ -121,7 +154,7 @@
       float:left; 
       width:150px;
       height:13px;
-      padding:3px; 
+      padding:3px 6px; 
       @include border-radius(6px); 
       background-color:white;
       border:1px solid darken($bg-black-normal,20%);

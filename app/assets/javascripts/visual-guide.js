@@ -1,4 +1,9 @@
 jQuery(document).ready(function($) {
+  
+  if ($('.custom-select').length > 0){
+    $('.custom-select').sSelect();
+  }
+  
 	$('.filters').hide();
 
   $('.toggle_filters').live('click',function(e){

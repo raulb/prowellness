@@ -92,7 +92,7 @@ module ApplicationHelper
           ["antebrazo", "antebrazo"]
         ]
     end
-    select_tag("subcategory",options_for_select(options, subcategory))
+    select_tag("subcategory",options_for_select(options, subcategory), :class => 'custom-select') 
   end
 
   def nice_slug(str)

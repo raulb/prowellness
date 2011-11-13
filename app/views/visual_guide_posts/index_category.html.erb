@@ -1,7 +1,6 @@
-<%= stylesheet_link_tag "visual-guide" %>
-<%= javascript_include_tag 'visual-guide' %>
+<%= stylesheet_link_tag "visual-guide","stylish-select" %>
+<%= javascript_include_tag 'jquery.stylish-select.min','visual-guide' %>
 
 <%= render "site/header_page", :title => 'Guía visual de '+translate_category(params[:category]) %>
-
 
 <%= render :partial => "posts" %>
