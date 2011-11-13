@@ -59,7 +59,7 @@
   <%= f.select :categories, categories_for_select, { :include_blank => false, :prompt => "Selecciona una categoría" } %>
 
   <%= f.label :tags, "Tags" %>
-  <%= f.text_area :tags, :rows => 2, :cols => 40, :value => f.object.tags.join(",") %>
+  <%= f.text_area :tags, :rows => 2, :cols => 40, :value => f.object.tags.try(:join, ",") %>
 
   <br />
   <%= f.submit "Guardar como borrador", :name => :draft %>

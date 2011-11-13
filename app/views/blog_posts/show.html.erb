@@ -5,7 +5,7 @@
 <div id="header_article">
   <h3>
     <%= @post.title %>
-    <em>- por <%= @post.author.signature %></em>
+    <em>- por <%= @post.user.signature %></em>
   </h3>
   <div id="date">
     <p class="day"><%= @post.publish_date.strftime("%d") %></p>
