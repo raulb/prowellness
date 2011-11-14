@@ -75,7 +75,7 @@
     }
   }
   
-  &.abdo-levels {
+  &.abdo-levels, &.remember-pass {
     h2 {
       float:left; 
       font:normal 4.7rem YanoneKaffeesatzRegular;
@@ -89,6 +89,19 @@
       width:100%;
     }
   }
+
+   &.remember-pass {
+     height:275px;
+     
+     h2 {
+       margin-top:75px;
+     }
+
+     p {
+      margin:10px 0 0 170px;
+      width:520px;
+     }
+   }
   
   &.window-send-book {
     

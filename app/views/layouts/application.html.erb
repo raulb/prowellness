@@ -333,5 +333,12 @@
     </script>
   <% end %>
 
+  <!-- AÑADIR EL IF DEL FLASH QUE NOS DIGA QUE EL EMAIL DE RECORDAR CONTRASEÑA SE HA ENVIADO CORRECTAMENTE -->
+  <%= render :partial => "shared/password_sent_it" %>
+  <script type="text/javascript">
+      // MODAL.open('#remember_pass_sent_it');
+  </script>
+  
+
 </body>
 </html>
