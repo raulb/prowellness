@@ -20,7 +20,33 @@ jQuery(document).ready(function($) {
   }, function() {
     $(this).parent().children('p').hide();
   });
-
+  
+  $('.remember_pass').click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $('#login_form').hide();
+    $('#remember_password').show();
+    $('#remember_password').find('input[type="text"]').focus();
+    // To hide any element when it's clicked outside
+    $(document).click(function(event) {
+      if (!$(event.target).closest('li.login').length)
+      {
+        $('#remember_password').hide();
+      };
+    });
+    
+    
+    
+  });
+  
+  
+  $('.remember_cancel').click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $('#remember_password').hide();
+    $('#login_form').show();
+  });
+  
 
   // click over li element and navigate to its real link element
   $('.info-box ul li').click(function(event) {
@@ -36,10 +62,10 @@ jQuery(document).ready(function($) {
 
 
   // Showing login options
-  $('li.login').find('a').click(function(event) {
+  $('li.login').children('a.default').click(function(event) {
     event.preventDefault();
 
-    var el = $(this).parents('.login').children('.options');
+    var el = $(this).parents('.login').children('#login_form');
     showLoginWindow(el);
 
   });
@@ -71,18 +97,16 @@ function showLoginWindow(el){
     document.unbind('click');
   }else{
     
-    console.log(el);
-    
     el.show();
     $('#email').focus();
 
+    // To hide any element when it's clicked outside
     $(document).click(function(event) {
       if (!$(event.target).closest('li.login').length)
       {
         el.hide();
-        // document.unbind('click');
       };
     });
-    // To hide any element when it's clicked outside
+    
   }
 }

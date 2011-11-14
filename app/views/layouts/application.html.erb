@@ -89,14 +89,23 @@
               <li class="submenu login">
                 <%= link_to("login", "javascript:void(null)", :class=>'default') %>
 
-                <div class="options">
+                <div id="login_form" class="options">
                   <span class="main-option">
                     <%= link_to("login", "javascript:void(null)") %>
                   </span>
 
                   <%= render "layouts/login" %>
-
                 </div>
+
+                <div id="remember_password" class="options">
+                  <span class="main-option">
+                    <%= link_to("login", "javascript:void(null)") %>
+                  </span>
+
+                  <%= render "layouts/remember_password" %>
+                </div>
+                
+                
               </li>
             <% else %>
               <%= render :partial => 'layouts/logged_in' %>

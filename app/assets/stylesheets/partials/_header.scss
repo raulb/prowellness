@@ -104,6 +104,12 @@ nav {
               width:264px;
               height:216px;
               left:-120px;
+              
+              &#remember_password {
+                background:url(application/menu/remember-pass-bottom.png) no-repeat 0 0;
+                height:162px;
+                display:none;
+              }
             }
             
             form {
@@ -132,10 +138,10 @@ nav {
               }
               
             }
-            .remember_pass {
+            .remember_pass, .remember_cancel {
               float:left; width:auto; text-align:center; text-decoration:underline;
-              font:normal 0.9em Arial;
-              margin:7px 0 0 53px;
+              font:normal 1em Arial;
+              margin:4px 0 0 46px;
               padding:0;
               
               &:hover {
@@ -143,8 +149,11 @@ nav {
                 color:darken(white,25%);
                 @include box-shadow-none();
               }
-              
             }
+            .remember_cancel {
+              margin-left:88px;
+            }
+            
           }
           
           
