@@ -1,2 +1,11 @@
 $('#posts').html("<%= escape_javascript(render(:partial => "posts")) %>");
-$('.filters').hide();
+
+<!-- It's not too smart but... -->
+
+<!-- We should to reactive the select cusomization -->
+$('.newListSelected').remove();
+$('#subcategory').show();
+
+reload_page();
+
+

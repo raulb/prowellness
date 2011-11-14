@@ -1,15 +1,24 @@
 jQuery(document).ready(function($) {
-  $('.filters').hide();
+    
+  $('.toggle_filters').live('click',function(e){
+    $('.filters').slideToggle('fast');
+    e.stopPropagation(); e.preventDefault();
+  });
+  
+  // this function has all the necessary to recall the js stuf in each ajax pagination call
+  reload_page();
+  
+});
+
+
+function reload_page() {
 
   if ($('.custom-select').length > 0){
     $('.custom-select').sSelect();
   }
 
-  $('.toggle_filters').live('click',function(e){
-    $('.filters').slideToggle('fast');
-    e.stopPropagation(); e.preventDefault();
-  });
-
+  $('.filters').hide();
+    
   var dates = $( "#date_from, #date_to" ).datepicker({
     changeMonth: true,
     numberOfMonths: 1,
@@ -39,4 +48,9 @@ jQuery(document).ready(function($) {
 
       }
     },$.datepicker.regional["es"]);
-});
+    
+    $('.question').click(function(event) {
+      event.preventDefault();
+      MODAL.open('#abdo-levels');
+    });
+}

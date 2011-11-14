@@ -32,7 +32,7 @@ MODAL = {
 $(document).ready( function() {
 
   //if close button is clicked
-  $('.close').click(function (e) {
+  $('.close').live('click',function (e) {
      //Cancel the link behavior
      e.preventDefault();
 
@@ -41,12 +41,12 @@ $(document).ready( function() {
   });
 
   //if mask is clicked
-  $('.overlay-layer').click(function () {
+  $('.overlay-layer').live('click',function () {
     $('.modal-window').hide();
      $(this).hide();
   });
 
-  $('.modal-window .login').click(function(event) {
+  $('.modal-window .login').live('click',function(event) {
     $('.overlay-layer').hide();
      $('.modal-window').hide();
     $('li.login .options').show();
