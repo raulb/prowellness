@@ -53,3 +53,47 @@ table.items td {
 #filters {
   margin: 1.5em;
 }
+
+#post_excerpt,#post_tags {
+  height:80px;
+}
+
+#post_body {
+  height:500px;
+}
+
+/** WYSIWYG styles **/
+[data-wysihtml5-dialog] {
+    margin: 5px 0 0;
+    padding: 5px;
+    border: 1px solid #666;
+  }
+  #toolbar,
+  textarea {
+    width: 850px;
+    padding: 5px;
+    box-sizing: boder-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 280px;
+    border: 2px solid green;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+
+  textarea.text{
+    width:827px;
+    height:80px;
+  }
+  
+  textarea:focus {
+    color: black;
+    border: 2px solid black;
+  }  
+.wysihtml5-sandbox {
+  border-color:black;
+}

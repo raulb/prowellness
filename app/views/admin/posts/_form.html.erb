@@ -18,6 +18,8 @@
     <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> |
     <a data-wysihtml5-command="insertUnorderedList">UnorderedList</a> |
     <a data-wysihtml5-command="insertOrderedList">UnorderedList</a>
+    <a data-wysihtml5-command="insertVideo">insert video</a> |
+    <a data-wysihtml5-command="insertEmbedVideo">insert embed video</a> |    
     <a data-wysihtml5-action="change_view">html view</a>
 
 
@@ -41,6 +43,33 @@
           <option value="wysiwyg-float-left">left</option>
           <option value="wysiwyg-float-right">right</option>
         </select>
+      </label>
+      <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+    </div>
+
+    <!-- Insert embed video code dialog -->
+    <div data-wysihtml5-dialog="insertEmbedVideo" style="display: none;">
+      <label>
+        Video embed code:
+        <!-- we could add the following to our new textarea: <iframe src="http://player.vimeo.com/video/13728146?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
+        <textarea data-wysihtml5-dialog-field="src" class="text"></textarea>
+      </label>
+      <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+    </div>
+   
+    <!-- Insert video dialog -->
+    <div data-wysihtml5-dialog="insertVideo" style="display: none;">
+      <label>
+        Video source:
+        <input data-wysihtml5-dialog-field="src" value="" class="text">        
+      </label>
+      <label>
+        Width:
+        <input data-wysihtml5-dialog-field="width" value="400" class="text">
+      </label>
+      <label>
+        Height:
+        <input data-wysihtml5-dialog-field="height" value="225" class="text">        
       </label>
       <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
     </div>

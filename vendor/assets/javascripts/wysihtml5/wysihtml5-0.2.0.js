@@ -226,7 +226,6 @@ var rangy = (function() {
         this.initialized = false;
         this.supported = false;
     }
-
     Module.prototype.fail = function(reason) {
         this.initialized = true;
         this.supported = false;
@@ -2994,143 +2993,143 @@ rangy.createModule("DomUtil", function(api, module) {
     });
 });
 /*
-	Base.js, version 1.1a
-	Copyright 2006-2010, Dean Edwards
-	License: http://www.opensource.org/licenses/mit-license.php
+    Base.js, version 1.1a
+    Copyright 2006-2010, Dean Edwards
+    License: http://www.opensource.org/licenses/mit-license.php
 */
 
 var Base = function() {
-	// dummy
+    // dummy
 };
 
 Base.extend = function(_instance, _static) { // subclass
-	var extend = Base.prototype.extend;
-	
-	// build the prototype
-	Base._prototyping = true;
-	var proto = new this;
-	extend.call(proto, _instance);
+    var extend = Base.prototype.extend;
+    
+    // build the prototype
+    Base._prototyping = true;
+    var proto = new this;
+    extend.call(proto, _instance);
   proto.base = function() {
     // call this method from any other method to invoke that method's ancestor
   };
-	delete Base._prototyping;
-	
-	// create the wrapper for the constructor function
-	//var constructor = proto.constructor.valueOf(); //-dean
-	var constructor = proto.constructor;
-	var klass = proto.constructor = function() {
-		if (!Base._prototyping) {
-			if (this._constructing || this.constructor == klass) { // instantiation
-				this._constructing = true;
-				constructor.apply(this, arguments);
-				delete this._constructing;
-			} else if (arguments[0] != null) { // casting
-				return (arguments[0].extend || extend).call(arguments[0], proto);
-			}
-		}
-	};
-	
-	// build the class interface
-	klass.ancestor = this;
-	klass.extend = this.extend;
-	klass.forEach = this.forEach;
-	klass.implement = this.implement;
-	klass.prototype = proto;
-	klass.toString = this.toString;
-	klass.valueOf = function(type) {
-		//return (type == "object") ? klass : constructor; //-dean
-		return (type == "object") ? klass : constructor.valueOf();
-	};
-	extend.call(klass, _static);
-	// class initialisation
-	if (typeof klass.init == "function") klass.init();
-	return klass;
+    delete Base._prototyping;
+    
+    // create the wrapper for the constructor function
+    //var constructor = proto.constructor.valueOf(); //-dean
+    var constructor = proto.constructor;
+    var klass = proto.constructor = function() {
+        if (!Base._prototyping) {
+            if (this._constructing || this.constructor == klass) { // instantiation
+                this._constructing = true;
+                constructor.apply(this, arguments);
+                delete this._constructing;
+            } else if (arguments[0] != null) { // casting
+                return (arguments[0].extend || extend).call(arguments[0], proto);
+            }
+        }
+    };
+    
+    // build the class interface
+    klass.ancestor = this;
+    klass.extend = this.extend;
+    klass.forEach = this.forEach;
+    klass.implement = this.implement;
+    klass.prototype = proto;
+    klass.toString = this.toString;
+    klass.valueOf = function(type) {
+        //return (type == "object") ? klass : constructor; //-dean
+        return (type == "object") ? klass : constructor.valueOf();
+    };
+    extend.call(klass, _static);
+    // class initialisation
+    if (typeof klass.init == "function") klass.init();
+    return klass;
 };
 
-Base.prototype = {	
-	extend: function(source, value) {
-		if (arguments.length > 1) { // extending with a name/value pair
-			var ancestor = this[source];
-			if (ancestor && (typeof value == "function") && // overriding a method?
-				// the valueOf() comparison is to avoid circular references
-				(!ancestor.valueOf || ancestor.valueOf() != value.valueOf()) &&
-				/\bbase\b/.test(value)) {
-				// get the underlying method
-				var method = value.valueOf();
-				// override
-				value = function() {
-					var previous = this.base || Base.prototype.base;
-					this.base = ancestor;
-					var returnValue = method.apply(this, arguments);
-					this.base = previous;
-					return returnValue;
-				};
-				// point to the underlying method
-				value.valueOf = function(type) {
-					return (type == "object") ? value : method;
-				};
-				value.toString = Base.toString;
-			}
-			this[source] = value;
-		} else if (source) { // extending with an object literal
-			var extend = Base.prototype.extend;
-			// if this object has a customised extend method then use it
-			if (!Base._prototyping && typeof this != "function") {
-				extend = this.extend || extend;
-			}
-			var proto = {toSource: null};
-			// do the "toString" and other methods manually
-			var hidden = ["constructor", "toString", "valueOf"];
-			// if we are prototyping then include the constructor
-			var i = Base._prototyping ? 0 : 1;
-			while (key = hidden[i++]) {
-				if (source[key] != proto[key]) {
-					extend.call(this, key, source[key]);
+Base.prototype = {  
+    extend: function(source, value) {
+        if (arguments.length > 1) { // extending with a name/value pair
+            var ancestor = this[source];
+            if (ancestor && (typeof value == "function") && // overriding a method?
+                // the valueOf() comparison is to avoid circular references
+                (!ancestor.valueOf || ancestor.valueOf() != value.valueOf()) &&
+                /\bbase\b/.test(value)) {
+                // get the underlying method
+                var method = value.valueOf();
+                // override
+                value = function() {
+                    var previous = this.base || Base.prototype.base;
+                    this.base = ancestor;
+                    var returnValue = method.apply(this, arguments);
+                    this.base = previous;
+                    return returnValue;
+                };
+                // point to the underlying method
+                value.valueOf = function(type) {
+                    return (type == "object") ? value : method;
+                };
+                value.toString = Base.toString;
+            }
+            this[source] = value;
+        } else if (source) { // extending with an object literal
+            var extend = Base.prototype.extend;
+            // if this object has a customised extend method then use it
+            if (!Base._prototyping && typeof this != "function") {
+                extend = this.extend || extend;
+            }
+            var proto = {toSource: null};
+            // do the "toString" and other methods manually
+            var hidden = ["constructor", "toString", "valueOf"];
+            // if we are prototyping then include the constructor
+            var i = Base._prototyping ? 0 : 1;
+            while (key = hidden[i++]) {
+                if (source[key] != proto[key]) {
+                    extend.call(this, key, source[key]);
 
-				}
-			}
-			// copy each of the source object's properties to this object
-			for (var key in source) {
-				if (!proto[key]) extend.call(this, key, source[key]);
-			}
-		}
-		return this;
-	}
+                }
+            }
+            // copy each of the source object's properties to this object
+            for (var key in source) {
+                if (!proto[key]) extend.call(this, key, source[key]);
+            }
+        }
+        return this;
+    }
 };
 
 // initialise
 Base = Base.extend({
-	constructor: function() {
-		this.extend(arguments[0]);
-	}
+    constructor: function() {
+        this.extend(arguments[0]);
+    }
 }, {
-	ancestor: Object,
-	version: "1.1",
-	
-	forEach: function(object, block, context) {
-		for (var key in object) {
-			if (this.prototype[key] === undefined) {
-				block.call(context, object[key], key, object);
-			}
-		}
-	},
-		
-	implement: function() {
-		for (var i = 0; i < arguments.length; i++) {
-			if (typeof arguments[i] == "function") {
-				// if it's a function, call it
-				arguments[i](this.prototype);
-			} else {
-				// add the interface using the extend method
-				this.prototype.extend(arguments[i]);
-			}
-		}
-		return this;
-	},
-	
-	toString: function() {
-		return String(this.valueOf());
-	}
+    ancestor: Object,
+    version: "1.1",
+    
+    forEach: function(object, block, context) {
+        for (var key in object) {
+            if (this.prototype[key] === undefined) {
+                block.call(context, object[key], key, object);
+            }
+        }
+    },
+        
+    implement: function() {
+        for (var i = 0; i < arguments.length; i++) {
+            if (typeof arguments[i] == "function") {
+                // if it's a function, call it
+                arguments[i](this.prototype);
+            } else {
+                // add the interface using the extend method
+                this.prototype.extend(arguments[i]);
+            }
+        }
+        return this;
+    },
+    
+    toString: function() {
+        return String(this.valueOf());
+    }
 });/**
  * Detect browser support for specific features
  *
@@ -5737,6 +5736,14 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     },
 
     /**
+     * Split embed object
+     */
+    getVideoObject: function(code) {
+      var videoObject;
+      return videoObject;
+    },
+
+    /**
      * Get the node which contains the selection
      *
      * @param {Object} document Document object of the context where to select
@@ -6039,7 +6046,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
           win       = doc.defaultView || doc.parentWindow,
           selection = rangy.getSelection(win);
       return selection.setSingleRange(range);
-    }
+    }    
   };
   
 })(wysihtml5);
@@ -7349,6 +7356,8 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
  *        // do something
  *      });
  *    </script>
+ *
+ *    It works with every pair (insertVideo in advanced.html)
  */
 (function(wysihtml5) {
   var dom                     = wysihtml5.dom,
@@ -7547,7 +7556,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     outline:    0,
     padding:    0,
     position:   "absolute",
-    right:      "-12px",
+    right:      "-4px",
     top:        "50%"
   };
   
@@ -8555,7 +8564,155 @@ wysihtml5.commands = {
       return image && image.src;
     }
   };
-})(wysihtml5);(function(wysihtml5) {
+})(wysihtml5);
+
+/**
+    Insert video
+**/
+(function(wysihtml5) {
+  var NODE_NAME = "IFRAME";
+  
+  wysihtml5.commands.insertVideo = {
+    /**
+     * Inserts an <img>
+     * If selection is already an image link, it removes it
+     * 
+     * @example
+     *    // either ...
+     *    wysihtml5.commands.insertVideo.exec(element, "insertVideo", "http://www.google.de/logo.jpg");
+     *    // ... or ...
+     *    wysihtml5.commands.insertVideo.exec(element, "insertVideo", { src: "http://www.google.de/logo.jpg", width: "400"... });
+     */
+    exec: function(element, command, value) {
+      value = typeof(value) === "object" ? value : { src: value };
+ // valueObject { src="http://player.vimeo.com...portrait=0&color=ff9933",  width="400",  height="225"}
+      var doc   = element.ownerDocument,
+          video = this.state(element),
+          i,
+          parent;
+
+      if (video) {
+        // Video already selected, set the caret before it and delete it
+        wysihtml5.selection.setBefore(video);
+        parent = video.parentNode;
+        parent.removeChild(video);
+
+        // and it's parent <a> too if it hasn't got any other relevant child nodes
+        wysihtml5.dom.removeEmptyTextNodes(parent);
+        if (parent.nodeName === "A" && !parent.firstChild) {
+          wysihtml5.selection.setAfter(parent);
+          parent.parentNode.removeChild(parent);
+        }
+
+        // firefox and ie sometimes don't remove the video handles, even though the image got removed
+        wysihtml5.quirks.redraw(element);
+        return;
+      }
+
+      video = doc.createElement(NODE_NAME);
+
+      for (i in value) {
+        video[i] = value[i];
+      }
+
+      wysihtml5.selection.insertNode(video);
+      wysihtml5.selection.setAfter(video);
+    },
+
+    state: function(element) {
+      var doc = element.ownerDocument,
+          selectedNode,
+          text,
+          videosInSelection;
+
+      if (!wysihtml5.dom.hasElementWithTagName(doc, NODE_NAME)) {
+        return false;
+      }
+
+      selectedNode = wysihtml5.selection.getSelectedNode(doc);
+      if (!selectedNode) {
+        return false;
+      }
+
+      if (selectedNode.nodeName === NODE_NAME) {
+        // This works perfectly in IE
+        return selectedNode;
+      }
+
+      if (selectedNode.nodeType !== wysihtml5.ELEMENT_NODE) {
+        return false;
+      }
+
+      text = wysihtml5.selection.getText(doc);
+      text = wysihtml5.lang.string(text).trim();
+      if (text) {
+        return false;
+      }
+
+      videosInSelection = wysihtml5.selection.getNodes(doc, wysihtml5.ELEMENT_NODE, function(node) {
+        return node.nodeName === "IFRAME";
+      });
+
+      if (videosInSelection.length !== 1) {
+        return false;
+      }
+
+      return videosInSelection[0];
+    },
+
+    value: function(element) {
+      var video = this.state(element);
+      return video && video.src;
+    }
+  };
+})(wysihtml5);
+
+
+/**
+    Insert Embed video
+**/
+(function(wysihtml5) {
+  var NODE_NAME = "IFRAME";
+  
+  wysihtml5.commands.insertEmbedVideo = {
+    /**     
+     * @example
+     *    // either ...
+     *    wysihtml5.commands.insertVideo.exec(element, "insertVideo", "http://www.google.de/logo.jpg");
+     *    // ... or ...
+     *    wysihtml5.commands.insertVideo.exec(element, "insertVideo", { src: "http://www.google.de/logo.jpg", width: "400"... });
+     */
+    exec: function(element, command, value) {
+      var code = value.src;
+      value = Object.create({
+                  'src' : wysihtml5.commands.getAttributeValue.exec(code,"src"),
+                  'width': wysihtml5.commands.getAttributeValue.exec(code,"width"),
+                  'height': wysihtml5.commands.getAttributeValue.exec(code,"height")
+              });
+
+      wysihtml5.commands.insertVideo.exec(element, command, value);
+    },
+
+    state: function(element) {
+      wysihtml5.commands.insertVideo.state(element);
+    },
+
+    value: function(element) {
+      wysihtml5.commands.insertVideo.value(element);
+    }
+  };
+})(wysihtml5);
+
+// This function parses a string code with each parameter that it's required
+(function(wysihtml5) {
+  wysihtml5.commands.getAttributeValue = {
+    exec: function (code,attr){
+      return code.substring(parseInt(code.indexOf(attr))+attr.length + 2,code.length).split("\" ")[0];
+    }  
+  };
+})(wysihtml5);
+
+(function(wysihtml5) {
   var undef,
       LINE_BREAK = "<br>" + (wysihtml5.browser.needsSpaceAfterLineBreak() ? " " : "");
   
@@ -8579,7 +8736,9 @@ wysihtml5.commands = {
       return undef;
     }
   };
-})(wysihtml5);(function(wysihtml5) {
+})(wysihtml5);
+
+(function(wysihtml5) {
   var undef;
   
   wysihtml5.commands.insertOrderedList = {
