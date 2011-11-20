@@ -23,7 +23,9 @@ class Admin::PostsController < ApplicationController
       posts = posts.where("publish_date <= ?", to)
     end
     unless params[:category].blank?
-      posts = posts.filter_by_category(params[:category])
+      params[:category].split(",").each do |category|
+        posts = posts.filter_by_category(category.strip)
+      end
     end
     unless params[:state].blank?
       posts = posts.where(:state => params[:state])
