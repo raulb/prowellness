@@ -19,7 +19,7 @@
     <a data-wysihtml5-command="insertUnorderedList">UnorderedList</a> |
     <a data-wysihtml5-command="insertOrderedList">UnorderedList</a>
     <a data-wysihtml5-command="insertVideo">insert video</a> |
-    <a data-wysihtml5-command="insertEmbedVideo">insert embed video</a> |    
+    <a data-wysihtml5-command="insertEmbedVideo">insert embed video</a> |
     <a data-wysihtml5-action="change_view">html view</a>
 
 
@@ -57,12 +57,12 @@
       </label>
       <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
     </div>
-   
+
     <!-- Insert video dialog -->
     <div data-wysihtml5-dialog="insertVideo" style="display: none;">
       <label>
         Source del vídeo:
-        <input data-wysihtml5-dialog-field="src" value="" class="text">        
+        <input data-wysihtml5-dialog-field="src" value="" class="text">
       </label>
       <label>
         Width:
@@ -70,7 +70,7 @@
       </label>
       <label>
         Height:
-        <input data-wysihtml5-dialog-field="height" value="233" class="text">        
+        <input data-wysihtml5-dialog-field="height" value="233" class="text">
       </label>
       <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
     </div>
@@ -86,7 +86,7 @@
   <% end %>
 
   <%= f.label :categories, "Categoría" %>
-  <%= f.select :categories, categories_for_select, { :include_blank => false, :prompt => "Selecciona una categoría" } %>
+  <%= f.select :categories, categories_for_select, { :include_blank => false, :prompt => "Selecciona una categoría", :selected => (f.object.categories.nil? ? nil : f.object.categories.join(",")) } %>
 
   <%= f.label :tags, "Tags" %>
   <%= f.text_area :tags, :rows => 2, :cols => 40, :value => f.object.tags.try(:join, ",") %>
