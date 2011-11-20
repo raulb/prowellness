@@ -11,6 +11,12 @@ class ArticlesController < PostsController
         format.html { render "index_category" }
         format.js   { render "posts/index" }
       end
+    elsif params[:categories] && params[:slug]
+      @post = Post.find_by_slug(params[:slug])
+      @other_posts = Post.other_articles(:category => @post.categories.last, :page => params[:page], :exclude_ids => [@post.id])
+      respond_to do |format|
+        format.js   { render "posts/index" }
+      end
     else
       @main_posts = Post.get_last_5_articles
       @posts = Post.get_last_articles(3, @main_posts.map(&:id))
@@ -26,7 +32,7 @@ class ArticlesController < PostsController
   end
 
   def show
-    @other_posts = Post.other_articles(:page => params[:page])
+    @other_posts = Post.other_articles(:page => params[:page], :category => @post.categories.last)
     respond_to do |format|
       format.html
     end
