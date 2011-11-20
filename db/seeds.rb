@@ -81,7 +81,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 1
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 1] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-1-activacion", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 1] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-1-activacion", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -89,7 +89,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 2
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 2] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-2-estables", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 2] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-2-estables", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -97,7 +97,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 3
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 3] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-3-en-apoyo", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 3] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-3-en-apoyo", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -105,7 +105,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 4
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 4] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-4-con-material", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 4] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-4-con-material", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -113,7 +113,7 @@ end
 # Setup 3 articles in visual guide, abdominales, nivel 5
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Abdominales] [Nivel 5] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-5-potencia", :user => admin
+  post = create_post :title => "[Artículos] [Abdominales] [Nivel 5] Ejercicios para programadores ##{i}", :categories => "guia-visual,abdominales,nivel-5-potencia", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -121,7 +121,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, pantorrilla
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pantorrilla", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pantorrilla] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pantorrilla", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -129,7 +129,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, musculo
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [musculo] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,musculo", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [musculo] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,musculo", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -137,7 +137,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, cadera
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [cadera] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,cadera", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [cadera] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,cadera", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -145,7 +145,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, tronco
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [tronco] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,tronco", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [tronco] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,tronco", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end
@@ -153,7 +153,7 @@ end
 # Setup 3 articles in visual guide, estiramientos, pectoral
 1.upto(3) do |i|
   time_travel_to "#{4 - i} days ago"
-  post = create_post :title => "[Artículos] [Estiramientos] [pectoral] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pectoral", :user => admin
+  post = create_post :title => "[Artículos] [Estiramientos] [pectoral] Ejercicios para programadores ##{i}", :categories => "guia-visual,estiramientos,pectoral", :user => admin, :body => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="311" height="233" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
   putc '.'
   back_to_the_present
 end

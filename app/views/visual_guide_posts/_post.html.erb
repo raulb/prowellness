@@ -1,7 +1,8 @@
 <li class="post <%= cycle('', raw('odd ')) %><%= translate_category(post.categories[1]).downcase %>">
   <div>
-    <span class="video"></span>
-    
+    <span class="video">
+      <%= post.body.try(:html_safe) %>
+    </span>
     <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
     <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
     <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>

@@ -324,7 +324,7 @@ $spacing:30px;
   }
 
   #date {
-    position:absolute; left:-20px; top:20px; width:62px; height:79px;
+    position:absolute; left:-20px; top:20px; width:62px; height:79px; z-index:10;
     
     background-color:$bg-date-color;
     
@@ -379,8 +379,8 @@ $spacing:30px;
 
 #intro_article {
 
-  float:left; width:659px; height:auto; position:relative;
-  padding:15px;
+  float:left; width:569px; height:auto; position:relative;
+  padding:15px 60px;
     
   background:url(application/bgr-article-intro-mash.png);
 

@@ -53,7 +53,9 @@
 <ul class="videos">
     <li class="post abdominales">
       <div>
-        <span class="video"></span>
+        <span class="video">
+          <%= @last_video_abdominales.body.try(:html_safe) %>
+        </span>
         <h4>Abdominales</h4>
         <h2><%= link_to(@last_video_abdominales.title, post_path(@last_video_abdominales)) %></h2>
         <p class="date">por <%= @last_video_abdominales.user.signature %></p>
@@ -72,9 +74,11 @@
       <span class="shadow"></span>
     </li>
 
-    <li class="post abdominales odd">
+    <li class="post estiramientos odd">
       <div>
-        <span class="video"></span>
+        <span class="video">
+          <%= @last_video_estiramientos.body.try(:html_safe) %>
+        </span>
         <h4>Estiramientos</h4>
         <h2><%= link_to(@last_video_estiramientos.title, post_path(@last_video_estiramientos)) %></h2>
         <p class="date">por <%= @last_video_estiramientos.user.signature %></p>

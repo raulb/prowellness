@@ -20,7 +20,7 @@
         <li class="post <%= cycle('', raw('odd ')) %><%= category %>">
           <div>
             <span class="video">
-
+              <%= post.body.try(:html_safe) %>
             </span>
             <h4><%= link_to(translate_category(category), visual_guide_category_path(category)) %></h4>
             <h2><%= link_to(post.title, post_path(post)) %></h2>

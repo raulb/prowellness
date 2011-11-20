@@ -92,7 +92,7 @@ $big-level-width:124px;
     div {
       padding:11px;
       width:$inside-post;
-      height:331px;
+      height:388px;
       position:relative;
       
       border:1px solid $border-info-color;
@@ -148,8 +148,8 @@ $big-level-width:124px;
     .video {
       float:left;
       width:$inside-post;
-      height:175px;
-      background-color:red;
+      height:233px;
+      overflow:hidden;
     }
 
     .shadow {
