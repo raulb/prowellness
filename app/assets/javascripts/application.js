@@ -34,9 +34,7 @@ jQuery(document).ready(function($) {
         $('#remember_password').hide();
       };
     });
-    
-    
-    
+
   });
   
   
@@ -59,7 +57,6 @@ jQuery(document).ready(function($) {
   }, function() {
     $(this).find('.options').hide();
   });
-
 
   // Showing login options
   $('li.login').children('a.default').click(function(event) {
