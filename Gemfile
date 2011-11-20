@@ -12,7 +12,6 @@ gem 'exception_notification'
 gem 'rails_autolink'
 gem 'therubyracer', :platforms => :ruby
 gem 'bcrypt-ruby'
-gem "mercury-rails", "~> 0.2.0"
 gem "texticle", "~> 2.0.2"
 gem 'rails-i18n'
 gem "flickraw", "~> 0.9.3"
