@@ -20,7 +20,7 @@
 </div>
 
 <article>
-  <p><%= @post.body.gsub("311", "651").gsub("233", "488").try(:html_safe) %></p>
+  <p><%= @post.body.try(:get_video_bigger).try(:html_safe) %></p>
 
   <footer>
     <div class="left">
