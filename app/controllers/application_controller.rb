@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?, :post_path, :translate_category, :redirect_back_or_default
 
-  before_filter :authenticate
+  before_filter :authenticate, :browser_is_ie6?
 
   def current_user
     if session[:user_id]
@@ -95,6 +95,15 @@ class ApplicationController < ActionController::Base
 
   def increase_post_visits
     @post.incr_visits!
+  end
+
+  def browser_is_ie6?
+    return true if Rails.env.test?
+    if user_agent = request.user_agent.try(:downcase)
+      if user_agent.match(/msie [0-6]/)
+        render :file => "#{Rails.root}/public/noie6.html", :status => 200, :layout => false and return false
+      end
+    end
   end
 
 end
