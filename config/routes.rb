@@ -8,6 +8,8 @@ Prowellness::Application.routes.draw do
   resource :user, :only => [:edit, :update]
   resource :users, :only => [:new, :create]
 
+  resources :password_resets, :only => [:create, :edit]
+
   namespace :admin do
     root :to => redirect("/admin/posts")
     resources :users, :except => [:new, :create]

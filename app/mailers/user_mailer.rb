@@ -21,4 +21,10 @@ class UserMailer < ActionMailer::Base
          :reply_to => email
   end
 
+  def password_reset(user)
+    @user = user
+    mail :to => user.email,
+         :subject => "[prowellness] ¿Has olvidado tu contraseña?"
+  end
+
 end

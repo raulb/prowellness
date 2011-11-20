@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111030112659) do
+ActiveRecord::Schema.define(:version => 20111120133554) do
 
   create_table "attachments", :force => true do |t|
     t.string   "image"
@@ -84,14 +84,15 @@ ActiveRecord::Schema.define(:version => 20111030112659) do
     t.string   "name_and_surname"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin",              :default => false
+    t.boolean  "admin",                :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "newsletter",         :default => true
+    t.boolean  "newsletter",           :default => true
     t.integer  "sex"
     t.string   "avatar"
     t.string   "confirmation_token"
     t.string   "login"
+    t.string   "password_reset_token"
   end
 
 end

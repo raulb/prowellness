@@ -59,6 +59,18 @@ class User < ActiveRecord::Base
     !name_and_surname.blank? ? name_and_surname : login
   end
 
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while self.class.exists?(column => self[column])
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
   private
 
   def set_confirmation_token
@@ -72,21 +84,23 @@ class User < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
 #
-#  id                 :integer         not null, primary key
-#  name_and_surname   :string(255)
-#  email              :string(255)
-#  password_digest    :string(255)
-#  admin              :boolean         default(FALSE)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  newsletter         :boolean         default(TRUE)
-#  sex                :integer
-#  avatar             :string(255)
-#  confirmation_token :string(255)
-#  login              :string(255)
+#  id                   :integer         not null, primary key
+#  name_and_surname     :string(255)
+#  email                :string(255)
+#  password_digest      :string(255)
+#  admin                :boolean         default(FALSE)
+#  created_at           :datetime
+#  updated_at           :datetime
+#  newsletter           :boolean         default(TRUE)
+#  sex                  :integer
+#  avatar               :string(255)
+#  confirmation_token   :string(255)
+#  login                :string(255)
+#  password_reset_token :string(255)
 #
 

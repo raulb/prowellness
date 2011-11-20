@@ -104,8 +104,8 @@
 
                   <%= render "layouts/remember_password" %>
                 </div>
-                
-                
+
+
               </li>
             <% else %>
               <%= render :partial => 'layouts/logged_in' %>
@@ -333,12 +333,18 @@
     </script>
   <% end %>
 
-  <!-- AÑADIR EL IF DEL FLASH QUE NOS DIGA QUE EL EMAIL DE RECORDAR CONTRASEÑA SE HA ENVIADO CORRECTAMENTE -->
   <%= render :partial => "shared/password_sent_it" %>
   <script type="text/javascript">
-      // MODAL.open('#remember_pass_sent_it');
+    <% if flash[:alert] && flash[:show_password_reset] %>
+      $('#login_form').hide();
+      $('#remember_password').show();
+      $('#remember_password').find('input[type="text"]').focus();
+    <% end %>
+    <% unless flash[:password_reset_success].blank? %>
+      MODAL.open('#remember_pass_sent_it');
+    <% end %>
   </script>
-  
+
 
 </body>
 </html>
