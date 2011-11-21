@@ -4808,6 +4808,15 @@ wysihtml5.dom.parse = (function() {
         return mapping[String(attributeValue).toLowerCase()];
       };
     })(),
+
+    size_table: (function() {
+      var mapping = {
+        wide:   "wysiwyg-table-wide"
+      };
+      return function(attributeValue) {
+        return mapping[String(attributeValue).toLowerCase()];
+      };
+    })(),
     
     size_font: (function() {
       var mapping = {
@@ -8725,6 +8734,34 @@ wysihtml5.commands = {
         }
       } else {
         wysihtml5.commands.exec(element, "insertHTML", LINE_BREAK);
+      }
+    },
+
+    state: function() {
+      return false;
+    },
+
+    value: function() {
+      return undef;
+    }
+  };
+})(wysihtml5);
+
+
+
+(function(wysihtml5) {
+  var undef,
+      TABLE_HTML = '<table><tr><td>COLUMN1</td><td>COLUMN2</td></tr></table>';
+  
+  wysihtml5.commands.insertTable = {
+    exec: function(element, command, value) {
+      if (wysihtml5.commands.support(element, command)) {
+        element.ownerDocument.execCommand(command, false, null);
+        if (!wysihtml5.browser.autoScrollsToCaret()) {
+          wysihtml5.selection.scrollIntoView(element);
+        }
+      } else {
+        wysihtml5.commands.exec(element, "insertHTML", TABLE_HTML);
       }
     },
 

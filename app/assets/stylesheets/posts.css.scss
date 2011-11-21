@@ -390,8 +390,16 @@ $spacing:30px;
 
 article {
   
-  float:left; width:689px; 
+  float:left; width:689px;
+
+  .wysiwyg-text-decoration-underline {
+    text-decoration:underline;
+  }
   
+  p,a {
+    font-size:1.1em;
+  }
+
   .white-box {
     float:right;
     width:380px;
@@ -399,12 +407,12 @@ article {
     background-color:white;
     
   }
-  h5 {
-    font:normal 1.6em AbadiCondensed; color:$date-font-color; 
+  h3 {
+    font:normal 1.6em YanoneKaffeesatzRegular; color:$date-font-color; 
   }
   
-  h6 {
-    font:normal 1.4em AbadiCondensed; color:$date-font-color; 
+  h4 {
+    font:normal 1.4em YanoneKaffeesatzRegular; color:$date-font-color; 
   }  
     
   // common elements in a post
@@ -428,6 +436,19 @@ article {
   p,a {
    line-height:1.4em; 
   }
+
+  ul {
+    float:left;
+    margin-left:20px;
+    padding-bottom:20px;
+
+    li {
+      float:left;
+      margin-top:15px;
+      list-style:disc;
+      line-height:1.4em;
+    }
+  }
   
   // video
   iframe {
@@ -444,6 +465,11 @@ article {
     margin-top:50px;
     background-color:$bg-color-ads;
     padding:11px 15px;
+
+    ul,li {
+      list-style:none;
+      margin:0; padding:0;
+    }
 
     .left {
       float:left; width:290px;
@@ -494,6 +520,7 @@ article {
   width:689px;
   
   h5 {
+    font:normal 1.8em AbadiCondensed; color:$date-font-color;
     padding-bottom:10px;    
   }
   
