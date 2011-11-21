@@ -146,7 +146,7 @@
 				}					
 				nivoCaption.fadeIn(settings.animSpeed);
 			} else {
-				nivoCaption.fadeOut(settings.animSpeed);
+				// nivoCaption.fadeOut(settings.animSpeed);
 			}
 		}
 		
