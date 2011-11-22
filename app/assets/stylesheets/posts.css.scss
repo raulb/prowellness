@@ -408,11 +408,11 @@ article {
     
   }
   h3 {
-    font:normal 1.6em YanoneKaffeesatzRegular; color:$date-font-color; 
+    font:normal 1.6em AbadiCondensed;
   }
   
   h4 {
-    font:normal 1.4em YanoneKaffeesatzRegular; color:$date-font-color; 
+    font:normal 1.4em AbadiCondensed;
   }  
     
   // common elements in a post
@@ -477,6 +477,8 @@ article {
       
       h5 {
         float:left; width:100%;
+        font:normal 1.5em AbadiCondensed;
+        color:$date-font-color;
       }
     }
 
@@ -486,6 +488,8 @@ article {
       
       h6 {
         text-align:right;
+        font:normal 1.3em AbadiCondensed;
+        color:$date-font-color;
         width:100%;
       }
       
@@ -520,13 +524,19 @@ article {
   width:689px;
   
   h5 {
-    font:normal 1.8em AbadiCondensed; color:$date-font-color;
+    font:normal 1.5em AbadiCondensed; color:$date-font-color;
     padding-bottom:10px;    
+  }
+  
+  .logged {
+    h6 {
+      font-size:1.5em;
+    }
   }
   
   h6 {
     float:left;
-    font:normal 1.5em AbadiCondensed; color:$date-font-color; padding-bottom:10px;
+    font:normal 1.3em AbadiCondensed; color:$date-font-color; padding-bottom:10px;
   }
   p {
     float:left; font:normal 1.2rem Arial; color:$date-font-color; width:100%; margin:0; line-height:1.4em;

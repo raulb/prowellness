@@ -317,7 +317,7 @@
   <!-- ERRORS IN LOGIN PROCESS -->
   <% if flash[:alert] && flash[:show_login] %>
     <script type="text/javascript">
-      showLoginWindow($('li.login .options'));
+      showLoginWindow($('li.login #login_form'));
     </script>
   <% end %>
   <% if flash[:login_required_front] %>

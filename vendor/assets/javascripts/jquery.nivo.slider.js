@@ -125,10 +125,10 @@
 						$(this).html(post);
 						$(this).fadeIn(settings.animSpeed);
 					});
-					nivoCaption.find('a').fadeOut(settings.animSpeed, function(){
-						$(this).attr('href',link);
-						$(this).fadeIn(settings.animSpeed);
-					});
+					// nivoCaption.find('a').fadeOut(settings.animSpeed, function(){
+					// 	$(this).attr('href',link);
+					// 	$(this).fadeIn(settings.animSpeed);
+					// });
 
 					if (vars.currentImage.attr('category') != undefined) {
 					  nivoCaption.find('h3').fadeOut(settings.animSpeed, function(){
@@ -146,7 +146,7 @@
 				}					
 				nivoCaption.fadeIn(settings.animSpeed);
 			} else {
-				// nivoCaption.fadeOut(settings.animSpeed);
+				nivoCaption.fadeOut(settings.animSpeed);
 			}
 		}
 		

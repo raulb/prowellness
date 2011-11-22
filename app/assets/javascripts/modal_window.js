@@ -49,7 +49,7 @@ $(document).ready( function() {
   $('.modal-window .login').live('click',function(event) {
     $('.overlay-layer').hide();
      $('.modal-window').hide();
-    $('li.login .options').show();
+    $('li.login #login_form').show();
     $('#email').focus();
   });
 });
