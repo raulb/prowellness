@@ -130,4 +130,8 @@ module ApplicationHelper
   def tag_path(tag_name)
     search_path(:q => "tag:#{tag_name}")
   end
+
+  def month_exercise?
+    return (controller_name == "articles" && action_name == "show" && !@category.nil? && @category == "Ejercicio del mes") || (controller_name == "month_exercises")
+  end
 end

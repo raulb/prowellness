@@ -137,6 +137,7 @@
   &.articles {
     img {
       width:242px; height:136px;
+      border:1px solid $border-info-color;;
     }
 
     .main_post {
@@ -158,11 +159,11 @@
       }
     }
     .tags {
-      float:none;
-      position:absolute;
-      bottom:23px;
+      float:left;
+      margin-top:20px;
+      bottom:16px;
       left:269px;
-      width:410px;
+      width:400px;
     }
   }
 

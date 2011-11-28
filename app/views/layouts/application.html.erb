@@ -203,7 +203,7 @@
           <a href="<%= articles_path %>" class="more">ver más artículos</a>
         </div>
 
-        <% if Post.get_last_ejercicio_del_mes %>
+        <% if Post.get_last_ejercicio_del_mes && !month_exercise? %>
         <div class="info-box calendar">
           <h3>ejercicio del mes</h3>
 
@@ -229,8 +229,8 @@
         </div>
 
         <div class="info-box last-videos">
-          <h3>los <em><%= Post.find_more_visited('guia-visual').length %></em> vídeos más vistos</h3>
-          <h4>durante el último mes</h4>
+          <h3>los <em><%= Post.find_more_visited('guia-visual').length %></em> ejercicios más vistos</h3>
+          <h4>de la guía visual en el último mes </h4>
           <span class="kind-box"></span>
           <ul>
             <% Post.find_more_visited('guia-visual').each_with_index do |post, i| %>
