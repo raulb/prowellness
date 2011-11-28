@@ -143,3 +143,11 @@
 .wysiwyg-clear-left {
   clear: left;
 }
+
+.prow-advice {
+  width:675px;
+  padding:7px;
+  border-color:#666;
+  background-color:#FFFFCC;
+
+}

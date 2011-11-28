@@ -81,7 +81,8 @@ var wysihtml5ParserRules = {
         "wysiwyg-font-size-xx-large": 1,
         "wysiwyg-color-teal": 1,
         "wysiwyg-float-left": 1,
-        "wysiwyg-table-wide": 1
+        "wysiwyg-table-wide": 1,
+        "prow-advice":1
     },
     /**
      * Tag list
@@ -569,6 +570,10 @@ var wysihtml5ParserRules = {
         },
         "header": {
             "rename_tag": "div"
+        },
+        "advice": {
+          "rename_tag": "div",
+          "set_class": "prow-advice"
         }
     }
 };

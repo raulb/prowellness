@@ -8,35 +8,35 @@ $little-level-width:96px;
 $big-level-height:78px;
 $big-level-width:124px;
 
-.nav-section{ 
+.nav-section{
+
+  &#section-editorial {
+    margin-top:0;
+  }
+
  .box-options {
    float:left;
    margin:0;
-   background:url(visual-guide/kind-videos-box-dashed.png) no-repeat 0 0;
-   width:298px;
+   /* CON ESTIRAMIENTOS*/
+   /*background:url(visual-guide/kind-videos-box-dashed.png) no-repeat 0 0; width:298px;*/
+   background:url(visual-guide/kind-videos-box-dashed-temp.png) no-repeat 0 0; width:195px;
    height:52px;
    
  }
  
  .scissors {
-    &.abdominales {
+    &.editorial {
       right: 35px;
     }  
-    &.estiramientos {
+    &.abdominales {
       right: 175px;
     }
-    &.editorial {
+    &.estiramientos {
       right: 302px;
     }    
  }
  
 }
-
-.date {
-  float:left;
-  width:$inside-post;
-}
-
 
 .videos {
 
@@ -138,8 +138,6 @@ $big-level-width:124px;
     }
     
     .date {
-      float:left;
-      
       margin-top:2px;
       font:normal 1.0em Arial;
       color:$date-font-color;

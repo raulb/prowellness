@@ -23,8 +23,8 @@
 </div>
 
 <article>
+  <span class="white-box"></span>
 
-  <!-- A qué corresponde esto? excerpt es el resumen y body es el cuerpo del artículo -->
   <p><%= @post.excerpt.try(:html_safe) %></p>
 
   <p><%= @post.body.try(:html_safe) %></p>

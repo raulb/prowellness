@@ -8748,10 +8748,10 @@ wysihtml5.commands = {
 })(wysihtml5);
 
 
-
+// INSERT A TABLE
 (function(wysihtml5) {
   var undef,
-      TABLE_HTML = '<table><tr><td>COLUMN1</td><td>COLUMN2</td></tr></table>';
+      TABLE_HTML = '<table><tr><td>COLUMN1</td><td>COLUMN2</td></tr></table><br/>';
   
   wysihtml5.commands.insertTable = {
     exec: function(element, command, value) {
@@ -8774,6 +8774,36 @@ wysihtml5.commands = {
     }
   };
 })(wysihtml5);
+
+// INSERT COLORED BOX THAT REPRESENT AN ADVICE IN OUR EDITOR:
+// TITLE 
+// CONTENT
+(function(wysihtml5) {
+  var undef,
+      ADVICE_CONTENT = '<advice><h4>Consejo</h4><p></p></advice>';
+  
+  wysihtml5.commands.insertAdvice = {
+    exec: function(element, command, value) {
+      if (wysihtml5.commands.support(element, command)) {
+        element.ownerDocument.execCommand(command, false, null);
+        if (!wysihtml5.browser.autoScrollsToCaret()) {
+          wysihtml5.selection.scrollIntoView(element);
+        }
+      } else {
+        wysihtml5.commands.exec(element, "insertHTML", ADVICE_CONTENT);
+      }
+    },
+
+    state: function() {
+      return false;
+    },
+
+    value: function() {
+      return undef;
+    }
+  };
+})(wysihtml5);
+
 
 (function(wysihtml5) {
   var undef;
@@ -9162,4 +9192,5 @@ wysihtml5.commands = {
       });
     }
   });
+
 })(wysihtml5);

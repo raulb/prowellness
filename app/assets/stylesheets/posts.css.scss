@@ -20,7 +20,7 @@ $spacing:30px;
     img {
       width:665px;
       height:371px;
-      padding-bottom:10px;
+      margin-bottom:5px;
     }
   }
   
@@ -107,7 +107,7 @@ $spacing:30px;
       
       a {
         color:$date-font-color;
-        text-decoration:underline;
+        text-decoration:none;
 
         &:hover {
           color:darken($date-font-color,20%);
@@ -396,16 +396,32 @@ article {
     text-decoration:underline;
   }
   
-  p,a {
+  
+  .prow-advice {
+    width:640px;
+    padding:10px 20px;
+    border:1px solid #666;
+    background-color:#E2FAFF;
+
+    p {
+      margin-top:10px;
+      font-style:italic;
+    }
+  }
+
+  p,a,td {
     font-size:1.1em;
+  }
+
+  td > p {
+    font-size:1em;
   }
 
   .white-box {
     float:right;
-    width:380px;
-    height:145px;
-    background-color:white;
-    
+    width:400px;
+    height:155px;
+    background-color:white;    
   }
   h3 {
     font:normal 1.6em AbadiCondensed;
@@ -417,7 +433,12 @@ article {
     
   // common elements in a post
   table {
+    float:left;
     width:689px;
+
+    img {
+      vertical-align:middle;
+    }
   }
   
   img {
@@ -433,7 +454,7 @@ article {
     margin-top:20px;
   }
   
-  p,a {
+  p,a,td {
    line-height:1.4em; 
   }
 
@@ -447,6 +468,8 @@ article {
       margin-top:15px;
       list-style:disc;
       line-height:1.4em;
+
+      font-size:1.1em;
     }
   }
   
@@ -460,7 +483,7 @@ article {
     
   footer{
     width:659px;
-    height:70px;
+    height:auto;
     border:1px solid $bg-tags-color; border-left:none; border-right:none; 
     margin-top:50px;
     background-color:$bg-color-ads;
@@ -472,7 +495,7 @@ article {
     }
 
     .left {
-      float:left; width:290px;
+      float:left; width:240px;
       height:100%;
       
       h5 {
@@ -483,7 +506,7 @@ article {
     }
 
     .right {
-      float:right; width:360px;
+      float:right; width:411px;
       height:100%;      
       
       h6 {

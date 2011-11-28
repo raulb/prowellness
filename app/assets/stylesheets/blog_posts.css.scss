@@ -1,8 +1,11 @@
+@import "partials/common_properties";
+
 .posts {
 
   &.blog {
     img {
       width:311px; height:187px;
+      border:1px solid $font-color-gray;
     }
 
     .main_post {
@@ -20,7 +23,7 @@
       img {
         width:665px;
         height:371px;
-        padding-bottom:10px;
+        border:1px solid $font-color-gray;
       }
     }
     .tags {

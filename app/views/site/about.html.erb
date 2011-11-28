@@ -10,6 +10,10 @@
   <p><b>Prowellness</b> es un portal de estilo de vida donde se pretende ofrecer información en todo lo relacionado con la actividad física y la salud. El objetivo no es solo de transmitir ejercicios y recursos, sino también, y este es el verdadero valor, la pretensión de conseguir educar, elevando los conocimientos y comprendiendo los fundamentos del ejercicio físico. El resultado final perseguido es conseguir elevarse en la espiral de conocimiento.</p>
 
   <h3>Domingo Sánchez, creador de Prowellness</h3>
+ 
+ <div class="image-domingo-pensativo">
+    <%= image_tag "about/domingo-pensativo.jpg", :alt => 'Domingo Sánchez' %>
+  </div>
 
   <p><b>Prowellness</b> es un portal de estilo de vida donde se pretende ofrecer información en todo lo relacionado con la actividad física y la salud. <b>Prowellness</b> es el resultado de mi experiencia personal a lo largo de varios años en este sector, donde abunda la información de qué hacer, algo de cómo hay que hacerlo y nada de llegar a comprender porqué hacerlo. Tanto los contenidos de este portal, como el transmitido en las diferentes publicaciones, además de ofrecer recursos, ejercicios y de indicar cómo se hacen, intenta hacer comprender el por qué de lo que está haciendo, solo así, se conseguirá la autonomía personal, llegando a sacar conclusiones y participando de forma activa y consciente en la generación y aplicación de contenidos.
   </p>
@@ -34,7 +38,6 @@
   
   <div class="image-domingo">
     <%= image_tag "about/domingo-front.jpg", :alt => 'Domingo Sánchez' %>
-    <span class="shadow"></span>    
   </div>
 
   <p><b>Domingo Sánchez</b> es Licenciado en Ciencias de la Actividad Física y el Deporte (Universidad Politécnica de Madrid) y Master de Experto en Actividad Física y Salud (Universidad Complutense de Madrid)</p>
@@ -57,18 +60,6 @@
       	<ul>				
   				<li>
             <div class="inside">
-    				  <%= link_to(image_tag('about/entrenate-book.png', :alt => 'Libro entrénate'), buy_book_path('entrenate'), :class=>'image') %>
-              <div class="buy">
-                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',buy_book_path('entrenate') %></p>
-                <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
-              </div>
-              <h3><%= link_to 'Entrénate', buy_book_path('entrenate') %></h3>
-              <p>Editorial Prowellness</p>
-              <p>Madrid, 2010</p>
-            </div>
-  				</li>
-  				<li>
-            <div class="inside">
     				  <%= link_to(image_tag('about/mujer-book.png', :alt => 'Libro Mujer en forma'), buy_book_path('mujer'), :class=>'image') %>
               <div class="buy">
                 <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',buy_book_path('mujer') %></p>
@@ -79,6 +70,18 @@
               <p>Madrid, 2011</p>
             </div>
   				</li>
+          <li>
+            <div class="inside">
+              <%= link_to(image_tag('about/entrenate-book.png', :alt => 'Libro entrénate'), buy_book_path('entrenate'), :class=>'image') %>
+              <div class="buy">
+                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',buy_book_path('entrenate') %></p>
+                <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
+              </div>
+              <h3><%= link_to 'Entrénate', buy_book_path('entrenate') %></h3>
+              <p>Editorial Prowellness</p>
+              <p>Madrid, 2010</p>
+            </div>
+          </li>
   			</ul>
     </div>
     <span class="shadow"></span>
@@ -232,24 +235,31 @@
           <h4>2010</h4>  
         </div>
         <div class="right">
-          <h5>Equipo BASE TRAINING y editorial Prowellness</h5>
+          <h5>Crea la editorial Prowellness</h5>
           <figure>
-            <%= image_tag "about/base-logo.jpg", :alt => 'Base logo'%>    
+            <%= image_tag('about/logo-editorial-prowellness.png', :alt => 'Logo editorial Prowellness') %>
           </figure>
-          <p>Entra a formar parte del equipo BASE TRAINING Sistema establecido por niveles para clases dirigidas en centros de Fitness, ocupando el cargo de director de operaciones.</p>
+          <p>Crea la editorial <b>PROWELLNESS</b>, con la publicación del primer libro <%= link_to '"Entrénate" (2010)', buy_book_path('entrenate') %> al que le seguirá <%= link_to '"Mujer en forma, el reto" (2011)', buy_book_path('mujer') %></p>
           <br/><br/>
-          <p>Crea la editorial <b>PROWELLNESS</b>, con la publicación del primer libro <%= link_to '"Entrénate"', '/'%>.</p>
+          
         </div>
       </li>
-      
       <li>
         <div class="left">
-          <h4>2011</h4>  
+          <h4>Actualmente</h4>  
         </div>
         <div class="right">
-          <h5>Nace esta nueva web y el libro "Mujer en forma"</h5>
+          <br/><br/><br/>
+          <p>Hoy en día se encuentra desarrollando los próximos títulos:</p>
+          <ul>
+            <li>Core Training</li>
+            <li>Estiramientos y movilidad articular</li>
+            <li>Entrenamiento Funcional para todos</li>
+            <li>Guía de los ejercicios de musculación</li>
+          </ul>
         </div>
-      </li>
+      </li>      
+      
     </ul>
     
     

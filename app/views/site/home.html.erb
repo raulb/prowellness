@@ -54,48 +54,50 @@
     <li class="post abdominales">
       <div>
         <span class="video">
-          <%= @last_video_abdominales.body.try(:html_safe) %>
+          <%= @last_video_abdominales.first.body.try(:html_safe) %>
         </span>
         <h4>Abdominales</h4>
-        <h2><%= link_to(@last_video_abdominales.title, post_path(@last_video_abdominales)) %></h2>
-        <p class="date">por <%= @last_video_abdominales.user.signature %></p>
-        <%= simple_format(@last_video_abdominales.excerpt) %>
+        <h2><%= link_to(@last_video_abdominales.first.title, post_path(@last_video_abdominales.first)) %></h2>
+        <p class="date">por <%= @last_video_abdominales.first.user.signature %></p>
+        <%= simple_format(@last_video_abdominales.first.excerpt) %>
 
-        <% if !@last_video_abdominales.tags.nil? %>
+        <% if !@last_video_abdominales.first.tags.nil? %>
           <ul class="tags">
-            <%  @last_video_abdominales.tags.each do |tag| %>
+            <%  @last_video_abdominales.first.tags.each do |tag| %>
             <li><%= link_to(tag, tag_path(tag)) %></li>
             <% end %>
           </ul>
         <% end %>
 
-        <%= link_to("", visual_guide_category_path(@last_video_abdominales.to_home_params), :class => css_class(@last_video_abdominales)) %>
+        <%= link_to("", visual_guide_category_path(@last_video_abdominales.first.to_home_params), :class => css_class(@last_video_abdominales.first)) %>
       </div>
       <span class="shadow"></span>
     </li>
-
-    <li class="post estiramientos odd">
+    <li class="post abdominales odd">
       <div>
         <span class="video">
-          <%= @last_video_estiramientos.body.try(:html_safe) %>
+          <%= @last_video_abdominales.last.body.try(:html_safe) %>
         </span>
-        <h4>Estiramientos</h4>
-        <h2><%= link_to(@last_video_estiramientos.title, post_path(@last_video_estiramientos)) %></h2>
-        <p class="date">por <%= @last_video_estiramientos.user.signature %></p>
-        <%= simple_format(@last_video_estiramientos.excerpt) %>
+        <h4>Abdominales</h4>
+        <h2><%= link_to(@last_video_abdominales.last.title, post_path(@last_video_abdominales.last)) %></h2>
+        <p class="date">por <%= @last_video_abdominales.last.user.signature %></p>
+        <%= simple_format(@last_video_abdominales.last.excerpt) %>
 
-        <% if !@last_video_estiramientos.tags.nil? %>
+        <% if !@last_video_abdominales.last.tags.nil? %>
           <ul class="tags">
-            <%  @last_video_estiramientos.tags.each do |tag| %>
+            <%  @last_video_abdominales.last.tags.each do |tag| %>
             <li><%= link_to(tag, tag_path(tag)) %></li>
             <% end %>
           </ul>
         <% end %>
 
-        <%= link_to("", visual_guide_category_path(@last_video_estiramientos.to_home_params), :class => css_class(@last_video_estiramientos)) %>
+        <%= link_to("", visual_guide_category_path(@last_video_abdominales.last.to_home_params), :class => css_class(@last_video_abdominales.last)) %>
       </div>
       <span class="shadow"></span>
     </li>
+
+    <!-- NO ESTIRAMIENTOS -->
+    <!-- CUANDO HAYA CONTENIDO, QUITAR UNO DE LOS ABDOMINALES Y PONER EL DE ESTIRAMIENTOS -->
 </ul>
 <%= link_to("ver más vídeos", visual_guide_path, :class=>'view-more') %>
 

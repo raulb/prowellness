@@ -85,7 +85,13 @@ nav {
               background:url(application/menu/visual-guide-hover-top.png) no-repeat 0 0;
             }
             .options {
-              background:url(application/menu/visual-guide-hover-bottom.png) no-repeat 0 0;
+              // No estiramientos
+              background:url(application/menu/visual-guide-hover-bottom-temp.png) no-repeat 0 0;
+              height:115px;
+
+              // complete
+              //background:url(application/menu/visual-guide-hover-bottom.png) no-repeat 0 0;
+              //height:128px;
             }
           }
           &.login {

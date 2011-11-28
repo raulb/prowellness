@@ -7,8 +7,8 @@
 
 <div class="nav-section editorial">
   <div id="main-book-option" class="box-options">
-    <a class="option" onclick="javascript:showBook(0);">Entrénate</a>
-    <a class="option current" onclick="javascript:showBook(1);">Mujer en forma</a>
+    <a class="option current" onclick="javascript:showBook(0);">Mujer en forma</a>
+    <a class="option" onclick="javascript:showBook(1);">Entrénate</a>
   </div>
 </div>
 
@@ -16,15 +16,15 @@
 
 <div class="books-box">
   <ol id="index-books">
-    <li id="index-entrenate" class="">
+    <li id="index-mujer" class="current">
       <a rel="0" onclick="javascript:showBook(0);"></a>
     </li>
-    <li id="index-mujer" class="current">
+    <li id="index-entrenate" class="">
       <a rel="1" onclick="javascript:showBook(1);"></a>
     </li>
   </ol>
   <ul id="books">
-    <% @books.each do |book| %>
+    <% @books.reverse!.each do |book| %>
       <li id="index-<%= book.slug %>">
         <div class="left">
             <%= image_tag "books/"+book.slug+".png", :alt => book.title %>

@@ -9,8 +9,9 @@ class SiteController < ApplicationController
     @posts = Post.filter_by_category('articulos').order_by_publish_date.
                   limit(0).where("id not in (#{@main_posts.map(&:id).join(",")})")
     @last_post = Post.last_blog_posts(1).first
-    @last_video_abdominales = Post.filter_by_category('abdominales').order_by_publish_date.limit(1).first
-    @last_video_estiramientos = Post.filter_by_category('estiramientos').order_by_publish_date.limit(1).first
+    @last_video_abdominales = Post.filter_by_category('abdominales').order_by_publish_date.limit(2)
+    # @last_video_abdominales = Post.filter_by_category('abdominales').order_by_publish_date.limit(2).first
+    #@last_video_estiramientos = Post.filter_by_category('estiramientos').order_by_publish_date.limit(1).first
   end
 
   def about

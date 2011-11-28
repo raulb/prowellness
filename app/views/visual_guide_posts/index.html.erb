@@ -3,15 +3,30 @@
 
 <%= render "site/header_page", :title => 'Guía visual' %>
 
+<div id="section-editorial" class="nav-section">
+  <span class="scissors editorial"></span>
+  <div class="box-options">
+    <a class="option current" onclick="javascript:void $.scrollTo('#section-editorial',400);">Editorial</a>
+    <a class="option" onclick="javascript:void $.scrollTo('#section-abdominales',400);">Abdominales</a>
+    <!-- ESTIRAMIENTOS REMOVED -->   
+  </div>
+</div>
+
+<div class="editorial-videos">
+  <%= render(:template => "book_videos/index") %>
+  <%= link_to("consulta los vídeos de la editorial", visual_guide_editorial_path,:class=>'view-more') %>
+</div>
+
 <% if @posts.any? %>
-  <% %W{ abdominales estiramientos }.each do |category| %>
+  <!-- CUANDO HAYA ESTIRAMIENTOS AÑADIRLO A LA CATEGORÍA JUNTO CON ABDOMINALES-->
+  <% %W{ abdominales }.each do |category| %>
 
     <div id="section-<%= category %>" class="nav-section">
       <span class="scissors <%= category %>"></span>
       <div class="box-options">
-        <a class="option <%= (category.eql? 'abdominales')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-abdominales',400);">Abdominales</a>
-        <a class="option <%= (category.eql? 'estiramientos')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-estiramientos',400);">Estiramientos</a>
         <a class="option" onclick="javascript:void $.scrollTo('#section-editorial',400);">Editorial</a>
+        <a class="option <%= (category.eql? 'abdominales')? 'current' : '' %>" onclick="javascript:void $.scrollTo('#section-abdominales',400);">Abdominales</a>
+        <!-- ESTIRAMIENTOS REMOVED -->
       </div>
     </div>
 
@@ -44,17 +59,5 @@
 <% end %>
 
 
-<div id="section-editorial" class="nav-section">
-  <span class="scissors editorial"></span>
-  <div class="box-options">
-    <a class="option" onclick="javascript:void $.scrollTo('#section-abdominales',400);">Abdominales</a>
-    <a class="option" onclick="javascript:void $.scrollTo('#section-estiramientos',400);">Estiramientos</a>
-    <a class="option current" onclick="javascript:void $.scrollTo('#section-editorial',400);">Editorial</a>
-  </div>
-</div>
 
-<div class="editorial-videos">
-  <%= render(:template => "book_videos/index") %>
-  <%= link_to("consulta los vídeos de la editorial", visual_guide_editorial_path,:class=>'view-more') %>
-</div>
 

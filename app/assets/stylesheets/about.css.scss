@@ -10,10 +10,17 @@ article {
     line-height:1.4em; 
   }
 
+  a {
+    text-decoration:none;
+  }
+
+
   h3 {
     font:normal 2.6rem QuicksandBook;
     margin-top:20px;
     letter-spacing:-2.0px;
+
+    
   }
   
   .nav-section{
@@ -66,6 +73,27 @@ article {
     height:16px;
   }
 }
+
+.image-domingo-pensativo {
+  float:left;
+  margin-top:20px;
+  margin-right:20px;
+  padding:11px;
+  width:241px;
+  height:344px;
+  border:1px solid $border-info-color;
+  position:relative;
+  
+  .shadow {
+    position:absolute; bottom:-16px; left:0;
+    z-index:0;
+    background:url(about/domingo-shadow.png) no-repeat 0 0;
+    width:226px;
+    height:16px;
+  }
+}
+
+
 
 
 .book_gallery {
@@ -229,7 +257,7 @@ article {
       float:left;
       width:100%;
       padding-bottom:30px;
-      
+
       ul {
         float:left;
         width:100%;
