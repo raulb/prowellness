@@ -8,9 +8,9 @@
           <h2>Pago por transferencia</h2>
           <p>Facilítanos tu <b>mail</b> y si lo deseas, añade algún comentario. Te responderemos a la dirección que nos facilites con los datos de la cuenta bancaria a la que deberás hacer la transferencia para poder realizar la compra.</p>
           
-          <% if flash[:alert] %>
+          <% if flash[:error_send] %>
             <div class="errors">
-              <%= flash[:alert] %>  
+              <%= flash[:error_send] %>  
             </div>
           <% end %>
           <%= label :email, "tu mail" %>

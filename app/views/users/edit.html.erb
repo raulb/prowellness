@@ -1,7 +1,24 @@
 <%= stylesheet_link_tag "user_data" %>
 <%= javascript_include_tag "custom-form-elements","user" %>
 
-<%= flush_the_flash %>
+<% if flash[:notice] %>
+  <%= render :partial => "shared/success" %>
+  <script type="text/javascript">
+    MODAL.open('#success_window');
+  </script>
+<% elsif flash[:alert] %>
+  <%= render :partial => "shared/error" %>
+  <script type="text/javascript">
+    MODAL.open('#error_window');
+  </script>  
+<% end %>
+
+<% if flash[:success] %>
+  <%= render :partial => "shared/account_activated" %>
+  <script type="text/javascript">
+    MODAL.open('#account_activated');
+  </script>
+<% end %>
 
 <%= render "site/header_page", :title => 'Modifica tus datos' %>
 

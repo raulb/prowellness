@@ -1,0 +1,14 @@
+<!-- VENTANA MODAL -->
+<div class="window">
+  <div id="error_window" class="modal-window error">
+    <div class="outside"></div>
+    <div class="inside">
+      <a class="close"></a>
+      <%= image_tag "application/modal-window/cross-red.png", :alt => 'Cross red', :class => 'cross-red' %>
+      <h2>Vaya, algo ha ido mal</h2>
+      <p><%= flash[:alert] %></p>
+    </div>
+  </div>
+  <div class="overlay-layer"></div>
+</div>
+<!-- FIN VENTANA MODAL -->

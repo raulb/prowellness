@@ -1,13 +1,12 @@
 <!-- VENTANA MODAL -->
 <div class="window">
-  <div id="account_activated" class="modal-window register-success">
+  <div id="success_window" class="modal-window">
     <div class="outside"></div>
     <div class="inside">
       <a class="close"></a>
       <%= image_tag "application/modal-window/check-green.png", :alt => 'Check green', :class=>'check-green' %>
-      <h2></h2>
-      <p>¡Cuenta activada correctamente!.</p>
-      <p>Comienza por completar tu perfil si lo consideras oportuno. Siempre lo podrás hacer más adelante.</p>
+      <h2>¡Genial!</h2>
+      <p><%= flash[:notice] %></p>
     </div>
   </div>
   <div class="overlay-layer"></div>

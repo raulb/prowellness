@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       flash[:notice] = "Tus datos han sido guardados correctamente"
     else
-      flash[:alert] = "Ha habido un problema al guardar tus datos"
+      flash[:alert] = "Probablemente te falte algún dato obligatorio"
     end
     render "edit"
   end

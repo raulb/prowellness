@@ -110,7 +110,7 @@
   <span class="shadow"></span>
 </div>
 
-<% if flash[:alert] %>
+<% if flash[:error_send] %>
   <script type="text/javascript">
     jQuery(document).ready(function() {
       var id = $('#index-books li.current').attr('id');
@@ -125,7 +125,7 @@
 <% end %>
 
 
-<% if flash[:notice] %>
+<% if flash[:book_requested] %>
   <%= render :partial => "delivery_modal_success", :locals => {
   :modal_id =>'book_requested'} %>
 
