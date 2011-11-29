@@ -8,8 +8,8 @@
 
 <div class="nav-section">
   <div id="main-book-option" class="box-options">
-    <a class="option <%= (@book.slug == Book::SLUG_MUJER)? 'current':'' %>" onclick="javascript:showBook(0);">Mujer en forma</a>
-    <a class="option <%= (@book.slug == Book::SLUG_ENTRENATE)? 'current':'' %>" onclick="javascript:showBook(1);">Entrénate</a>
+    <a class="mujer <%= (@book.slug == Book::SLUG_MUJER)? 'current':'' %>" onclick="javascript:showBook(0);"></a>
+    <a class="entrenate <%= (@book.slug == Book::SLUG_ENTRENATE)? 'current':'' %>" onclick="javascript:showBook(1);"></a>
   </div>
 </div>
 
@@ -36,8 +36,7 @@
       <div class="right">
         <%= link_to '', '/assets/pdf/mujer-en-forma-muestra.pdf', :target=>'_blank', :class=> 'preview' %>
 
-        <h4>Mujer en forma</h4>
-        <p>Entrénate contiene <b>consejos</b>, <b>trucos</b> y <b>respuestas</b> a las preguntas más frecuentes. A través de los diferentes capítulos te llevará, de forma sencilla y amena, a un nivel de conocimiento sobre el ejercicio y sus diferentes adaptaciones que te permitirá desarrollar de forma autónoma contenidos sobre las diferentes cualidades físicas, como la fuerza, cardiovascular o la movilidad articular.</p>
+        <p>Mujer en forma contiene <b>consejos</b>, <b>trucos</b> y <b>respuestas</b> a las preguntas más frecuentes. A través de los diferentes capítulos te llevará, de forma sencilla y amena, a un nivel de conocimiento sobre el ejercicio y sus diferentes adaptaciones que te permitirá desarrollar de forma autónoma contenidos sobre las diferentes cualidades físicas, como la fuerza, cardiovascular o la movilidad articular.</p>
 
         <p>Sabrás diseñar una pauta de alimentación adaptada a cada necesidad y, sobre todo, aprenderás a organizar un programa de entrenamiento y a llevar un estilo de vida saludable a lo largo de toda una temporada, coordinando las diferentes <b>cualidades físicas</b> con la alimentación.</p>
 
@@ -46,14 +45,17 @@
         <%= image_tag "books/paypal.png", :alt => 'Paypal', :class=>'paypal' %>
         
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <p>ESPAÑA</p>
-                                    <input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="6CXZ7F6DYU6M2" /> <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynow_SM.gif" type="image" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" /></form>
+          <input name="cmd" type="hidden" value="_s-xclick" /> 
+          <input name="hosted_button_id" type="hidden" value="6CXZ7F6DYU6M2" /> 
+          <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynowCC_LG.gif" type="image" class="buy-now"/> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1"/>
+        </form>
 
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <p>RESTO DEL MUNDO</p>
-                                    <input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="NY5LCR98JCXMA" /> <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynow_SM.gif" type="image" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" /></form>
-
-
+          <input name="cmd" type="hidden" value="_s-xclick" /> 
+          <input name="hosted_button_id" type="hidden" value="NY5LCR98JCXMA" /> 
+          <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="/assets/images/books/compras-fuera.jpg" type="image" class="buy-outside" />
+          <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" />
+        </form>
 
         <div class="price">
           <h5>25<em>€</em></h5>
@@ -75,7 +77,6 @@
 
         <a href="#" class="preview"></a>
 
-        <h4>Entrénate con Domingo Sánchez</h4>
         <p>Entrénate contiene <b>consejos</b>, <b>trucos</b> y <b>respuestas</b> a las preguntas más frecuentes. A través de los diferentes capítulos te llevará, de forma sencilla y amena, a un nivel de conocimiento sobre el ejercicio y sus diferentes adaptaciones que te permitirá desarrollar de forma autónoma contenidos sobre las diferentes cualidades físicas, como la fuerza, cardiovascular o la movilidad articular.</p>
 
         <p>Sabrás diseñar una pauta de alimentación adaptada a cada necesidad y, sobre todo, aprenderás a organizar un programa de entrenamiento y a llevar un estilo de vida saludable a lo largo de toda una temporada, coordinando las diferentes <b>cualidades físicas</b> con la alimentación.</p>
@@ -84,15 +85,19 @@
 
         <%= image_tag "books/paypal.png", :alt => 'Paypal', :class=>'paypal' %>
 
-        <p>ESPAÑA</p>
-       <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="88XHA638NZTYL" /> <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynow_SM.gif" type="image" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" /></form>
+         <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input name="cmd" type="hidden" value="_s-xclick" /> 
+            <input name="hosted_button_id" type="hidden" value="88XHA638NZTYL" /> 
+            <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynowCC_LG.gif" type="image" class="buy-now" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" />
+         </form>
 
-        <p>RESTO DEL MUNDO</p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="R8KEXHGYG6RT2" /> <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynow_SM.gif" type="image" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" /></form>
 
-        
+         <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input name="cmd" type="hidden" value="_s-xclick" />
+            <input name="hosted_button_id" type="hidden" value="R8KEXHGYG6RT2" /> 
+            <input alt="PayPal. La forma rápida y segura de pagar en Internet." border="0" name="submit" src="/assets/images/books/compras-fuera.jpg" type="image" class="buy-outside" /> 
+            <img alt="" border="0" height="1" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" />
+         </form>
 
         <div class="price">
           <h5>22<em>€</em></h5>
