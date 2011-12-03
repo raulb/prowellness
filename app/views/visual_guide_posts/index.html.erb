@@ -41,13 +41,7 @@
             <h2><%= link_to(post.title, post_path(post)) %></h2>
             <p class="date">por <%= post.user.signature %></p>
             <%= simple_format(post.excerpt) %>
-            <% if !post.tags.nil? %>
-              <ul class="tags">
-                <%  post.tags.each do |tag| %>
-                <li><%= link_to(tag, tag_path(tag)) %></li>
-                <% end %>
-              </ul>
-            <% end %>
+            <%= render "site/tags", :post => post %>
             <%= link_to("", visual_guide_category_path(post.to_home_params), :class => css_class(post)) %>
           </div>
           <span class="shadow"></span>

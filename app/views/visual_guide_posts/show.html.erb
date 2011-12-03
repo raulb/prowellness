@@ -27,11 +27,7 @@
     <div class="left">
       <% if !@post.tags.nil? %>
         <h5>TAGS</h5>
-        <ul class="tags">
-          <%  @post.tags.each do |tag| %>
-          <li><%= link_to(tag, tag_path(tag)) %></li>
-          <% end %>
-        </ul>
+        <%= render "site/tags", :post => @post %>
       <% end %>
     </div>
 

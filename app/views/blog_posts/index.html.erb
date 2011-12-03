@@ -17,14 +17,7 @@
         <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
 
         <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
-
-        <% if !post.tags.nil? %>
-          <ul class="tags">
-            <%  post.tags.each do |tag| %>
-            <li><%= link_to(tag, tag_path(tag)) %></li>
-            <% end %>
-          </ul>
-        <% end %>
+        <%= render "site/tags", :post => post %>
       </div>
       <span class="shadow"></span>
     </li>

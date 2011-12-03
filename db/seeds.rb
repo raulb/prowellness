@@ -260,4 +260,4 @@ puts
 @book = Book.create :title => "Mujer en forma"
 
 # Create some videos for the book "Mujer"
-@book.videos.create :code => "345ABC", :video => '<iframe width="560" height="315" src="http://www.youtube.com/embed/l78yD0NMM9I" frameborder="0" allowfullscreen></iframe>'
+@book.videos.create :code => "226203", :video => '<iframe src="http://player.vimeo.com/video/32914222?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="534" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
