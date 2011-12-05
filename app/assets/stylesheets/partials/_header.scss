@@ -4,6 +4,10 @@ header {
   height:80px;
   background-color:$bg-black-darkest;
 
+  &.single {
+    margin-top:70px;  
+  }
+
   .layout {
     
     .inner-layout {

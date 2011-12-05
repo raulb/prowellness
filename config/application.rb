@@ -16,6 +16,7 @@ module Prowellness
     config.filter_parameters += [:password]
 
     config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
     # CSS - PLUGINS
     config.assets.precompile += ['jquery.fileupload-ui.css','nivo-slider.css','ui-theme/jquery-ui.css','ui-theme/jquery.ui.datepicher.css','ui-theme/jquery.ui.theme.css','wysihtml5/stylesheets.css']

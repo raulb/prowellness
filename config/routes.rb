@@ -46,4 +46,5 @@ Prowellness::Application.routes.draw do
   if Rails.env.development?
     mount UserMailer::Preview => 'mail_view/user_mailer'
   end
+
 end
