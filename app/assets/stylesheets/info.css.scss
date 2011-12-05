@@ -12,19 +12,42 @@ p {
    }
 }
 
-
 h2 {
+   float:right;
+   color:$bg-red-darkest;
+   margin-top:10px;
+   font:normal 8.5em YanoneKaffeesatzRegular;   
+}
+
+h3 {
    float:left;
    margin-top:25px;
    color:$bg-red-darkest;
    font:normal 5.2em YanoneKaffeesatzRegular;	
 }
 
-h3 {
-   float:right;
-   color:$bg-red-darkest;
-   margin-top:10px;
-   font:normal 8.5em YanoneKaffeesatzRegular;   
+
+.noie {
+   h3 {
+      float:left;
+      width:100%;
+      font-size:5.5em;
+      color:$bg-black-normal;
+   }
+
+   h4 {
+      float:left;
+      width:100%;
+      margin-top:65px;      
+      color:$bg-black-normal;
+      font:normal 2.8em YanoneKaffeesatzRegular;   
+   }
+
+   img {
+      float:left;
+      margin-top:40px;
+   }
+   
 }
 
 .content-list {

@@ -100,8 +100,8 @@ class ApplicationController < ActionController::Base
   def browser_is_ie6?
     return true if Rails.env.test?
     if user_agent = request.user_agent.try(:downcase)
-      if user_agent.match(/msie [0-6]/)
-        render :file => "#{Rails.root}/public/noie6.html", :status => 200, :layout => false and return false
+      if user_agent.match(/msie [0-7]/)
+        render :file => "#{Rails.root}/public/noie.html", :status => 200, :layout => false and return false
       end
     end
   end
