@@ -53,7 +53,13 @@
   <!-- ****************************** LIBROS PROWELLNESS -->
   
   <%= render "about_sections", :current_section=>'libros-prowellness' %>
-  
+  <div class="book-select">
+    <div id="main-book-option" class="box-options">
+      <a class="mujer current" onclick="javascript:showBook(0);"></a>
+      <a class="entrenate" onclick="javascript:showBook(1);"></a>
+    </div>
+  </div>
+
   <div class="book_gallery">
     <span class="drop"></span>
     <div id="books_prowellness" class="gallery">
@@ -309,7 +315,16 @@
                   <p>Madrid, 2009</p>
                 </div>
       				</li>
-
+              <li>
+                <div class="inside">
+                  <%= image_tag('about/gedoc-book.png', :alt => 'La ruta del management en el fitness') %>
+                  <h3>La ruta del Management en el fitness</h3>
+                  <p>Pablo López de Viñaspre</p>
+                  <p>Mercado Fitness</p>
+                  <p>Buenos Aires, 2009</p>
+                  <p><em>Colaborador</em></p>
+                </div>
+              </li>              
       			</ul>
         </div>
         <span class="shadow"></span>

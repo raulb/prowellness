@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
     @email = email
     @text = text
     @book = book
-    mail :to => "dsanchez@prowellness.es",
+    mail :to => "ventas02@prowellness.es",
          :subject => "Un nuevo pedido del libro #{book.title} de #{email}",
          :reply_to => email
   end

@@ -1,5 +1,47 @@
 @import "partials/common_properties";
 
+
+.book-select {
+  float:left;
+  height:90px;
+  background:none;
+  
+  .box-options {
+    background:none;
+    padding:0;
+
+    a {
+      float:left;
+
+      &:first-child {
+        margin:0 40px 0 45px;
+      }
+    }
+
+    .mujer {
+      background:url(books/mujer-en-forma-btn.png) no-repeat 0 -70px;
+      width:135px;
+      height:70px;
+      
+
+      &.current, &:hover {
+        background-position:0 0;
+      }
+    }
+
+    .entrenate {
+      background:url(books/entrenate-btn.png) no-repeat 0 -42px;
+      width:160px;
+      height:42px;
+      margin-top:14px;
+
+      &.current, &:hover {
+        background-position:0 0;
+      }
+    }
+  }
+}
+
 article {
   float:left;
   margin:0;
@@ -136,8 +178,8 @@ article {
     	overflow:hidden; 
     	
     	.inside {
-    	  padding:25px 0 25px 120px;  
-    	  width:569px;
+    	  padding:25px 40px 25px 120px;  
+    	  width:529px;
     	  height:327px;
     	}
     	
@@ -352,6 +394,10 @@ article {
         
         h3 {
           margin-left:0;
+          padding-bottom:20px;
+        }
+        em {
+          font-style:italic;
         }
       }
     }
