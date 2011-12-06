@@ -1,0 +1,30 @@
+ <% if current_section == "nutricion" %>
+	
+   <div class="banner-300x100 ads">
+	  <p>publicidad</p>
+	  <div class="banner">
+      	<a href="http://www.victoryendurance.com/index2.htm" target="_blank"><%= image_tag "/assets/ads/300x100/300x100-Victory.jpg", :alt => 'Victory' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "editorial" || current_section == "imagenes" %>
+	
+   <div class="banner-300x100 ads">
+	  <p>publicidad</p>
+	  <div class="banner">
+      	<a href="http://www.aerobicyfitness.com/" target="_blank"><%= image_tag "/assets/ads/300x100/300x100-A&F.jpg", :alt => 'Aerobic and fitness' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "blog" %>
+	
+   <div class="banner-300x100 ads">
+	  <p>publicidad</p>
+	  <div class="banner">
+      	<a href="http://dpozos.blogspot.com/ " target="_blank"><%= image_tag "/assets/ads/300x100/300x100-BlogDP.jpg", :alt => 'Blog David Pozos' %></a>
+      </div>
+   </div>
+
+<% end %>
+
+

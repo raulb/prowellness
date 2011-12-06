@@ -13,28 +13,7 @@
 
   <div class="layout">
     <div class="inner-layout header">
-      <div class="banner-981x106 ads">
-        <p>publicidad</p>
-        <div class="banner">
-        <!--[if !IE]> -->
-          <object type="application/x-shockwave-flash"
-            data="/assets/autopromos/ventaMujer981x105.swf" width="981" height="105">
-          <!-- <![endif]-->
-
-          <!--[if IE]>
-          <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-            width="981" height="105">
-            <param name="movie" value="/autopromos/ventaMujer981x105.swf" />
-          <!--><!--dgx-->
-            <param name="loop" value="true" />
-            <param name="menu" value="false" />
-
-            <p>contrata tu <b>publicidad</b> aquí</p>
-          </object>
-          <!-- <![endif]-->
-        </div>
-      </div> <!-- banner-top-content -->
+      <%= render "advertising/superbanner" %>
     </div>
   </div>
 
@@ -186,10 +165,9 @@
         </div> <!-- prowellness_books -->
         <% end %>
 
-        <div class="banner-300x250 ads">
-          <p>publicidad</p>
-          <div class="banner"></div>
-        </div>
+        <%= render "advertising/medium_rectangle" %>
+
+
 
         <div class="info-box articles">
           <h3>los <em><%= Post.find_more_visited('articulos').length %></em> artículos más vistos</h3>
@@ -217,16 +195,8 @@
         </div>
         <% end %>
 
-        <div class="banner-300x100 ads">
-          <p>publicidad</p>
-          <div class="banner"></div>
-        </div>
-
-        <div class="banner-140x100 ads">
-          <p>publicidad</p>
-          <div class="banner"></div>
-          <div class="banner"></div>
-        </div>
+        <%= render "advertising/half_banner" %>
+        <%= render "advertising/square_button" %>
 
         <div class="info-box last-videos">
           <h3>los <em><%= Post.find_more_visited('guia-visual').length %></em> ejercicios más vistos</h3>
@@ -361,7 +331,6 @@
       MODAL.open('#remember_pass_sent_it');
     <% end %>
   </script>
-
 
 </body>
 </html>

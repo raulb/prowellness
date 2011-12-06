@@ -134,4 +134,50 @@ module ApplicationHelper
   def month_exercise?
     return (controller_name == "articles" && action_name == "show" && !@category.nil? && @category == "Ejercicio del mes") || (controller_name == "month_exercises")
   end
+
+  # Depending on each its controller_name or action name it returns its propertly section
+  def current_section
+    case controller_name
+      when "site"
+        case action_name
+          when "home"
+            return "home"          
+          when "about"
+            return "sobre-prowellness"
+        end
+      # ARTÍCULOS
+      when "articles"
+        case action_name
+          when "index"
+            case @category
+              when "Artículos"
+                return "articulos"
+              when "Fitness"
+                return "fitness"
+              when "Nutrición"
+                return "nutricion"
+              when "Mujer"
+                return "mujer"
+              when "Mi opinión"
+                return "mi-opinion"
+            end            
+          when "month_exercises"
+            case @category
+              when "Artículos"
+                return "ejercicios-mes"
+            end  
+        end
+      when "visual_guide_posts"        
+        return "guia-visual"
+      when "blog_posts"
+        return "blog"
+      when "books"
+        return "editorial"
+      when "book_videos"
+        return "videos-editorial"
+      when "images"
+        return "imagenes"
+    end
+
+  end
 end

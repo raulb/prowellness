@@ -1,0 +1,84 @@
+<% if current_section == "home" || current_section == "sobre-prowellness" %>
+	
+   <div class="banner-300x250 ads">
+		<p>publicidad</p>
+  		<div class="banner">
+      	<a href="http://www.alnisasport.es/Inicio.html" target="_blank"><%= image_tag "/assets/ads/300x250/300x250-under-armour.jpg", :alt => 'Underarmour' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "fitness" %>
+
+   <div class="banner-300x250 ads">
+      <p>publicidad</p>
+      <div class="banner">
+	     <a href="http://www.sportlife.es/foros/viewforum.php?f=15&sid=f4ac917c7cf5318bf2c17536fc58569f" target="_blank"><%= image_tag "/assets/ads/300x250/300x250-foro-SL.jpg", :alt => 'Foro Sport Life' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "ejercicios-mes" || current_section == "nutricion" %>
+
+   <div class="banner-300x250 ads">
+      <p>publicidad</p>
+      <div class="banner">
+	     <a href="http://www.spiralft.com/index.htm" target="_blank"><%= image_tag "/assets/ads/300x250/300x250-spiralFT.jpg", :alt => 'Spiral FT' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "mujer" %>
+
+   <div class="banner-300x250 ads">
+      <p>publicidad</p>
+      <div class="banner">
+        <a href="/editorial#extra-woman" target="_blank"><%= image_tag "/assets/ads/300x250/300x250-contenido-extra-mujer.gif", :alt => 'Contenido extra mujer' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "guia-visual" || current_section == "videos-editorial" %>
+
+   <div class="banner-300x250 ads">
+      <p>publicidad</p>
+      <div class="banner">
+        <a href="http://www.functionalzone.com/fzone/Index.action" target="_blank"><%= image_tag "/assets/ads/300x250/300x250-FZ.jpg", :alt => 'Functional Zone' %></a>
+      </div>
+   </div>
+
+   <div class="banner-300x250 ads">
+      <p>publicidad</p>
+      <div class="banner">
+        <a href="http://www.spiralft.com/index.htm" target="_blank"><%= image_tag "/assets/ads/300x250/300x250-spiralFT.jpg", :alt => 'Spiral FT' %></a>
+      </div>
+   </div>
+
+<% elsif current_section == "editorial" %>
+
+   <div class="banner-300x250 ads">
+      <p>publicidad</p>
+      <div class="banner">
+        <!--[if !IE]> -->
+       <object type="application/x-shockwave-flash"
+         data="/assets/ads/300x250/300x250-extracore.swf" width="300" height="250">
+       <!-- <![endif]-->
+
+       <!--[if IE]>
+       <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+         width="300" height="250">
+         <param name="movie" value="/assets/ads/300x250/300x250-extracore.swf" />
+       <!--><!--dgx-->
+         <param name="loop" value="true" />
+         <param name="menu" value="false" />
+
+         <p>contrata tu <b>publicidad</b> aquí</p>
+       </object>
+       <!-- <![endif]-->
+      </div>
+   </div>
+
+<% end %>
+
+<!-- FALTA: -->
+
+<!-- 
+   Si es "mujer" > Vaya a la sección extra de mujer 
+-->
