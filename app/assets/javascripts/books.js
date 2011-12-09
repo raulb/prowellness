@@ -26,7 +26,11 @@ function showBook(index) {
    
    $('#main-book-option').children('.current').removeClass('current');
    $('#main-book-option').children('a').eq(index).addClass('current');
-  
+    
+   // SHOWING EXTRA CONTENT
+   if ($('#main-book-option').children('.current').hasClass('mujer')) $('#extra-mujer').show();
+   else $('#extra-mujer').hide();     
+
  });
 
 }

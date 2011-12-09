@@ -39,11 +39,6 @@
   }
 }
 
-.content-extra {
-  float:left;
-  margin-top:30px;
-}
-
 h3 {
   float:left;
   width:100%;
@@ -281,6 +276,113 @@ h3 {
     background:url(application/wide-shadow.png) no-repeat 0 0;
     width:689px;
     height:16px;
-  }
+  } 
+}
+
+.content-extra {
+  float:left;
   
+  header {
+    float:left;
+    margin-top:30px;
+    background-color:$woman-red-color;
+    padding:15px;
+    width:660px;
+    height:57px;
+    @include border-radius(5px);
+    position:relative;
+    margin-bottom:10px;
+
+    h3 {
+      float:left;
+      font:normal 2.1em YanoneKaffeesatzRegular;
+      letter-spacing:-0.4px;
+      color:white;
+      width:auto;      
+    }
+
+    .woman-logo {
+        float:left;
+        width:117px;
+        height:58px;
+        margin:0 10px;
+        background:url(books/woman-logo-white.png) no-repeat 0 0;
+      }
+
+    .white-bands {
+      position:absolute;
+      top:-4px;
+      right:10px;
+      background:url(books/white-bands.png) no-repeat 0 0;
+      width:134px;
+      height:94px;
+    }
+  }
+
+  ul {
+    float:left;
+    width:690px;
+    margin-top:10px;
+
+    &.single {
+      width:320px;
+      margin-right:30px;
+
+      li {
+        width:320px;
+      }
+
+      &.last {
+        margin-right:0;
+      }
+    }
+
+    li {
+      float:left;
+      width:670px;
+      font:normal 1em Arial;
+      color:$bg-black-normal;
+      background-color:#F5F5F5;
+      padding:10px;
+      height:25px;
+
+      &.header {
+        background-color:#C5D793;
+        font-size:1.6em;
+        font-weight:bold;
+        line-height:1.4em;
+      }
+
+      &.odd {
+        background-color:#E9E9E9;  
+      }
+
+      &.kind {
+        font:bold 1.3em/1.6em Arial;
+      }
+
+      a {
+        float:left;
+        padding:4px 0 14px 40px;
+        font:normal 1.2em Arial;
+        color:$bg-black-normal;
+        margin-right:60px;
+
+        &.last {
+          margin-right:0;
+        }
+
+        &[href*='.pdf'] {
+          background:url(application/pdf-icon.png) no-repeat 0 0;
+        }
+
+        &:hover {
+          color:darken($bg-black-normal,15%);
+        }
+
+
+      }
+    }
+
+  }
 }
