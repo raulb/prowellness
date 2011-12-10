@@ -203,7 +203,16 @@ aside {
         }
 
         input[type="search"] {
-          position:absolute; top:0; left:29px; width:205px; height:25px;
+          position:absolute; top:1px; left:5px; width:226px; height:24px;
+          
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -o-appearance: none;
+
+          &:focus {
+            outline: none;
+          }
           
           &::-webkit-input-placeholder,&::-moz-placeholder	{ font:normal 1.1em Arial; font-style:italic; color:darken($font-color-gray,30%); }
         }
