@@ -17,6 +17,18 @@ jQuery(document).ready(function($) {
     return false;
   }
 
+  $('#reset-filters').click(function(event) {
+    event.preventDefault();
+
+    $('input:checkbox').removeAttr('checked');
+    $('.checkbox').css('background-position','0 0');
+    $('input:text').val('');
+    $('select').val('');
+    $( "#date_from, #date_to" ).datepicker("destroy");
+    activateDatePicker();
+  });
+
+
   $(window).scroll(function(){
     if (loading) {
       return;
@@ -39,6 +51,12 @@ jQuery(document).ready(function($) {
 
   $(window).sausage();
   
+  activateDatePicker();
+  
+
+});
+
+function activateDatePicker(){
   // Datepicker for search dates
   var dates = $( "#date_from, #date_to" ).datepicker({
     changeMonth: true,
@@ -69,5 +87,4 @@ jQuery(document).ready(function($) {
         
       }
     },$.datepicker.regional["es"]);
-
-});
+}
