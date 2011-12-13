@@ -73,4 +73,11 @@ class Admin::PostsController < ApplicationController
     render "new"
   end
 
+  def destroy
+    @post = Post.find params[:id]
+    @post.destroy
+    flash.now[:success] = "Post borrado correctamente"
+    redirect_to admin_posts_path
+  end
+
 end
