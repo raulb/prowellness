@@ -5,14 +5,14 @@
 
 <div class="search-box">
   <h3>buscar en todo el site</h3>
-  
+
   <%= form_tag search_path, :method => :get, :id => 'search' do %>
     <span id="search-value">
       <input type="search" name="q" placeholder="Escribe lo que necesitas" results="5" value="<%= params[:q] %>" />
       <input type="submit" value="buscar" />
     </span>
     <a href="#" class="toggle_filters">mostrar filtros</a>
-    
+
     <div class="filters">
       <ul>
         <li>
@@ -28,7 +28,7 @@
         <li>
           <%= label_tag "from", "Fecha desde" %>
           <input id="date_from" type="text" class="date" />
-          <%= select_date Date.today, {:order => [:day, :month, :year], :prefix => 'from'}, :class=>"hidden" %>
+          <%= select_date Date.parse("2010/1/1"), {:order => [:day, :month, :year], :prefix => 'from'}, :class=>"hidden" %>
 
           <%= label_tag "to", "Fecha hasta" %>
           <input id="date_to" type="text" class="date" />
@@ -36,7 +36,7 @@
 
           <%= label_tag "author", "Autor" %>
           <%= text_field_tag "author", params[:author] %>
-          <%= link_to "limpiar filtros", "", :id => 'reset-filters' %>
+          <%= link_to "limpiar filtros", search_path(:q => params[:q]), :id => 'reset-filters' %>
         </li>
       </ul>
       <a href="#" class="toggle_filters">ocultar filtros</a>
@@ -58,11 +58,11 @@
       <% end %>
       de búsqueda para <em><%= params[:q] %></em>
     </p>
-    
+
     <ul>
       <%= render(:partial => 'post', :collection => @posts) %>
     </ul>
-    
+
     <a href="<%= url_for(params) %>" style="display:none" rel="pagination">siguiente</a>
   <% end %>
 </div>
