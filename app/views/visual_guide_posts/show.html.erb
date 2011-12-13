@@ -10,7 +10,7 @@
 
   <div id="date">
     <p class="day"><%= @post.publish_date.strftime("%d") %></p>
-    <p class="month"><%= @post.publish_date.strftime("%b") %></p>
+    <p class="month"><%=l @post.publish_date, :format => "%b" %></p>
     <p class="year"><%= @post.publish_date.strftime("%Y") %></p>
   </div>
   <%= link_to("", visual_guide_category_path(@post.to_home_params), :class => css_class(@post)) %>
@@ -20,7 +20,7 @@
 </div>
 
 <article>
- 
+
   <p><%= @post.body.try(:get_video_bigger).try(:html_safe) %></p>
 
   <footer>

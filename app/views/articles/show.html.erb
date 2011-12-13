@@ -11,7 +11,7 @@
   <div id="date" class="<%= (@category == "Ejercicio del mes")? 'month-exercise':'' %>">
 
     <p class="day"><%= @post.publish_date.strftime("%d") %></p>
-    <p class="month"><%= @post.publish_date.strftime("%b") %></p>
+    <p class="month"><%=l @post.publish_date, :format => "%b" %></p>
     <p class="year"><%= @post.publish_date.strftime("%Y") %></p>
   </div>
 

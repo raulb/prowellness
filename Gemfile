@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails',              '3.1.1'
+gem 'rails',              '3.1.3'
 gem 'rake',               '0.8.7'
 gem 'yajl-ruby',          '~> 0.8.2'
 gem 'pg',                 '~> 0.11.0'
@@ -15,6 +15,7 @@ gem 'bcrypt-ruby'
 gem "texticle", "~> 2.0.2"
 gem 'rails-i18n'
 gem "flickraw", "~> 0.9.3"
+gem "rails-i18n"
 
 group :assets do
   gem 'sass-rails', "~> 3.1.0"

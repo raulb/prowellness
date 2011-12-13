@@ -5,13 +5,13 @@
         <h4><%= link_to(post.title, post_path(post)) %></h4>
         <% if action_name == 'month_exercises' %>
           <span class="band-date">
-            <p class="month"><%= post.publish_date.strftime("%b") %></p>
+            <p class="month"><%=l post.publish_date, :format => "%b" %></p>
             <p class="year"><%= post.publish_date.strftime("%Y") %></p>
           </span>
         <% else %>
           <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
-        <% end %>  
-          
+        <% end %>
+
       </li>
     <% end %>
   </ul>
