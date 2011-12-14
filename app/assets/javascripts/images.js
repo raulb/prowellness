@@ -1,6 +1,6 @@
 //= require galleria-1.2.5.min
 //= require galleria.flickr.min
-//= require ./images-theme
+//= require_tree ./images-theme/
 
 jQuery(document).ready(function() {
 
