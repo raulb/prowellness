@@ -29,7 +29,7 @@ module Prowellness
     config.assets.precompile += ['about.js','articles.js','books.js','comments.js','images.js','modal_window.js','search.js','user.js']
     
     # ###### ADMIN
-    
+    config.assets.precompile += ['admin.js']
 
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",
