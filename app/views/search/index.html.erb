@@ -36,7 +36,7 @@
 
           <%= label_tag "author", "Autor" %>
           <%= text_field_tag "author", params[:author] %>
-          <%= link_to "limpiar filtros", search_path(:q => params[:q]), :id => 'reset-filters' %>
+          <%= link_to "buscar sin filtros", search_path(:q => params[:q]), :id => 'reset-filters' %>
         </li>
       </ul>
       <a href="#" class="toggle_filters">ocultar filtros</a>

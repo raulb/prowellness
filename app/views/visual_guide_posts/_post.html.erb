@@ -5,7 +5,7 @@
     </span>
     <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
     <p class="date">(<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
-    <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+    <p class="post"><%= post.excerpt %></p>
     <%= render "site/tags", :post => post %>
     <%= link_to("", visual_guide_category_path(post.to_home_params), :class => css_class(post)) %>
   </div>
