@@ -20,13 +20,13 @@ module Prowellness
 
 
     # CSS - PLUGINS
-    config.assets.precompile += ['jquery.fileupload-ui.css','nivo-slider.css','ui-theme/jquery-ui.css','ui-theme/jquery.ui.datepicher.css','ui-theme/jquery.ui.theme.css','wysihtml5/stylesheets.css']
+    config.assets.precompile += ['jquery.fileupload-ui.css','nivo-slider.css','ui-theme/jquery-ui.css','ui-theme/jquery.ui.datepicker.css','ui-theme/jquery.ui.theme.css','wysihtml5/stylesheets.css','images-theme/images-gallery.css']
     
     # CSS
     config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'admin.css','articles.css','blog_posts.css','books.css','comments.css','images.css','posts.css','search.css','site.css','user_data.css','info.css']
     
     # JS
-    config.assets.precompile += ['about.js','articles.js','books.js','comments.js','images-theme/galleria.classic.js','images.js','modal_window.js','search.js','user.js']
+    config.assets.precompile += ['about.js','articles.js','books.js','comments.js','images.js','modal_window.js','search.js','user.js']
     
     # ###### ADMIN
     config.assets.precompile += ['admin/admin.js']
