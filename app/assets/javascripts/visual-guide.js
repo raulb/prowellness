@@ -1,3 +1,7 @@
+//= require jquery.stylish-select.min
+//= require custom-form-elements
+//= require jquery.ui.datepicker-es
+
 jQuery(document).ready(function($) {
     
   $('.toggle_filters').live('click',function(e){

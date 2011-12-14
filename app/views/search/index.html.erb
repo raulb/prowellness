@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'custom-form-elements','jquery.ui.datepicker-es','search' %>
+<%= javascript_include_tag 'search' %>
 <%= stylesheet_link_tag "search","ui-theme/jquery-ui",'ui-theme/jquery.ui.datepicker','ui-theme/jquery.ui.theme' %>
 
 <%= render "site/header_page", :title => 'Buscar' %>
@@ -16,7 +16,7 @@
     <div class="filters">
       <ul>
         <li>
-          <%= label_tag "category_videos", "Vídeos" %>
+          <%= label_tag "category_videos", "Guía visual" %>
           <%= check_box_tag "categories[videos]", "1", (params[:categories] && params[:categories]["videos"]), :id => "category_videos", :class=>'styled' %>
           <%= label_tag "category_articulos", "Artículos" %>
           <%= check_box_tag "categories[articulos]", "1", (params[:categories] && params[:categories]["articulos"]), :id => "category_articulos", :class=>'styled' %>

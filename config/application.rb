@@ -22,9 +22,6 @@ module Prowellness
     # CSS - PLUGINS
     config.assets.precompile += ['jquery.fileupload-ui.css','nivo-slider.css','ui-theme/jquery-ui.css','ui-theme/jquery.ui.datepicher.css','ui-theme/jquery.ui.theme.css','wysihtml5/stylesheets.css']
     
-    # JS - PLUGINS
-    config.assets.precompile += ['custom-form-elements.js','easySlider1.7.js','galleria-1.2.5.min.js','galleria.flickr.min.js','jquery.fileupload.js','jquery.sausage.js','jquery.ui.datepicker-es.js','wysihtml5/advanced.js','wysihtml5/wysihtml5-0.2.0.js']
-
     # CSS
     config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'admin.css','articles.css','blog_posts.css','books.css','comments.css','images.css','posts.css','search.css','site.css','user_data.css','info.css']
     

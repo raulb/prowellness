@@ -1,3 +1,5 @@
+//= require custom-form-elements
+
 $(document).ready(function($) {
 
   $('#user_data form input[type="text"]:first').focus();

@@ -1,3 +1,6 @@
+//= require galleria-1.2.5.min
+//= require galleria.flickr.min
+
 jQuery(document).ready(function() {
 
   Galleria.loadTheme('assets/images-theme/galleria.classic.js');

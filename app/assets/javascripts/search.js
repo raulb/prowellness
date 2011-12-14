@@ -1,3 +1,9 @@
+//= require custom-form-elements
+//= require jquery.sausage
+//= require jquery.ui.datepicker-es
+
+
+
 jQuery(document).ready(function($) {
   $('.filters').hide();
   
