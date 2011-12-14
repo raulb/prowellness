@@ -18,6 +18,7 @@ module Prowellness
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
+
     # CSS - PLUGINS
     config.assets.precompile += ['jquery.fileupload-ui.css','nivo-slider.css','ui-theme/jquery-ui.css','ui-theme/jquery.ui.datepicher.css','ui-theme/jquery.ui.theme.css','wysihtml5/stylesheets.css']
     
@@ -25,7 +26,7 @@ module Prowellness
     config.assets.precompile += ['custom-form-elements.js','easySlider1.7.js','galleria-1.2.5.min.js','galleria.flickr.min.js','jquery.fileupload.js','jquery.sausage.js','jquery.ui.datepicker-es.js','wysihtml5/advanced.js','wysihtml5/wysihtml5-0.2.0.js']
 
     # CSS
-    config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'admin.css','articles.css','blog_posts.css','books.css','comments.css','imagea.css','posts.css','search.css','site.css','user_data.css','info.css']
+    config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'admin.css','articles.css','blog_posts.css','books.css','comments.css','images.css','posts.css','search.css','site.css','user_data.css','info.css']
     
     # JS
     config.assets.precompile += ['about.js','articles.js','books.js','comments.js','images.js','modal_window.js','search.js','user.js']
@@ -36,7 +37,7 @@ module Prowellness
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[Prowellness] ",
       :sender_address => %{"notifier" <ubuntu@li348-253.members.linode.com>},
-      :exception_recipients => %w{ferblape+prowellness@gmail.com}
+      :exception_recipients => %w{ferblape+prowellness+ra.barroso@gmail.com}
   end
 end
 
