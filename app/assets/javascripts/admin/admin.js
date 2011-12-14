@@ -1,6 +1,5 @@
-//= require jquery
-//= require jquery-ui
-//= require jquery_ujs
+//= require jquery-1.6.2.min
+//= require jquery-ui-1.8.16.custom.min
 //= require jquery.tmpl.min
 //= require jquery.iframe-transport
 //= require jquery.fileupload
