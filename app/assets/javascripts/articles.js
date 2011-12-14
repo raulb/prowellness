@@ -1,3 +1,5 @@
+//= require jquery.nivo.slider
+
 jQuery(document).ready(function() {
   $('#slider').nivoSlider({
     effect:'fade',
