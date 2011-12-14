@@ -2,6 +2,38 @@
 
 module ApplicationHelper
 
+  def title
+    title = ["ProWellness"]
+    if action_name == 'home'
+      title << "Domingo Sánchez"
+    end
+
+    if @categories
+      if @post
+        title << translate_category(@categories.first)
+        title << @post.title
+      else
+        title << translate_category(@categories.first)
+        title << translate_category(@categories[1]) if @categories.size > 1
+      end
+    end
+
+    if controller_name == 'books'
+      title << "Editorial"
+    end
+    if controller_name == 'images'
+      title << "Galería de imágenes"
+    end
+    if action_name == 'about'
+      title << "Sobre ProWellness"
+    end
+    if controller_name == 'search'
+      title << "Buscar"
+    end
+
+    return truncate(title.join(" - "), :length => 67)
+  end
+
   def flush_the_flash
     if flash[:alert]
       notice_div(flash[:alert], 'error')
@@ -141,7 +173,7 @@ module ApplicationHelper
       when "site"
         case action_name
           when "home"
-            return "home"          
+            return "home"
           when "about"
             return "sobre-prowellness"
         end
@@ -160,14 +192,14 @@ module ApplicationHelper
                 return "mujer"
               when "Mi opinión"
                 return "mi-opinion"
-            end            
+            end
           when "month_exercises"
             case @category
               when "Artículos"
                 return "ejercicios-mes"
-            end  
+            end
         end
-      when "visual_guide_posts"        
+      when "visual_guide_posts"
         return "guia-visual"
       when "blog_posts"
         return "blog"
