@@ -20,7 +20,7 @@ module Prowellness
 
 
     # CSS - PLUGINS
-    config.assets.precompile += ['jquery.fileupload-ui.css','images-theme/images-gallery.css']
+    config.assets.precompile += ['images-theme/images-gallery.css','wysihtml5/stylesheet.css']
     
     # CSS
     config.assets.precompile += ['reset.css', 'fonts.css','about.css', 'admin.css','articles.css','blog_posts.css']
