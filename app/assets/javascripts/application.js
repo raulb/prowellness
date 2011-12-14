@@ -9,7 +9,7 @@
 //= require jquery-ui-1.8.16.custom.min
 //= require jquery.scrollTo-min
 //= require jquery_ujs
-//= require easySlider1.7
+//= require easySlider1.7.js
 //= require modal_window
 
 jQuery(document).ready(function($) {

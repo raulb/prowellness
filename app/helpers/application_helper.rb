@@ -3,7 +3,7 @@
 module ApplicationHelper
 
   def title
-    title = ["ProWellness"]
+    title = ["Prowellness"]
     if action_name == 'home'
       title << "Domingo Sánchez"
     end
@@ -25,7 +25,7 @@ module ApplicationHelper
       title << "Galería de imágenes"
     end
     if action_name == 'about'
-      title << "Sobre ProWellness"
+      title << "Sobre Prowellness"
     end
     if controller_name == 'search'
       title << "Buscar"
