@@ -2,8 +2,6 @@
 //= require jquery.sausage
 //= require jquery.ui.datepicker-es
 
-
-
 jQuery(document).ready(function($) {
   $('.filters').hide();
   
