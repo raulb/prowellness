@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 
   SLUG_ENTRENATE = 'entrenate'
-  SLUG_MUJER = 'mujer'
+  SLUG_MUJER = 'mujer-en-forma'
 
   has_many :videos, :dependent => :destroy, :class_name => "BookVideo"
 

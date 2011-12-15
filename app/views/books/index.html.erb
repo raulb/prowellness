@@ -18,15 +18,15 @@
     <li id="index-mujer" class="<%= (@book.slug == Book::SLUG_MUJER)? 'current':'' %>">
       <a rel="0" onclick="javascript:showBook(0);"></a>
     </li>
-        <li id="index-entrenate" class="<%= (@book.slug == Book::SLUG_ENTRENATE)? 'current':'' %>">
+    <li id="index-entrenate" class="<%= (@book.slug == Book::SLUG_ENTRENATE)? 'current':'' %>">
       <a rel="1" onclick="javascript:showBook(1);"></a>
     </li>
 
   </ol>
   <ul id="books">
-    <li id="index-mujer">
+    <li id="mujer">
       <div class="left">
-        <%= image_tag "books/mujer.png", :alt => 'Mujer en forma' %>
+        <%= image_tag "books/mujer-en-forma.png", :alt => 'Mujer en forma' %>
         <span class="info">
           <p>16 cm x 24 cm</p>
           <p>352 páginas a color</p>

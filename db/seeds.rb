@@ -230,34 +230,7 @@ puts
 # Create book "Entrénate"
 @book = Book.create :title => "Entrénate"
 
-# VIDEOS REALES (PÁGINA 1 DE SU VIMEO)
-@book.videos.create :code => "125302", :video => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125205", :video => '<iframe src="http://player.vimeo.com/video/31507988?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125202", :video => '<iframe src="http://player.vimeo.com/video/31507936?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125202", :video => '<iframe src="http://player.vimeo.com/video/31508020?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125201", :video => '<iframe src="http://player.vimeo.com/video/31507916?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125057", :video => '<iframe src="http://player.vimeo.com/video/31507878?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125052", :video => '<iframe src="http://player.vimeo.com/video/31507847?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125012", :video => '<iframe src="http://player.vimeo.com/video/31507824?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "125001", :video => '<iframe src="http://player.vimeo.com/video/31507775?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "124182", :video => '<iframe src="http://player.vimeo.com/video/31507746?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "124082", :video => '<iframe src="http://player.vimeo.com/video/31507725?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-@book.videos.create :code => "124062", :video => '<iframe src="http://player.vimeo.com/video/31507688?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="500" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>'
-
-
 # Create book "Mujer"
 @book = Book.create :title => "Mujer en forma"
 
-# Create some videos for the book "Mujer"
-@book.videos.create :code => "226203", :video => '<iframe src="http://player.vimeo.com/video/32914222?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="667" height="534" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+Rake::Task["prowellness:load_videos"].invoke
