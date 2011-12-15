@@ -6,14 +6,14 @@
       <%= form_tag(submit_buy_book_path(slug), :method => :post) do %>
         <div class="left">
           <h2>Pago por transferencia</h2>
-          <p>Facilítanos tu <b>mail</b> y si lo deseas, añade algún comentario. Te responderemos a la dirección que nos facilites con los datos de la cuenta bancaria a la que deberás hacer la transferencia para poder realizar la compra.</p>
+          <p>Facilítanos tu <b>email</b> y si lo deseas, añade algún comentario. Te responderemos a la dirección que nos facilites con los datos de la cuenta bancaria a la que deberás hacer la transferencia para poder realizar la compra.</p>
           
           <% if flash[:error_send] %>
             <div class="errors">
               <%= flash[:error_send] %>  
             </div>
           <% end %>
-          <%= label :email, "tu mail" %>
+          <%= label :email, "tu email" %>
           <%= text_field_tag :email, nil, :place_holder => "Introduce tu e-mail" %>
         </div>
         <div class="right">
@@ -26,7 +26,7 @@
         <div class="bottom">
           <%= label :text, "comentario" %>
           <%= text_area_tag :text, text, :rows => 4, :cols => 80 %>
-          <%= submit_tag "enviar mail" %>
+          <%= submit_tag "enviar email" %>
         </div>
       <% end %>
     </div>
