@@ -69,7 +69,9 @@ class Post < ActiveRecord::Base
         query << "'#{k.sanitize_sql}' = ANY(categories)"
       end
     end
-    where('(' + query.join(" OR ") + ')')
+    unless query.empty?
+      where('(' + query.join(" OR ") + ')')
+    end
   }
   scope :filter_by_authors, lambda{ |authors|
     users_ids = User.search(authors).select("id").map(&:id)

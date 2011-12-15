@@ -17,7 +17,7 @@
       <ul>
         <li>
           <%= label_tag "category_videos", "Guía visual" %>
-          <%= check_box_tag "categories[videos]", "1", (params[:categories] && params[:categories]["videos"]), :id => "category_videos", :class=>'styled' %>
+          <%= check_box_tag "categories[guia-visual]", "1", (params[:categories] && params[:categories]["guia-visual"]), :id => "category_videos", :class=>'styled' %>
           <%= label_tag "category_articulos", "Artículos" %>
           <%= check_box_tag "categories[articulos]", "1", (params[:categories] && params[:categories]["articulos"]), :id => "category_articulos", :class=>'styled' %>
           <%= label_tag "category_blog", "Blog" %>
