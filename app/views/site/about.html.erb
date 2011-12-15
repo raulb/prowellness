@@ -66,12 +66,12 @@
       	<ul>				
   				<li>
             <div class="inside">
-    				  <%= link_to(image_tag('about/mujer-book.png', :alt => 'Libro Mujer en forma'), buy_book_path('mujer'), :class=>'image') %>
+    				  <%= link_to(image_tag('about/mujer-book.png', :alt => 'Libro Mujer en forma'), buy_book_path('mujer-en-forma'), :class=>'image') %>
               <div class="buy">
-                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',buy_book_path('mujer') %></p>
+                <p>Si aún no lo tienes, puedes comprarlo <%= link_to 'aquí',buy_book_path('mujer-en-forma') %></p>
                 <%= image_tag "application/credit-card.png", :alt => 'Credit card' %>
               </div>
-              <h3><%= link_to 'Mujer en forma', buy_book_path('mujer') %></h3>
+              <h3><%= link_to 'Mujer en forma', buy_book_path('mujer-en-forma') %></h3>
               <p>Editorial Prowellness</p>
               <p>Madrid, 2011</p>
             </div>
@@ -245,7 +245,7 @@
           <figure>
             <%= image_tag('about/logo-editorial-prowellness.png', :alt => 'Logo editorial Prowellness') %>
           </figure>
-          <p>Crea la editorial <b>PROWELLNESS</b>, con la publicación del primer libro <%= link_to '"Entrénate" (2010)', buy_book_path('entrenate') %> al que le seguirá <%= link_to '"Mujer en forma, el reto" (2011)', buy_book_path('mujer') %></p>
+          <p>Crea la editorial <b>PROWELLNESS</b>, con la publicación del primer libro <%= link_to '"Entrénate" (2010)', buy_book_path('entrenate') %> al que le seguirá <%= link_to '"Mujer en forma, el reto" (2011)', buy_book_path('mujer-en-forma') %></p>
           <br/><br/>
           
         </div>
