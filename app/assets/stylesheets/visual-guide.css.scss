@@ -1,6 +1,5 @@
 @import "partials/common_properties";
 
-$spacing:30px;
 $inside-post:311px;
 $little-level-height:58px;
 $little-level-width:96px;
@@ -81,9 +80,8 @@ $big-level-width:124px;
   
   li {
     float:left; 
-    margin-bottom:$spacing;
-    margin-right:19px;
-    
+    margin:0 19px 20px 0;
+        
     position:relative;
     
     &.odd {
