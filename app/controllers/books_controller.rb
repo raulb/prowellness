@@ -13,12 +13,12 @@ class BooksController < ApplicationController
   def buy
     if @book = Book.find_by_slug(params[:id])
       if params[:email].blank? || params[:email] !~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-        flash.error_send = "Por favor, introduce un e-mail válido"
+        flash[:error_send] = "Por favor, introduce un e-mail válido"
       elsif  params[:text].blank?
-        flash.error_send = "Si borras nuestro comentario, ¡escribe algo!"
+        flash[:error_send] = "Si borras nuestro comentario, ¡escribe algo!"
       else
         UserMailer.buy_notification(@book, params[:email], params[:text]).deliver
-        flash.book_requested = "El pedido se ha enviado correctamente"
+        flash[:book_requested] = "El pedido se ha enviado correctamente"
       end
       redirect_to buy_book_path(@book.slug) and return
     else
