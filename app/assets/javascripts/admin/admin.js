@@ -4,6 +4,7 @@
 //= require jquery.iframe-transport
 //= require jquery.fileupload
 //= require jquery.fileupload-ui
+//= require jquery_ujs
 
 /* WYSIWYG */
 //= require wysihtml5/advanced
