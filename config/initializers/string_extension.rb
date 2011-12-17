@@ -5,7 +5,8 @@ class String
 
   def get_video_bigger
     unless self.blank?
-      self.gsub("311", "651").gsub("233", "488").gsub("213", "445").gsub("212", "443")
+      self.gsub(/width=\"311\"/, 'width="651"').gsub(/height=\"233\"/, 'height="488"').
+           gsub(/width=\"213\"/, 'width="445"').gsub(/height=\"212\"/, 'height="443"')
     else
       self
     end
