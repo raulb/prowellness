@@ -412,7 +412,7 @@ article {
 
     p {
       margin-top:10px;
-      font-style:italic;
+      font-style:italic;      
     }
   }
 
@@ -459,6 +459,10 @@ article {
   
   p {
     margin-top:20px;
+
+    a {
+        text-decoration:none;
+    }
   }
   
   p,a,td {

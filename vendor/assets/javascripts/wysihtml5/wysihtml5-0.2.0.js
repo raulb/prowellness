@@ -3672,6 +3672,7 @@ wysihtml5.browser = (function() {
    * the rails auto_link_urls text helper
    */
   function _convertUrlsToLinks(str) {
+    
     return str.replace(URL_REG_EXP, function(match, url) {
       var punctuation = (url.match(TRAILING_CHAR_REG_EXP) || [])[1] || "",
           opening     = BRACKETS[punctuation];
@@ -3687,9 +3688,9 @@ wysihtml5.browser = (function() {
         displayUrl = displayUrl.substr(0, MAX_DISPLAY_LENGTH) + "...";
       }
       // Add http prefix if necessary
-      if (realUrl.substr(0, 4) === "www.") {
-        realUrl = "http://" + realUrl;
-      }
+      // if (realUrl.substr(0, 4) === "www.") {
+      //   realUrl = "http://" + realUrl;
+      // }
       
       return '<a href="' + realUrl + '">' + displayUrl + '</a>' + punctuation;
     });
@@ -6764,9 +6765,9 @@ wysihtml5.views.View = Base.extend(
           urlRegExp       = dom.autoLink.URL_REG_EXP,
           getTextContent  = function(element) {
             var textContent = wysihtml5.lang.string(dom.getTextContent(element)).trim();
-            if (textContent.substr(0, 4) === "www.") {
-              textContent = "http://" + textContent;
-            }
+            // if (textContent.substr(0, 4) === "www.") {
+            //   textContent = "http://" + textContent;
+            // }
             return textContent;
           };
 
@@ -8070,7 +8071,6 @@ wysihtml5.commands = {
     exec: function(element, command, value) {
       var doc           = element.ownerDocument,
           anchors       = this.state(element, command);
-
       if (anchors) {
         // Selection contains links
         wysihtml5.selection.executeAndRestore(doc, function() {
