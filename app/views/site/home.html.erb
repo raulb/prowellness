@@ -42,7 +42,7 @@
 
 <%= render "site/header_page", :title => 'Últimos vídeos' %>
 
-<% if @last_video_abdominales %>
+<% if @last_video_abdominales.any? %>
 <ul class="videos">
     <li class="post abdominales">
       <div>
