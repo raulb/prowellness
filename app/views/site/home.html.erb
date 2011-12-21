@@ -29,7 +29,7 @@
             <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
             <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
             <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
-            <%= render "site/tags", :post => post %>            
+            <%= render "site/tags", :post => post %>
           </div>
           <span class="shadow"></span>
         </li>
@@ -42,6 +42,7 @@
 
 <%= render "site/header_page", :title => 'Últimos vídeos' %>
 
+<% if @last_video_abdominales %>
 <ul class="videos">
     <li class="post abdominales">
       <div>
@@ -52,7 +53,7 @@
         <h2><%= link_to(@last_video_abdominales.first.title, post_path(@last_video_abdominales.first)) %></h2>
         <p class="date">por <%= @last_video_abdominales.first.user.signature %></p>
         <%= simple_format(@last_video_abdominales.first.excerpt) %>
-        <%= render "site/tags", :post => @last_video_abdominales.first %>        
+        <%= render "site/tags", :post => @last_video_abdominales.first %>
         <%= link_to("", visual_guide_category_path(@last_video_abdominales.first.to_home_params), :class => css_class(@last_video_abdominales.first)) %>
       </div>
       <span class="shadow"></span>
@@ -75,10 +76,12 @@
     <!-- NO ESTIRAMIENTOS -->
     <!-- CUANDO HAYA CONTENIDO, QUITAR UNO DE LOS ABDOMINALES Y PONER EL DE ESTIRAMIENTOS -->
 </ul>
+<% end %>
 <%= link_to("ver más vídeos", visual_guide_path, :class=>'view-more') %>
 
 <%= render "site/header_page", :title => 'Última entrada en el blog' %>
 
+<% if @last_post %>
 <ul class="posts blog multiple-posts">
     <li class="post">
       <div>
@@ -93,3 +96,4 @@
     </li>
     <%= link_to("leer más entradas del blog", blog_path, :class=>'view-more') %>
 </ul>
+<% end %>
