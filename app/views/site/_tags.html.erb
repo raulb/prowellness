@@ -1,7 +1,7 @@
 <% if !post.tags.nil? %>
 	<ul class="tags">
 		<%  post.tags.each_with_index do |tag,index| %>
-			<li <%= (index > 4)? "class='hidden'":'' %>><%= link_to(tag, tag_path(tag)) %></li>
+			<li <%= (index > 3)? "class='hidden'":'' %>><%= link_to(tag, tag_path(tag)) %></li>
 		<% end %>
 	</ul>
 <% end %>

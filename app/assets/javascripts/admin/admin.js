@@ -6,10 +6,6 @@
 //= require jquery.fileupload-ui
 //= require jquery_ujs
 
-/* WYSIWYG */
-//= require wysihtml5/advanced
-//= require wysihtml5/wysihtml5-0.2.0
-
 jQuery(document).ready(function(){
 
   $('#post_body').keyup(function(e){

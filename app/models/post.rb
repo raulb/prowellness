@@ -117,7 +117,7 @@ class Post < ActiveRecord::Base
   end
 
   def tags(options = {})
-    default_options = {:limit => 5}
+    default_options = {:limit => 4}
     options = default_options.merge(options)
     raw_tags = read_attribute(:tags)
     raw_tags.blank? ? raw_tags : raw_tags.tr('{}','  ').split(',').map{ |t| t.strip }[0...options[:limit]]

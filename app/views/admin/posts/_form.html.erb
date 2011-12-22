@@ -9,80 +9,6 @@
 
   <%= f.label :body, "Cuerpo" %>
 
-  <div id="toolbar" style="display: none;">
-    <a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
-    <a data-wysihtml5-command="italic" title="CTRL+I">italic</a> |
-    <a data-wysihtml5-command="createLink">insert link</a> |
-    <a data-wysihtml5-command="insertImage">insert image</a> |
-    <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3">h3</a> |
-    <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4">h4</a> |
-    <a data-wysihtml5-command="insertTable">insert table</a> |
-    <a data-wysihtml5-command="insertAdvice">insert advice</a> |
-    <a data-wysihtml5-command="insertLineBreak">insert break line</a> |       
-    <a data-wysihtml5-command="insertUnorderedList">UnorderedList</a> |
-    <a data-wysihtml5-command="insertOrderedList">UnorderedList</a>
-    <a data-wysihtml5-command="insertVideo">insert video</a> |
-    <a data-wysihtml5-command="insertEmbedVideo">insert embed video</a> |
-    <a data-wysihtml5-action="change_view">html view</a>
-
-
-    <div data-wysihtml5-dialog="createLink" style="display: none;">
-      <label>
-        Link:
-        <input data-wysihtml5-dialog-field="href" value="" class="text">
-      </label>
-      <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-    </div>
-
-    <div data-wysihtml5-dialog="insertImage" style="display: none;">
-      <label>
-        Image:
-        <input data-wysihtml5-dialog-field="src" value="http://" class="text">
-      </label>
-      <label>
-        Caption:
-        <input data-wysihtml5-dialog-field="caption" value="" class="text">
-      </label>
-      <label>
-        Align:
-        <select data-wysihtml5-dialog-field="className">
-          <option value="">default</option>
-          <option value="wysiwyg-float-left">left</option>
-          <option value="wysiwyg-float-right">right</option>
-        </select>
-      </label>
-      <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-    </div>
-
-    <!-- Insert embed video code dialog -->
-    <div data-wysihtml5-dialog="insertEmbedVideo" style="display: none;">
-      <label>
-        Inserta el código embebido. Recuerda que si es para la guía visual debe medir 311x233
-
-        <!-- we could add the following to our new textarea: <iframe src="http://player.vimeo.com/video/13728146?title=0&amp;byline=0&amp;portrait=0&amp;color=346F87" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
-        <textarea data-wysihtml5-dialog-field="src" class="text"></textarea>
-      </label>
-      <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-    </div>
-
-    <!-- Insert video dialog -->
-    <div data-wysihtml5-dialog="insertVideo" style="display: none;">
-      <label>
-        Source del vídeo:
-        <input data-wysihtml5-dialog-field="src" value="" class="text">
-      </label>
-      <label>
-        Width:
-        <input data-wysihtml5-dialog-field="width" value="311" class="text">
-      </label>
-      <label>
-        Height:
-        <input data-wysihtml5-dialog-field="height" value="233" class="text">
-      </label>
-      <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-    </div>
-
-  </div>
   <%= f.text_area :body, :rows => 22, :cols => 120 %>
 
   <%= f.label :image, "Imagen" %>
@@ -155,11 +81,6 @@
 </div>
 
 <% content_for :js do %>
-  var editor = new wysihtml5.Editor("post_body", {
-    toolbar:      "toolbar",
-    stylesheets:  "/assets/wysihtml5/stylesheet.css",
-    parserRules:  wysihtml5ParserRules
-  });
 
   $.ajax({
     url:"/attachments",
@@ -174,9 +95,7 @@
     }
   });
   $('.template-download td.insert button').live('click',function(e){
-    wysihtml5.commands.insertLineBreak.exec(editor.currentView.element, "insertLineBreak");
-    wysihtml5.commands.insertImage.exec(editor.currentView.element, "insertImage", $(this).data('src'));
-    wysihtml5.commands.insertLineBreak.exec(editor.currentView.element, "insertLineBreak");
+    <!-- INSERT IMAGE INTO THE CONTENT ACTION  -->
   });
 
 <% end %>
