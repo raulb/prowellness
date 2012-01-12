@@ -40,7 +40,7 @@
             <h4><%= link_to(translate_category(category), visual_guide_category_path(category)) %></h4>
             <h2><%= link_to(post.title, post_path(post)) %></h2>
             <p class="date">por <%= post.user.signature %></p>
-            <%= simple_format(post.excerpt) %>
+            <%= simple_format(post.excerpt.try(:html_safe)) %>
             <%= render "site/tags", :post => post %>
             <%= link_to("", visual_guide_category_path(post.to_home_params), :class => css_class(post)) %>
           </div>

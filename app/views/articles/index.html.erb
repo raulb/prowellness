@@ -36,7 +36,7 @@
             <%= image_tag post.image.heading.url, :alt => post.title %>
             <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
             <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
-            <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+            <p class="post"><%= post.excerpt.try(:html_safe) %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
             <%= render "site/tags", :post => post %>
           </div>
           <span class="shadow"></span>
