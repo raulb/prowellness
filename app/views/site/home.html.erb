@@ -28,7 +28,7 @@
             <h3><%= link_to(post.categories.last.capitalize, articles_category_path(post.categories.last), :title => post.categories.last) %></h2>
             <h2><%= link_to(post.title, post_path(post), :title => post.title) %></h2>
             <p class="author date">por <%= post.user.signature %> (<%= post.publish_date.strftime("%d/%m/%y") %>)</p>
-            <p class="post"><%= post.excerpt %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
+            <p class="post"><%= post.excerpt.try(:html_safe) %> ... <%= link_to("seguir leyendo", post_path(post), :title => post.title) %></p>
             <%= render "site/tags", :post => post %>
           </div>
           <span class="shadow"></span>
@@ -52,7 +52,7 @@
         <h4>Abdominales</h4>
         <h2><%= link_to(@last_video_abdominales.first.title, post_path(@last_video_abdominales.first)) %></h2>
         <p class="date">por <%= @last_video_abdominales.first.user.signature %></p>
-        <%= simple_format(@last_video_abdominales.first.excerpt) %>
+        <%= simple_format(@last_video_abdominales.first.excerpt.try(:html_safe)) %>
         <%= render "site/tags", :post => @last_video_abdominales.first %>
         <%= link_to("", visual_guide_category_path(@last_video_abdominales.first.to_home_params), :class => css_class(@last_video_abdominales.first)) %>
       </div>
@@ -66,7 +66,7 @@
         <h4>Abdominales</h4>
         <h2><%= link_to(@last_video_abdominales.last.title, post_path(@last_video_abdominales.last)) %></h2>
         <p class="date">por <%= @last_video_abdominales.last.user.signature %></p>
-        <%= simple_format(@last_video_abdominales.last.excerpt) %>
+        <%= simple_format(@last_video_abdominales.last.excerpt.try(:html_safe)) %>
         <%= render "site/tags", :post => @last_video_abdominales.last %>
         <%= link_to("", visual_guide_category_path(@last_video_abdominales.last.to_home_params), :class => css_class(@last_video_abdominales.last)) %>
       </div>
@@ -89,7 +89,7 @@
         <h2><%= link_to(@last_post.title, post_path(@last_post), :title => @last_post.title) %></h2>
         <p class="date">(<%= @last_post.publish_date.strftime("%d/%m/%y") %>)</p>
 
-        <p class="post"><%= @last_post.excerpt %> ... <%= link_to("seguir leyendo", post_path(@last_post), :title => @last_post.title) %></p>
+        <p class="post"><%= @last_post.excerpt.try(:html_safe) %> ... <%= link_to("seguir leyendo", post_path(@last_post), :title => @last_post.title) %></p>
         <%= render "site/tags", :post => @last_post %>
       </div>
       <span class="shadow"></span>
