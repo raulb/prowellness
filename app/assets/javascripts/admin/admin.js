@@ -5,6 +5,7 @@
 //= require jquery.fileupload
 //= require jquery.fileupload-ui
 //= require jquery_ujs
+//= require tinymce
 
 jQuery(document).ready(function(){
 

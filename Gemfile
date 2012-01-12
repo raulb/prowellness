@@ -17,6 +17,8 @@ gem 'rails-i18n'
 gem "flickraw", "~> 0.9.3"
 gem "rails-i18n"
 
+gem 'tinymce-rails'
+
 group :assets do
   gem 'sass-rails', "~> 3.1.0"
   gem 'uglifier'
