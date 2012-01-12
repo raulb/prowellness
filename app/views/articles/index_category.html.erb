@@ -4,11 +4,11 @@
 <%= render "site/header_page", :title => @category %>
 
 <% if @main_posts.any? %>
-<div class="main_post">
+<div class="main_post no-section">
   <div id="slider" class="nivoSlider">
     <% @main_posts.each do |post| %>
       <a href="<%= post_path(post) %>">
-        <%= image_tag post.image.rollover.url, :title=> post.title, :alt=> post.excerpt+'...', :link=> post_path(post) %>    
+        <%= image_tag post.image.rollover.url, :title=> post.title, :alt=> post.excerpt.try(:html_safe), :link=> post_path(post) %>    
       </a>
     <% end %>
   </div>

@@ -8,6 +8,12 @@
   border:1px solid $border-info-color;
   position:relative;
   
+  &.no-section {
+    .nivo-caption {
+      height:65px;
+    }
+  }
+
   #slider,.no-slider  {
     float:left;
     width:665px;
@@ -37,7 +43,7 @@
     position:absolute;
     top:0; left:0;
     width:645px;
-    height:50px;
+    height:85px;
     
     padding:8px 10px;
     
@@ -58,6 +64,12 @@
       font:normal 1em Arial; 
       color:white;
       width:512px;
+      padding:0;
+      margin-top:5px;
+
+      p {
+        margin:0;
+      }
     }
     
     a {
